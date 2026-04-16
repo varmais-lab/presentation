@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Investor Playbook — MetaFit</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Epilogue:wght@300;400;500;600;700&family=Inconsolata:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0E0F13;
+  --bg2:      #13141A;
+  --bg3:      #1A1B23;
+  --bg4:      #21222D;
+  --border:   rgba(255,255,255,0.06);
+  --border2:  rgba(255,255,255,0.1);
+  --white:    #FFFFFF;
+  --off:      #C8CAD8;
+  --muted:    rgba(200,202,216,0.5);
+  --muted2:   rgba(200,202,216,0.25);
+
+  /* Partner type colors */
+  --hosp:   #4ECDC4;  --hosp-bg:  rgba(78,205,196,0.08);
+  --diag:   #FFE66D;  --diag-bg:  rgba(255,230,109,0.08);
+  --pharma: #FF6B9D;  --pharma-bg:rgba(255,107,157,0.08);
+  --food:   #95E06C;  --food-bg:  rgba(149,224,108,0.08);
+  --device: #C77DFF;  --device-bg:rgba(199,125,255,0.08);
+
+  --danger: #FF4D4D;
+  --warn:   #FFAA2B;
+  --ok:     #4ECDC4;
+  --accent: #4ECDC4;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--bg);
+  color: var(--off);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── MASTHEAD ── */
+.mast {
+  position: relative; overflow: hidden;
+  padding: 56px 72px 52px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg2);
+}
+.mast-glow {
+  position: absolute; top: -60%; right: -10%;
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(78,205,196,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.mast-eyebrow {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 10px;
+}
+.mast-eyebrow::before { content:''; width:24px; height:1px; background:var(--accent); }
+.mast-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300; line-height: 1.08; color: var(--white);
+  margin-bottom: 16px;
+}
+.mast-title em { font-style: italic; color: var(--accent); }
+.mast-sub {
+  font-size: 14px; color: var(--muted); max-width: 640px;
+  line-height: 1.7; margin-bottom: 36px;
+}
+.mast-stats {
+  display: flex; gap: 40px;
+}
+.mast-stat label {
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--muted2); display: block; margin-bottom: 5px;
+  font-family: 'Inconsolata', monospace;
+}
+.mast-stat span { font-size: 14px; color: var(--off); font-weight: 500; }
+
+/* ── NAV TABS ── */
+.tab-bar {
+  display: flex; gap: 0;
+  padding: 0 72px;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  overflow-x: auto;
+}
+.tab-btn {
+  padding: 14px 20px; background: none; border: none;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px; white-space: nowrap;
+  transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--off); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── LAYOUT ── */
+.page { padding: 48px 72px; }
+.page-header { margin-bottom: 36px; }
+.page-tag {
+  font-family: 'Inconsolata', monospace;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.page-tag::before { content:''; width:16px; height:1px; background:var(--accent); }
+.page-h {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(24px, 2.5vw, 36px); font-weight: 300;
+  color: var(--white); line-height: 1.15; margin-bottom: 10px;
+}
+.page-h em { font-style: italic; color: var(--accent); }
+.page-sub { font-size: 13px; color: var(--muted); max-width: 680px; line-height: 1.65; }
+.rule { height: 1px; background: var(--border); margin: 32px 0; }
+
+/* ── GRIDS ── */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.g5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 8px; padding: 22px;
+}
+.card.hosp  { border-top: 2px solid var(--hosp);   background: var(--hosp-bg);   }
+.card.diag  { border-top: 2px solid var(--diag);   background: var(--diag-bg);   }
+.card.pharma{ border-top: 2px solid var(--pharma); background: var(--pharma-bg); }
+.card.food  { border-top: 2px solid var(--food);   background: var(--food-bg);   }
+.card.device{ border-top: 2px solid var(--device); background: var(--device-bg); }
+.card-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; margin-bottom: 10px;
+  font-family: 'Inconsolata', monospace;
+}
+.card-label.hosp   { color: var(--hosp);   }
+.card-label.diag   { color: var(--diag);   }
+.card-label.pharma { color: var(--pharma); }
+.card-label.food   { color: var(--food);   }
+.card-label.device { color: var(--device); }
+.card-title { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+.card-body  { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* ── BULLET LISTS ── */
+.blist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.blist li {
+  font-size: 13px; color: var(--muted); line-height: 1.55;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.blist li::before {
+  content:''; flex-shrink: 0; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--accent); margin-top: 8px;
+}
+.blist li strong { color: var(--off); font-weight: 600; }
+.blist.danger li::before { background: var(--danger); }
+.blist.warn li::before { background: var(--warn); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  border-left: 3px solid var(--accent);
+  padding: 18px 24px;
+  background: rgba(78,205,196,0.05);
+  border-radius: 0 6px 6px 0;
+  margin: 24px 0;
+}
+.quote-text {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 300; font-style: italic;
+  color: var(--white); line-height: 1.5; margin-bottom: 8px;
+}
+.quote-attr {
+  font-size: 11px; color: var(--muted2);
+  font-family: 'Inconsolata', monospace; letter-spacing: 0.1em;
+}
+
+/* ── PARTNER TYPE ROWS ── */
+.partner-row {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.pr-type {
+  padding: 20px 18px;
+  display: flex; flex-direction: column;
+  justify-content: center;
+  background: var(--bg3);
+  border-right: 1px solid var(--border);
+}
+.pr-type-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 5px;
+  font-family: 'Inconsolata', monospace;
+}
+.pr-type-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.pr-cell {
+  padding: 16px 18px;
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+  border-right: 1px solid var(--border);
+}
+.pr-cell:last-child { border-right: none; }
+.pr-cell strong { color: var(--off); display: block; font-size: 11px;
+  font-family: 'Inconsolata', monospace; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 5px; }
+
+/* ── STRUCTURE VISUAL ── */
+.structure-ring {
+  display: grid; grid-template-columns: 1fr 200px 1fr;
+  gap: 24px; align-items: center; margin: 32px 0;
+}
+.ring-side { display: flex; flex-direction: column; gap: 12px; }
+.ring-center {
+  background: var(--bg3); border: 2px solid var(--accent);
+  border-radius: 50%; width: 200px; height: 200px;
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center;
+  padding: 20px; position: relative;
+}
+.ring-center::before {
+  content: ''; position: absolute;
+  inset: -8px; border-radius: 50%;
+  border: 1px dashed rgba(78,205,196,0.2);
+}
+.ring-hub-label {
+  font-family: 'Inconsolata', monospace;
+  font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 6px;
+}
+.ring-hub-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px; font-weight: 300; color: var(--white); line-height: 1.2;
+}
+.ring-spoke {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; padding: 14px 16px;
+}
+.ring-spoke.left { flex-direction: row-reverse; }
+.ring-spoke-icon { font-size: 20px; flex-shrink: 0; }
+.ring-spoke-t { font-size: 12px; font-weight: 600; color: var(--white); }
+.ring-spoke-s { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ── EQUITY MODEL ── */
+.equity-bar {
+  height: 40px; border-radius: 4px; overflow: hidden;
+  display: flex; margin: 20px 0;
+}
+.eb-seg {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Inconsolata', monospace;
+  transition: flex 0.5s ease;
+}
+.eb-founder { background: var(--bg4); color: var(--muted); border: 1px solid var(--border); }
+.eb-hosp    { background: var(--hosp);   color: #000; }
+.eb-diag    { background: var(--diag);   color: #000; }
+.eb-pharma  { background: var(--pharma); color: #fff; }
+.eb-food    { background: var(--food);   color: #000; }
+.eb-device  { background: var(--device); color: #000; }
+.eb-vc      { background: rgba(200,202,216,0.15); color: var(--off); }
+
+/* ── TERMS TABLE ── */
+.terms-table { width: 100%; border-collapse: collapse; }
+.terms-table thead tr { background: var(--bg4); }
+.terms-table thead th {
+  text-align: left; padding: 11px 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Inconsolata', monospace;
+}
+.terms-table tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.terms-table tbody tr:hover { background: var(--bg3); }
+.terms-table tbody td { padding: 13px 16px; font-size: 13px; color: var(--muted); vertical-align: top; }
+.terms-table tbody td:first-child { font-weight: 600; color: var(--off); }
+.ok-tag   { display:inline-block; padding:2px 8px; border-radius:3px; font-size:10px; font-weight:700; background:rgba(78,205,196,0.12); color:var(--ok); }
+.bad-tag  { display:inline-block; padding:2px 8px; border-radius:3px; font-size:10px; font-weight:700; background:rgba(255,77,77,0.12); color:var(--danger); }
+.warn-tag { display:inline-block; padding:2px 8px; border-radius:3px; font-size:10px; font-weight:700; background:rgba(255,170,43,0.12); color:var(--warn); }
+
+/* ── CONVERSATION FRAMEWORK ── */
+.convo-pair {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; border: 1px solid var(--border); border-radius: 8px;
+  overflow: hidden; margin-bottom: 16px;
+}
+.convo-wrong {
+  padding: 18px 22px; background: rgba(255,77,77,0.05);
+  border-right: 1px solid var(--border);
+}
+.convo-right {
+  padding: 18px 22px; background: rgba(78,205,196,0.04);
+}
+.convo-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; margin-bottom: 10px;
+  font-family: 'Inconsolata', monospace;
+}
+.convo-label.bad  { color: var(--danger); }
+.convo-label.good { color: var(--ok); }
+.convo-text { font-size: 13px; color: var(--muted); line-height: 1.65; font-style: italic; }
+.convo-note { font-size: 11px; color: var(--muted2); margin-top: 10px; }
+
+/* ── DEAL CHECKLIST ── */
+.checklist { display: flex; flex-direction: column; gap: 8px; }
+.check-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 16px; border-radius: 5px;
+  background: var(--bg3); border: 1px solid var(--border);
+  font-size: 13px; color: var(--muted); line-height: 1.5;
+}
+.check-item.must-have { border-left: 3px solid var(--ok); }
+.check-item.must-not  { border-left: 3px solid var(--danger); }
+.check-item.negotiate { border-left: 3px solid var(--warn); }
+.check-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.check-title { font-weight: 600; color: var(--off); margin-bottom: 3px; font-size: 13px; }
+
+/* ── EXIT MATH ── */
+.exit-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--bg3); border-radius: 8px; overflow: hidden;
+}
+.exit-table th {
+  text-align: left; padding: 12px 18px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--muted2);
+  border-bottom: 1px solid var(--border);
+  font-family: 'Inconsolata', monospace;
+  background: var(--bg4);
+}
+.exit-table td {
+  padding: 14px 18px; font-size: 13px; color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.exit-table tr:last-child td { border-bottom: none; }
+.exit-table td:first-child { font-weight: 600; color: var(--off); }
+.big-num {
+  font-family: 'Fraunces', serif;
+  font-size: 22px; font-weight: 300;
+}
+
+/* ── RISK MATRIX ── */
+.risk-row {
+  display: grid; grid-template-columns: 220px 1fr 1fr 1fr;
+  gap: 0; border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; margin-bottom: 10px;
+}
+.risk-label {
+  padding: 16px 18px; background: var(--bg4);
+  border-right: 1px solid var(--border);
+  font-size: 13px; font-weight: 600; color: var(--off);
+  display: flex; align-items: center;
+}
+.risk-cell {
+  padding: 14px 16px; font-size: 12px; color: var(--muted);
+  border-right: 1px solid var(--border); line-height: 1.5;
+}
+.risk-cell:last-child { border-right: none; }
+.risk-cell strong { color: var(--off); display: block; margin-bottom: 3px; font-size: 11px; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  padding: 24px 72px;
+  border-top: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg2);
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 14px; color: var(--muted2);
+}
+.footer-note {
+  font-size: 11px; color: var(--muted2);
+  font-family: 'Inconsolata', monospace;
+}
+
+/* Print */
+@media print { .tab-bar { position: static; } }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-glow"></div>
+  <div class="mast-eyebrow">Confidential · Strategic Capital Playbook · MetaFit</div>
+  <h1 class="mast-title">Strategic Investor<br><em>Negotiation Playbook</em></h1>
+  <p class="mast-sub">A complete framework for structuring, negotiating, and closing strategic investment partnerships with hospitals, diagnostic chains, pharma companies, and ecosystem players — without giving away control or optionality.</p>
+  <div class="mast-stats">
+    <div class="mast-stat"><label>Target Raise</label><span>₹4–6 Cr</span></div>
+    <div class="mast-stat"><label>Valuation Range</label><span>₹25–35 Cr Pre-Money</span></div>
+    <div class="mast-stat"><label>Max Equity / Partner</label><span>3–6%</span></div>
+    <div class="mast-stat"><label>Partner Types</label><span>5 Categories</span></div>
+    <div class="mast-stat"><label>Golden Rule</label><span>Never give exclusivity</span></div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('principle')">01 · First Principles</button>
+  <button class="tab-btn" onclick="showTab('partners')">02 · Partner Matrix</button>
+  <button class="tab-btn" onclick="showTab('structure')">03 · Deal Structure</button>
+  <button class="tab-btn" onclick="showTab('terms')">04 · Term Protections</button>
+  <button class="tab-btn" onclick="showTab('convo')">05 · Conversation Scripts</button>
+  <button class="tab-btn" onclick="showTab('exit')">06 · Exit Story</button>
+  <button class="tab-btn" onclick="showTab('risk')">07 · Risk Matrix</button>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 01 — FIRST PRINCIPLES
+══════════════════════════════ -->
+<div class="tab-content active" id="tab-principle">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Strategic Capital — Foundational Logic</div>
+    <h2 class="page-h">You Are Not Raising Capital.<br><em>You Are Building an Ecosystem.</em></h2>
+    <p class="page-sub">This reframe changes everything — what you offer, how you negotiate, what you protect, and how much control you keep.</p>
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">"Don't give equity easily. Trade it for leverage. Every percentage point you issue to a strategic investor must come back as distribution, data, access, or revenue — not just money."</div>
+    <div class="quote-attr">MetaFit Strategic Capital Principle</div>
+  </div>
+
+  <div class="g2" style="margin-bottom:32px;">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--danger);margin-bottom:14px;font-family:'Inconsolata',monospace;">❌ The Wrong Mental Model</div>
+      <ul class="blist danger" style="margin-bottom:16px;">
+        <li>Treating strategic investors like financial investors — they have fundamentally different motivations</li>
+        <li>Giving one large partner 15–20% early — creates dependency and blocks future partnerships</li>
+        <li>Conflating the commercial deal with the equity deal — they are separate conversations</li>
+        <li>Saying "invest in us" — positions you as a supplicant, not an ecosystem architect</li>
+        <li>Signing exclusivity "as a gesture of partnership" — kills your optionality permanently</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ok);margin-bottom:14px;font-family:'Inconsolata',monospace;">✓ The Correct Mental Model</div>
+      <ul class="blist" style="margin-bottom:16px;">
+        <li><strong>Multi-strategic architecture:</strong> 3–5 strategic partners, 3–6% each. No single player dominates.</li>
+        <li><strong>Equity as a category relationship:</strong> one hospital, one lab, one pharma — never two competitors in the same slot</li>
+        <li><strong>Separate deals:</strong> investment agreement AND commercial agreement negotiated independently</li>
+        <li><strong>Ecosystem language:</strong> "selectively onboarding strategic partners into a growing metabolic health ecosystem"</li>
+        <li><strong>Non-exclusivity as a feature:</strong> "Our multi-partner model is why we can scale nationally"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div style="margin-bottom:28px;">
+    <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:16px;">The Ecosystem Architecture — What You're Actually Building</div>
+    <div class="structure-ring">
+      <div class="ring-side">
+        <div class="ring-spoke left">
+          <div>
+            <div class="ring-spoke-t" style="color:var(--hosp);">Hospital Network</div>
+            <div class="ring-spoke-s">Clinical authority + patient referral</div>
+          </div>
+          <div class="ring-spoke-icon">🏥</div>
+        </div>
+        <div class="ring-spoke left">
+          <div>
+            <div class="ring-spoke-t" style="color:var(--diag);">Diagnostic Partner</div>
+            <div class="ring-spoke-s">HbA1c testing + outcome validation</div>
+          </div>
+          <div class="ring-spoke-icon">🧪</div>
+        </div>
+        <div class="ring-spoke left">
+          <div>
+            <div class="ring-spoke-t" style="color:var(--pharma);">Pharma Collaborator</div>
+            <div class="ring-spoke-s">Adherence data + lifecycle access</div>
+          </div>
+          <div class="ring-spoke-icon">💊</div>
+        </div>
+      </div>
+
+      <div class="ring-center">
+        <div class="ring-hub-label">Platform Hub</div>
+        <div class="ring-hub-name">MetaFit<br>Metabolic<br>Platform</div>
+      </div>
+
+      <div class="ring-side">
+        <div class="ring-spoke">
+          <div class="ring-spoke-icon">🍱</div>
+          <div>
+            <div class="ring-spoke-t" style="color:var(--food);">Food / Nutrition Brand</div>
+            <div class="ring-spoke-s">Supply contracts + product integration</div>
+          </div>
+        </div>
+        <div class="ring-spoke">
+          <div class="ring-spoke-icon">📱</div>
+          <div>
+            <div class="ring-spoke-t" style="color:var(--device);">Device Partner</div>
+            <div class="ring-spoke-s">CGM + wearable data enrichment</div>
+          </div>
+        </div>
+        <div class="ring-spoke">
+          <div class="ring-spoke-icon">🏢</div>
+          <div>
+            <div class="ring-spoke-t" style="color:var(--muted);">Corporate Clients</div>
+            <div class="ring-spoke-s">B2B revenue + participant volume</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:24px 28px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-family:'Inconsolata',monospace;">The Three Non-Negotiable Rules — Memorize These</div>
+    <div class="g3">
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;border-left:3px solid var(--ok);">
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">1. Never give exclusivity</div>
+        <div style="font-size:12px;color:var(--muted);">Not city-level. Not category-level. Not time-limited without a hard expiry. Every exclusivity clause is a tax on your future.</div>
+      </div>
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;border-left:3px solid var(--ok);">
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">2. Never give data ownership</div>
+        <div style="font-size:12px;color:var(--muted);">Share aggregated, de-identified insights only. Your longitudinal HbA1c + adherence dataset is your Series A narrative. It cannot be bought — only earned through operations.</div>
+      </div>
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;border-left:3px solid var(--ok);">
+        <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">3. Never give pricing control</div>
+        <div style="font-size:12px;color:var(--muted);">A strategic investor who controls your pricing controls your margin. Keep all program pricing authority within the founding team, full stop.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 02 — PARTNER MATRIX
+══════════════════════════════ -->
+<div class="tab-content" id="tab-partners">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Strategic Partner Analysis</div>
+    <h2 class="page-h">Five Partner Categories.<br><em>Five Different Motivations.</em></h2>
+    <p class="page-sub">Each category wants something different from the partnership. Understanding their primary motivation is the key to structuring deals that attract them without compromising your independence.</p>
+  </div>
+
+  <!-- TABLE HEADER -->
+  <div style="display:grid;grid-template-columns:160px 1fr 1fr 1fr 1fr;gap:0;margin-bottom:8px;padding:0 0 8px;border-bottom:1px solid var(--border);">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;"></div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 18px;">Primary Want</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 18px;">Your Pitch Angle</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 18px;">Commercial Value</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 18px;">Watch Out For</div>
+  </div>
+
+  <div class="partner-row">
+    <div class="pr-type" style="border-left:3px solid var(--hosp);">
+      <div class="pr-type-label" style="color:var(--hosp);">🏥 Hospital</div>
+      <div class="pr-type-name">Clinical Partner</div>
+    </div>
+    <div class="pr-cell"><strong>Primary Want</strong>Patient outcomes beyond hospital walls. Preventive positioning. New referral pipeline from corporates.</div>
+    <div class="pr-cell"><strong>Your Angle</strong>"We extend your care beyond your OPD. Every MetaFit participant remains your patient — we just keep them compliant between your visits."</div>
+    <div class="pr-cell"><strong>Commercial</strong>Referral fees per enrolled patient. Diagnostic revenue (HbA1c × 3). Potential co-branded program. OPD follow-up retention.</div>
+    <div class="pr-cell"><strong>Watch Out</strong>Hospital bureaucracy slows decisions. Political dynamics between departments. May want patient data beyond scope. Board approval needed for investment.</div>
+  </div>
+
+  <div class="partner-row">
+    <div class="pr-type" style="border-left:3px solid var(--diag);">
+      <div class="pr-type-label" style="color:var(--diag);">🧪 Diagnostic Lab</div>
+      <div class="pr-type-name">Thyrocare / Dr. Lal</div>
+    </div>
+    <div class="pr-cell"><strong>Primary Want</strong>Predictable, recurring test volume from a structured, clinical-grade pipeline. Corporate access they don't currently have.</div>
+    <div class="pr-cell"><strong>Your Angle</strong>"We are a predictable testing engine. 500 users × 3 HbA1c rounds = 1,500 tests in Year 1. 10,000 users = 30,000 tests annually. We bring you the volume; you bring the clinical credibility."</div>
+    <div class="pr-cell"><strong>Commercial</strong>Preferred partner pricing agreement. Volume-based test contract. Potential co-branding on clinical reports. City-by-city expansion alignment.</div>
+    <div class="pr-cell"><strong>Watch Out</strong>May push for data rights on aggregated results. Will want pricing control over test costs. Avoid lab exclusivity beyond single city for &lt;12 months.</div>
+  </div>
+
+  <div class="partner-row">
+    <div class="pr-type" style="border-left:3px solid var(--pharma);">
+      <div class="pr-type-label" style="color:var(--pharma);">💊 Pharma</div>
+      <div class="pr-type-name">Sun / Dr. Reddy's</div>
+    </div>
+    <div class="pr-cell"><strong>Primary Want</strong>Real-world evidence. Patient adherence data. Platform for medication compliance programs. Access to an engaged T2D population beyond prescription.</div>
+    <div class="pr-cell"><strong>Your Angle</strong>"Your drug prescriptions work better when patients are compliant with diet. We measure and operationalize exactly that. We are your post-prescription engagement layer."</div>
+    <div class="pr-cell"><strong>Commercial</strong>Data licensing (aggregated, de-identified). Co-development of medication + lifestyle protocol. Sponsored cohorts. Publication co-authorship.</div>
+    <div class="pr-cell"><strong>Watch Out</strong>Pharma CVCs have 6–12 month decision timelines — not a seed-round partner. Best as Phase 2 / Series A strategic. Extremely sensitive about data rights language.</div>
+  </div>
+
+  <div class="partner-row">
+    <div class="pr-type" style="border-left:3px solid var(--food);">
+      <div class="pr-type-label" style="color:var(--food);">🍱 Food / Nutrition</div>
+      <div class="pr-type-name">Brand Partner</div>
+    </div>
+    <div class="pr-cell"><strong>Primary Want</strong>A daily consumption channel with a health-positioned, high-income audience. Supply contracts. Brand association with clinical credibility.</div>
+    <div class="pr-cell"><strong>Your Angle</strong>"We are a daily consumption platform for 10,000+ high-income corporate professionals. You are not advertising to them — you are becoming part of their health routine, validated by a clinical protocol."</div>
+    <div class="pr-cell"><strong>Commercial</strong>Ingredient / product supply contract (separate from equity). Brand integration in meal delivery. Co-branded content. Potential product exclusivity per category (not platform-level).</div>
+    <div class="pr-cell"><strong>Watch Out</strong>Keep commercial supply contract entirely separate from equity terms. Never let a food brand influence menu design or nutritional protocols.</div>
+  </div>
+
+  <div class="partner-row">
+    <div class="pr-type" style="border-left:3px solid var(--device);">
+      <div class="pr-type-label" style="color:var(--device);">📱 Device / CGM</div>
+      <div class="pr-type-name">FreeStyle / Dexcom</div>
+    </div>
+    <div class="pr-cell"><strong>Primary Want</strong>Structured clinical setting to demonstrate device value. Real-world T2D population for CGM adoption. Premium program positioning.</div>
+    <div class="pr-cell"><strong>Your Angle</strong>"Our participants are exactly your target user — T2D and prediabetic, medically supervised, highly motivated. A MetaFit integration is a faster CGM adoption path than any DTC campaign."</div>
+    <div class="pr-cell"><strong>Commercial</strong>Device supply at clinical pricing. Data integration partnership (device data enriches our platform). Co-branded "premium tier" program option for participants.</div>
+    <div class="pr-cell"><strong>Watch Out</strong>Device companies prefer commercial agreements over equity at this stage. Lead with commercial integration; investment conversation comes at Series A scale.</div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div style="padding:20px 24px;background:rgba(78,205,196,0.06);border:1px solid rgba(78,205,196,0.2);border-radius:6px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'Inconsolata',monospace;">Priority Sequencing for Seed Round</div>
+    <div class="g4">
+      <div style="text-align:center;padding:14px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:20px;margin-bottom:6px;">🧪</div>
+        <div style="font-size:12px;font-weight:600;color:var(--diag);">Diagnostic First</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Fastest decision. Commercial + equity aligned. Clean relationship. Thyrocare / SRL target.</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:20px;margin-bottom:6px;">🏥</div>
+        <div style="font-size:12px;font-weight:600;color:var(--hosp);">Hospital Second</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Slower decisions. Start with clinical partnership. Convert to investment after pilot proof.</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:20px;margin-bottom:6px;">🍱</div>
+        <div style="font-size:12px;font-weight:600;color:var(--food);">Food Brand Third</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">Commercial deal first. Investment is secondary. Keep fully separated.</div>
+      </div>
+      <div style="text-align:center;padding:14px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:20px;margin-bottom:6px;">💊</div>
+        <div style="font-size:12px;font-weight:600;color:var(--pharma);">Pharma — Phase 2</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;">6–12 month timeline. Don't include in seed. Series A strategic partner.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 03 — DEAL STRUCTURE
+══════════════════════════════ -->
+<div class="tab-content" id="tab-structure">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Capital Architecture</div>
+    <h2 class="page-h">The Multi-Strategic<br><em>Deal Structure</em></h2>
+    <p class="page-sub">How to distribute equity across 3–5 strategic partners while maintaining founder control, preventing competitor conflicts, and preserving clean terms for institutional VCs at Series A.</p>
+  </div>
+
+  <div style="margin-bottom:32px;">
+    <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">Proposed Seed Round Equity Architecture</div>
+    <div style="font-size:12px;color:var(--muted);margin-bottom:16px;">Total raise: ₹4–6 Cr · Pre-money valuation: ₹28 Cr · Total dilution: ~14–18%</div>
+    <div class="equity-bar">
+      <div class="eb-seg eb-founder" style="flex:75;">Founders 75%+</div>
+      <div class="eb-seg eb-hosp"    style="flex:4;">4%</div>
+      <div class="eb-seg eb-diag"    style="flex:4;">4%</div>
+      <div class="eb-seg eb-pharma"  style="flex:3;">3%</div>
+      <div class="eb-seg eb-food"    style="flex:3;">3%</div>
+      <div class="eb-seg eb-vc"      style="flex:5;">VC 5%</div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:12px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);">
+        <div style="width:10px;height:10px;border-radius:2px;background:var(--hosp);"></div>Hospital Partner (4%)
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);">
+        <div style="width:10px;height:10px;border-radius:2px;background:var(--diag);"></div>Diagnostic Partner (4%)
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);">
+        <div style="width:10px;height:10px;border-radius:2px;background:var(--pharma);"></div>Pharma Partner (3%)
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);">
+        <div style="width:10px;height:10px;border-radius:2px;background:var(--food);"></div>Food/Nutrition Brand (3%)
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);">
+        <div style="width:10px;height:10px;border-radius:2px;background:rgba(200,202,216,0.3);"></div>VC / Angel (5%)
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="g2" style="margin-bottom:32px;">
+    <div>
+      <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:16px;">Dual Deal Architecture — Keep These Separate</div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px;">
+        <div style="padding:14px 18px;background:var(--bg4);border-bottom:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);font-family:'Inconsolata',monospace;">Deal Layer 1 · Equity Investment</div>
+        </div>
+        <div style="padding:18px;">
+          <ul class="blist">
+            <li>₹1–1.5 Cr per strategic partner</li>
+            <li>3–6% equity per partner (CCPS preferred)</li>
+            <li>Standard SHA with non-exclusivity clause</li>
+            <li>No board seat — advisory board role only</li>
+            <li>Drag-along and tag-along rights only</li>
+            <li>No data rights beyond aggregated cohort insights</li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="padding:14px 18px;background:var(--bg4);border-bottom:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--diag);font-family:'Inconsolata',monospace;">Deal Layer 2 · Commercial Agreement</div>
+        </div>
+        <div style="padding:18px;">
+          <ul class="blist">
+            <li>Negotiated independently on commercial terms</li>
+            <li>Referral agreements, supply contracts, lab pricing</li>
+            <li>Preferred (not exclusive) partner status</li>
+            <li>Revenue share on referred participants</li>
+            <li>Co-branding rights scoped to specific programs</li>
+            <li>12-month terms with renewal options</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:16px;">Per-Partner Financial Model</div>
+      <table class="terms-table">
+        <thead>
+          <tr>
+            <th>Partner</th>
+            <th>Investment</th>
+            <th>Equity</th>
+            <th>Commercial Value/Yr</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--hosp);">🏥 Hospital</td>
+            <td>₹1.2 Cr</td>
+            <td>4%</td>
+            <td>₹4–8 Cr (referrals + labs)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--diag);">🧪 Diagnostic</td>
+            <td>₹1.5 Cr</td>
+            <td>5%</td>
+            <td>₹8–12 Cr (test volume)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--pharma);">💊 Pharma</td>
+            <td>₹1 Cr</td>
+            <td>3%</td>
+            <td>₹1–3 Cr (data + co-dev)</td>
+          </tr>
+          <tr>
+            <td style="color:var(--food);">🍱 Food Brand</td>
+            <td>₹75L</td>
+            <td>2.5%</td>
+            <td>₹2–4 Cr (supply contract)</td>
+          </tr>
+          <tr style="background:rgba(78,205,196,0.05);">
+            <td style="color:var(--accent);">Total</td>
+            <td style="color:var(--accent);font-weight:700;">₹4.45 Cr</td>
+            <td style="color:var(--accent);font-weight:700;">14.5%</td>
+            <td style="color:var(--accent);font-weight:700;">₹15–27 Cr/yr</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:14px;padding:14px 16px;background:rgba(78,205,196,0.06);border:1px solid rgba(78,205,196,0.2);border-radius:5px;font-size:12px;color:var(--muted);">
+        <strong style="color:var(--accent);">Key insight:</strong> At Year 2 scale, the commercial value from strategic partners alone exceeds the total equity raised. You are not selling equity — you are buying distribution.
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div>
+    <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:16px;">The Category Lock — Why This Structure Protects You</div>
+    <div class="g3">
+      <div style="padding:18px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;border-top:2px solid var(--ok);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ok);margin-bottom:8px;font-family:'Inconsolata',monospace;">One Per Category</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Each category slot (hospital, lab, pharma, food) holds only one strategic partner. This creates genuine scarcity — they are getting exclusive <em>category</em> access, not platform exclusivity.</div>
+      </div>
+      <div style="padding:18px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;border-top:2px solid var(--ok);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ok);margin-bottom:8px;font-family:'Inconsolata',monospace;">No Cross-Category Conflict</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Apollo and Yashoda cannot both be investors. Thyrocare and Dr. Lal cannot both be investors. This prevents political conflict while maintaining multi-partner flexibility.</div>
+      </div>
+      <div style="padding:18px;background:var(--bg3);border:1px solid var(--border);border-radius:6px;border-top:2px solid var(--ok);">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ok);margin-bottom:8px;font-family:'Inconsolata',monospace;">Competitive Threat Leverage</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">When Thyrocare is slow to decide, mention that SRL has expressed interest in the lab category slot. This is not a bluff — it is true competitive dynamics used professionally.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 04 — TERM PROTECTIONS
+══════════════════════════════ -->
+<div class="tab-content" id="tab-terms">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Legal & Term Sheet Protections</div>
+    <h2 class="page-h">What to Accept,<br>What to Reject, <em>What to Negotiate.</em></h2>
+    <p class="page-sub">Strategic investors are sophisticated. They will insert terms that sound reasonable but extract significant value over time. Know exactly where your lines are before any term sheet conversation.</p>
+  </div>
+
+  <table class="terms-table" style="margin-bottom:32px;">
+    <thead>
+      <tr>
+        <th>Term / Clause</th>
+        <th>What They Ask</th>
+        <th>Your Position</th>
+        <th>Status</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Exclusivity</td>
+        <td>"Preferred partner" with 12-month exclusivity in their category</td>
+        <td>Preferred status only. No exclusivity. Ever.</td>
+        <td><span class="bad-tag">Hard No</span></td>
+        <td>Exclusivity caps city expansion and blocks competitor partnerships. Category slot alone is the differentiation.</td>
+      </tr>
+      <tr>
+        <td>Data Rights</td>
+        <td>"Access to de-identified cohort data" as part of investment</td>
+        <td>Aggregated, trend-level insights only. No patient-level data. No raw export rights.</td>
+        <td><span class="bad-tag">Hard No</span></td>
+        <td>Your data engine is your Series A story. Any data rights clause in a seed-round SHA is premature extraction.</td>
+      </tr>
+      <tr>
+        <td>Board Seat</td>
+        <td>"One board seat for our nominee"</td>
+        <td>Counter: Advisory Board seat with attendance rights but no voting rights.</td>
+        <td><span class="bad-tag">Reject</span></td>
+        <td>Board control at 3–5% ownership is disproportionate. Keeps governance clean for Series A lead investor.</td>
+      </tr>
+      <tr>
+        <td>Pricing Control</td>
+        <td>"Right of first review on program pricing changes"</td>
+        <td>No pricing rights. Quarterly business updates with pricing transparency only.</td>
+        <td><span class="bad-tag">Hard No</span></td>
+        <td>Margin control must stay with founders. A lab partner who controls testing pricing erodes your unit economics.</td>
+      </tr>
+      <tr>
+        <td>Right of First Refusal (ROFR)</td>
+        <td>Right to match any future competitive partnership in their category</td>
+        <td>30-day ROFR only, narrowly scoped to same category + same geography.</td>
+        <td><span class="warn-tag">Negotiate</span></td>
+        <td>Narrow ROFR is acceptable and gives them comfort. Broad ROFR blocks entire expansion verticals.</td>
+      </tr>
+      <tr>
+        <td>Pro-Rata Rights</td>
+        <td>Right to invest pro-rata in future rounds</td>
+        <td>Accept for Series A. Not binding at Series B+ without lead VC consent.</td>
+        <td><span class="ok-tag">Accept</span></td>
+        <td>Standard and reasonable. Shows long-term alignment. Does not limit your capital raising flexibility.</td>
+      </tr>
+      <tr>
+        <td>Information Rights</td>
+        <td>Quarterly financials + KPI reporting</td>
+        <td>Quarterly business updates. Exclude detailed unit economics and protocol IP.</td>
+        <td><span class="ok-tag">Accept (Scoped)</span></td>
+        <td>Reasonable transparency. Ensure the data shared in business updates is not the same data you're monetizing.</td>
+      </tr>
+      <tr>
+        <td>Tag-Along Rights</td>
+        <td>Right to sell proportionate shares in a secondary transaction</td>
+        <td>Standard. Accept without modification.</td>
+        <td><span class="ok-tag">Accept</span></td>
+        <td>Standard minority shareholder protection. Does not impact operations or control.</td>
+      </tr>
+      <tr>
+        <td>Liquidation Preference</td>
+        <td>1.5× or 2× non-participating preference</td>
+        <td>1× non-participating only. This is standard and non-negotiable for seed.</td>
+        <td><span class="warn-tag">Negotiate Down</span></td>
+        <td>Higher multiples punish founders in M&A scenarios. Strategic investors sometimes try this — push back hard.</td>
+      </tr>
+      <tr>
+        <td>Anti-Dilution</td>
+        <td>Full ratchet anti-dilution</td>
+        <td>Broad-based weighted average only. Full ratchet is unacceptable at any stage.</td>
+        <td><span class="bad-tag">Reject Full Ratchet</span></td>
+        <td>Full ratchet is devastatingly punishing in a flat/down round scenario. No sophisticated founder accepts it.</td>
+      </tr>
+      <tr>
+        <td>Drag-Along Rights</td>
+        <td>Standard drag-along provision</td>
+        <td>Accept with majority threshold set at 75%+ founder + investor consent required.</td>
+        <td><span class="ok-tag">Accept (With Threshold)</span></td>
+        <td>Needed for clean M&A exit. Ensure threshold prevents minority investor from blocking strategic decisions.</td>
+      </tr>
+      <tr>
+        <td>IP Ownership</td>
+        <td>"Joint ownership of protocols developed during partnership"</td>
+        <td>Zero joint IP. All protocols, software, and data architecture owned 100% by MetaFit.</td>
+        <td><span class="bad-tag">Hard No</span></td>
+        <td>Joint IP is extremely difficult to unwind. A hospital claiming co-ownership of your clinical protocols would be catastrophic.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="padding:22px 26px;background:var(--bg3);border:1px solid rgba(255,77,77,0.2);border-radius:8px;border-left:4px solid var(--danger);">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--danger);margin-bottom:12px;font-family:'Inconsolata',monospace;">⚠ The Clauses Most Founders Miss — And Regret</div>
+    <div class="g3">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">"Consent for category partnerships"</div>
+        <div style="font-size:12px;color:var(--muted);">A clause requiring investor consent before signing deals with competitors in their category. Sounds reasonable. Is functionally an exclusivity clause. Reject outright.</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">"Most favored pricing"</div>
+        <div style="font-size:12px;color:var(--muted);">Entitled to the lowest price you offer any partner in their category. This locks your commercial model. Counter: "Our pricing reflects relationship depth, not category parity."</div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">"Non-compete on clinical nutrition"</div>
+        <div style="font-size:12px;color:var(--muted);">Restricts your future product categories. A hospital investor inserting this clause limits your long-term platform expansion. Any non-compete must be narrowly scoped and time-limited to 2 years max.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 05 — CONVERSATION SCRIPTS
+══════════════════════════════ -->
+<div class="tab-content" id="tab-convo">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Negotiation Language</div>
+    <h2 class="page-h">What to Say.<br><em>Word for Word.</em></h2>
+    <p class="page-sub">Strategic investors respond to precision and confidence. The right framing in the first conversation determines the entire negotiation dynamic that follows. Never improvise these moments.</p>
+  </div>
+
+  <div class="convo-pair" style="margin-bottom:16px;">
+    <div class="convo-wrong">
+      <div class="convo-label bad">❌ Never Say This</div>
+      <div class="convo-text">"We'd love for you to invest in us. We think it would be mutually beneficial and we're open to whatever structure works for you."</div>
+      <div class="convo-note">Positions you as desperate. Invites them to name terms. Signals no strategic framework.</div>
+    </div>
+    <div class="convo-right">
+      <div class="convo-label good">✓ Say This Instead</div>
+      <div class="convo-text">"We are selectively onboarding strategic partners into a structured metabolic health ecosystem. We have one category slot open for a diagnostic partner — and given your infrastructure and volume capability, we think you're the right fit. I'd like to explore whether the commercial + investment alignment makes sense from your side."</div>
+      <div class="convo-note">Positions you as the selector. Creates scarcity. Frames it as a category decision, not a money ask.</div>
+    </div>
+  </div>
+
+  <div class="convo-pair" style="margin-bottom:16px;">
+    <div class="convo-wrong">
+      <div class="convo-label bad">❌ When They Ask for Exclusivity</div>
+      <div class="convo-text">"We could consider exclusivity in your city... maybe for the first six months... if that works for you."</div>
+      <div class="convo-note">You just capped your expansion in their city. They'll hold you to it.</div>
+    </div>
+    <div class="convo-right">
+      <div class="convo-label good">✓ Decline with a Counter-Offer</div>
+      <div class="convo-text">"Exclusivity is actually something we've structured out of the model entirely — our multi-partner architecture is part of why we can scale nationally. What we offer instead is preferred partner status: you're the only diagnostic investor in our cap table, and all referred testing runs through you first. That's a stronger commercial advantage than exclusivity, without the limitation on both sides."</div>
+      <div class="convo-note">Reframes non-exclusivity as a feature, not a limitation. Offers a genuine substitute (preferred status).</div>
+    </div>
+  </div>
+
+  <div class="convo-pair" style="margin-bottom:16px;">
+    <div class="convo-wrong">
+      <div class="convo-label bad">❌ When They Ask for Data Access</div>
+      <div class="convo-text">"We can share the data — it'll all be anonymized of course, and you can use it for your research purposes."</div>
+      <div class="convo-note">You just gave away your Series A narrative asset. "Anonymized" still transfers your core IP.</div>
+    </div>
+    <div class="convo-right">
+      <div class="convo-label good">✓ Protect It Clearly</div>
+      <div class="convo-text">"Our data governance framework keeps patient-level and cohort-level data within our platform. What we do share with partners is aggregated trend reporting — HbA1c response distributions, adherence benchmarks, cohort outcomes — which is meaningful for your clinical positioning and marketing. Individual-level or exportable data sits outside the investment scope and would be covered under a separate research collaboration agreement, if that's something we pursue together down the line."</div>
+      <div class="convo-note">Professional. Clinical tone. Offers something real (trend reports). Draws a clean boundary without being adversarial.</div>
+    </div>
+  </div>
+
+  <div class="convo-pair" style="margin-bottom:16px;">
+    <div class="convo-wrong">
+      <div class="convo-label bad">❌ When They Ask Your Valuation</div>
+      <div class="convo-text">"We're thinking ₹30 Crore? But we're flexible, whatever you think is fair."</div>
+      <div class="convo-note">The question mark kills credibility. "Whatever you think is fair" invites lowballing.</div>
+    </div>
+    <div class="convo-right">
+      <div class="convo-label good">✓ Anchor with Evidence</div>
+      <div class="convo-text">"We're positioning at ₹28 Crore pre-money. The rationale: existing cloud kitchen infrastructure that would cost ₹1.5–2 Crore and 12 months to build from scratch; a high-ARPU model at ₹75K per cohort with strong unit economics; and direct corporate access that eliminates most of the CAC risk. For strategic partners specifically, the valuation also reflects the commercial revenue streams you get access to — which makes the equity multiple more compelling than it looks on paper alone."</div>
+      <div class="convo-note">Three-point justification. Quantified. Acknowledges their strategic upside separately from financial return.</div>
+    </div>
+  </div>
+
+  <div class="convo-pair" style="margin-bottom:16px;">
+    <div class="convo-wrong">
+      <div class="convo-label bad">❌ When They Ask for a Board Seat</div>
+      <div class="convo-text">"Sure, that makes sense given the relationship — we'd be happy to have you on the board."</div>
+      <div class="convo-note">You just gave away governance control to a 4% shareholder. This blocks future investors.</div>
+    </div>
+    <div class="convo-right">
+      <div class="convo-label good">✓ Offer an Alternative Gracefully</div>
+      <div class="convo-text">"We've structured the board to stay lean through seed — two founders plus one independent. What we offer strategic partners is a seat on our Clinical or Commercial Advisory Board, which actually gives you more active influence than a board seat: you're directly shaping protocol design and expansion decisions rather than attending quarterly board meetings. Most of our strategic partners prefer this structure once they understand the engagement it creates."</div>
+      <div class="convo-note">Offers something real (advisory board). Reframes it as more valuable, not less. Avoids a hard "no" without conceding.</div>
+    </div>
+  </div>
+
+  <div style="padding:20px 24px;background:var(--bg3);border:1px solid rgba(78,205,196,0.2);border-radius:6px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-family:'Inconsolata',monospace;">The Golden Sentence — Use This to Open Every Strategic Conversation</div>
+    <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:300;font-style:italic;color:var(--white);line-height:1.45;">
+      "Unlike traditional health startups, we already have operational infrastructure, high ARPU, and direct corporate access. Strategic partners benefit not only from equity upside but also from integrated revenue streams that compound with our growth. We're not asking you to fund an idea — we're inviting you to participate in an ecosystem that's already in motion."
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 06 — EXIT STORY
+══════════════════════════════ -->
+<div class="tab-content" id="tab-exit">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Return Narrative</div>
+    <h2 class="page-h">Show Them<br><em>What ₹30 Cr Becomes.</em></h2>
+    <p class="page-sub">Strategic investors make decisions partly on financial return. Give them a credible, conservative exit math — not a fantasy. The goal is to make ₹28 Cr valuation look inexpensive, not justified.</p>
+  </div>
+
+  <div class="g2" style="margin-bottom:32px;align-items:start;">
+    <div>
+      <table class="exit-table" style="margin-bottom:16px;">
+        <thead>
+          <tr><th>Year</th><th>Users</th><th>Revenue</th><th>Valuation Est.</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Seed (Now)</td>
+            <td>Pilot — 50</td>
+            <td>₹37.5L</td>
+            <td><span class="big-num" style="color:var(--accent);">₹28 Cr</span> <span style="font-size:11px;color:var(--muted);">pre-money</span></td>
+          </tr>
+          <tr>
+            <td>Year 1</td>
+            <td>500</td>
+            <td>₹3.75 Cr</td>
+            <td><span class="big-num" style="color:var(--off);">₹50–70 Cr</span> <span style="font-size:11px;color:var(--muted);">post-Series A</span></td>
+          </tr>
+          <tr>
+            <td>Year 2</td>
+            <td>3,000</td>
+            <td>₹22.5 Cr</td>
+            <td><span class="big-num" style="color:var(--off);">₹150–200 Cr</span></td>
+          </tr>
+          <tr>
+            <td>Year 3</td>
+            <td>10,000</td>
+            <td>₹75 Cr</td>
+            <td><span class="big-num" style="color:var(--off);">₹300–450 Cr</span></td>
+          </tr>
+          <tr style="background:rgba(78,205,196,0.05);">
+            <td>Year 4–5</td>
+            <td>30,000+</td>
+            <td>₹225 Cr+</td>
+            <td><span class="big-num" style="color:var(--accent);">₹800 Cr – ₹1,200 Cr</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:var(--muted2);font-style:italic;">Valuation based on 4–6× revenue multiple (healthtech / platform transition). Conservative relative to SaaS comps.</div>
+    </div>
+    <div>
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px;">
+        <div style="padding:14px 18px;background:var(--bg4);border-bottom:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--diag);font-family:'Inconsolata',monospace;">Return Math — Diagnostic Partner Example</div>
+        </div>
+        <div style="padding:18px;">
+          <ul class="blist">
+            <li><strong>Investment:</strong> ₹1.5 Cr at ₹28 Cr pre-money = 5.08% stake</li>
+            <li><strong>Year 3 valuation:</strong> ₹350 Cr (conservative)</li>
+            <li><strong>Equity value:</strong> ₹17.8 Cr → <strong style="color:var(--diag);">11.8× return</strong></li>
+            <li><strong>PLUS commercial value:</strong> ₹8–12 Cr/yr in test volume by Year 3</li>
+            <li><strong>Total 3-year commercial gain:</strong> ₹20–30 Cr on a ₹1.5 Cr investment</li>
+          </ul>
+          <div style="margin-top:14px;padding:12px 14px;background:rgba(255,230,109,0.06);border-radius:4px;font-size:12px;color:var(--muted);">
+            <strong style="color:var(--diag);">Total value created:</strong> ₹37–48 Cr from a ₹1.5 Cr investment. The equity is almost a bonus on top of the commercial returns.
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;overflow:hidden;">
+        <div style="padding:14px 18px;background:var(--bg4);border-bottom:1px solid var(--border);">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--hosp);font-family:'Inconsolata',monospace;">Potential Exit Pathways (Year 4–7)</div>
+        </div>
+        <div style="padding:18px;">
+          <ul class="blist">
+            <li><strong>Strategic acquisition:</strong> Apollo, Manipal, or Narayana acquire the platform for network integration — typical 6–8× revenue multiple</li>
+            <li><strong>Insurance integration buyout:</strong> TPA / insurer acquires to vertically integrate metabolic outcomes management</li>
+            <li><strong>Pharma strategic purchase:</strong> Novo Nordisk / Sanofi India acquiring a lifestyle + data platform as complement to GLP-1 portfolio</li>
+            <li><strong>IPO pathway:</strong> ₹225 Cr+ revenue at 5× multiple = ₹1,100 Cr+ market cap, viable SME/NSE Emerge listing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="quote-block">
+    <div class="quote-text">"Your ₹28 Crore valuation today is not expensive. It's early. The question isn't whether this is worth ₹28 Crore — it's whether you want to be in the ecosystem at ₹28 Crore or watch it from the outside at ₹300 Crore."</div>
+    <div class="quote-attr">Closing line for strategic investor presentations — use with confidence</div>
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════
+  TAB 07 — RISK MATRIX
+══════════════════════════════ -->
+<div class="tab-content" id="tab-risk">
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Risk Management</div>
+    <h2 class="page-h">Every Strategic Investor<br><em>Carries a Risk Profile.</em></h2>
+    <p class="page-sub">Know the risk before you sign. Strategic investors who accelerate you at seed can become the biggest obstacle at Series A if terms were not structured correctly from the start.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:220px 1fr 1fr 1fr;gap:0;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border);">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;"></div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 16px;">The Risk</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 16px;">How It Manifests</div>
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);font-family:'Inconsolata',monospace;padding:0 16px;">Mitigation</div>
+  </div>
+
+  <div class="risk-row">
+    <div class="risk-label" style="color:var(--hosp);">🏥 Hospital Partner</div>
+    <div class="risk-cell"><strong>Primary Risk</strong>Internal politics. Competing departments. Board-level approval delays. May use investment as leverage for patient data access.</div>
+    <div class="risk-cell"><strong>How It Manifests</strong>6-month decision cycle. Investment conditional on data rights. Department heads disagree on program scope. Referral promised but not operationalized.</div>
+    <div class="risk-cell"><strong>Mitigation</strong>Start with clinical partnership (no equity) for 90 days. Prove referral flow before investment conversion. Never let data rights enter investment SHA. Hard deadline on commercial terms.</div>
+  </div>
+
+  <div class="risk-row">
+    <div class="risk-label" style="color:var(--diag);">🧪 Diagnostic Lab</div>
+    <div class="risk-cell"><strong>Primary Risk</strong>Wants volume commitment guarantee. May push for pricing control over test costs. Could share aggregated data with competitors if data scope is loosely defined.</div>
+    <div class="risk-cell"><strong>How It Manifests</strong>Term sheet includes "minimum test volume guarantee." Repricing test costs after lock-in. Data usage for their own analytics products.</div>
+    <div class="risk-cell"><strong>Mitigation</strong>No minimum volume guarantee in investment terms (commercial agreement only). Lock test pricing for 24 months in commercial agreement. Explicit data usage scope in SHA: "no independent use of cohort data."</div>
+  </div>
+
+  <div class="risk-row">
+    <div class="risk-label" style="color:var(--pharma);">💊 Pharma</div>
+    <div class="risk-cell"><strong>Primary Risk</strong>Decision timeline: 6–12 months minimum. May want to co-opt your clinical protocol to align with their drug. Competing interests if their drug is not best-in-class.</div>
+    <div class="risk-cell"><strong>How It Manifests</strong>Slow corporate approvals. Protocol "suggestions" that benefit their molecule. Investment conditional on medication protocol alignment.</div>
+    <div class="risk-cell"><strong>Mitigation</strong>Don't include pharma in seed timeline. Phase 2 only. When engaging, ensure clinical protocol independence clause is explicit. No drug-specific protocol requirements.</div>
+  </div>
+
+  <div class="risk-row">
+    <div class="risk-label" style="color:var(--food);">🍱 Food Brand</div>
+    <div class="risk-cell"><strong>Primary Risk</strong>Wants to influence menu design and nutritional protocols. Supply dependency — if they're both investor and supplier, you lose negotiating power on pricing.</div>
+    <div class="risk-cell"><strong>How It Manifests</strong>"Our products should be featured in all MetaFit meals." Supply pricing increase after lock-in. Protocol recommendations that favor their product range.</div>
+    <div class="risk-cell"><strong>Mitigation</strong>Separate supply contract from equity completely. Supply contract: competitive bidding annually. Explicit clause: "investor status does not influence menu design or product sourcing decisions."</div>
+  </div>
+
+  <div class="risk-row" style="margin-bottom:0;">
+    <div class="risk-label" style="color:var(--device);">📱 Device Partner</div>
+    <div class="risk-cell"><strong>Primary Risk</strong>Wants exclusive device integration. If CGM technology changes (it will), you're locked into an inferior device. Data format lock-in.</div>
+    <div class="risk-cell"><strong>How It Manifests</strong>"MetaFit exclusively uses FreeStyle Libre." Device obsolescence. Proprietary data format blocks integration with future technologies.</div>
+    <div class="risk-cell"><strong>Mitigation</strong>Commercial integration only at seed — no equity for device companies. Non-exclusive integration language. Open data format standards in all device integration contracts.</div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div style="padding:24px 28px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--warn);margin-bottom:16px;font-family:'Inconsolata',monospace;">⚠ The Silent Killer — Cumulative Strategic Dependency</div>
+    <div class="g3">
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">The Scenario</div>
+        <div style="font-size:12px;color:var(--muted);">You have hospital, lab, pharma, and food brand investors. Each has "preferred" status and an informal expectation of influence. Individually, each is manageable. Together, they form a de facto advisory committee that constrains every strategic decision.</div>
+      </div>
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;">
+        <div style="font-size:13px;font-weight:600;color:var(--off);margin-bottom:6px;">How It Happens</div>
+        <div style="font-size:12px;color:var(--muted);">Each strategic investor individually seems reasonable. But when you want to expand to a new city, the hospital wants veto rights. When you want to add a new lab partner, Thyrocare objects. When you want to change the menu, the food brand complains. Individually fine. Together: paralysis.</div>
+      </div>
+      <div style="padding:16px;background:var(--bg4);border-radius:5px;border:1px solid rgba(78,205,196,0.2);">
+        <div style="font-size:13px;font-weight:600;color:var(--accent);margin-bottom:6px;">The Prevention</div>
+        <div style="font-size:12px;color:var(--muted);">All strategic investors must receive identical SHA terms. No investor gets contractual "consent rights" on business decisions. Board has only founders + one independent. Quarterly update calls replace ad-hoc "check-ins." Put this in writing before they invest.</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div class="footer-brand">MetaFit · Strategic Investor Playbook · Confidential</div>
+  <div class="footer-note">For founding team and legal counsel only · Do not distribute</div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
