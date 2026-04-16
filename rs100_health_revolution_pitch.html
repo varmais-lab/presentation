@@ -309,18 +309,18 @@
 <nav class="nav">
   <span class="nav-brand">₹100 Health Revolution · Suman TV</span>
   <div class="nav-pills" id="navPills">
-    <button class="nav-pill active" onclick="scrollTo('s1')">Cover</button>
-    <button class="nav-pill" onclick="scrollTo('s2')">Problem</button>
-    <button class="nav-pill" onclick="scrollTo('s3')">Solution</button>
-    <button class="nav-pill" onclick="scrollTo('s4')">Framework</button>
-    <button class="nav-pill" onclick="scrollTo('s5')">Episodes</button>
-    <button class="nav-pill" onclick="scrollTo('s6')">Audience</button>
-    <button class="nav-pill" onclick="scrollTo('s7')">Food</button>
-    <button class="nav-pill" onclick="scrollTo('s8')">Electronics</button>
-    <button class="nav-pill" onclick="scrollTo('s9')">Lifestyle</button>
-    <button class="nav-pill" onclick="scrollTo('s10')">Platform</button>
-    <button class="nav-pill" onclick="scrollTo('s11')">Tiers</button>
-    <button class="nav-pill" onclick="scrollTo('s12')">CTA</button>
+    <button class="nav-pill active" onclick="goToSlide('s1')">Cover</button>
+    <button class="nav-pill" onclick="goToSlide('s2')">Problem</button>
+    <button class="nav-pill" onclick="goToSlide('s3')">Solution</button>
+    <button class="nav-pill" onclick="goToSlide('s4')">Framework</button>
+    <button class="nav-pill" onclick="goToSlide('s5')">Episodes</button>
+    <button class="nav-pill" onclick="goToSlide('s6')">Audience</button>
+    <button class="nav-pill" onclick="goToSlide('s7')">Food</button>
+    <button class="nav-pill" onclick="goToSlide('s8')">Electronics</button>
+    <button class="nav-pill" onclick="goToSlide('s9')">Lifestyle</button>
+    <button class="nav-pill" onclick="goToSlide('s10')">Platform</button>
+    <button class="nav-pill" onclick="goToSlide('s11')">Tiers</button>
+    <button class="nav-pill" onclick="goToSlide('s12')">CTA</button>
   </div>
   <button class="nav-toggle" onclick="toggleNotes()">📋 Speaker Notes</button>
 </nav>
@@ -853,7 +853,7 @@
     </div>
     <div class="contact-item">
       <div class="contact-label">Contact</div>
-      <div class="contact-val">chida@sumantv.com / 9840018080</div>
+      <div class="contact-val">chida@sumantv.com</div>
     </div>
   </div>
   <p class="closing-quote">"Instead of interrupting content like ads — your brand becomes part of daily food habits across 30 episodes. This is not a campaign. This is category ownership."</p>
@@ -962,7 +962,7 @@ function nextNote() {
   if (currentNote < notes.length - 1) {
     currentNote++;
     updateNotes();
-    document.getElementById('s' + (currentNote + 1)).scrollIntoView({ behavior: 'smooth' });
+    goToSlide('s' + (currentNote + 1));
   }
 }
 
@@ -970,12 +970,13 @@ function prevNote() {
   if (currentNote > 0) {
     currentNote--;
     updateNotes();
-    document.getElementById('s' + (currentNote + 1)).scrollIntoView({ behavior: 'smooth' });
+    goToSlide('s' + (currentNote + 1));
   }
 }
 
-function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+function goToSlide(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
 // Scroll spy for nav pills + notes sync
