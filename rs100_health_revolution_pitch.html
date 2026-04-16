@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The ₹100 Health Revolution — Suman TV Brand Partnership Pitch</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a3d0f;
+    --green-mid: #2d6a1f;
+    --green-accent: #4a9b2f;
+    --green-light: #a8d98a;
+    --green-pale: #edf7e6;
+    --amber: #c8730a;
+    --amber-light: #fdf0e0;
+    --teal: #0e6b5a;
+    --teal-light: #e0f4ef;
+    --cream: #faf8f3;
+    --warm-white: #f5f2eb;
+    --charcoal: #1a1a18;
+    --ink: #2c2c2a;
+    --muted: #6b6b65;
+    --border: rgba(26,61,15,0.12);
+    --gold: #b8860b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--charcoal);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,26,24,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green-light);
+  }
+  .nav-pills {
+    display: flex; gap: 4px; overflow-x: auto;
+  }
+  .nav-pill {
+    padding: 5px 14px; border-radius: 20px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.5); background: transparent;
+    border: 1px solid transparent; cursor: pointer;
+    transition: all 0.2s; white-space: nowrap;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .nav-pill:hover { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.2); }
+  .nav-pill.active { color: var(--green-dark); background: var(--green-light); border-color: var(--green-light); }
+  .nav-toggle {
+    font-size: 11px; color: rgba(255,255,255,0.4); cursor: pointer;
+    font-family: 'Space Mono', monospace; letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 4px;
+    background: transparent; white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .nav-toggle:hover { color: var(--green-light); border-color: var(--green-light); }
+
+  /* ── SLIDES ── */
+  .slide {
+    min-height: 100vh; padding: 120px 80px 80px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .slide-num {
+    position: absolute; top: 72px; right: 80px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 2px;
+  }
+  .tag {
+    display: inline-flex; align-items: center;
+    font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 20px; margin-bottom: 24px;
+    width: fit-content;
+  }
+
+  /* ── SLIDE 1: COVER ── */
+  .s1 {
+    background: var(--charcoal);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 110% 50%, rgba(74,155,47,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at -10% 80%, rgba(14,107,90,0.12) 0%, transparent 60%);
+  }
+  .s1 .slide-num { color: rgba(255,255,255,0.2); }
+  .s1 .tag { background: rgba(74,155,47,0.15); color: var(--green-light); border: 1px solid rgba(74,155,47,0.3); }
+  .s1-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(52px, 7vw, 88px);
+    line-height: 1.0; color: #f5f2eb;
+    margin-bottom: 8px;
+    max-width: 700px;
+  }
+  .s1-headline em { color: var(--green-accent); font-style: italic; }
+  .s1-sub {
+    font-size: 18px; color: rgba(245,242,235,0.55);
+    max-width: 520px; margin: 16px 0 36px;
+    line-height: 1.6; font-weight: 300;
+  }
+  .s1-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .s1-badge {
+    padding: 8px 20px; border-radius: 24px;
+    font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(168,217,138,0.3);
+    color: var(--green-light);
+    background: rgba(74,155,47,0.08);
+  }
+  .s1-footer {
+    position: absolute; bottom: 48px; left: 80px; right: 80px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;
+  }
+  .s1-footer span { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 1.5px; text-transform: uppercase; }
+  .s1-series { font-size: 13px; color: rgba(245,242,235,0.4); margin-bottom: 4px; font-weight: 300; }
+
+  /* ── LIGHT SLIDES ── */
+  .s-light { background: var(--cream); }
+  .s-warm { background: var(--warm-white); }
+  .s-green-dark { background: var(--green-dark); }
+  .s-teal { background: #071f1a; background-image: radial-gradient(ellipse 60% 60% at 90% 10%, rgba(14,107,90,0.25) 0%, transparent 60%); }
+  .s-amber { background: #1e1408; background-image: radial-gradient(ellipse 60% 60% at 10% 90%, rgba(200,115,10,0.2) 0%, transparent 60%); }
+
+  /* ── TYPOGRAPHY ── */
+  h2.hero { font-family: 'DM Serif Display', serif; font-size: clamp(36px, 5vw, 60px); line-height: 1.1; margin-bottom: 16px; }
+  h3.section { font-size: 22px; font-weight: 500; margin-bottom: 12px; }
+  .lead { font-size: 17px; font-weight: 300; line-height: 1.7; max-width: 640px; margin-bottom: 32px; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  /* dark slide text */
+  .dark-text h2, .dark-text h3, .dark-text p { color: var(--cream); }
+  .dark-text .lead { color: rgba(250,248,243,0.65); }
+  .dark-text .slide-num { color: rgba(250,248,243,0.2); }
+
+  /* ── STAT GRID ── */
+  .stat-row { display: grid; gap: 16px; margin-top: 24px; }
+  .stat-row.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .stat-row.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .stat-row.cols-4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .stat-card {
+    padding: 24px; border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.7); backdrop-filter: blur(4px);
+  }
+  .stat-card.dark { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 42px; line-height: 1; margin-bottom: 8px; }
+  .stat-label { font-size: 13px; line-height: 1.5; }
+  .stat-card.dark .stat-num, .stat-card.dark .stat-label { color: var(--cream); }
+  .stat-card.dark .stat-label { color: rgba(250,248,243,0.55); }
+
+  /* ── CARDS ── */
+  .card-row { display: grid; gap: 16px; margin-top: 24px; }
+  .card-row.cols-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .card-row.cols-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .card {
+    padding: 24px; border-radius: 12px;
+    background: white; border: 1px solid var(--border);
+  }
+  .card.dark { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
+  .card h4 { font-size: 15px; font-weight: 600; margin-bottom: 8px; }
+  .card p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .card.dark h4 { color: var(--cream); }
+  .card.dark p { color: rgba(250,248,243,0.55); }
+  .bar { width: 28px; height: 3px; border-radius: 2px; margin-bottom: 14px; }
+
+  /* ── TWO COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+  /* ── PILL LIST ── */
+  .pill-list { display: flex; flex-direction: column; gap: 10px; }
+  .pill-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 16px; border-radius: 8px;
+    background: rgba(255,255,255,0.6); border: 1px solid var(--border);
+    font-size: 13px; line-height: 1.5;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+
+  /* ── EPISODE GRID ── */
+  .ep-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 10px; margin-top: 24px; }
+  .ep-block { border-radius: 10px; padding: 16px 12px; }
+  .ep-block .ep-n { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+  .ep-block .ep-t { font-size: 12px; font-weight: 500; line-height: 1.4; margin-bottom: 4px; }
+  .ep-block .ep-s { font-size: 11px; opacity: 0.7; }
+
+  /* ── FLOW BAR ── */
+  .flow-bar { display: flex; gap: 0; margin-top: 20px; border-radius: 10px; overflow: hidden; }
+  .flow-step { flex: 1; padding: 14px 10px; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4; }
+
+  /* ── MONEY SLIDE ── */
+  .mock-container {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 28px; margin-top: 24px;
+  }
+  .mock-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mock-block { border-radius: 10px; padding: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+  .mock-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,248,243,0.4); margin-bottom: 12px; }
+  .mock-visual { height: 72px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+  .powered-strip {
+    background: var(--green-accent); color: var(--green-dark);
+    border-radius: 8px; padding: 14px 20px; margin-top: 16px;
+    text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 1px;
+  }
+  .mock-footer { display: flex; justify-content: space-between; margin-top: 14px; font-size: 12px; color: rgba(250,248,243,0.45); }
+
+  /* ── TIER GRID ── */
+  .tier-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; margin-top: 28px; }
+  .tier-card { border-radius: 14px; padding: 28px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); }
+  .tier-card.featured { border: 2px solid var(--green-accent); background: rgba(74,155,47,0.08); }
+  .tier-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+  .tier-name { font-family: 'DM Serif Display', serif; font-size: 24px; color: var(--cream); margin-bottom: 4px; }
+  .tier-sub { font-size: 12px; color: rgba(250,248,243,0.45); margin-bottom: 20px; }
+  .tier-feat { font-size: 13px; color: rgba(250,248,243,0.65); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.08); line-height: 1.5; }
+  .tier-feat:last-of-type { border-bottom: none; }
+  .tier-price { margin-top: 20px; font-size: 12px; color: rgba(250,248,243,0.35); font-family: 'Space Mono', monospace; letter-spacing: 1px; }
+
+  /* ── CTA SLIDE ── */
+  .cta-steps { display: flex; gap: 0; margin: 28px auto; max-width: 700px; }
+  .cta-step { flex: 1; text-align: center; padding: 20px 16px; position: relative; }
+  .cta-step::after { content: '→'; position: absolute; right: -10px; top: 50%; transform: translateY(-50%); color: rgba(250,248,243,0.2); font-size: 18px; }
+  .cta-step:last-child::after { display: none; }
+  .step-num { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--green-accent); letter-spacing: 2px; margin-bottom: 8px; }
+  .step-text { font-size: 13px; color: rgba(250,248,243,0.65); line-height: 1.5; }
+  .contact-bar {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    padding: 24px 40px; background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+    max-width: 700px; margin: 0 auto 32px;
+  }
+  .contact-item { text-align: center; }
+  .contact-label { font-size: 10px; font-family: 'Space Mono', monospace; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,248,243,0.3); margin-bottom: 4px; }
+  .contact-val { font-size: 15px; font-weight: 500; color: var(--cream); }
+  .closing-quote { font-family: 'DM Serif Display', serif; font-size: 15px; font-style: italic; color: rgba(250,248,243,0.35); text-align: center; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── SPEAKER NOTES PANEL ── */
+  .notes-panel {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(10,20,8,0.97); border-top: 2px solid var(--green-accent);
+    padding: 16px 40px 20px;
+    transition: transform 0.3s ease;
+  }
+  .notes-panel.open { display: block; }
+  .notes-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .notes-label { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-accent); }
+  .notes-close { color: rgba(255,255,255,0.4); cursor: pointer; font-size: 18px; background: none; border: none; font-family: inherit; }
+  .notes-slide-title { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 8px; font-family: 'Space Mono', monospace; letter-spacing: 1px; }
+  .notes-quote {
+    font-family: 'DM Serif Display', serif; font-size: 18px; font-style: italic;
+    color: var(--green-light); line-height: 1.5; margin-bottom: 12px;
+  }
+  .notes-body { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.7; max-height: 100px; overflow-y: auto; }
+  .notes-nav { display: flex; gap: 10px; margin-top: 12px; align-items: center; }
+  .notes-nav button { padding: 5px 14px; font-size: 11px; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); background: transparent; border-radius: 4px; cursor: pointer; font-family: inherit; transition: all 0.2s; }
+  .notes-nav button:hover { border-color: var(--green-accent); color: var(--green-accent); }
+  .notes-counter { font-family: 'Space Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 1px; }
+
+  /* ── MISC ── */
+  .divider { height: 1px; background: var(--border); margin: 28px 0; }
+  .big-num { font-family: 'DM Serif Display', serif; font-size: 56px; line-height: 1; }
+  .small-caps { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+  .infobox {
+    padding: 16px 20px; border-radius: 8px; margin-top: 20px;
+    font-size: 13px; font-weight: 500; line-height: 1.6;
+  }
+  .infobox.green { background: var(--green-pale); color: var(--green-dark); border-left: 3px solid var(--green-accent); }
+  .infobox.green-dark { background: rgba(74,155,47,0.12); color: var(--green-light); border-left: 3px solid var(--green-accent); }
+  .infobox.amber { background: var(--amber-light); color: #7a4500; border-left: 3px solid var(--amber); }
+
+  /* ── FADE IN ANIMATION ── */
+  .slide > * { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .slide.visible > * { opacity: 1; transform: translateY(0); }
+  .slide.visible > *:nth-child(2) { transition-delay: 0.08s; }
+  .slide.visible > *:nth-child(3) { transition-delay: 0.16s; }
+  .slide.visible > *:nth-child(4) { transition-delay: 0.24s; }
+  .slide.visible > *:nth-child(5) { transition-delay: 0.32s; }
+  .slide.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .slide { padding: 100px 32px 60px; }
+    .slide-num { right: 32px; }
+    .s1-footer { left: 32px; right: 32px; }
+    .two-col { grid-template-columns: 1fr; gap: 24px; }
+    .stat-row.cols-3, .card-row.cols-3, .tier-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .ep-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .stat-row.cols-4, .mock-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .nav-pills { display: none; }
+    .cta-steps { flex-direction: column; max-width: 300px; }
+    .cta-step::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav class="nav">
+  <span class="nav-brand">₹100 Health Revolution · Suman TV</span>
+  <div class="nav-pills" id="navPills">
+    <button class="nav-pill active" onclick="scrollTo('s1')">Cover</button>
+    <button class="nav-pill" onclick="scrollTo('s2')">Problem</button>
+    <button class="nav-pill" onclick="scrollTo('s3')">Solution</button>
+    <button class="nav-pill" onclick="scrollTo('s4')">Framework</button>
+    <button class="nav-pill" onclick="scrollTo('s5')">Episodes</button>
+    <button class="nav-pill" onclick="scrollTo('s6')">Audience</button>
+    <button class="nav-pill" onclick="scrollTo('s7')">Food</button>
+    <button class="nav-pill" onclick="scrollTo('s8')">Electronics</button>
+    <button class="nav-pill" onclick="scrollTo('s9')">Lifestyle</button>
+    <button class="nav-pill" onclick="scrollTo('s10')">Platform</button>
+    <button class="nav-pill" onclick="scrollTo('s11')">Tiers</button>
+    <button class="nav-pill" onclick="scrollTo('s12')">CTA</button>
+  </div>
+  <button class="nav-toggle" onclick="toggleNotes()">📋 Speaker Notes</button>
+</nav>
+
+<!-- ════════════════════════════════════
+     SLIDE 1: COVER
+════════════════════════════════════ -->
+<section class="slide s1" id="s1" data-slide="1">
+  <span class="slide-num mono" style="color:rgba(255,255,255,0.15);">01 / 12</span>
+  <span class="tag">Suman TV Network · Brand Partnership Pitch · 2025</span>
+  <p class="s1-series" style="color:rgba(168,217,138,0.6); font-family:'Space Mono',monospace; font-size:11px; letter-spacing:2px; text-transform:uppercase;">Season 1 · 30 Episodes</p>
+  <h1 class="s1-headline">The <em>₹100</em><br>Health Revolution</h1>
+  <p style="font-family:'DM Serif Display',serif; font-size:22px; color:rgba(245,242,235,0.45); font-style:italic; margin-bottom:12px;">Science of Living</p>
+  <p class="s1-sub">Peak Human Performance. Ancient Wisdom. Modern Science.<br>One budget. ₹100 a Day. Thirty episodes. Ten crore families.</p>
+  <div class="s1-badges">
+    <span class="s1-badge">30 Episodes</span>
+    <span class="s1-badge">10 Crore+ Reach</span>
+    <span class="s1-badge">20+ Health Channels</span>
+    <span class="s1-badge">100+ Doctor Partnerships</span>
+    <span class="s1-badge">₹100/Day Formula</span>
+  </div>
+  <div class="s1-footer">
+    <span>Suman TV Network · Hyderabad</span>
+    <span>Confidential Brand Partnership Proposal</span>
+    <span>2025</span>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 2: PROBLEM
+════════════════════════════════════ -->
+<section class="slide s-light" id="s2" data-slide="2">
+  <span class="slide-num mono" style="color:var(--muted);">02 / 12</span>
+  <span class="tag" style="background:#fce8e0; color:#8b2500; border:1px solid #f5b8a0;">The Problem</span>
+  <h2 class="hero" style="color:var(--ink);">India's hidden hunger crisis</h2>
+  <p class="lead" style="color:var(--muted);">800 million Indians eat enough calories — but are starved of the micronutrients that actually power the human body. The crisis is invisible. And that's exactly the problem.</p>
+  <div class="stat-row cols-3">
+    <div class="stat-card" style="border-color:#f5b8a0;">
+      <div class="stat-num" style="color:#c8380a;">74%</div>
+      <div class="stat-label" style="color:var(--muted);">Urban Indians are Vitamin D deficient — the sunshine vitamin, missed in plain sight</div>
+    </div>
+    <div class="stat-card" style="border-color:#c0dd97;">
+      <div class="stat-num" style="color:var(--green-mid);">56%</div>
+      <div class="stat-label" style="color:var(--muted);">Suffer from subclinical malnutrition despite eating three meals daily</div>
+    </div>
+    <div class="stat-card" style="border-color:#9fe1cb;">
+      <div class="stat-num" style="color:var(--teal);">800M</div>
+      <div class="stat-label" style="color:var(--muted);">People calorie-sufficient but micronutrient-deficient across India</div>
+    </div>
+  </div>
+  <div class="card-row cols-3" style="margin-top:16px;">
+    <div class="card">
+      <div class="bar" style="background:#c8380a;"></div>
+      <h4 style="color:var(--ink);">Invisible deficiency</h4>
+      <p>No obvious symptoms. Slow decline in energy, cognition, immunity. People don't know they're running on empty.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--amber);"></div>
+      <h4 style="color:var(--ink);">Rising healthcare burden</h4>
+      <p>Preventable lifestyle diseases — diabetes, hypertension, bone loss — now affecting younger demographics than ever.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--green-accent);"></div>
+      <h4 style="color:var(--ink);">No accessible solution</h4>
+      <p>Health content is either too expensive to act on or too scientific to understand. The gap between knowledge and kitchen is massive.</p>
+    </div>
+  </div>
+  <div class="infobox amber" style="margin-top:20px;">
+    <strong>COO Pitch Line:</strong> "The crisis isn't visible on any plate — and that's exactly why no brand has owned this space yet. We're offering you first-mover advantage in a ₹4.5 lakh crore preventive health market."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 3: SOLUTION
+════════════════════════════════════ -->
+<section class="slide s-warm" id="s3" data-slide="3">
+  <span class="slide-num mono" style="color:var(--muted);">03 / 12</span>
+  <span class="tag" style="background:var(--green-pale); color:var(--green-dark); border:1px solid var(--green-light);">The Solution</span>
+  <h2 class="hero" style="color:var(--ink);">The ₹100 Revolution</h2>
+  <p class="lead" style="color:var(--muted);">Peak performance is not a privilege. For just ₹100 a day, any Indian household can master nutrition, biohacking, and ancient wellness — one actionable episode at a time.</p>
+  <div class="two-col">
+    <div>
+      <div class="pill-list">
+        <div class="pill-item"><span class="dot" style="background:var(--green-accent);"></span>First-of-its-kind daily health protocol series for mass India</div>
+        <div class="pill-item"><span class="dot" style="background:var(--amber);"></span>Every episode = one science-backed action to implement today</div>
+        <div class="pill-item"><span class="dot" style="background:var(--teal);"></span>Merges Ayurvedic wisdom with modern biohacking — no conflict, only synthesis</div>
+        <div class="pill-item"><span class="dot" style="background:#7f77dd;"></span>30 episodes of continuous household brand visibility</div>
+        <div class="pill-item"><span class="dot" style="background:#c8380a;"></span>Budget: ₹100/day. Impact: Lifetime transformation</div>
+      </div>
+    </div>
+    <div>
+      <div style="background:white; border-radius:14px; padding:28px; border:1px solid var(--border);">
+        <p class="small-caps" style="color:var(--muted); margin-bottom:20px;">The ₹100 Daily Stack</p>
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0ede6;">
+            <span style="font-size:14px; color:var(--ink);">High-protein whole foods</span>
+            <span style="font-size:15px; font-weight:600; color:var(--green-mid); font-family:'Space Mono',monospace;">₹45</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0ede6;">
+            <span style="font-size:14px; color:var(--ink);">Functional spices & staples</span>
+            <span style="font-size:15px; font-weight:600; color:var(--green-mid); font-family:'Space Mono',monospace;">₹30</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #f0ede6;">
+            <span style="font-size:14px; color:var(--ink);">Micronutrient-dense ingredients</span>
+            <span style="font-size:15px; font-weight:600; color:var(--green-mid); font-family:'Space Mono',monospace;">₹25</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; padding:14px 0;">
+            <span style="font-size:16px; font-weight:600; color:var(--ink);">Total daily budget</span>
+            <span style="font-family:'DM Serif Display',serif; font-size:24px; color:var(--green-dark);">₹100</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="infobox green" style="margin-top:20px;">
+    <strong>COO Pitch Line:</strong> "We're not asking your brand to sponsor a show. We're inviting you to own a daily habit — the ₹100 health ritual of 10 crore Telugu households."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 4: CONTENT FRAMEWORK
+════════════════════════════════════ -->
+<section class="slide s-light" id="s4" data-slide="4">
+  <span class="slide-num mono" style="color:var(--muted);">04 / 12</span>
+  <span class="tag" style="background:var(--teal-light); color:var(--teal); border:1px solid #9fe1cb;">Content Engineering</span>
+  <h2 class="hero" style="color:var(--ink);">The Science of Living framework</h2>
+  <p class="lead" style="color:var(--muted);">Three interlocking pillars. Each episode activates one protocol. Every viewer leaves with something they can do before dinner tonight.</p>
+  <div class="card-row cols-3">
+    <div class="card">
+      <div class="bar" style="background:var(--green-accent);"></div>
+      <h4 style="color:var(--ink);">Pillar 1 — Kitchen Chemistry</h4>
+      <p>High-protein, mineral-dense meal engineering using everyday Indian staples. Cooking as biochemistry — explained visually, executed simply at ₹100.</p>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+        <span style="font-size:12px; color:var(--muted);">→ Protein stacking: dal + rice + egg combinations</span>
+        <span style="font-size:12px; color:var(--muted);">→ Bioavailability hacks (iron + Vitamin C pairing)</span>
+        <span style="font-size:12px; color:var(--muted);">→ Anti-nutrient reduction through soaking science</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--amber);"></div>
+      <h4 style="color:var(--ink);">Pillar 2 — Ancient Indian Wisdom</h4>
+      <p>The science behind what grandmothers always knew. Turmeric, oil pulling, seasonal fasting — validated by modern research and explained for 2025 India.</p>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+        <span style="font-size:12px; color:var(--muted);">→ Curcumin bioactivation (black pepper science)</span>
+        <span style="font-size:12px; color:var(--muted);">→ Intermittent fasting through Ayurvedic lens</span>
+        <span style="font-size:12px; color:var(--muted);">→ Seasonal eating aligned with body rhythms</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--teal);"></div>
+      <h4 style="color:var(--ink);">Pillar 3 — Modern Bio-Hacks</h4>
+      <p>Zero-cost protocols that optimize human biology. No gym. No supplements. Just sunlight, breath, and the earth beneath your feet — backed by science.</p>
+      <div style="margin-top:14px; display:flex; flex-direction:column; gap:5px;">
+        <span style="font-size:12px; color:var(--muted);">→ Morning sunlight (Vitamin D + circadian reset)</span>
+        <span style="font-size:12px; color:var(--muted);">→ Barefoot grounding (inflammation reduction)</span>
+        <span style="font-size:12px; color:var(--muted);">→ Diaphragmatic breathing (nervous system reset)</span>
+      </div>
+    </div>
+  </div>
+  <div class="infobox green" style="margin-top:20px;">
+    <strong>COO Pitch Line:</strong> "Pillar 1 is where your food brand lives. Pillar 2 is where your spice brand becomes a ritual. Pillar 3 is where your lifestyle brand becomes a philosophy. We've built the entire content architecture to accommodate your category naturally."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 5: 30-EPISODE ARCHITECTURE
+════════════════════════════════════ -->
+<section class="slide s-warm" id="s5" data-slide="5">
+  <span class="slide-num mono" style="color:var(--muted);">05 / 12</span>
+  <span class="tag" style="background:#eeedfe; color:#534ab7; border:1px solid #cecbf6;">Season 1 Architecture</span>
+  <h2 class="hero" style="color:var(--ink);">30 episodes. 6 blocks.<br>One transformation.</h2>
+  <p class="lead" style="color:var(--muted); margin-bottom:16px;">Each block is a standalone sponsorship zone. Every episode ends with a brand-integrated viewer challenge segment.</p>
+  <div class="ep-grid">
+    <div class="ep-block" style="background:#edf7e6;">
+      <div class="ep-n" style="color:var(--green-mid);">Block 1 · Ep 1–5</div>
+      <div class="ep-t" style="color:var(--green-dark);">Micronutrient Matrix</div>
+      <div class="ep-s" style="color:var(--green-mid);">Vitamins & Minerals</div>
+    </div>
+    <div class="ep-block" style="background:#fdf0e0;">
+      <div class="ep-n" style="color:#7a4500;">Block 2 · Ep 6–10</div>
+      <div class="ep-t" style="color:#5a3200;">Protein Revolution</div>
+      <div class="ep-s" style="color:#7a4500;">Plant & Animal Under ₹100</div>
+    </div>
+    <div class="ep-block" style="background:#e0f4ef;">
+      <div class="ep-n" style="color:var(--teal);">Block 3 · Ep 11–15</div>
+      <div class="ep-t" style="color:#084a3d;">Kitchen Chemistry Lab</div>
+      <div class="ep-s" style="color:var(--teal);">Functional Foods & Spice Science</div>
+    </div>
+    <div class="ep-block" style="background:#e6f1fb;">
+      <div class="ep-n" style="color:#185fa5;">Block 4 · Ep 16–20</div>
+      <div class="ep-t" style="color:#0c447c;">Ancient Protocols</div>
+      <div class="ep-s" style="color:#185fa5;">Ayurveda Meets Biohacking</div>
+    </div>
+    <div class="ep-block" style="background:#eeedfe;">
+      <div class="ep-n" style="color:#534ab7;">Block 5 · Ep 21–25</div>
+      <div class="ep-t" style="color:#3c3489;">Body Optimization</div>
+      <div class="ep-s" style="color:#534ab7;">Sunlight, Grounding, Breathwork</div>
+    </div>
+    <div class="ep-block" style="background:#faece7;">
+      <div class="ep-n" style="color:#993c1d;">Block 6 · Ep 26–30</div>
+      <div class="ep-t" style="color:#711b0c;">30-Day Challenge</div>
+      <div class="ep-s" style="color:#993c1d;">Transformation Season Finale</div>
+    </div>
+  </div>
+  <div style="margin-top:20px; background:white; border-radius:12px; padding:20px 24px; border:1px solid var(--border);">
+    <p class="small-caps" style="color:var(--muted); margin-bottom:14px;">Episode Flow — Every Episode</p>
+    <div class="flow-bar" style="border:1px solid var(--border); border-radius:10px; overflow:hidden;">
+      <div class="flow-step" style="background:#edf7e6; color:var(--green-dark);">Hook<br><span style="font-size:10px; font-weight:400;">60 sec</span></div>
+      <div class="flow-step" style="background:#fdf0e0; color:#5a3200;">Science<br><span style="font-size:10px; font-weight:400;">Explainer</span></div>
+      <div class="flow-step" style="background:#e0f4ef; color:#084a3d;">Kitchen<br><span style="font-size:10px; font-weight:400;">Demo</span></div>
+      <div class="flow-step" style="background:#e6f1fb; color:#0c447c;">Nutrition<br><span style="font-size:10px; font-weight:400;">Breakdown</span></div>
+      <div class="flow-step" style="background:#eeedfe; color:#3c3489;">Viewer<br><span style="font-size:10px; font-weight:400;">Challenge</span></div>
+      <div class="flow-step" style="background:var(--green-dark); color:var(--green-light);">Sponsor<br><span style="font-size:10px; font-weight:400;">CTA</span></div>
+    </div>
+  </div>
+  <div class="infobox amber" style="margin-top:16px;">
+    <strong>COO Pitch Line:</strong> "Every single episode — all 30 — closes with your brand's call-to-action. Not as an ad. As the solution the viewer just learned they need."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 6: AUDIENCE PERSONA
+════════════════════════════════════ -->
+<section class="slide s-light" id="s6" data-slide="6">
+  <span class="slide-num mono" style="color:var(--muted);">06 / 12</span>
+  <span class="tag" style="background:#e6f1fb; color:#185fa5; border:1px solid #b5d4f4;">Audience Persona</span>
+  <h2 class="hero" style="color:var(--ink);">Who is watching —<br>and buying</h2>
+  <div class="two-col">
+    <div>
+      <div class="card" style="margin-bottom:14px;">
+        <div class="bar" style="background:var(--green-accent);"></div>
+        <h4 style="color:var(--ink);">Primary — The Health-Aware Household Manager</h4>
+        <p>Women, 25–45, Tier 1 & 2 Telugu cities. They control the kitchen, the grocery budget, and the family's health choices. Deeply trusted Suman TV viewer.</p>
+      </div>
+      <div class="card">
+        <div class="bar" style="background:#378add;"></div>
+        <h4 style="color:var(--ink);">Secondary — Preventive Health Seekers</h4>
+        <p>Fitness-aware professionals (28–40), diabetic and cardiac patients seeking science-backed, affordable solutions. High intent, high loyalty.</p>
+      </div>
+    </div>
+    <div>
+      <div class="stat-card" style="margin-bottom:14px; border-color:#c0dd97;">
+        <div class="stat-num" style="color:var(--green-mid);">₹8K–₹40K</div>
+        <div class="stat-label" style="color:var(--muted);">Monthly household discretionary spend. This audience buys what they trust from their screens.</div>
+      </div>
+      <div style="background:white; border-radius:12px; padding:20px; border:1px solid var(--border);">
+        <p class="small-caps" style="color:var(--muted); margin-bottom:14px;">Psychographic Profile</p>
+        <div class="pill-list">
+          <div class="pill-item"><span class="dot" style="background:var(--green-accent);"></span><strong>Aspirational</strong> — Wants best for family, constrained by budget</div>
+          <div class="pill-item"><span class="dot" style="background:var(--amber);"></span><strong>Values-driven</strong> — Trusts experts, distrusts flashy advertising</div>
+          <div class="pill-item"><span class="dot" style="background:var(--teal);"></span><strong>Action-ready</strong> — Implements advice within 24 hours of watching</div>
+          <div class="pill-item"><span class="dot" style="background:#378add;"></span><strong>Deeply loyal</strong> — 3–8 year average Suman TV channel relationship</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="infobox green" style="margin-top:20px;">
+    <strong>COO Pitch Line:</strong> "This isn't an audience that watches health content and forgets it. This is an audience that watches, acts, and tells their family. Your brand recommendation from this screen has the weight of a doctor's prescription."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 7: FOOD BRANDS
+════════════════════════════════════ -->
+<section class="slide s-warm" id="s7" data-slide="7">
+  <span class="slide-num mono" style="color:var(--muted);">07 / 12</span>
+  <span class="tag" style="background:var(--green-pale); color:var(--green-dark); border:1px solid var(--green-light);">Sponsor Integration · Food Brands</span>
+  <h2 class="hero" style="color:var(--ink);">Your product becomes<br>the hero ingredient</h2>
+  <p class="lead" style="color:var(--muted);">Edible oil, spices, staples, functional foods — this is your native stage. Not an ad break. Your product is the science.</p>
+  <div class="card-row cols-3">
+    <div class="card">
+      <div class="bar" style="background:var(--green-accent);"></div>
+      <h4 style="color:var(--ink);">Ingredient of the Episode</h4>
+      <p>Your product is the hero ingredient — demonstrated live, nutritionally explained, and endorsed by an in-show nutritionist. 30 episodes of rotating hero placement.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--amber);"></div>
+      <h4 style="color:var(--ink);">Branded Recipe Cards</h4>
+      <p>Co-branded digital and physical recipe cards distributed across 20+ health channel communities. Your logo on every household's health reference card.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--teal);"></div>
+      <h4 style="color:var(--ink);">Kitchen Chemistry Segment</h4>
+      <p>Full recurring segment ownership: "The [Brand] Kitchen Chemistry Lab." Named, branded, and recalled every episode throughout the entire 30-episode season.</p>
+    </div>
+  </div>
+  <div class="stat-row cols-3" style="margin-top:16px;">
+    <div style="text-align:center; padding:16px; background:#edf7e6; border-radius:10px;">
+      <div class="big-num" style="color:var(--green-mid);">2M+</div>
+      <div style="font-size:12px; color:var(--green-mid); margin-top:4px;">Impressions per episodic food segment</div>
+    </div>
+    <div style="text-align:center; padding:16px; background:#fdf0e0; border-radius:10px;">
+      <div class="big-num" style="color:var(--amber);">30</div>
+      <div style="font-size:12px; color:var(--amber); margin-top:4px;">Episodes of continuous brand visibility</div>
+    </div>
+    <div style="text-align:center; padding:16px; background:#e0f4ef; border-radius:10px;">
+      <div class="big-num" style="color:var(--teal);">100+</div>
+      <div style="font-size:12px; color:var(--teal); margin-top:4px;">Doctor & hospital endorsements behind the content</div>
+    </div>
+  </div>
+  <div class="infobox green" style="margin-top:16px;">
+    <strong>For brands like:</strong> Fortune, Saffola, Aashirvaad, Tata Sampann, MDH, ITC, Amul, Reliance Smart&nbsp;&nbsp;|&nbsp;&nbsp;<strong>COO Pitch:</strong> "Every Indian family will associate your oil / spice / staple with the healthiest version of their kitchen. That's brand equity no ad spend can manufacture."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 8: ELECTRONICS
+════════════════════════════════════ -->
+<section class="slide s-light" id="s8" data-slide="8">
+  <span class="slide-num mono" style="color:var(--muted);">08 / 12</span>
+  <span class="tag" style="background:#e6f1fb; color:#185fa5; border:1px solid #b5d4f4;">Sponsor Integration · Electronics & Kitchen Tech</span>
+  <h2 class="hero" style="color:var(--ink);">The essential tool of<br>the health revolution</h2>
+  <p class="lead" style="color:var(--muted);">Induction stoves, smart refrigerators, AI kitchen tools, glucose monitors — reach health-intent buyers at the exact moment of inspiration.</p>
+  <div class="card-row cols-3">
+    <div class="card">
+      <div class="bar" style="background:#378add;"></div>
+      <h4 style="color:var(--ink);">Tech Kitchen Segment</h4>
+      <p>A fully branded recurring segment where your product solves a real health cooking challenge. Not a review — a live science demonstration. Viewers see impact before they see the price.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:#7f77dd;"></div>
+      <h4 style="color:var(--ink);">Smart Cooking Challenge</h4>
+      <p>Co-branded episode format: "Can we make a 35g protein meal for ₹100 using [Brand]?" Instant viral format — challenge + product + nutrition proof in one segment.</p>
+    </div>
+    <div class="card">
+      <div class="bar" style="background:var(--teal);"></div>
+      <h4 style="color:var(--ink);">Health Gadget Integration</h4>
+      <p>Glucose monitors, smart scales, and health trackers in bio-tracking segments. Before/after data visualized live on screen — with your brand as the tool that revealed the result.</p>
+    </div>
+  </div>
+  <div style="margin-top:20px; padding:20px 24px; background:white; border-radius:12px; border:1px solid var(--border);">
+    <p class="small-caps" style="color:var(--muted); margin-bottom:12px;">Why this audience converts for electronics</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <span style="padding:7px 16px; background:#e6f1fb; color:#185fa5; border-radius:20px; font-size:12px; font-weight:600;">Health-motivated purchase intent</span>
+      <span style="padding:7px 16px; background:#eeedfe; color:#534ab7; border-radius:20px; font-size:12px; font-weight:600;">Household decision-maker audience</span>
+      <span style="padding:7px 16px; background:#e0f4ef; color:var(--teal); border-radius:20px; font-size:12px; font-weight:600;">₹8K–₹40K discretionary spend</span>
+      <span style="padding:7px 16px; background:#fdf0e0; color:var(--amber); border-radius:20px; font-size:12px; font-weight:600;">Trusts expert-validated products</span>
+    </div>
+  </div>
+  <div class="infobox green" style="margin-top:14px;">
+    <strong>For brands like:</strong> Philips, Havells, Pigeon, Samsung, LG, HealthifyMe&nbsp;&nbsp;|&nbsp;&nbsp;<strong>COO Pitch:</strong> "Your induction stove isn't a convenience appliance in this show. It's a health intervention device. That repositioning alone is worth the entire investment."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 9: LIFESTYLE & REAL ESTATE (MONEY SLIDE)
+════════════════════════════════════ -->
+<section class="slide s-teal dark-text" id="s9" data-slide="9">
+  <span class="slide-num mono" style="color:rgba(250,248,243,0.2);">09 / 12</span>
+  <span class="tag" style="background:rgba(168,217,138,0.15); color:var(--green-light); border:1px solid rgba(168,217,138,0.3);">Sponsor Integration · Lifestyle & Real Estate</span>
+  <h2 class="hero">Your brand = the healthy<br>living aspiration</h2>
+  <p class="lead">One episode feature delivers months of credibility-building advertising. This audience is actively constructing the healthy life your brand represents.</p>
+
+  <div class="mock-container">
+    <p class="small-caps" style="color:rgba(250,248,243,0.35); margin-bottom:18px; letter-spacing:2px;">Brand Integration Visual Mock — "Powered By" Execution</p>
+    <div class="mock-row">
+      <div class="mock-block">
+        <div class="mock-label">Cooking scene</div>
+        <div class="mock-visual" style="background:rgba(74,155,47,0.15); color:var(--green-light);">Sunlit Kitchen · Healthy Home Setup</div>
+        <div style="margin-top:10px; display:flex; flex-direction:column; gap:5px;">
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Ergonomic kitchen design on screen</span>
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Natural materials, wellness aesthetic</span>
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ "Healthy Home by [Brand]" lower-third tag</span>
+        </div>
+      </div>
+      <div class="mock-block">
+        <div class="mock-label">Product placement block</div>
+        <div class="mock-visual" style="background:rgba(200,115,10,0.15); color:#f5c47a;">Brand Logo · Wellness Space Visual</div>
+        <div style="margin-top:10px; display:flex; flex-direction:column; gap:5px;">
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Interior / wellness center showcase</span>
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Expert guest: architect / designer</span>
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ QR code to brand microsite</span>
+        </div>
+      </div>
+    </div>
+    <div class="powered-strip">⚡ Powered by [Brand Name] — "Live Healthy, Live Well"</div>
+    <div class="mock-footer">
+      <span>Featured in 5 dedicated "Healthy Home" episodes</span>
+      <span style="color:var(--green-light); font-weight:600;">5M+ lifestyle segment impressions</span>
+    </div>
+  </div>
+  <div class="infobox green-dark" style="margin-top:16px;">
+    <strong>For brands like:</strong> Godrej Properties, Prestige, IKEA, Pepperfry, FabIndia, Urban Ladder, Cult.fit&nbsp;&nbsp;|&nbsp;&nbsp;<strong>COO Pitch:</strong> "Your real estate project, your furniture brand, your wellness center — we make it the destination this audience is health-motivated to aspire toward. That's not advertising. That's category redefinition."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 10: PLATFORM POWER
+════════════════════════════════════ -->
+<section class="slide s-green-dark dark-text" id="s10" data-slide="10">
+  <span class="slide-num mono" style="color:rgba(168,217,138,0.3);">10 / 12</span>
+  <span class="tag" style="background:rgba(74,155,47,0.2); color:var(--green-light); border:1px solid rgba(74,155,47,0.35);">The Platform</span>
+  <h2 class="hero">Suman TV — not just reach.<br>A trust-built community.</h2>
+  <div class="stat-row cols-3">
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:var(--green-light);">10 Cr+</div>
+      <div class="stat-label">Social media subscribers across all platforms</div>
+    </div>
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:#9fe1cb;">29+</div>
+      <div class="stat-label">Active YouTube channels across the network</div>
+    </div>
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:#f5c47a;">20+</div>
+      <div class="stat-label">Dedicated health-focused YouTube channels</div>
+    </div>
+  </div>
+  <div class="stat-row cols-3" style="margin-top:14px;">
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:#9fc8f5;">100+</div>
+      <div class="stat-label">Hospital and doctor partnerships backing our content</div>
+    </div>
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:var(--green-light);">500K–5M</div>
+      <div class="stat-label">Average views per health content upload</div>
+    </div>
+    <div class="stat-card dark">
+      <div class="stat-num" style="color:#9fe1cb;">3–8%</div>
+      <div class="stat-label">Engagement rate — 3× the industry average</div>
+    </div>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:18px;">
+    <div style="padding:14px; text-align:center; background:rgba(255,255,255,0.05); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+      <div style="font-size:13px; font-weight:600; color:var(--cream);">YouTube</div>
+      <div style="font-size:11px; color:rgba(250,248,243,0.4); margin-top:4px;">Primary distribution</div>
+    </div>
+    <div style="padding:14px; text-align:center; background:rgba(255,255,255,0.05); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+      <div style="font-size:13px; font-weight:600; color:var(--cream);">Satellite TV</div>
+      <div style="font-size:11px; color:rgba(250,248,243,0.4); margin-top:4px;">Telugu broadcast</div>
+    </div>
+    <div style="padding:14px; text-align:center; background:rgba(255,255,255,0.05); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+      <div style="font-size:13px; font-weight:600; color:var(--cream);">Social Media</div>
+      <div style="font-size:11px; color:rgba(250,248,243,0.4); margin-top:4px;">FB · Insta · WhatsApp</div>
+    </div>
+    <div style="padding:14px; text-align:center; background:rgba(255,255,255,0.05); border-radius:8px; border:1px solid rgba(255,255,255,0.1);">
+      <div style="font-size:13px; font-weight:600; color:var(--cream);">NRI Diaspora</div>
+      <div style="font-size:11px; color:rgba(250,248,243,0.4); margin-top:4px;">Global Telugu reach</div>
+    </div>
+  </div>
+  <div class="infobox green-dark" style="margin-top:18px;">
+    <strong>COO Pitch Line:</strong> "You can buy reach anywhere. What you cannot buy is 10 crore people who trust a channel with their family's health decisions. That trust took us a decade to build. You can access it in one partnership."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 11: SPONSORSHIP TIERS
+════════════════════════════════════ -->
+<section class="slide s-amber dark-text" id="s11" data-slide="11">
+  <span class="slide-num mono" style="color:rgba(250,248,243,0.2);">11 / 12</span>
+  <span class="tag" style="background:rgba(200,115,10,0.2); color:#f5c47a; border:1px solid rgba(200,115,10,0.3);">Sponsorship Tiers</span>
+  <h2 class="hero">Three tiers.<br>One season. Category ownership.</h2>
+  <p class="lead" style="color:rgba(250,248,243,0.55);">All tiers include: Performance analytics dashboard, brand safety guarantee, and post-season ROI report.</p>
+  <div class="tier-grid">
+    <div class="tier-card featured">
+      <div class="tier-badge" style="background:rgba(74,155,47,0.2); color:var(--green-light);">Title Sponsor · 1 brand only</div>
+      <div class="tier-name">Title Sponsor</div>
+      <div class="tier-sub">"The ₹100 Health Revolution — Presented by [Brand]"</div>
+      <div class="tier-feat">Full series naming rights + opening & closing credits</div>
+      <div class="tier-feat">3 dedicated integration segments per episode</div>
+      <div class="tier-feat">Exclusive social campaign across 20+ channels</div>
+      <div class="tier-feat">Co-branded press & PR outreach</div>
+      <div class="tier-feat">First right of refusal for Season 2</div>
+      <div class="tier-feat">Custom analytics dashboard + weekly reports</div>
+      <div class="tier-price">Investment: ₹ — [To be finalized]</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-badge" style="background:rgba(200,115,10,0.2); color:#f5c47a;">Powered By · 2 brands max</div>
+      <div class="tier-name">Powered By Partner</div>
+      <div class="tier-sub">Category-exclusive within your industry vertical</div>
+      <div class="tier-feat">Episode-level branding + segment naming rights</div>
+      <div class="tier-feat">1 dedicated integration segment per episode</div>
+      <div class="tier-feat">Co-branded digital content series</div>
+      <div class="tier-feat">Influencer amplification via health creator network</div>
+      <div class="tier-feat">Monthly performance reports + sentiment tracking</div>
+      <div class="tier-price">Investment: ₹ — [To be finalized]</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-badge" style="background:rgba(127,119,221,0.2); color:#b3aeee;">Lifestyle Partner · 4 brands</div>
+      <div class="tier-name">Lifestyle Partner</div>
+      <div class="tier-sub">Rotational placement across chosen episode blocks</div>
+      <div class="tier-feat">Rotating product placements (min. 8 episodes)</div>
+      <div class="tier-feat">Social media features across health channels</div>
+      <div class="tier-feat">Expert association and brand mentions</div>
+      <div class="tier-feat">Audience survey + brand sentiment data</div>
+      <div class="tier-feat">Post-season ROI summary report</div>
+      <div class="tier-price">Investment: ₹ — [To be finalized]</div>
+    </div>
+  </div>
+  <div class="infobox green-dark" style="margin-top:20px;">
+    <strong>COO Pitch Line:</strong> "The Title Sponsor slot is being offered to one brand only. Once that conversation closes, this window shuts. The question isn't whether you can afford to be in this — the question is whether you can afford not to be."
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SLIDE 12: CTA
+════════════════════════════════════ -->
+<section class="slide" id="s12" data-slide="12" style="background:var(--charcoal); background-image:radial-gradient(ellipse 70% 70% at 50% 100%, rgba(74,155,47,0.15) 0%, transparent 70%); text-align:center; align-items:center;">
+  <span class="slide-num mono" style="color:rgba(255,255,255,0.15);">12 / 12</span>
+  <span class="tag" style="background:rgba(74,155,47,0.15); color:var(--green-light); border:1px solid rgba(74,155,47,0.3); margin:0 auto 28px;">Let's Build India's Health Revolution Together</span>
+  <h2 style="font-family:'DM Serif Display',serif; font-size:clamp(36px,5vw,60px); color:var(--cream); line-height:1.1; margin-bottom:16px;">The revolution is launching.<br><em style="color:var(--green-accent); font-style:italic;">Will your brand lead it?</em></h2>
+  <p style="font-size:17px; color:rgba(245,242,235,0.5); max-width:560px; line-height:1.7; margin:0 auto 32px; font-weight:300;">Schedule a 30-minute strategy call. Receive a custom integration proposal within 48 hours. Lock your brand's position in the most impactful health content series of 2025.</p>
+
+  <div class="cta-steps">
+    <div class="cta-step">
+      <div class="step-num">STEP 01</div>
+      <div class="step-text">Schedule a<br>30-min strategy call</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">STEP 02</div>
+      <div class="step-text">Receive custom<br>proposal in 48 hours</div>
+    </div>
+    <div class="cta-step">
+      <div class="step-num">STEP 03</div>
+      <div class="step-text">Lock your brand's<br>position in Season 1</div>
+    </div>
+  </div>
+
+  <div class="contact-bar">
+    <div class="contact-item">
+      <div class="contact-label">Name</div>
+      <div class="contact-val">[Your Name]</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Role</div>
+      <div class="contact-val">COO, Suman TV Network</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Location</div>
+      <div class="contact-val">Hyderabad, India</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-label">Contact</div>
+      <div class="contact-val">[Email / Phone]</div>
+    </div>
+  </div>
+  <p class="closing-quote">"Instead of interrupting content like ads — your brand becomes part of daily food habits across 30 episodes. This is not a campaign. This is category ownership."</p>
+</section>
+
+<!-- ════════════════════════════════════
+     SPEAKER NOTES PANEL
+════════════════════════════════════ -->
+<div class="notes-panel" id="notesPanel">
+  <div class="notes-header">
+    <span class="notes-label">Speaker Notes — Suman TV Pitch Script</span>
+    <button class="notes-close" onclick="toggleNotes()">✕ Close</button>
+  </div>
+  <div class="notes-slide-title" id="noteSlideTitle">Slide 1 of 12</div>
+  <div class="notes-quote" id="notesQuote"></div>
+  <div class="notes-body" id="notesBody"></div>
+  <div class="notes-nav">
+    <button onclick="prevNote()">← Prev</button>
+    <button onclick="nextNote()">Next →</button>
+    <span class="notes-counter" id="notesCounter">1 / 12</span>
+  </div>
+</div>
+
+<script>
+const notes = [
+  {
+    slide: "Slide 1 — Cover",
+    quote: "Welcome. What you're about to see is not just a content show pitch. It's a first-mover opportunity to own India's most underserved media category — preventive health for the mass market.",
+    body: "Set the stage slowly. Let the title sit. Pause on the '₹100 a Day' line — it's the hook that immediately answers the viewer's most common objection. Mention Suman TV's scale early, so the sponsor feels the weight of what they're stepping into before you even get to the data slides."
+  },
+  {
+    slide: "Slide 2 — The Problem: India's Hidden Hunger Crisis",
+    quote: "The crisis isn't visible on any plate — and that's exactly why no brand has owned this space yet. We're offering you first-mover advantage in a ₹4.5 lakh crore preventive health market.",
+    body: "Lean into the '74% Vitamin D deficiency' stat — it hits sponsors hard because it applies to their own employees and families. The key emotional beat: 'They eat three meals a day and still suffer.' This creates the urgency that makes the solution feel necessary, not optional. End this slide with: 'No content network has solved this at scale. Until now.'"
+  },
+  {
+    slide: "Slide 3 — The Solution: The ₹100 Revolution",
+    quote: "We're not asking your brand to sponsor a show. We're inviting you to own a daily health ritual — the ₹100 practice of 10 crore Telugu households.",
+    body: "The ₹100 budget breakdown on the right is powerful — walk through it slowly. It makes the concept tangible. Key line: 'Every ingredient your brand provides can live inside this stack.' For food brand sponsors in the room, this is the moment they realize their product IS the show, not just in it."
+  },
+  {
+    slide: "Slide 4 — Content Engineering: The Science of Living Framework",
+    quote: "Pillar 1 is where your food brand lives. Pillar 2 is where your spice brand becomes a ritual. Pillar 3 is where your lifestyle brand becomes a philosophy. We've built the entire content architecture to accommodate your category naturally.",
+    body: "Map each pillar to the sponsor in the room before this slide. If you're pitching ITC Spices, emphasize Pillar 2 heavily. If you're pitching Philips, focus on Pillar 1's kitchen demo angle. The framework shows the sponsor they belong here — it's not forced integration, it's natural alignment."
+  },
+  {
+    slide: "Slide 5 — Season 1: 30-Episode Architecture",
+    quote: "Every single episode — all 30 — closes with your brand's call-to-action. Not as an ad. As the solution the viewer just learned they need.",
+    body: "Point out the Episode Flow bar at the bottom. Walk through it step by step. Emphasize: 'The sponsor CTA slot is the LAST thing the viewer sees, right after they've just been taught why they need a high-protein meal or a better cooking oil.' That's intent-rich placement money cannot normally buy. Mention that each Block can be sold independently for category-specific sponsors."
+  },
+  {
+    slide: "Slide 6 — Audience Persona: Who Is Watching?",
+    quote: "This isn't an audience that watches health content and forgets it. This is an audience that watches, acts, and tells their family. Your brand recommendation from this screen carries the weight of a doctor's prescription.",
+    body: "The ₹8K–₹40K discretionary spend stat is the number that converts CFOs. Emphasize that this isn't a passive entertainment audience — it's a high-intent, high-trust community actively seeking to spend money on their health. The 3–8 year channel loyalty stat proves this isn't a one-time exposure — it's a relationship the brand is walking into."
+  },
+  {
+    slide: "Slide 7 — Sponsor Integration: Food Brands",
+    quote: "Every Indian family will associate your oil / spice / staple with the healthiest version of their kitchen. That's brand equity no ad spend can manufacture.",
+    body: "For FMCG food brands, the 'Ingredient of the Episode' concept is transformative. Frame it this way: 'Your product is not featured in the show — your product IS the episode.' The 2M+ impressions per food segment number should be compared to their current CPM on YouTube ads. The integration cost-per-impression is typically 5–10x more efficient with content integration vs. pre-roll."
+  },
+  {
+    slide: "Slide 8 — Sponsor Integration: Electronics & Kitchen Tech",
+    quote: "Your induction stove isn't a convenience appliance in this show. It's a health intervention device. That repositioning alone is worth the entire investment.",
+    body: "Electronics brands often struggle with contextual relevance in health content. This show solves that. Key insight to share: 'When a nutritionist demonstrates that a specific cooking method preserves more Vitamin C, and your induction stove enables that method — you've just created a health recommendation, not an ad.' The Smart Cooking Challenge format is designed to go viral organically."
+  },
+  {
+    slide: "Slide 9 — Sponsor Integration: Lifestyle & Real Estate",
+    quote: "Your real estate project, your furniture brand, your wellness center — we make it the destination this audience is health-motivated to aspire toward. That's not advertising. That's category redefinition.",
+    body: "This is the money slide — spend extra time here with lifestyle and real estate brands. The mock integration visual shows them exactly what their brand looks like in the show. Walk through it: left panel (the healthy kitchen scene), right panel (their brand), powered-by strip (constant visibility). Key stat: 5M+ lifestyle segment impressions. Ask them: 'Where else can you show a real family choosing a healthy home — and have your brand be the choice they make?'"
+  },
+  {
+    slide: "Slide 10 — Suman TV: The Platform Power",
+    quote: "You can buy reach anywhere. What you cannot buy is 10 crore people who trust a channel with their family's health decisions. That trust took us a decade to build. You can access it in one partnership.",
+    body: "The 3–8% engagement rate is the stat to linger on. Average YouTube engagement for branded content is 0.5–1.5%. We operate at 3–8%. This means our audience actively engages — comments, shares, implements. The 100+ doctor partnerships is a credibility multiplier — sponsors get implicit association with medical authority. End with: 'We are the most trusted health media brand in Telugu-speaking India. This show is built on that foundation.'"
+  },
+  {
+    slide: "Slide 11 — Sponsorship Tiers & Packages",
+    quote: "The Title Sponsor slot is being offered to one brand only. Once that conversation closes, this window shuts. The question isn't whether you can afford to be in this — the question is whether you can afford not to be.",
+    body: "Create urgency around the Title Sponsor tier — one brand, category-exclusive, Season 1 only. The featured (green-bordered) card makes this visually clear. For brands on the fence, position the Lifestyle Partner tier as the 'test before you commit' option. Always close by saying: 'We can have a customized proposal specific to your brand's integration on your desk within 48 hours of this conversation.'"
+  },
+  {
+    slide: "Slide 12 — CTA: Let's Build India's Health Revolution Together",
+    quote: "The revolution is launching. The only question is whether your brand is at the front of it or watching it from the sideline.",
+    body: "Close with energy. Do not trail off. The three-step CTA is deliberately simple — Strategy Call → Custom Proposal (48hrs) → Lock Position. Fill in your actual contact details before every meeting. The closing quote on screen should be read aloud verbatim: 'Instead of interrupting content like ads — your brand becomes part of daily food habits across 30 episodes. This is not a campaign. This is category ownership.' Then be quiet. Let the silence work."
+  }
+];
+
+let currentNote = 0;
+let notesOpen = false;
+
+function toggleNotes() {
+  notesOpen = !notesOpen;
+  document.getElementById('notesPanel').classList.toggle('open', notesOpen);
+  if (notesOpen) updateNotes();
+}
+
+function updateNotes() {
+  const n = notes[currentNote];
+  document.getElementById('noteSlideTitle').textContent = n.slide;
+  document.getElementById('notesQuote').textContent = '"' + n.quote + '"';
+  document.getElementById('notesBody').textContent = n.body;
+  document.getElementById('notesCounter').textContent = (currentNote + 1) + ' / ' + notes.length;
+}
+
+function nextNote() {
+  if (currentNote < notes.length - 1) {
+    currentNote++;
+    updateNotes();
+    document.getElementById('s' + (currentNote + 1)).scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function prevNote() {
+  if (currentNote > 0) {
+    currentNote--;
+    updateNotes();
+    document.getElementById('s' + (currentNote + 1)).scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// Scroll spy for nav pills + notes sync
+const slides = document.querySelectorAll('.slide');
+const pills = document.querySelectorAll('.nav-pill');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const idx = parseInt(entry.target.dataset.slide) - 1;
+      pills.forEach(p => p.classList.remove('active'));
+      if (pills[idx]) pills[idx].classList.add('active');
+      if (notesOpen) { currentNote = idx; updateNotes(); }
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.3 });
+
+slides.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
