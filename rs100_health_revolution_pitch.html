@@ -36,47 +36,49 @@
   /* ── NAVIGATION ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(26,26,24,0.92); backdrop-filter: blur(12px);
+    background: rgba(26,26,24,0.95); backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
-    padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
+    padding: 0 16px 0 20px;
+    display: flex; align-items: center; gap: 12px;
+    height: 48px;
   }
   .nav-brand {
     font-family: 'Space Mono', monospace;
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--green-light);
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--green-light); white-space: nowrap; flex-shrink: 0;
   }
   .nav-pills {
-    display: flex; gap: 4px; overflow-x: auto;
+    display: flex; gap: 2px; overflow-x: auto; flex: 1;
+    scrollbar-width: none; -ms-overflow-style: none;
   }
+  .nav-pills::-webkit-scrollbar { display: none; }
   .nav-pill {
-    padding: 5px 14px; border-radius: 20px;
-    font-size: 11px; font-weight: 500; letter-spacing: 0.5px;
-    color: rgba(255,255,255,0.5); background: transparent;
+    padding: 4px 10px; border-radius: 20px;
+    font-size: 10.5px; font-weight: 500; letter-spacing: 0.3px;
+    color: rgba(255,255,255,0.45); background: transparent;
     border: 1px solid transparent; cursor: pointer;
-    transition: all 0.2s; white-space: nowrap;
+    transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
     font-family: 'DM Sans', sans-serif;
   }
   .nav-pill:hover { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.2); }
   .nav-pill.active { color: var(--green-dark); background: var(--green-light); border-color: var(--green-light); }
   .nav-toggle {
-    font-size: 11px; color: rgba(255,255,255,0.4); cursor: pointer;
-    font-family: 'Space Mono', monospace; letter-spacing: 1px;
-    border: 1px solid rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 4px;
-    background: transparent; white-space: nowrap;
+    font-size: 10px; color: rgba(255,255,255,0.4); cursor: pointer;
+    font-family: 'Space Mono', monospace; letter-spacing: 0.5px;
+    border: 1px solid rgba(255,255,255,0.15); padding: 4px 10px; border-radius: 4px;
+    background: transparent; white-space: nowrap; flex-shrink: 0;
     transition: all 0.2s;
   }
   .nav-toggle:hover { color: var(--green-light); border-color: var(--green-light); }
 
   /* ── SLIDES ── */
   .slide {
-    min-height: 100vh; padding: 120px 80px 80px;
+    min-height: 100vh; padding: 108px 80px 80px;
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; justify-content: center;
   }
   .slide-num {
-    position: absolute; top: 72px; right: 80px;
+    position: absolute; top: 64px; right: 80px;
     font-family: 'Space Mono', monospace;
     font-size: 11px; letter-spacing: 2px;
   }
@@ -683,7 +685,7 @@
         <div style="margin-top:10px; display:flex; flex-direction:column; gap:5px;">
           <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Ergonomic kitchen design on screen</span>
           <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ Natural materials, wellness aesthetic</span>
-          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ "Healthy Home by [Brand]" lower-third tag</span>
+          <span style="font-size:12px; color:rgba(250,248,243,0.5);">→ "Healthy Home by Suman TV" lower-third tag</span>
         </div>
       </div>
       <div class="mock-block">
