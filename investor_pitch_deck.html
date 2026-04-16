@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetaFit — Investor Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0A0C;
+  --off-black: #111116;
+  --dark: #16161E;
+  --dark2: #1E1E28;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --white: #FFFFFF;
+  --off-white: #E8E8F0;
+  --muted: rgba(232,232,240,0.45);
+  --muted2: rgba(232,232,240,0.25);
+  --accent: #00E5B4;
+  --accent-dim: rgba(0,229,180,0.15);
+  --accent-mid: rgba(0,229,180,0.35);
+  --amber: #F5A623;
+  --amber-dim: rgba(245,166,35,0.15);
+  --red: #FF4D4D;
+  --red-dim: rgba(255,77,77,0.12);
+  --blue: #4D9EFF;
+  --blue-dim: rgba(77,158,255,0.12);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--black);
+  color: var(--off-white);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* NAV BAR */
+.nav {
+  position: fixed; top:0; left:0; right:0; z-index:200;
+  height:52px; display:flex; align-items:center;
+  justify-content:space-between; padding:0 32px;
+  background: rgba(10,10,12,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-size:14px; font-weight:700; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--accent);
+}
+.nav-center {
+  position:absolute; left:50%; transform:translateX(-50%);
+  display:flex; gap:3px;
+}
+.nav-dot {
+  width:5px; height:5px; border-radius:50%;
+  background:var(--border2); cursor:pointer; transition:all 0.2s;
+}
+.nav-dot.active { background:var(--accent); transform:scale(1.4); }
+.nav-right {
+  display:flex; align-items:center; gap:12px;
+}
+.nav-counter {
+  font-family:'DM Mono',monospace; font-size:11px;
+  color:var(--muted); letter-spacing:0.1em;
+}
+.nav-btn {
+  background:none; border:1px solid var(--border2);
+  color:var(--off-white); padding:5px 14px;
+  font-family:'Syne',sans-serif; font-size:11px;
+  font-weight:600; letter-spacing:0.08em;
+  cursor:pointer; border-radius:3px; transition:all 0.2s;
+  text-transform:uppercase;
+}
+.nav-btn:hover { border-color:var(--accent); color:var(--accent); }
+
+/* PROGRESS */
+#pbar {
+  position:fixed; top:52px; left:0; z-index:199;
+  height:2px; background:var(--accent);
+  transition:width 0.4s cubic-bezier(0.4,0,0.2,1);
+  box-shadow:0 0 12px var(--accent);
+}
+
+/* SLIDES */
+.deck { padding-top:52px; height:100vh; }
+.slide {
+  display:none; height:calc(100vh - 52px);
+  position:relative; overflow:hidden;
+}
+.slide.active { display:flex; }
+
+/* ---- SHARED LAYOUT ATOMS ---- */
+.slide-pad { padding:52px 72px 48px; flex:1; display:flex; flex-direction:column; }
+.slide-tag {
+  font-size:10px; font-weight:700; letter-spacing:0.25em;
+  text-transform:uppercase; color:var(--accent);
+  display:flex; align-items:center; gap:8px; margin-bottom:20px;
+}
+.slide-tag::before {
+  content:''; display:block; width:20px; height:1px; background:var(--accent);
+}
+.slide-h1 {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(36px,4vw,58px); font-weight:400;
+  line-height:1.08; color:var(--white); margin-bottom:12px;
+}
+.slide-h1 em { font-style:italic; color:var(--accent); }
+.slide-h1 s { text-decoration:line-through; color:var(--muted); text-decoration-color:var(--red); }
+.slide-sub {
+  font-size:15px; font-weight:400; color:var(--muted);
+  max-width:640px; line-height:1.65; margin-bottom:0;
+}
+.h-rule {
+  width:100%; height:1px; background:var(--border);
+  margin:24px 0;
+}
+.mono { font-family:'DM Mono',monospace; }
+
+/* STAT CHIPS */
+.stat-row { display:flex; gap:16px; }
+.stat-chip {
+  flex:1; background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px; padding:22px 20px;
+  position:relative; overflow:hidden;
+}
+.stat-chip::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+}
+.stat-chip.accent::before { background:var(--accent); }
+.stat-chip.amber::before { background:var(--amber); }
+.stat-chip.red::before { background:var(--red); }
+.stat-chip.blue::before { background:var(--blue); }
+.chip-num {
+  font-family:'Instrument Serif',serif;
+  font-size:42px; font-weight:400; line-height:1;
+  margin-bottom:6px;
+}
+.chip-num.accent { color:var(--accent); }
+.chip-num.amber { color:var(--amber); }
+.chip-num.red { color:var(--red); }
+.chip-num.blue { color:var(--blue); }
+.chip-label { font-size:12px; font-weight:500; color:var(--muted); line-height:1.45; }
+
+/* BULLET LIST */
+.blist { display:flex; flex-direction:column; gap:12px; list-style:none; }
+.blist li {
+  display:flex; gap:12px; align-items:flex-start;
+  font-size:14px; color:rgba(232,232,240,0.75); line-height:1.55;
+}
+.blist li::before {
+  content:''; flex-shrink:0; width:5px; height:5px;
+  border-radius:50%; background:var(--accent); margin-top:8px;
+}
+.blist li strong { color:var(--white); font-weight:600; }
+.blist.red li::before { background:var(--red); }
+.blist.amber li::before { background:var(--amber); }
+
+/* CARDS */
+.card-grid { display:grid; gap:16px; }
+.card-grid.g2 { grid-template-columns:1fr 1fr; }
+.card-grid.g3 { grid-template-columns:1fr 1fr 1fr; }
+.card-grid.g4 { grid-template-columns:1fr 1fr 1fr 1fr; }
+.card {
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:8px; padding:22px;
+  transition:border-color 0.2s;
+}
+.card:hover { border-color:var(--border2); }
+.card.accent { border-top:2px solid var(--accent); }
+.card.amber { border-top:2px solid var(--amber); }
+.card.red { border-top:2px solid var(--red); }
+.card.blue { border-top:2px solid var(--blue); }
+.card-icon { font-size:22px; margin-bottom:12px; }
+.card-t {
+  font-size:12px; font-weight:700; letter-spacing:0.06em;
+  text-transform:uppercase; color:var(--white); margin-bottom:8px;
+}
+.card-b { font-size:13px; color:var(--muted); line-height:1.6; }
+
+/* TWO COL */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.col-h {
+  font-size:10px; font-weight:700; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--muted2);
+  margin-bottom:18px; padding-bottom:10px;
+  border-bottom:1px solid var(--border);
+}
+
+/* ═══════════════════════════════════
+   SLIDE 1 – TITLE
+═══════════════════════════════════ */
+#s1 {
+  background: var(--black);
+  align-items:stretch;
+}
+#s1 .bg-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(0,229,180,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,180,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+}
+#s1 .bg-glow {
+  position:absolute; top:-20%; right:-10%;
+  width:60vw; height:60vw; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,229,180,0.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+#s1 .content {
+  position:relative; z-index:1; flex:1;
+  display:flex; flex-direction:column;
+  justify-content:center; padding:0 72px;
+  max-width:800px;
+}
+.s1-eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:0.3em;
+  text-transform:uppercase; color:var(--accent);
+  margin-bottom:28px; display:flex; align-items:center; gap:12px;
+}
+.s1-eyebrow::before { content:''; width:40px; height:1px; background:var(--accent); }
+.s1-title {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(48px,5.5vw,72px); font-weight:400;
+  line-height:1.04; color:var(--white); margin-bottom:24px;
+}
+.s1-title em { font-style:italic; color:var(--accent); }
+.s1-desc {
+  font-size:15px; color:var(--muted); line-height:1.7;
+  max-width:540px; margin-bottom:48px;
+}
+.s1-pills { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:56px; }
+.pill {
+  padding:7px 16px; border-radius:4px; font-size:11px;
+  font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+}
+.pill-accent { background:var(--accent-dim); color:var(--accent); border:1px solid var(--accent-mid); }
+.pill-amber { background:var(--amber-dim); color:var(--amber); border:1px solid rgba(245,166,35,0.3); }
+.pill-blue { background:var(--blue-dim); color:var(--blue); border:1px solid rgba(77,158,255,0.3); }
+.s1-meta { display:flex; gap:40px; }
+.s1-meta-item label {
+  font-size:10px; letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--muted2); display:block; margin-bottom:5px;
+}
+.s1-meta-item span { font-size:13px; color:var(--off-white); font-weight:500; }
+.s1-right {
+  position:absolute; right:0; top:0; bottom:0;
+  width:420px; display:flex; align-items:center;
+  justify-content:center;
+}
+.orbit-wrap {
+  position:relative; width:320px; height:320px;
+}
+.orbit-center {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  width:100px; height:100px; border-radius:50%;
+  background:var(--accent-dim); border:2px solid var(--accent);
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; z-index:2;
+}
+.orbit-center .oc-num {
+  font-family:'Instrument Serif',serif;
+  font-size:30px; color:var(--accent); line-height:1;
+}
+.orbit-center .oc-label {
+  font-size:8px; font-weight:700; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--accent);
+}
+.orbit-ring {
+  position:absolute; top:50%; left:50%;
+  border-radius:50%; border:1px dashed rgba(0,229,180,0.15);
+  transform:translate(-50%,-50%);
+}
+.orbit-ring.r1 { width:160px; height:160px; }
+.orbit-ring.r2 { width:260px; height:260px; }
+.orbit-ring.r3 { width:340px; height:340px; }
+.orbit-node {
+  position:absolute; width:46px; height:46px;
+  border-radius:50%; background:var(--dark2);
+  border:1px solid var(--border2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:18px; top:50%; left:50%;
+  transform:translate(-50%,-50%);
+}
+
+/* ═══════════════════════════════════
+   SLIDE 2 – INSIGHT
+═══════════════════════════════════ */
+#s2 { background:var(--off-black); }
+.insight-block {
+  background:var(--dark); border:1px solid var(--border);
+  border-radius:10px; padding:36px 40px;
+  margin-bottom:28px; position:relative; overflow:hidden;
+}
+.insight-block::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:4px; background:var(--accent);
+}
+.insight-text {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(22px,2.5vw,30px); font-weight:400;
+  line-height:1.35; color:var(--white);
+}
+.insight-text em { font-style:italic; color:var(--accent); }
+.break-chain { display:flex; align-items:center; gap:0; margin-top:28px; }
+.chain-item {
+  flex:1; text-align:center; padding:18px 12px;
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px;
+}
+.chain-item .ci-icon { font-size:22px; margin-bottom:8px; }
+.chain-item .ci-label { font-size:12px; font-weight:600; color:var(--off-white); }
+.chain-item .ci-sub { font-size:11px; color:var(--muted); margin-top:3px; }
+.chain-arrow { width:28px; text-align:center; color:var(--muted2); font-size:16px; flex-shrink:0; }
+.chain-break {
+  background:var(--red-dim); border-color:rgba(255,77,77,0.3);
+  position:relative;
+}
+.chain-break .ci-label { color:var(--red); }
+.chain-break::after {
+  content:'BREAKS HERE'; position:absolute; top:-10px;
+  left:50%; transform:translateX(-50%);
+  font-size:8px; font-weight:700; letter-spacing:0.15em;
+  color:var(--red); background:var(--off-black);
+  padding:2px 8px; border:1px solid rgba(255,77,77,0.4);
+  border-radius:3px; white-space:nowrap;
+}
+
+/* ═══════════════════════════════════
+   SLIDE 5 – THESIS (DARK, DRAMATIC)
+═══════════════════════════════════ */
+#s5 {
+  background:var(--black);
+  align-items:center; justify-content:center;
+  text-align:center; flex-direction:column;
+}
+#s5 .bg-glow {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:70vw; height:70vw; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,229,180,0.05) 0%, transparent 65%);
+  pointer-events:none;
+}
+.thesis-pre {
+  font-size:11px; font-weight:700; letter-spacing:0.3em;
+  text-transform:uppercase; color:var(--muted2); margin-bottom:24px;
+}
+.thesis-main {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(32px,4.5vw,60px); font-weight:400;
+  line-height:1.12; color:var(--white); max-width:800px;
+  margin:0 auto 24px;
+}
+.thesis-main em { font-style:italic; color:var(--accent); }
+.thesis-unlock {
+  font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--muted); margin-top:20px; margin-bottom:40px;
+}
+.thesis-unlock span { color:var(--accent); }
+.thesis-formula {
+  display:flex; align-items:center; gap:16px;
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:8px; padding:20px 32px;
+  font-size:14px; font-weight:600;
+}
+.tf-item { text-align:center; }
+.tf-item .tf-top {
+  font-family:'Instrument Serif',serif; font-size:22px;
+  color:var(--white); line-height:1;
+}
+.tf-item .tf-bot {
+  font-size:10px; font-weight:700; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted); margin-top:4px;
+}
+.tf-op {
+  font-size:24px; color:var(--muted2);
+  font-family:'Instrument Serif',serif;
+}
+.tf-eq { font-size:24px; color:var(--accent); }
+.tf-result .tf-top { color:var(--accent); font-size:26px; }
+
+/* ═══════════════════════════════════
+   MOAT / DATA FLYWHEEL
+═══════════════════════════════════ */
+.flywheel-wrap {
+  position:relative; display:flex; align-items:center;
+  justify-content:center; flex:1;
+}
+.flywheel {
+  position:relative; width:280px; height:280px;
+}
+.fw-center {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:80px; height:80px; border-radius:50%;
+  background:var(--accent-dim); border:2px solid var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-size:11px; font-weight:700; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--accent); text-align:center;
+  line-height:1.3;
+}
+.fw-ring {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:250px; height:250px; border-radius:50%;
+  border:1px dashed rgba(0,229,180,0.2);
+}
+.fw-node {
+  position:absolute; top:50%; left:50%;
+  width:70px;
+}
+.fw-node-box {
+  background:var(--dark2); border:1px solid var(--border2);
+  border-radius:5px; padding:8px 10px; text-align:center;
+  font-size:10px; font-weight:700; letter-spacing:0.05em;
+  text-transform:uppercase; color:var(--off-white); line-height:1.4;
+  margin-left:-35px; margin-top:-25px;
+  white-space:nowrap;
+}
+.fw-arrow {
+  position:absolute; top:50%; left:50%;
+  width:90px; height:1px; background:var(--border2);
+  transform-origin:left center;
+  display:flex; align-items:center; justify-content:flex-end;
+}
+
+/* TIMELINE PHASES */
+.phase-row { display:flex; gap:12px; }
+.phase-card {
+  flex:1; background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px; padding:20px 16px;
+  position:relative; overflow:hidden;
+}
+.phase-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+}
+.phase-card.p1::before { background:var(--accent); }
+.phase-card.p2::before { background:var(--blue); }
+.phase-card.p3::before { background:var(--amber); }
+.phase-card.p4::before { background:var(--red); }
+.phase-num {
+  font-family:'DM Mono',monospace; font-size:10px;
+  letter-spacing:0.1em; color:var(--muted2); margin-bottom:8px;
+}
+.phase-title { font-size:13px; font-weight:700; color:var(--white); margin-bottom:10px; }
+.phase-items { display:flex; flex-direction:column; gap:5px; }
+.phase-items span {
+  font-size:11px; color:var(--muted);
+  display:flex; align-items:center; gap:6px;
+}
+.phase-items span::before { content:'→'; color:var(--accent); font-size:10px; }
+
+/* ECON TABLE */
+.econ-table { width:100%; border-collapse:collapse; }
+.econ-table th {
+  text-align:left; font-size:10px; font-weight:700;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--muted2); padding:10px 16px;
+  border-bottom:1px solid var(--border);
+}
+.econ-table td {
+  padding:13px 16px; font-size:13px; color:var(--muted);
+  border-bottom:1px solid var(--border);
+}
+.econ-table tr:last-child td { border-bottom:none; }
+.econ-table td:first-child { font-weight:600; color:var(--off-white); }
+.econ-table td.green { color:var(--accent); font-weight:700; }
+.econ-table td.amber { color:var(--amber); font-weight:700; }
+.econ-table td.red { color:var(--red); }
+.econ-table tbody tr:hover td { background:rgba(255,255,255,0.02); }
+
+/* PROJECTION BARS */
+.proj-row { display:flex; flex-direction:column; gap:16px; }
+.proj-item { display:flex; align-items:center; gap:16px; }
+.proj-label { font-size:12px; font-weight:600; color:var(--off-white); width:56px; flex-shrink:0; }
+.proj-bar-wrap { flex:1; height:38px; background:var(--dark2); border-radius:5px; overflow:hidden; position:relative; }
+.proj-bar {
+  height:100%; border-radius:5px;
+  display:flex; align-items:center; padding-left:14px;
+  font-size:12px; font-weight:700; color:var(--black);
+  transition:width 1s ease;
+}
+.proj-bar.y1 { background:var(--accent); width:8%; }
+.proj-bar.y2 { background:var(--blue); width:30%; color:var(--white); }
+.proj-bar.y3 { background:var(--amber); width:72%; color:var(--black); }
+.proj-bar.y4 { background:linear-gradient(90deg,var(--accent),var(--blue)); width:100%; color:var(--black); }
+.proj-rev { font-size:12px; font-family:'DM Mono',monospace; color:var(--muted); width:120px; flex-shrink:0; text-align:right; }
+
+/* ASK / CTA */
+#s20 {
+  background:var(--black);
+  align-items:center; justify-content:center;
+  flex-direction:column; text-align:center;
+}
+#s20 .bg-glow {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:80vw; height:80vw; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,229,180,0.04) 0%, transparent 65%);
+}
+.ask-title {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(40px,5vw,64px); font-weight:400;
+  color:var(--white); line-height:1.08; margin-bottom:16px;
+}
+.ask-title em { font-style:italic; color:var(--accent); }
+.ask-sub { font-size:15px; color:var(--muted); max-width:560px; line-height:1.65; margin-bottom:48px; }
+.ask-amount {
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(56px,6vw,80px); font-weight:400;
+  color:var(--accent); line-height:1; margin-bottom:8px;
+}
+.ask-amount-label {
+  font-size:11px; font-weight:700; letter-spacing:0.2em;
+  text-transform:uppercase; color:var(--muted2); margin-bottom:44px;
+}
+.use-grid { display:flex; gap:20px; margin-bottom:48px; }
+.use-item {
+  flex:1; background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px; padding:16px; text-align:left;
+}
+.use-item .ui-pct { font-family:'DM Mono',monospace; font-size:18px; color:var(--accent); margin-bottom:6px; }
+.use-item .ui-label { font-size:11px; color:var(--muted); font-weight:500; }
+.closing-line {
+  font-family:'Instrument Serif',serif;
+  font-size:18px; font-style:italic;
+  color:var(--muted); max-width:600px; line-height:1.6;
+}
+.closing-line em { color:var(--accent); font-style:normal; font-weight:600; }
+
+/* KEYBOARD HINT */
+.kb { position:fixed; bottom:14px; right:20px; z-index:300;
+  font-size:11px; color:rgba(255,255,255,0.15); font-family:'DM Mono',monospace; }
+
+/* WHY NOW ICONS */
+.now-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+.now-card {
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:8px; padding:28px 20px; text-align:center;
+}
+.now-icon { font-size:32px; margin-bottom:14px; }
+.now-title { font-size:13px; font-weight:700; color:var(--white); margin-bottom:8px; }
+.now-desc { font-size:12px; color:var(--muted); line-height:1.55; }
+
+/* TEAM CARDS */
+.team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+.team-card {
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:8px; padding:28px 22px;
+  border-top:2px solid var(--accent);
+}
+.team-role { font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+.team-name { font-family:'Instrument Serif',serif; font-size:22px; color:var(--white); margin-bottom:8px; }
+.team-creds { font-size:12px; color:var(--muted); line-height:1.6; }
+
+/* MOAT CHIPS */
+.moat-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.moat-item {
+  display:flex; gap:14px; align-items:flex-start;
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px; padding:18px;
+}
+.moat-icon { font-size:22px; flex-shrink:0; }
+.moat-t { font-size:12px; font-weight:700; color:var(--white); margin-bottom:4px; }
+.moat-d { font-size:12px; color:var(--muted); line-height:1.5; }
+
+/* TRACTION ITEMS */
+.traction-list { display:flex; flex-direction:column; gap:12px; }
+.traction-item {
+  display:flex; align-items:center; gap:16px;
+  background:var(--dark2); border:1px solid var(--border);
+  border-radius:6px; padding:16px 20px;
+}
+.tr-icon { font-size:22px; flex-shrink:0; width:40px; text-align:center; }
+.tr-title { font-size:13px; font-weight:700; color:var(--white); margin-bottom:2px; }
+.tr-sub { font-size:12px; color:var(--muted); }
+.tr-badge {
+  margin-left:auto; flex-shrink:0;
+  font-size:10px; font-weight:700; letter-spacing:0.08em;
+  padding:4px 10px; border-radius:3px;
+  text-transform:uppercase;
+}
+.tr-badge.live { background:var(--accent-dim); color:var(--accent); border:1px solid var(--accent-mid); }
+.tr-badge.ready { background:var(--blue-dim); color:var(--blue); border:1px solid rgba(77,158,255,0.3); }
+.tr-badge.wip { background:var(--amber-dim); color:var(--amber); border:1px solid rgba(245,166,35,0.3); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">MetaFit™</div>
+  <div class="nav-center" id="nav-dots"></div>
+  <div class="nav-right">
+    <span class="nav-counter" id="counter">01 / 22</span>
+    <button class="nav-btn" onclick="prev()">← Back</button>
+    <button class="nav-btn" onclick="next()">Next →</button>
+  </div>
+</nav>
+<div id="pbar"></div>
+<div class="kb">← → keys</div>
+
+<div class="deck">
+
+<!-- ══════════════════════════════════════
+  S1 – TITLE
+══════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+  <div class="content">
+    <div class="s1-eyebrow">Investor Pitch · Series Seed · 2025</div>
+    <h1 class="s1-title">India's First<br><em>Compliance-Controlled</em><br>Metabolic Platform</h1>
+    <p class="s1-desc">We don't advise patients on lifestyle. We operationalize it — with controlled nutrition delivery, behavioral tracking, and clinical oversight as a single vertically integrated system.</p>
+    <div class="s1-pills">
+      <span class="pill pill-accent">High ARPU · ₹72K–84K / User</span>
+      <span class="pill pill-amber">100M+ TAM · India</span>
+      <span class="pill pill-blue">B2B2C · Corporate First</span>
+    </div>
+    <div class="s1-meta">
+      <div class="s1-meta-item"><label>Market</label><span>India Metabolic Health</span></div>
+      <div class="s1-meta-item"><label>Model</label><span>Premium Subscription · 90-Day Cohorts</span></div>
+      <div class="s1-meta-item"><label>Stage</label><span>Pre-Seed / Seed</span></div>
+    </div>
+  </div>
+  <div class="s1-right">
+    <div class="orbit-wrap">
+      <div class="orbit-ring r1"></div>
+      <div class="orbit-ring r2"></div>
+      <div class="orbit-ring r3"></div>
+      <div class="orbit-center">
+        <div class="oc-num">90</div>
+        <div class="oc-label">Day<br>Platform</div>
+      </div>
+      <!-- Nodes positioned manually -->
+      <div class="orbit-node" style="top:8%;left:42%;">🏥</div>
+      <div class="orbit-node" style="top:42%;left:85%;">🥗</div>
+      <div class="orbit-node" style="top:80%;left:58%;">📊</div>
+      <div class="orbit-node" style="top:78%;left:22%;">🧠</div>
+      <div class="orbit-node" style="top:38%;left:0%;">🔬</div>
+      <div class="orbit-node" style="top:2%;left:65%;width:38px;height:38px;font-size:14px;">💊</div>
+      <div class="orbit-node" style="top:2%;left:22%;width:38px;height:38px;font-size:14px;">📈</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S2 – THE INSIGHT
+══════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-pad">
+    <div class="slide-tag">The Core Insight</div>
+    <h2 class="slide-h1">The biggest failure in chronic<br>disease is not <em>diagnosis.</em></h2>
+    <p class="slide-sub" style="margin-bottom:28px;">It is the compliance gap that opens the moment a patient walks out of the hospital. Every existing system — hospitals, apps, diet coaches — fails to own this space.</p>
+    <div class="insight-block">
+      <div class="insight-text">
+        Healthcare systems are architected to <em>diagnose and prescribe.</em><br>No system is built to <em>execute</em> the prescription in daily life.
+      </div>
+    </div>
+    <div class="break-chain">
+      <div class="chain-item"><div class="ci-icon">🏥</div><div class="ci-label">Diagnosis</div><div class="ci-sub">Clinical</div></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="ci-icon">💊</div><div class="ci-label">Prescription</div><div class="ci-sub">Medication</div></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item chain-break"><div class="ci-icon">🏠</div><div class="ci-label">Compliance</div><div class="ci-sub">Daily behavior</div></div>
+      <div class="chain-arrow" style="color:var(--red)">→</div>
+      <div class="chain-item" style="border-color:rgba(255,77,77,0.2);background:rgba(255,77,77,0.05)"><div class="ci-icon">📉</div><div class="ci-label" style="color:var(--red)">Progression</div><div class="ci-sub">Disease advances</div></div>
+    </div>
+    <div style="margin-top:24px;padding:16px 20px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;">
+      <strong style="color:var(--accent);font-size:13px;">Our thesis:</strong>
+      <span style="font-size:13px;color:var(--muted);"> Whoever controls daily food and behavior will control metabolic outcomes at scale.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S3 – MARKET SIZE
+══════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-pad">
+    <div class="slide-tag">Market Opportunity</div>
+    <h2 class="slide-h1">A Market Too Large<br>to <em>Ignore</em></h2>
+    <div class="stat-row" style="margin:24px 0 28px;">
+      <div class="stat-chip accent"><div class="chip-num accent">101M+</div><div class="chip-label">Adults with Type 2 Diabetes in India<br>(ICMR, 2023)</div></div>
+      <div class="stat-chip amber"><div class="chip-num amber">136M+</div><div class="chip-label">Prediabetic adults — highest-risk conversion cohort in the world</div></div>
+      <div class="stat-chip blue"><div class="chip-num blue">$36B</div><div class="chip-label">Global metabolic health market by 2028 — growing at 8.5% CAGR</div></div>
+      <div class="stat-chip red"><div class="chip-num red">↓35</div><div class="chip-label">Median age of T2D onset declining — urban IT workforce most affected</div></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-h">Target Segment — Corporate India</div>
+        <ul class="blist">
+          <li><strong>12M+ IT workforce</strong> — sedentary, high-stress, high-income, metabolically at risk</li>
+          <li><strong>₹5,000+ Cr</strong> annual corporate wellness spend — increasing 18% YoY</li>
+          <li><strong>Employer motivation:</strong> absenteeism, healthcare cost, productivity impact of metabolic disease</li>
+          <li><strong>High willingness-to-pay</strong> in premium tech employees — health as aspiration</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-h">Serviceable Market (India, 5-Year)</div>
+        <ul class="blist">
+          <li><strong>SAM Year 1:</strong> Hyderabad + Bengaluru corporate corridor — 80,000+ eligible employees</li>
+          <li><strong>SAM Year 3:</strong> Top 8 cities, 5M+ eligible urban professionals</li>
+          <li><strong>At ₹75K ARPU:</strong> ₹3,750 Cr addressable revenue in top-8 cities alone</li>
+          <li><strong>Insurance channel</strong> (Phase 3) multiplies reach 10×+</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S4 – BROKEN SOLUTIONS
+══════════════════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="slide-pad">
+    <div class="slide-tag">Competitive Landscape</div>
+    <h2 class="slide-h1">Every Existing Solution<br>Has the Same <em>Structural Flaw</em></h2>
+    <p class="slide-sub" style="margin-bottom:28px;">The market is littered with partial solutions. None closes the compliance loop.</p>
+    <div class="card-grid g2">
+      <div class="card red">
+        <div class="card-icon">🏥</div>
+        <div class="card-t">Hospitals & Clinics</div>
+        <div class="card-b">Episodic care model. See patient every 3 months. No visibility into daily behavior. Compliance falls between visits. Repeat deterioration.</div>
+        <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.08em;">✗ NO DAILY CONTROL</div>
+      </div>
+      <div class="card red">
+        <div class="card-icon">📱</div>
+        <div class="card-t">Health Apps & Wearables</div>
+        <div class="card-b">Track behavior without changing it. Engagement drops to &lt;12% at 30 days. No nutritional delivery. No clinical integration. Activity data ≠ outcomes.</div>
+        <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.08em;">✗ HIGH CHURN, NO EXECUTION</div>
+      </div>
+      <div class="card red">
+        <div class="card-icon">🥗</div>
+        <div class="card-t">Diet Plans & Nutritionists</div>
+        <div class="card-b">Advisory only. Willpower-dependent. No delivery infrastructure. No behavioral accountability. Self-reported, unverifiable adherence.</div>
+        <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.08em;">✗ ADVISORY, NOT OPERATIONAL</div>
+      </div>
+      <div class="card red">
+        <div class="card-icon">🏋️</div>
+        <div class="card-t">Fitness & Wellness Programs</div>
+        <div class="card-b">Exercise-only protocols. No metabolic nutrition control. Zero clinical integration. Irrelevant for T2D/prediabetic patients without dietary management.</div>
+        <div style="margin-top:12px;font-size:11px;font-weight:700;color:var(--red);letter-spacing:0.08em;">✗ NO CLINICAL RELEVANCE</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 22px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;display:flex;gap:12px;align-items:center;">
+      <span style="font-size:20px;">💡</span>
+      <span style="font-size:13px;color:var(--off-white);">No existing company <strong>operationalizes</strong> compliance. That is the white space.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S5 – THE THESIS (DRAMATIC)
+══════════════════════════════════════ -->
+<div class="slide" id="s5" style="flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+  <div class="bg-glow"></div>
+  <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 40px;">
+    <div class="thesis-pre">The Fundamental Unlock</div>
+    <div class="thesis-main">
+      Control daily food + behavior<br>→ Control <em>metabolic outcomes.</em>
+    </div>
+    <div class="thesis-unlock">That is the equation no one has built a <span>system</span> around. Until now.</div>
+    <div class="thesis-formula" style="margin:0 auto;display:inline-flex;">
+      <div class="tf-item"><div class="tf-top">Food Control</div><div class="tf-bot">6 days/wk delivery</div></div>
+      <div class="tf-op">+</div>
+      <div class="tf-item"><div class="tf-top">Behavior Loop</div><div class="tf-bot">Daily monitoring</div></div>
+      <div class="tf-op">+</div>
+      <div class="tf-item"><div class="tf-top">Clinical Layer</div><div class="tf-bot">Doctor oversight</div></div>
+      <div class="tf-eq">=</div>
+      <div class="tf-item tf-result"><div class="tf-top">Metabolic Control</div><div class="tf-bot">Measurable outcomes</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S6 – SOLUTION
+══════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-pad">
+    <div class="slide-tag">The Platform</div>
+    <h2 class="slide-h1">A Vertically <em>Integrated</em><br>Metabolic Health System</h2>
+    <div class="card-grid g3" style="margin-top:20px;">
+      <div class="card accent">
+        <div class="card-icon">🏥</div>
+        <div class="card-t">Clinical Layer</div>
+        <div class="card-b">City-recognized endocrinologists and dietitians. Medically validated protocols. Doctor-guided patient selection. Escalation pathways for complex cases.</div>
+      </div>
+      <div class="card accent">
+        <div class="card-icon">📦</div>
+        <div class="card-t">Nutrition Delivery</div>
+        <div class="card-b">6 days/week, 2 meals/day. Cloud kitchen infrastructure. 1,000+ order/day capacity. Metabolically calibrated. No dietary willpower required.</div>
+      </div>
+      <div class="card accent">
+        <div class="card-icon">📡</div>
+        <div class="card-t">Behavioral Tracking</div>
+        <div class="card-b">Daily adherence monitoring. Weekly biomarker check-ins. Structured accountability through cohort community. Real-time data to clinical team.</div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">👥</div>
+        <div class="card-t">Community Accountability</div>
+        <div class="card-b">Cohort-based structure. Peer accountability dramatically improves retention. Weekly group check-ins. Shared progress creates social compliance.</div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">📊</div>
+        <div class="card-t">Outcome Data Engine</div>
+        <div class="card-b">HbA1c, glucose, weight, waist at structured intervals. Longitudinal dataset growing with every cohort. Proprietary metabolic response intelligence.</div>
+      </div>
+      <div class="card amber">
+        <div class="card-icon">🔁</div>
+        <div class="card-t">Recurring Cohort Model</div>
+        <div class="card-b">90-day programs run on rolling cohort cycles. Predictable revenue. Corporate B2B contracts lock in multi-cohort subscriptions. Scalable ops model.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S7 – DIFFERENTIATION
+══════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-pad">
+    <div class="slide-tag">Why We Win</div>
+    <h2 class="slide-h1">We Solve the <s>Advice</s><br><em>Execution</em> Problem</h2>
+    <div class="two-col" style="margin-top:24px;">
+      <div>
+        <div class="col-h">What Everyone Else Sells</div>
+        <ul class="blist red" style="margin-bottom:24px;">
+          <li>General dietary guidelines and advice</li>
+          <li>App-based logging that requires user discipline</li>
+          <li>Periodic coaching sessions with no delivery</li>
+          <li>Fitness plans with no nutritional infrastructure</li>
+          <li>Willpower as the compliance mechanism</li>
+        </ul>
+        <div style="padding:14px 18px;background:var(--red-dim);border:1px solid rgba(255,77,77,0.2);border-radius:6px;font-size:13px;color:rgba(255,77,77,0.8);">
+          Result: &lt;30% adherence in real-world settings after 30 days.
+        </div>
+      </div>
+      <div>
+        <div class="col-h">What We Build</div>
+        <ul class="blist" style="margin-bottom:24px;">
+          <li><strong>Compliance by design:</strong> food is delivered, not advised</li>
+          <li><strong>Behavioral infrastructure:</strong> daily tracking with real consequences</li>
+          <li><strong>Clinical credibility:</strong> doctor-validated, not wellness-branded</li>
+          <li><strong>Cohort accountability:</strong> social layer that sustains motivation</li>
+          <li><strong>Outcome measurement:</strong> HbA1c data makes results undeniable</li>
+        </ul>
+        <div style="padding:14px 18px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;font-size:13px;color:var(--accent);">
+          Result: Structured environment replaces willpower with operational systems.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S8 – PRODUCT MODEL
+══════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-pad">
+    <div class="slide-tag">Product Architecture</div>
+    <h2 class="slide-h1">The 90-Day <em>Cohort</em><br>Intervention Program</h2>
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <div class="col-h">Program Mechanics</div>
+        <div class="traction-list">
+          <div class="traction-item"><div class="tr-icon">📅</div><div><div class="tr-title">90-Day Fixed Cohort</div><div class="tr-sub">Defined start/end. Rolling monthly enrollment available.</div></div><div class="tr-badge live">Core Unit</div></div>
+          <div class="traction-item"><div class="tr-icon">📦</div><div><div class="tr-title">6 Days/Week Meal Delivery</div><div class="tr-sub">2 meals/day. Metabolically calibrated per patient profile.</div></div><div class="tr-badge live">Operational</div></div>
+          <div class="traction-item"><div class="tr-icon">🩺</div><div><div class="tr-title">3× HbA1c Testing</div><div class="tr-sub">Baseline · Week 6 · Week 12. Clinical outcome measurement.</div></div><div class="tr-badge live">Structured</div></div>
+          <div class="traction-item"><div class="tr-icon">📊</div><div><div class="tr-title">Weekly Monitoring Loop</div><div class="tr-sub">Weight, glucose, adherence, energy — every 7 days.</div></div><div class="tr-badge ready">Tracked</div></div>
+          <div class="traction-item"><div class="tr-icon">👥</div><div><div class="tr-title">Cohort Community</div><div class="tr-sub">Accountability group of 20–50 participants per cohort cycle.</div></div><div class="tr-badge ready">Live</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-h">Dual-Track Design</div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:rgba(0,229,180,0.05);border:1px solid rgba(0,229,180,0.2);border-radius:8px;padding:22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Track A · 60%</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:20px;color:var(--white);margin-bottom:10px;">Clinical Intervention</div>
+            <ul class="blist" style="font-size:12px;">
+              <li>Type 2 diabetes, HbA1c ≥6.5%</li>
+              <li>Prediabetes, hospital-referred</li>
+              <li>Medication compliance integration</li>
+            </ul>
+          </div>
+          <div style="background:rgba(77,158,255,0.05);border:1px solid rgba(77,158,255,0.2);border-radius:8px;padding:22px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;">Track B · 40%</div>
+            <div style="font-family:'Instrument Serif',serif;font-size:20px;color:var(--white);margin-bottom:10px;">Preventive Optimization</div>
+            <ul class="blist" style="font-size:12px;">
+              <li>Metabolic risk indicators</li>
+              <li>High-risk BMI, sedentary professionals</li>
+              <li>Early intervention, avoid conversion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S9 – BUSINESS MODEL
+══════════════════════════════════════ -->
+<div class="slide" id="s9">
+  <div class="slide-pad">
+    <div class="slide-tag">Business Model</div>
+    <h2 class="slide-h1">Premium Subscription.<br><em>High ARPU.</em> Recurring Revenue.</h2>
+    <div class="stat-row" style="margin:20px 0 24px;">
+      <div class="stat-chip accent"><div class="chip-num accent">₹25K</div><div class="chip-label">Per user / month<br>Base program price</div></div>
+      <div class="stat-chip accent"><div class="chip-num accent">₹75K</div><div class="chip-label">ARPU per 90-day cohort<br>per participant</div></div>
+      <div class="stat-chip amber"><div class="chip-num amber">₹3Cr+</div><div class="chip-label">Annual revenue at just<br>400 active participants</div></div>
+      <div class="stat-chip blue"><div class="chip-num blue">B2B2C</div><div class="chip-label">Corporate pays, employee<br>participates. Low CAC model.</div></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-h">Revenue Streams</div>
+        <table class="econ-table">
+          <thead><tr><th>Stream</th><th>Model</th><th>Margin</th></tr></thead>
+          <tbody>
+            <tr><td>Program Subscription</td><td>₹25K/mo × 3 months</td><td class="green">Primary</td></tr>
+            <tr><td>Corporate B2B Contract</td><td>Bulk cohort commitment</td><td class="green">High Volume</td></tr>
+            <tr><td>Diagnostic Integration</td><td>Lab tests per participant</td><td class="amber">Ancillary</td></tr>
+            <tr><td>Hospital Referral Fee</td><td>Per enrolled patient</td><td class="amber">Partnership</td></tr>
+            <tr><td>Data Licensing (Phase 3)</td><td>Anonymized cohort insights</td><td class="blue">Future</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="col-h">Why Corporate B2B First</div>
+        <ul class="blist">
+          <li><strong>Lower CAC:</strong> one corporate deal = 50–200 participants</li>
+          <li><strong>Faster sales cycle</strong> vs. consumer DTC acquisition</li>
+          <li><strong>Employer pays:</strong> participant's cost friction removed</li>
+          <li><strong>Controlled environment:</strong> delivery to campus, higher adherence</li>
+          <li><strong>Case study velocity:</strong> corporate cohorts generate outcome data faster</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S10 – UNIT ECONOMICS
+══════════════════════════════════════ -->
+<div class="slide" id="s10">
+  <div class="slide-pad">
+    <div class="slide-tag">Unit Economics</div>
+    <h2 class="slide-h1">Strong Margins That<br><em>Improve at Scale</em></h2>
+    <div class="two-col" style="margin-top:24px;">
+      <div>
+        <div class="col-h">Per-User P&L — 90 Day Program</div>
+        <table class="econ-table">
+          <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Revenue (₹25K × 3 months)</td><td class="green">₹75,000</td></tr>
+            <tr><td></td><td></td></tr>
+            <tr><td>Food & Kitchen Cost</td><td class="red">– ₹18,000</td></tr>
+            <tr><td>Logistics & Delivery</td><td class="red">– ₹5,400</td></tr>
+            <tr><td>Dietitian / Clinical Ops</td><td class="red">– ₹4,500</td></tr>
+            <tr><td>Labs (3× HbA1c)</td><td class="red">– ₹2,700</td></tr>
+            <tr><td>Tech + Admin Overhead</td><td class="red">– ₹2,400</td></tr>
+            <tr><td><strong>Gross Profit</strong></td><td class="green" style="font-size:15px;">₹42,000 (56%)</td></tr>
+            <tr><td>Fully-Loaded Contribution</td><td class="amber">~₹28,000 (37%)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="col-h">Scale Dynamics</div>
+        <ul class="blist" style="margin-bottom:20px;">
+          <li><strong>Kitchen utilization:</strong> fixed cost amortizes over volume — margin improves 8–12% from 100 to 1000 orders/day</li>
+          <li><strong>Logistics density:</strong> corporate campus delivery clusters cut per-unit cost significantly</li>
+          <li><strong>Clinical team leverage:</strong> 1 dietitian → 40–60 participants. Near-zero incremental cost per additional participant</li>
+          <li><strong>B2B volume discount structure</strong> does not materially erode unit margin at target contract sizes</li>
+        </ul>
+        <div style="padding:18px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">Scale Target</div>
+          <div style="font-size:13px;color:var(--off-white);">At 1,000 active participants/month: <span style="color:var(--accent);font-weight:700;">₹7.5 Cr revenue/month</span> with gross margins expanding to <span style="color:var(--accent);font-weight:700;">60%+</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S11 – TRACTION
+══════════════════════════════════════ -->
+<div class="slide" id="s11">
+  <div class="slide-pad">
+    <div class="slide-tag">Early Traction</div>
+    <h2 class="slide-h1">Infrastructure Ready.<br><em>Pipeline Active.</em></h2>
+    <p class="slide-sub" style="margin-bottom:24px;">This is not a deck built on assumptions. Core operational infrastructure is live and commercial pilots are in progress.</p>
+    <div class="traction-list">
+      <div class="traction-item"><div class="tr-icon">🏭</div><div><div class="tr-title">Cloud Kitchen — Operational</div><div class="tr-sub">1,000+ order/day capacity. FSSAI compliant. Standardized metabolic meal protocols in production.</div></div><div class="tr-badge live">Live</div></div>
+      <div class="traction-item"><div class="tr-icon">👩‍⚕️</div><div><div class="tr-title">Medical Expert Network</div><div class="tr-sub">City-recognized endocrinologists and dietitians with 1,000+ patient experience. Protocol advisory board in place.</div></div><div class="tr-badge live">Signed</div></div>
+      <div class="traction-item"><div class="tr-icon">🏢</div><div><div class="tr-title">Corporate Access — IT Sector</div><div class="tr-sub">Active introductions to HR/wellness decision-makers at major IT campuses, Hyderabad. Pilot discussions underway.</div></div><div class="tr-badge wip">In Progress</div></div>
+      <div class="traction-item"><div class="tr-icon">🏥</div><div><div class="tr-title">Hospital Partnership Pipeline</div><div class="tr-sub">3 hospital discussions active for clinical advisory and patient referral. Pilot MOU under review.</div></div><div class="tr-badge wip">Negotiating</div></div>
+      <div class="traction-item"><div class="tr-icon">🧬</div><div><div class="tr-title">Diagnostic Partner — Lab Integration</div><div class="tr-sub">Discussions with regional diagnostic network for exclusive HbA1c testing integration at scale pricing.</div></div><div class="tr-badge ready">Advanced</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S12 – GO TO MARKET
+══════════════════════════════════════ -->
+<div class="slide" id="s12">
+  <div class="slide-pad">
+    <div class="slide-tag">Go-To-Market</div>
+    <h2 class="slide-h1">Corporate-First.<br><em>By Design.</em></h2>
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <div class="col-h">Phase 1 GTM — B2B2C Corporate</div>
+        <ul class="blist" style="margin-bottom:20px;">
+          <li><strong>Target:</strong> HR & Employee Benefits teams at IT/pharma corporates (500+ employee size)</li>
+          <li><strong>Pitch to employer:</strong> measurable health outcomes, reduced medical claims, productivity ROI</li>
+          <li><strong>Entry deal structure:</strong> 50–100 employee pilot, 90 days, bulk pricing</li>
+          <li><strong>Success metric for renewal:</strong> HbA1c improvement + NPS ≥ 8</li>
+          <li><strong>Target accounts:</strong> Hyderabad IT corridor, pharma, BFSI segment</li>
+        </ul>
+        <div style="padding:16px 18px;background:var(--dark2);border:1px solid var(--border);border-radius:6px;">
+          <div class="col-h" style="margin-bottom:10px;">CAC Advantage</div>
+          <div style="display:flex;gap:20px;">
+            <div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--accent);">₹800</div><div style="font-size:11px;color:var(--muted);">CAC per user<br>(B2B channel)</div></div>
+            <div style="display:flex;align-items:center;color:var(--muted2);">vs</div>
+            <div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--red);">₹4,200</div><div style="font-size:11px;color:var(--muted);">CAC per user<br>(D2C digital)</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-h">Sales Motion</div>
+        <div class="traction-list">
+          <div class="traction-item" style="padding:14px 16px;">
+            <div class="tr-icon" style="font-size:16px;">1️⃣</div>
+            <div><div class="tr-title">HR/Benefits Intro</div><div class="tr-sub">Warm intro via medical network or direct outreach to corporate wellness team</div></div>
+          </div>
+          <div class="traction-item" style="padding:14px 16px;">
+            <div class="tr-icon" style="font-size:16px;">2️⃣</div>
+            <div><div class="tr-title">Pilot Proposal</div><div class="tr-sub">50–100 employee cohort, 90-day pilot, outcome-guaranteed structure</div></div>
+          </div>
+          <div class="traction-item" style="padding:14px 16px;">
+            <div class="tr-icon" style="font-size:16px;">3️⃣</div>
+            <div><div class="tr-title">Outcomes Report</div><div class="tr-sub">HbA1c delta, adherence, NPS. CFO-ready ROI summary for insurance cost reduction</div></div>
+          </div>
+          <div class="traction-item" style="padding:14px 16px;">
+            <div class="tr-icon" style="font-size:16px;">4️⃣</div>
+            <div><div class="tr-title">Annual Contract</div><div class="tr-sub">Multi-cohort annual deal. 4× revenue at same CAC. Account becomes reference.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S13 – EXPANSION
+══════════════════════════════════════ -->
+<div class="slide" id="s13">
+  <div class="slide-pad">
+    <div class="slide-tag">Expansion Roadmap</div>
+    <h2 class="slide-h1">From Corporate Cohorts<br>to <em>Platform Ecosystem</em></h2>
+    <div class="phase-row" style="margin:24px 0;">
+      <div class="phase-card p1">
+        <div class="phase-num">PHASE 01 · NOW → 18M</div>
+        <div class="phase-title">Corporate Cohorts</div>
+        <div class="phase-items">
+          <span>B2B2C corporate programs</span>
+          <span>Hyderabad + Bengaluru</span>
+          <span>500 participants/cohort cycle</span>
+          <span>Hospital referral partnerships</span>
+          <span>Prove unit economics</span>
+        </div>
+      </div>
+      <div class="phase-card p2">
+        <div class="phase-num">PHASE 02 · 18M → 36M</div>
+        <div class="phase-title">D2C + City Expansion</div>
+        <div class="phase-items">
+          <span>Direct consumer subscription</span>
+          <span>Mumbai, Chennai, Pune rollout</span>
+          <span>App + platform launch</span>
+          <span>3,000+ participants</span>
+          <span>Series A raise</span>
+        </div>
+      </div>
+      <div class="phase-card p3">
+        <div class="phase-num">PHASE 03 · 36M → 60M</div>
+        <div class="phase-title">Platform + Ecosystem</div>
+        <div class="phase-items">
+          <span>Proprietary app platform</span>
+          <span>Diagnostic integration (Thyrocare+)</span>
+          <span>Insurance TPA partnerships</span>
+          <span>10,000+ participants</span>
+          <span>Data monetization begins</span>
+        </div>
+      </div>
+      <div class="phase-card p4">
+        <div class="phase-num">PHASE 04 · 60M+</div>
+        <div class="phase-title">National Infrastructure</div>
+        <div class="phase-items">
+          <span>Pan-India kitchen network</span>
+          <span>Pharma co-development</span>
+          <span>Wearable/device integration</span>
+          <span>50,000+ active users</span>
+          <span>IPO / strategic exit path</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:16px 22px;background:var(--dark2);border:1px solid var(--border);border-radius:6px;display:flex;gap:32px;">
+      <div><div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;">Year 1 Revenue Target</div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--accent);">₹3.75 Cr</div></div>
+      <div><div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;">Year 2 Revenue Target</div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--blue);">₹22.5 Cr</div></div>
+      <div><div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;">Year 3 Revenue Target</div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--amber);">₹75 Cr+</div></div>
+      <div><div style="font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted2);margin-bottom:6px;">10K User Run Rate</div><div style="font-family:'Instrument Serif',serif;font-size:28px;color:var(--off-white);">Year 3</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S14 – MOAT
+══════════════════════════════════════ -->
+<div class="slide" id="s14">
+  <div class="slide-pad">
+    <div class="slide-tag">Defensibility</div>
+    <h2 class="slide-h1">Five-Layer <em>Moat.</em><br>Structurally Hard to Copy.</h2>
+    <p class="slide-sub" style="margin-bottom:24px;">Every individual component can be imitated. The integration of all five simultaneously is the defensibility.</p>
+    <div class="moat-grid">
+      <div class="moat-item">
+        <div class="moat-icon">🔗</div>
+        <div><div class="moat-t">Vertical Integration</div><div class="moat-d">Clinical + kitchen + logistics + monitoring in one system. Each layer reinforces the other. Replicating one does not replicate the value.</div></div>
+      </div>
+      <div class="moat-item">
+        <div class="moat-icon">⚙️</div>
+        <div><div class="moat-t">Operational Complexity</div><div class="moat-d">Running a metabolically calibrated food delivery operation at clinical standards simultaneously is a 12–18 month build. Not a weekend prototype.</div></div>
+      </div>
+      <div class="moat-item">
+        <div class="moat-icon">📊</div>
+        <div><div class="moat-t">Proprietary Data Engine</div><div class="moat-d">Real-world HbA1c + adherence + dietary response data compounding with every cohort. No competitor can buy this data. It is earned only through operations.</div></div>
+      </div>
+      <div class="moat-item">
+        <div class="moat-icon">🤝</div>
+        <div><div class="moat-t">Clinical Trust Network</div><div class="moat-d">Hospital partnerships, referring physicians, and named clinical advisors create institutional trust that cannot be manufactured with money alone.</div></div>
+      </div>
+      <div class="moat-item">
+        <div class="moat-icon">🗣️</div>
+        <div><div class="moat-t">Regional Language Trust</div><div class="moat-d">Telugu-language delivery, culturally relevant recipes, local medical advisors. Trust built in regional context is not replicable by national startups quickly.</div></div>
+      </div>
+      <div class="moat-item">
+        <div class="moat-icon">🔄</div>
+        <div><div class="moat-t">Corporate Switching Costs</div><div class="moat-d">Once embedded in a corporate wellness program with HR systems and outcome reporting, switching cost to a competitor is operationally significant.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S15 – DATA FLYWHEEL
+══════════════════════════════════════ -->
+<div class="slide" id="s15">
+  <div class="slide-pad">
+    <div class="slide-tag">Compounding Advantage</div>
+    <h2 class="slide-h1">The <em>Data Flywheel</em><br>Nobody Else Can Build</h2>
+    <div class="two-col" style="margin-top:20px;align-items:center;">
+      <div class="flywheel-wrap">
+        <div class="flywheel">
+          <div class="fw-ring"></div>
+          <div class="fw-center">DATA<br>MOAT</div>
+          <!-- Nodes around circle -->
+          <div style="position:absolute;top:2%;left:38%;"><div style="background:var(--dark2);border:1px solid var(--border2);border-radius:5px;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--accent);text-align:center;white-space:nowrap;">More Users</div></div>
+          <div style="position:absolute;top:28%;left:78%;"><div style="background:var(--dark2);border:1px solid var(--border2);border-radius:5px;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--blue);text-align:center;white-space:nowrap;">More Data</div></div>
+          <div style="position:absolute;top:70%;left:68%;"><div style="background:var(--dark2);border:1px solid var(--border2);border-radius:5px;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);text-align:center;white-space:nowrap;">Better Protocols</div></div>
+          <div style="position:absolute;top:82%;left:20%;"><div style="background:var(--dark2);border:1px solid var(--border2);border-radius:5px;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--amber);text-align:center;white-space:nowrap;">Better Outcomes</div></div>
+          <div style="position:absolute;top:28%;left:-8%;"><div style="background:var(--dark2);border:1px solid var(--border2);border-radius:5px;padding:7px 10px;font-size:10px;font-weight:700;text-transform:uppercase;color:var(--accent);text-align:center;white-space:nowrap;">Stronger Brand</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="col-h">Dataset Value by Year</div>
+        <ul class="blist" style="margin-bottom:24px;">
+          <li><strong>Year 1 (500 users):</strong> First real-world metabolic intervention dataset in South Indian population. Unique in India.</li>
+          <li><strong>Year 2 (3,000 users):</strong> Statistically significant HbA1c response patterns by food type, age, medication. Publishable.</li>
+          <li><strong>Year 3 (10,000+ users):</strong> AI-optimizable meal protocols. Predictive glycemic modeling. Insurance risk-scoring applications.</li>
+          <li><strong>Data licensing potential:</strong> Pharma, insurance, diagnostic companies — ₹50–200 Cr valuation contribution at scale.</li>
+        </ul>
+        <div style="padding:16px 18px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;">
+          <span style="font-size:13px;color:var(--accent);font-weight:600;">Key insight:</span>
+          <span style="font-size:13px;color:var(--muted);"> Our operations generate data as a byproduct. Every meal delivered is a data point. Every HbA1c is a validation signal.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S16 – ECOSYSTEM
+══════════════════════════════════════ -->
+<div class="slide" id="s16">
+  <div class="slide-pad">
+    <div class="slide-tag">Partner Ecosystem</div>
+    <h2 class="slide-h1">Building the <em>Hub</em><br>of Metabolic Health</h2>
+    <div class="card-grid g3" style="margin-top:20px;">
+      <div class="card accent">
+        <div class="card-icon">🧪</div>
+        <div class="card-t">Diagnostics</div>
+        <div class="card-b"><strong>Thyrocare, SRL, Metropolis.</strong> HbA1c + panel testing at every program milestone. Volume pricing. Outcome validation layer.</div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">🏥</div>
+        <div class="card-t">Hospitals</div>
+        <div class="card-b"><strong>Patient referral pipeline.</strong> Complex case escalation. Outcome co-validation. Research collaboration. Co-branded programs.</div>
+      </div>
+      <div class="card amber">
+        <div class="card-icon">💊</div>
+        <div class="card-t">Pharma</div>
+        <div class="card-b"><strong>Data partnership & co-development.</strong> Lifestyle + pharmacology protocol integration. Real-world evidence for drug companion programs.</div>
+      </div>
+      <div class="card blue">
+        <div class="card-icon">📱</div>
+        <div class="card-t">Devices & Wearables</div>
+        <div class="card-b"><strong>CGM integration (FreeStyle Libre).</strong> Step tracking, sleep data. Enriches behavioral dataset. Premium program tier offering.</div>
+      </div>
+      <div class="card accent">
+        <div class="card-icon">🛡️</div>
+        <div class="card-t">Insurance TPAs</div>
+        <div class="card-b"><strong>Outcome-linked wellness benefit.</strong> Employer group health plans. Premium reduction for enrolled participants with validated HbA1c improvement.</div>
+      </div>
+      <div class="card amber">
+        <div class="card-icon">🏢</div>
+        <div class="card-t">Corporates</div>
+        <div class="card-b"><strong>Primary B2B customer.</strong> Annual wellness contracts. Multi-cohort commitments. Employee health ROI reporting. Reference account pipeline.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S17 – WHY NOW
+══════════════════════════════════════ -->
+<div class="slide" id="s17">
+  <div class="slide-pad">
+    <div class="slide-tag">Market Timing</div>
+    <h2 class="slide-h1">Five Tailwinds.<br><em>All Converging. Now.</em></h2>
+    <div class="now-grid" style="margin-top:24px;">
+      <div class="now-card">
+        <div class="now-icon">📈</div>
+        <div class="now-title">Diabetes Explosion</div>
+        <div class="now-desc">India overtook China as the global diabetes capital in 2023. Urban T2D incidence growing 8% annually. The window to intercept prediabetics is narrowing.</div>
+      </div>
+      <div class="now-card">
+        <div class="now-icon">💼</div>
+        <div class="now-title">Corporate Wellness Budgets</div>
+        <div class="now-desc">Post-COVID, employer health spend up 28% since 2021. Metabolic health now a boardroom topic. CFOs link health outcomes to productivity data.</div>
+      </div>
+      <div class="now-card">
+        <div class="now-icon">🏭</div>
+        <div class="now-title">Food Delivery Infrastructure</div>
+        <div class="now-desc">Zomato/Swiggy built the consumer expectation. Cloud kitchen economics are proven. Metabolic-grade food delivery is now operationally viable.</div>
+      </div>
+      <div class="now-card">
+        <div class="now-icon">🔬</div>
+        <div class="now-title">Preventive Healthcare Demand</div>
+        <div class="now-desc">Urban Indians shifting from reactive to proactive. HealthTech funding in India up 3× since 2020. Consumer willingness-to-pay for prevention established.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;">
+      <div style="padding:16px 18px;background:var(--dark2);border:1px solid var(--border);border-radius:6px;display:flex;gap:12px;align-items:center;">
+        <span style="font-size:22px;">⚡</span>
+        <div><div style="font-size:12px;font-weight:700;color:var(--white);">Regulatory tailwind</div><div style="font-size:12px;color:var(--muted);">FSSAI functional food regulations creating market legitimacy for medical nutrition</div></div>
+      </div>
+      <div style="padding:16px 18px;background:var(--dark2);border:1px solid var(--border);border-radius:6px;display:flex;gap:12px;align-items:center;">
+        <span style="font-size:22px;">🏆</span>
+        <div><div style="font-size:12px;font-weight:700;color:var(--white);">No dominant player</div><div style="font-size:12px;color:var(--muted);">The vertically integrated metabolic platform space in India has no category leader yet. This is a greenfield build.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S18 – VISION
+══════════════════════════════════════ -->
+<div class="slide" id="s18" style="flex-direction:column;background:var(--black);align-items:center;justify-content:center;text-align:center;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80vw;height:80vw;border-radius:50%;background:radial-gradient(circle, rgba(0,229,180,0.03) 0%, transparent 65%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:780px;padding:0 40px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted2);margin-bottom:24px;">5-Year Vision</div>
+    <div style="font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.12;color:var(--white);margin-bottom:24px;">
+      Build India's largest<br><em style="color:var(--accent);">metabolic health platform</em><br>with integrated care, nutrition,<br>behavior, and data.
+    </div>
+    <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:40px;">
+      Not a diet company. Not a wellness app. Not a hospital.<br>The infrastructure layer that sits across all of them.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;">
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:18px 24px;text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:36px;color:var(--accent);">10M</div>
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Users by 2030</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:18px 24px;text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:36px;color:var(--blue);">₹1,000 Cr</div>
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Revenue Potential</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:6px;padding:18px 24px;text-align:center;">
+        <div style="font-family:'Instrument Serif',serif;font-size:36px;color:var(--amber);">India #1</div>
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Metabolic Platform</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S19 – PROJECTIONS
+══════════════════════════════════════ -->
+<div class="slide" id="s19">
+  <div class="slide-pad">
+    <div class="slide-tag">Financial Projections</div>
+    <h2 class="slide-h1">Revenue Growth at<br><em>High-ARPU Scale</em></h2>
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <div class="col-h">User & Revenue Ramp</div>
+        <div class="proj-row" style="margin-bottom:24px;">
+          <div class="proj-item"><div class="proj-label mono" style="font-size:11px;">Y1</div><div class="proj-bar-wrap"><div class="proj-bar y1">500</div></div><div class="proj-rev">₹3.75 Cr</div></div>
+          <div class="proj-item"><div class="proj-label mono" style="font-size:11px;">Y2</div><div class="proj-bar-wrap"><div class="proj-bar y2">3,000</div></div><div class="proj-rev">₹22.5 Cr</div></div>
+          <div class="proj-item"><div class="proj-label mono" style="font-size:11px;">Y3</div><div class="proj-bar-wrap"><div class="proj-bar y3">10,000</div></div><div class="proj-rev">₹75 Cr</div></div>
+          <div class="proj-item"><div class="proj-label mono" style="font-size:11px;">Y4</div><div class="proj-bar-wrap"><div class="proj-bar y4">30,000+</div></div><div class="proj-rev">₹225 Cr+</div></div>
+        </div>
+        <div style="padding:14px 18px;background:var(--accent-dim);border:1px solid var(--accent-mid);border-radius:6px;font-size:13px;">
+          <span style="color:var(--accent);font-weight:700;">ARPU assumption:</span>
+          <span style="color:var(--muted);"> ₹75,000/user/90-day program. Conservative growth in ARPU as premium tiers introduced.</span>
+        </div>
+      </div>
+      <div>
+        <div class="col-h">Assumptions & Drivers</div>
+        <table class="econ-table">
+          <thead><tr><th>Driver</th><th>Y1</th><th>Y3</th></tr></thead>
+          <tbody>
+            <tr><td>Corporate Accounts</td><td>3–5</td><td>40–60</td></tr>
+            <tr><td>Avg. Users/Account</td><td>80</td><td>150</td></tr>
+            <tr><td>Cohorts/Year</td><td>4</td><td>4</td></tr>
+            <tr><td>Gross Margin</td><td class="amber">38%</td><td class="green">56%</td></tr>
+            <tr><td>CAC (B2B)</td><td>₹800</td><td class="green">₹400</td></tr>
+            <tr><td>LTV / CAC Ratio</td><td class="amber">12×</td><td class="green">25×</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S20 – TEAM
+══════════════════════════════════════ -->
+<div class="slide" id="s20">
+  <div class="slide-pad">
+    <div class="slide-tag">The Team</div>
+    <h2 class="slide-h1">Operators. Clinicians.<br><em>Executers.</em></h2>
+    <p class="slide-sub" style="margin-bottom:24px;">Investors back execution. Our team combines media-scale operations, clinical credibility, and network access — the three things this model requires.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-role">Co-Founder · Operations</div>
+        <div class="team-name">Founding Operator</div>
+        <div class="team-creds">VP-level operations experience in large-scale Telugu media network (SumanTV, 29+ channels, 10Cr+ subscribers). Scaled digital operations, multi-vendor management, corporate partnerships. Network across Hyderabad IT and healthcare corridors.</div>
+      </div>
+      <div class="team-card" style="border-top-color:var(--blue);">
+        <div class="team-role" style="color:var(--blue);">Clinical Lead · Dietetics</div>
+        <div class="team-name">Head Dietitian</div>
+        <div class="team-creds">Certified clinical dietitian with hospital and corporate nutrition program experience. Responsible for protocol design, meal calibration, participant monitoring, and clinical escalation management.</div>
+      </div>
+      <div class="team-card" style="border-top-color:var(--amber);">
+        <div class="team-role" style="color:var(--amber);">Medical Advisory</div>
+        <div class="team-name">Clinical Advisors</div>
+        <div class="team-creds">City-recognized endocrinologists with 1,000+ T2D patient experience. Hospital-affiliated. Provide protocol validation, complex case oversight, and institutional credibility for hospital partnership conversations.</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding:16px 22px;background:var(--dark2);border:1px solid var(--border);border-radius:6px;display:flex;gap:32px;">
+      <div style="flex:1;"><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:4px;">Hiring with Funding</div><div style="font-size:13px;color:var(--off-white);">Head of Sales (Corporate), Tech Product Lead, City Kitchen Ops Managers × 3</div></div>
+      <div style="flex:1;"><div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted2);margin-bottom:4px;">Advisory Capacity</div><div style="font-size:13px;color:var(--off-white);">Seeking VC-backed strategic advisors in HealthTech GTM, hospital operations, and D2C brand scaling</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S21 – INVESTOR Q&A PREP
+══════════════════════════════════════ -->
+<div class="slide" id="s21">
+  <div class="slide-pad">
+    <div class="slide-tag">Investor FAQs</div>
+    <h2 class="slide-h1">The Three Brutal<br><em>Questions. Answered.</em></h2>
+    <div style="display:flex;flex-direction:column;gap:20px;margin-top:24px;">
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:26px 28px;border-left:3px solid var(--accent);">
+        <div style="font-size:14px;font-weight:700;color:var(--white);margin-bottom:10px;">Q: Can this scale beyond one city?</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.65;">Yes — by design. Cloud kitchen infrastructure is a proven playbook (Rebel Foods operates 450+ kitchens across 10+ countries). Our B2B corporate model means city expansion is triggered by a single enterprise contract, not consumer density. Kitchen economics are replicable. Clinical network is structured to operate independently per city with local advisor onboarding.</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:26px 28px;border-left:3px solid var(--blue);">
+        <div style="font-size:14px;font-weight:700;color:var(--white);margin-bottom:10px;">Q: Can this run without the founder?</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.65;">Phase 1 is founder-led on GTM. That is appropriate for this stage. Phase 2 capital is allocated to hire city-level Sales Heads, a Clinical Head of Operations, and a Tech Product Lead. The protocol, kitchen ops, and clinical oversight layers are systemized and not founder-dependent. The institutional trust we are building through hospital partnerships outlasts any individual.</div>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);border-radius:8px;padding:26px 28px;border-left:3px solid var(--amber);">
+        <div style="font-size:14px;font-weight:700;color:var(--white);margin-bottom:10px;">Q: Is this a tech company or an ops-heavy business?</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.65;">Honestly? Phase 1 is ops-heavy. And that is the moat. The operational complexity of running clinical-grade food delivery with behavioral monitoring is exactly what makes this hard to copy. Phase 2 we layer tech: a proprietary participant app, a corporate dashboard, and the data platform. By Year 3 the data layer is the primary valuation driver. Ops-heavy entry → tech-multiplied scale.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+  S22 – ASK / CLOSE
+══════════════════════════════════════ -->
+<div class="slide" id="s20-cta" style="background:var(--black);flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80vw;height:80vw;border-radius:50%;background:radial-gradient(circle, rgba(0,229,180,0.04) 0%, transparent 65%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:760px;padding:0 40px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted2);margin-bottom:20px;">The Ask</div>
+    <div class="ask-amount">₹3.5 Cr</div>
+    <div class="ask-amount-label">Seed Round · 18-Month Runway</div>
+    <div class="use-grid">
+      <div class="use-item"><div class="ui-pct">35%</div><div class="ui-label">Corporate Sales & BD</div></div>
+      <div class="use-item"><div class="ui-pct">28%</div><div class="ui-label">Tech Platform Build</div></div>
+      <div class="use-item"><div class="ui-pct">22%</div><div class="ui-label">Kitchen Scale & Ops</div></div>
+      <div class="use-item"><div class="ui-pct">15%</div><div class="ui-label">Clinical Network & Brand</div></div>
+    </div>
+    <div style="width:60px;height:1px;background:var(--border);margin:0 auto 32px;"></div>
+    <div class="closing-line">
+      We are not building a wellness program.<br>
+      We are building the <em>infrastructure layer for metabolic health</em> in India.
+    </div>
+    <div style="margin-top:40px;display:flex;gap:16px;justify-content:center;">
+      <button style="background:var(--accent);color:var(--black);border:none;padding:14px 32px;border-radius:4px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.08em;text-transform:uppercase;">Schedule a Meeting</button>
+      <button style="background:transparent;color:var(--off-white);border:1px solid var(--border2);padding:14px 32px;border-radius:4px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:0.08em;text-transform:uppercase;">Download Deck</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<script>
+const TOTAL = 22;
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+
+// Build dots
+const dotsCont = document.getElementById('nav-dots');
+for(let i=0;i<TOTAL;i++){
+  const d = document.createElement('div');
+  d.className='nav-dot' + (i===0?' active':'');
+  d.onclick = ()=>go(i);
+  dotsCont.appendChild(d);
+}
+
+function updateUI(){
+  document.getElementById('counter').textContent =
+    String(cur+1).padStart(2,'0') + ' / ' + String(TOTAL).padStart(2,'0');
+  document.getElementById('pbar').style.width = ((cur+1)/TOTAL*100)+'%';
+  document.querySelectorAll('.nav-dot').forEach((d,i)=>{
+    d.classList.toggle('active',i===cur);
+  });
+}
+
+function go(n){
+  slides[cur].classList.remove('active');
+  cur=(n+TOTAL)%TOTAL;
+  slides[cur].classList.add('active');
+  updateUI();
+  window.scrollTo(0,0);
+}
+function next(){ go(cur+1); }
+function prev(){ go(cur-1); }
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown') next();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') prev();
+});
+
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50) dx<0?next():prev();
+});
+
+updateUI();
+</script>
+</body>
+</html>

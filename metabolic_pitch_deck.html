@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corporate Metabolic Health Intervention Platform – Hospital Partnership Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1F2D;
+    --deep-teal: #1A3A4A;
+    --teal: #1F6674;
+    --teal-mid: #2B8A9E;
+    --sky: #A8D5E2;
+    --sage: #7CAE98;
+    --sage-light: #B8D9CC;
+    --cream: #F6F4F0;
+    --white: #FFFFFF;
+    --gold: #C4996A;
+    --gold-light: #E8C9A0;
+    --text-dark: #1A2530;
+    --text-mid: #3D5463;
+    --text-light: #6E8A96;
+    --rule: rgba(31,102,116,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  .deck-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,31,45,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(31,102,116,0.3);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 56px;
+  }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; font-weight: 500;
+    color: var(--sky); letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-controls { display: flex; align-items: center; gap: 8px; }
+  .nav-btn {
+    background: none; border: 1px solid rgba(168,213,226,0.25);
+    color: var(--sky); padding: 5px 14px; border-radius: 4px;
+    font-family: 'DM Sans', sans-serif; font-size: 12px;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .nav-btn:hover { background: rgba(168,213,226,0.1); border-color: var(--sky); }
+  .nav-counter {
+    font-size: 12px; color: var(--text-light);
+    min-width: 60px; text-align: center;
+  }
+
+  /* SLIDE CONTAINER */
+  .slides-wrap { padding-top: 56px; }
+
+  .slide {
+    display: none;
+    min-height: calc(100vh - 56px);
+    position: relative;
+    overflow: hidden;
+  }
+  .slide.active { display: flex; }
+
+  /* ── SLIDE 1: TITLE ── */
+  #s1 {
+    background: var(--navy);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 100px;
+  }
+  #s1::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: linear-gradient(135deg, var(--deep-teal) 0%, var(--teal) 60%, rgba(31,102,116,0.3) 100%);
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  #s1::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 55%; height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23A8D5E2' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  .s1-content { position: relative; z-index: 1; max-width: 600px; }
+  .s1-overline {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--sage);
+    display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+  }
+  .s1-overline::before {
+    content: ''; display: block; width: 32px; height: 1px; background: var(--sage);
+  }
+  .s1-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 4.5vw, 58px);
+    font-weight: 300; line-height: 1.12;
+    color: var(--white); margin-bottom: 12px;
+  }
+  .s1-title em { font-style: italic; color: var(--sky); }
+  .s1-subtitle {
+    font-size: 14px; font-weight: 400; color: var(--text-light);
+    margin-bottom: 48px; letter-spacing: 0.02em;
+  }
+  .s1-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 60px; }
+  .pill {
+    padding: 6px 16px; border-radius: 20px;
+    font-size: 11px; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pill-teal { background: rgba(31,102,116,0.3); color: var(--sky); border: 1px solid rgba(168,213,226,0.25); }
+  .pill-sage { background: rgba(124,174,152,0.2); color: var(--sage-light); border: 1px solid rgba(124,174,152,0.3); }
+  .pill-gold { background: rgba(196,153,106,0.2); color: var(--gold-light); border: 1px solid rgba(196,153,106,0.3); }
+  .s1-meta {
+    display: flex; gap: 40px;
+  }
+  .s1-meta-item label {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-light); display: block; margin-bottom: 4px;
+  }
+  .s1-meta-item span {
+    font-size: 13px; color: var(--sky); font-weight: 500;
+  }
+  .s1-visual {
+    position: absolute; right: 6%; top: 50%; transform: translateY(-50%);
+    z-index: 2;
+  }
+  .hex-grid {
+    display: grid; grid-template-columns: repeat(3, 80px); gap: 6px;
+    opacity: 0.7;
+  }
+  .hex {
+    width: 80px; height: 70px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+  }
+  .hex-teal { background: rgba(31,102,116,0.5); }
+  .hex-sage { background: rgba(124,174,152,0.4); }
+  .hex-navy { background: rgba(13,31,45,0.8); border: 1px solid rgba(168,213,226,0.2); }
+  .hex-empty { background: transparent; }
+
+  /* ── GENERIC SLIDE STYLES ── */
+  .slide-inner {
+    flex: 1;
+    display: flex; flex-direction: column;
+    padding: 60px 100px;
+    background: var(--cream);
+  }
+  .slide-header {
+    display: flex; align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--rule);
+    padding-bottom: 24px; margin-bottom: 40px;
+  }
+  .slide-tag {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--teal);
+    background: rgba(31,102,116,0.08);
+    padding: 4px 12px; border-radius: 3px;
+  }
+  .slide-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; color: rgba(31,102,116,0.15); font-weight: 300;
+  }
+  .slide-h {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400; line-height: 1.15; color: var(--navy);
+    max-width: 720px;
+  }
+  .slide-h span { color: var(--teal); }
+  .slide-body { flex: 1; display: flex; gap: 60px; }
+  .slide-body.col1 { flex-direction: column; }
+
+  /* STAT CALLOUTS */
+  .stat-row { display: flex; gap: 24px; margin-bottom: 40px; }
+  .stat-card {
+    flex: 1; background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--teal);
+    padding: 24px; border-radius: 4px;
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px; font-weight: 300; color: var(--teal); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 12px; color: var(--text-mid); line-height: 1.4; }
+
+  /* BULLET LISTS */
+  .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .bullet-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    font-size: 15px; color: var(--text-mid); line-height: 1.5;
+  }
+  .bullet-list li::before {
+    content: ''; display: block; flex-shrink: 0;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); margin-top: 9px;
+  }
+  .bullet-list li strong { color: var(--navy); }
+
+  /* CARDS / PANELS */
+  .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .card-grid.col3 { grid-template-columns: repeat(3, 1fr); }
+  .info-card {
+    background: var(--white); border: 1px solid var(--rule);
+    border-radius: 6px; padding: 24px;
+    position: relative; overflow: hidden;
+  }
+  .info-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--teal), var(--sage));
+  }
+  .info-card.accent-sage::before { background: linear-gradient(90deg, var(--sage), var(--sage-light)); }
+  .info-card.accent-gold::before { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .card-icon { font-size: 24px; margin-bottom: 12px; }
+  .card-title {
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .card-body { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+
+  /* TWO COLUMN */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .col-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .col-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* DARK SLIDES */
+  .slide-dark .slide-inner {
+    background: var(--navy);
+  }
+  .slide-dark .slide-h { color: var(--white); }
+  .slide-dark .slide-tag { background: rgba(168,213,226,0.1); color: var(--sky); }
+  .slide-dark .slide-header { border-color: rgba(168,213,226,0.1); }
+  .slide-dark .slide-num { color: rgba(168,213,226,0.1); }
+  .slide-dark .info-card { background: rgba(255,255,255,0.05); border-color: rgba(168,213,226,0.1); }
+  .slide-dark .card-title { color: var(--white); }
+  .slide-dark .card-body { color: rgba(168,213,226,0.7); }
+  .slide-dark .bullet-list li { color: rgba(168,213,226,0.75); }
+  .slide-dark .bullet-list li strong { color: var(--white); }
+  .slide-dark .col-label { color: var(--sky); }
+  .slide-dark .col-label::after { background: rgba(168,213,226,0.1); }
+  .slide-dark .stat-card { background: rgba(255,255,255,0.05); border-color: rgba(168,213,226,0.1); border-top-color: var(--sky); }
+  .slide-dark .stat-num { color: var(--sky); }
+  .slide-dark .stat-label { color: rgba(168,213,226,0.6); }
+
+  /* FLOW ARROWS */
+  .flow-row {
+    display: flex; align-items: center; gap: 0;
+    margin: 32px 0;
+  }
+  .flow-box {
+    flex: 1; background: var(--white); border: 1px solid var(--rule);
+    padding: 20px 18px; border-radius: 6px; text-align: center;
+  }
+  .flow-box .fb-icon { font-size: 26px; margin-bottom: 8px; }
+  .flow-box .fb-title { font-size: 12px; font-weight: 600; color: var(--navy); }
+  .flow-box .fb-sub { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+  .flow-arrow {
+    width: 32px; text-align: center;
+    color: var(--teal); font-size: 18px; flex-shrink: 0;
+  }
+  .broken-flow .flow-box:nth-child(3) {
+    border-top-color: var(--gold);
+    position: relative;
+  }
+  .broken-flow .flow-box:nth-child(3)::after {
+    content: 'COMPLIANCE GAP';
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+    color: var(--gold); background: var(--cream); padding: 2px 8px;
+    border: 1px solid var(--gold); border-radius: 3px;
+  }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: ''; position: absolute; left: 16px; top: 24px; bottom: 24px;
+    width: 2px; background: linear-gradient(to bottom, var(--teal), var(--sage));
+  }
+  .tl-item { display: flex; gap: 24px; padding: 0 0 28px 0; align-items: flex-start; }
+  .tl-dot {
+    width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+    background: var(--teal); display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: white; position: relative; z-index: 1; font-weight: 600;
+  }
+  .tl-content { flex: 1; }
+  .tl-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .tl-desc { font-size: 13px; color: var(--text-mid); }
+
+  /* OUTCOME TABLE */
+  .outcome-table { width: 100%; border-collapse: collapse; }
+  .outcome-table th {
+    text-align: left; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--teal); padding: 10px 16px;
+    border-bottom: 2px solid var(--rule);
+  }
+  .outcome-table td {
+    padding: 14px 16px; font-size: 13px; color: var(--text-mid);
+    border-bottom: 1px solid var(--rule);
+  }
+  .outcome-table tr:last-child td { border-bottom: none; }
+  .outcome-table td:first-child { font-weight: 600; color: var(--navy); }
+  .badge {
+    display: inline-block; padding: 3px 10px; border-radius: 3px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  }
+  .badge-green { background: rgba(124,174,152,0.15); color: #3A7A5E; }
+  .badge-teal { background: rgba(31,102,116,0.1); color: var(--teal); }
+
+  /* DUAL TRACK */
+  .dual-track { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .track-card {
+    border-radius: 8px; padding: 32px;
+    position: relative; overflow: hidden;
+  }
+  .track-clinical { background: var(--deep-teal); }
+  .track-preventive { background: rgba(124,174,152,0.15); border: 2px solid var(--sage-light); }
+  .track-pct {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px; font-weight: 300; line-height: 1;
+    position: absolute; top: 20px; right: 20px;
+    opacity: 0.15; color: var(--white);
+  }
+  .track-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+  .track-clinical .track-label { color: var(--sky); }
+  .track-preventive .track-label { color: var(--teal); }
+  .track-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 400; margin-bottom: 16px;
+  }
+  .track-clinical .track-title { color: var(--white); }
+  .track-preventive .track-title { color: var(--navy); }
+  .track-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .track-list li {
+    font-size: 13px; padding-left: 16px; position: relative;
+  }
+  .track-list li::before {
+    content: '→'; position: absolute; left: 0; font-size: 11px;
+  }
+  .track-clinical .track-list li { color: rgba(168,213,226,0.8); }
+  .track-clinical .track-list li::before { color: var(--sky); }
+  .track-preventive .track-list li { color: var(--text-mid); }
+  .track-preventive .track-list li::before { color: var(--sage); }
+
+  /* CTA SLIDE */
+  #s20 .slide-inner {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--deep-teal) 60%, #0F3540 100%);
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .cta-overline {
+    font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: 24px;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.15;
+    color: var(--white); max-width: 760px; margin: 0 auto 32px;
+  }
+  .cta-title em { color: var(--sky); font-style: italic; }
+  .cta-sub {
+    font-size: 15px; color: rgba(168,213,226,0.65);
+    max-width: 580px; margin: 0 auto 48px;
+  }
+  .cta-options { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .cta-option {
+    padding: 14px 28px; border-radius: 4px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all 0.25s; letter-spacing: 0.05em;
+  }
+  .cta-primary {
+    background: var(--teal); color: white; border: none;
+  }
+  .cta-primary:hover { background: var(--teal-mid); }
+  .cta-outline {
+    background: transparent; color: var(--sky);
+    border: 1px solid rgba(168,213,226,0.4);
+  }
+  .cta-outline:hover { border-color: var(--sky); background: rgba(168,213,226,0.05); }
+  .cta-divider {
+    width: 48px; height: 1px; background: rgba(168,213,226,0.2);
+    margin: 48px auto 40px;
+  }
+  .cta-contact-row {
+    display: flex; gap: 40px; justify-content: center;
+  }
+  .cta-contact-item label {
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--text-light); display: block; margin-bottom: 4px;
+  }
+  .cta-contact-item span { font-size: 13px; color: var(--sky); }
+
+  /* PARTNER GRID */
+  .partner-row {
+    display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px;
+  }
+  .partner-chip {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--white); border: 1px solid var(--rule);
+    padding: 12px 18px; border-radius: 5px;
+    font-size: 13px; font-weight: 500; color: var(--navy);
+  }
+  .partner-chip .chip-icon { font-size: 18px; }
+
+  /* VISION PILLARS */
+  .pillar-row { display: flex; gap: 20px; }
+  .pillar {
+    flex: 1; text-align: center; padding: 28px 16px;
+    background: var(--white); border: 1px solid var(--rule);
+    border-radius: 6px; position: relative;
+  }
+  .pillar::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 3px; border-radius: 2px;
+    background: var(--teal);
+  }
+  .pillar-icon { font-size: 32px; margin-bottom: 14px; }
+  .pillar-title { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .pillar-desc { font-size: 12px; color: var(--text-mid); line-height: 1.5; }
+
+  /* BOTTOM BAR */
+  .slide-footer {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--teal) 0%, var(--sage) 50%, var(--teal-mid) 100%);
+  }
+
+  /* PROGRESS */
+  #progress-bar {
+    position: fixed; bottom: 0; left: 0; z-index: 200;
+    height: 3px; background: var(--sky);
+    transition: width 0.3s ease;
+  }
+
+  /* KEYBOARD HINT */
+  .kb-hint {
+    position: fixed; bottom: 12px; right: 20px;
+    font-size: 11px; color: rgba(168,213,226,0.3);
+    z-index: 200;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="deck-nav">
+  <div class="nav-brand">Metabolic Health Platform · Hospital Partnership</div>
+  <div class="nav-controls">
+    <button class="nav-btn" onclick="prevSlide()">← Prev</button>
+    <span class="nav-counter" id="nav-counter">1 / 20</span>
+    <button class="nav-btn" onclick="nextSlide()">Next →</button>
+  </div>
+</nav>
+
+<div id="progress-bar"></div>
+<div class="kb-hint">← → keys to navigate</div>
+
+<div class="slides-wrap">
+
+<!-- ════════════════════════════════════════════
+     SLIDE 1 – TITLE
+══════════════════════════════════════════════ -->
+<div class="slide active" id="s1">
+  <div class="slide-inner" style="background:var(--navy); padding:0; display:block; position:relative; flex:1;">
+    <div style="position:absolute;inset:0;">
+      <!-- geometric accent -->
+      <div style="position:absolute;top:0;right:0;width:52%;height:100%;
+        background:linear-gradient(145deg,#1A3A4A 0%,#1F6674 55%,rgba(31,102,116,0.25) 100%);
+        clip-path:polygon(12% 0%,100% 0%,100% 100%,0% 100%);"></div>
+      <div style="position:absolute;top:0;right:0;width:52%;height:100%;
+        background-image:radial-gradient(circle, rgba(168,213,226,0.06) 1px, transparent 1px);
+        background-size:28px 28px;
+        clip-path:polygon(12% 0%,100% 0%,100% 100%,0% 100%);"></div>
+    </div>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;height:100%;padding:80px 100px;">
+      <div class="s1-overline">Clinical Partnership Proposal · 2025</div>
+      <h1 class="s1-title">Corporate <em>Metabolic Health</em><br>Intervention Platform</h1>
+      <p class="s1-subtitle">A Structured Clinical + Nutrition + Compliance System for Diabetes & Metabolic Risk Management</p>
+      <div class="s1-pills">
+        <span class="pill pill-teal">90-Day Intervention</span>
+        <span class="pill pill-sage">Clinical Grade Protocol</span>
+        <span class="pill pill-gold">Hospital Partnership Model</span>
+      </div>
+      <div class="s1-meta">
+        <div class="s1-meta-item"><label>Target Population</label><span>T2D · Prediabetes · Metabolic Risk</span></div>
+        <div class="s1-meta-item"><label>Setting</label><span>Corporate + Clinical Environments</span></div>
+        <div class="s1-meta-item"><label>Capacity</label><span>1,000+ Participants / Cohort</span></div>
+      </div>
+    </div>
+    <!-- hex grid visual -->
+    <div class="s1-visual">
+      <div class="hex-grid">
+        <div class="hex hex-teal">🩺</div>
+        <div class="hex hex-sage">📊</div>
+        <div class="hex hex-teal">🥗</div>
+        <div class="hex hex-navy"></div>
+        <div class="hex hex-teal">💊</div>
+        <div class="hex hex-navy"></div>
+        <div class="hex hex-sage">📈</div>
+        <div class="hex hex-teal">🏥</div>
+        <div class="hex hex-sage">🔬</div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 2 – CLINICAL BURDEN
+══════════════════════════════════════════════ -->
+<div class="slide" id="s2">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Epidemiological Context</div><h2 class="slide-h" style="margin-top:12px">India's <span>Diabetes Epidemic</span><br>Is a Clinical Emergency</h2></div>
+      <div class="slide-num">02</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">101M</div><div class="stat-label">Adults with Type 2 Diabetes in India<br><em style="font-size:11px;color:#999;">ICMR 2023 estimate</em></div></div>
+      <div class="stat-card"><div class="stat-num">136M</div><div class="stat-label">Prediabetic adults — highest-risk<br>conversion pool nationally</div></div>
+      <div class="stat-card"><div class="stat-num">↓35yrs</div><div class="stat-label">Median onset age declining; urban<br>IT workforce disproportionately affected</div></div>
+      <div class="stat-card"><div class="stat-num">₹1.3L</div><div class="stat-label">Avg. annual patient expenditure<br>on diabetes management & complications</div></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">Complication Burden</div>
+        <ul class="bullet-list">
+          <li><strong>Cardiovascular disease</strong> — 2–4× higher risk in T2D patients</li>
+          <li><strong>Nephropathy</strong> — leading cause of CKD & dialysis referrals</li>
+          <li><strong>Neuropathy & retinopathy</strong> — significant disability and quality-of-life burden</li>
+          <li><strong>Repeat hospitalization</strong> — avoidable with structured lifestyle control</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Hospital System Pressure</div>
+        <ul class="bullet-list">
+          <li><strong>OPD overload</strong> — chronic cases consume 40–50% of endocrinology bandwidth</li>
+          <li><strong>Revision visits</strong> increase with poor glycemic control between appointments</li>
+          <li><strong>Limited capacity</strong> for longitudinal lifestyle monitoring within clinical settings</li>
+          <li><strong>Rising patient expectations</strong> for continuous, tech-enabled care pathways</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 3 – GAP IN CARE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s3">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Care Gap Analysis</div><h2 class="slide-h" style="margin-top:12px">The <span>Current Care Model</span><br>Has a Critical Structural Gap</h2></div>
+      <div class="slide-num">03</div>
+    </div>
+    <div class="flow-row broken-flow">
+      <div class="flow-box"><div class="fb-icon">🏥</div><div class="fb-title">Diagnosis</div><div class="fb-sub">HbA1c, Glucose Panel</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box"><div class="fb-icon">💊</div><div class="fb-title">Prescription</div><div class="fb-sub">Medication + Advice</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box" style="border-top:3px solid var(--gold)"><div class="fb-icon">🏠</div><div class="fb-title">Patient at Home</div><div class="fb-sub">Compliance drops</div></div>
+      <div class="flow-arrow" style="color:var(--gold)">→</div>
+      <div class="flow-box"><div class="fb-icon">📉</div><div class="fb-title">Progression</div><div class="fb-sub">Next OPD visit: deterioration</div></div>
+    </div>
+    <div class="card-grid">
+      <div class="info-card accent-gold">
+        <div class="card-icon">🍽️</div>
+        <div class="card-title">Poor Dietary Adherence</div>
+        <div class="card-body">Patients receive general dietary guidelines. Without structured delivery, meal compliance rarely exceeds 30–40% in real-world settings.</div>
+      </div>
+      <div class="info-card accent-gold">
+        <div class="card-icon">📵</div>
+        <div class="card-title">No Continuous Monitoring</div>
+        <div class="card-body">Clinical monitoring is episodic — quarterly HbA1c at best. Daily glycemic behavior goes entirely untracked between visits.</div>
+      </div>
+      <div class="info-card accent-gold">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">High Relapse & Progression Rates</div>
+        <div class="card-body">Without sustained lifestyle support, 60–70% of prediabetic patients progress to full T2D within 5 years despite clinical treatment.</div>
+      </div>
+      <div class="info-card accent-gold">
+        <div class="card-icon">🧩</div>
+        <div class="card-title">Fragmented Responsibility</div>
+        <div class="card-body">Doctors manage pharmacology. Nobody owns behavioral and nutritional compliance — the most modifiable disease drivers.</div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 4 – CORE PROBLEM (DARK)
+══════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s4">
+  <div class="slide-inner" style="background:var(--deep-teal);align-items:center;justify-content:center;text-align:center;">
+    <div style="max-width:720px;margin:0 auto;">
+      <div style="font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:28px;">Core Problem Statement</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,48px);font-weight:300;color:var(--white);line-height:1.25;margin-bottom:32px;">
+        Lifestyle adherence is the<br><em style="color:var(--sky);font-style:italic;">single biggest missing link</em><br>in diabetes care today.
+      </h2>
+      <div style="display:flex;gap:32px;justify-content:center;margin:40px 0;">
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--sky);">Hospitals</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.6);margin-top:4px;">Diagnose & prescribe</div>
+        </div>
+        <div style="display:flex;align-items:center;font-size:32px;color:rgba(168,213,226,0.25);">→</div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--gold-light);">Patients</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.6);margin-top:4px;">Return home; compliance falls</div>
+        </div>
+        <div style="display:flex;align-items:center;font-size:32px;color:rgba(168,213,226,0.25);">→</div>
+        <div style="text-align:center;">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(196,153,106,0.5);">Outcomes</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.6);margin-top:4px;">Suboptimal. Progression continues.</div>
+        </div>
+      </div>
+      <p style="font-size:15px;color:rgba(168,213,226,0.65);line-height:1.7;margin-top:24px;">
+        No clinical system today owns the space between hospital visit and home behavior.<br>
+        That gap — behavioral, nutritional, motivational — is where metabolic disease progresses.
+      </p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 5 – OUR SOLUTION
+══════════════════════════════════════════════ -->
+<div class="slide" id="s5">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Platform Overview</div><h2 class="slide-h" style="margin-top:12px">A <span>Compliance-Controlled</span><br>Metabolic Intervention Layer</h2></div>
+      <div class="slide-num">05</div>
+    </div>
+    <div style="background:linear-gradient(135deg,var(--deep-teal),var(--teal));border-radius:8px;padding:36px 44px;margin-bottom:32px;color:white;display:flex;align-items:center;gap:40px;">
+      <div style="flex:1;">
+        <div style="font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;">Our Mandate</div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;line-height:1.45;color:white;">
+          We extend hospital care into daily life — operationalizing the dietary, behavioral, and monitoring protocols that clinical settings cannot deliver at scale.
+        </p>
+      </div>
+      <div style="font-size:64px;opacity:0.6;">🔗</div>
+    </div>
+    <div class="card-grid col3">
+      <div class="info-card">
+        <div class="card-icon">📦</div>
+        <div class="card-title">Controlled Nutrition Delivery</div>
+        <div class="card-body">6 days/week, 2 meals/day. Dietitian-designed, metabolically calibrated. Removes dietary decision-making from the compliance equation.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">📡</div>
+        <div class="card-title">Continuous Monitoring</div>
+        <div class="card-body">Weekly clinical markers + daily behavioral tracking. HbA1c, glucose, weight, waist, energy levels — longitudinally recorded.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🏥</div>
+        <div class="card-title">Clinical Integration</div>
+        <div class="card-body">Hospital-guided protocol. Doctor advisory framework. Structured reporting to clinical partners for high-risk case management.</div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 6 – DIFFERENTIATION
+══════════════════════════════════════════════ -->
+<div class="slide" id="s6">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Differentiation</div><h2 class="slide-h" style="margin-top:12px">This Is <span>Not a Diet Program.</span><br>This Is a Compliance System.</h2></div>
+      <div class="slide-num">06</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">Conventional Approach</div>
+        <ul class="bullet-list">
+          <li>Dietary advice — general, unstructured</li>
+          <li>Willpower-dependent adherence</li>
+          <li>No meal accountability mechanism</li>
+          <li>Episodic, appointment-based monitoring</li>
+          <li>Outcome tracking limited to clinical visits</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Our Intervention System</div>
+        <ul class="bullet-list">
+          <li><strong>Controlled meal delivery</strong> — compliance by design, not intent</li>
+          <li><strong>Behavioral monitoring</strong> — daily adherence data captured</li>
+          <li><strong>Community accountability</strong> — peer cohort structure reinforces consistency</li>
+          <li><strong>Outcome measurement</strong> — HbA1c, weight, waist tracked at structured intervals</li>
+          <li><strong>Clinical reporting</strong> — structured data shared with hospital partners</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:32px;padding:24px;background:rgba(31,102,116,0.06);border-left:4px solid var(--teal);border-radius:0 6px 6px 0;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--navy);line-height:1.5;">
+        "We operationalize the lifestyle prescription that every clinician writes but no system currently delivers."
+      </p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 7 – PROGRAM STRUCTURE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s7">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Program Architecture</div><h2 class="slide-h" style="margin-top:12px">90-Day <span>Structured Intervention</span><br>Protocol</h2></div>
+      <div class="slide-num">07</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">1</div>
+            <div class="tl-content">
+              <div class="tl-title">Onboarding & Baseline Assessment (Days 1–7)</div>
+              <div class="tl-desc">Clinical history, baseline HbA1c, fasting glucose, anthropometrics. Dietitian assessment. Protocol personalization.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">2</div>
+            <div class="tl-content">
+              <div class="tl-title">Early Intervention Phase (Weeks 2–4)</div>
+              <div class="tl-desc">Meal delivery commences. Daily behavioral tracking. Weekly weight and glucose check-ins. Community cohort activation.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">3</div>
+            <div class="tl-content">
+              <div class="tl-title">Active Optimization (Weeks 5–10)</div>
+              <div class="tl-desc">Protocol refinement based on glycemic response. Mid-program HbA1c assessment. Doctor consultation for flagged cases.</div>
+            </div>
+          </div>
+          <div class="tl-item" style="padding-bottom:0;">
+            <div class="tl-dot" style="background:var(--sage);">4</div>
+            <div class="tl-content">
+              <div class="tl-title">Outcome Documentation & Transition (Week 12–13)</div>
+              <div class="tl-desc">Final HbA1c, outcomes report. Clinical partner review. Transition plan for continued care.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="col-label">Weekly Protocol Summary</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="info-card" style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">📅</span>
+              <div><div class="card-title" style="margin-bottom:2px;">6 Days / Week</div><div class="card-body">Structured meal delivery (2 meals/day)</div></div>
+            </div>
+          </div>
+          <div class="info-card" style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">📊</span>
+              <div><div class="card-title" style="margin-bottom:2px;">Weekly Monitoring</div><div class="card-body">Weight, glucose, waist, energy, adherence score</div></div>
+            </div>
+          </div>
+          <div class="info-card" style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">👩‍⚕️</span>
+              <div><div class="card-title" style="margin-bottom:2px;">Dietitian-Led</div><div class="card-body">Certified dietitian oversees all protocols</div></div>
+            </div>
+          </div>
+          <div class="info-card" style="padding:16px 20px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:20px;">🏥</span>
+              <div><div class="card-title" style="margin-bottom:2px;">Clinical Oversight</div><div class="card-body">Doctor-guided framework; escalation protocol for complex cases</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 8 – DUAL TRACK
+══════════════════════════════════════════════ -->
+<div class="slide" id="s8">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Program Design</div><h2 class="slide-h" style="margin-top:12px"><span>Dual-Track Model</span><br>Clinical + Preventive Pathways</h2></div>
+      <div class="slide-num">08</div>
+    </div>
+    <div class="dual-track" style="margin-bottom:28px;">
+      <div class="track-card track-clinical">
+        <div class="track-pct">60%</div>
+        <div class="track-label">Clinical Track</div>
+        <div class="track-title">Diagnosed Diabetic &<br>Prediabetic Patients</div>
+        <ul class="track-list">
+          <li>Type 2 diabetes, HbA1c ≥6.5%</li>
+          <li>Prediabetes, HbA1c 5.7–6.4%</li>
+          <li>Doctor-referred participants</li>
+          <li>Medication compliance integration</li>
+          <li>Complex case escalation protocol</li>
+          <li>Outcome data shared with clinical partner</li>
+        </ul>
+      </div>
+      <div class="track-card track-preventive">
+        <div class="track-pct" style="color:var(--teal);">40%</div>
+        <div class="track-label">Preventive Track</div>
+        <div class="track-title">Early-Stage Metabolic<br>Risk Optimization</div>
+        <ul class="track-list">
+          <li>Metabolic syndrome indicators</li>
+          <li>Elevated fasting glucose (borderline)</li>
+          <li>Abdominal obesity, high-risk BMI</li>
+          <li>Family history of T2D</li>
+          <li>Sedentary corporate professionals</li>
+          <li>Preventive biomarker tracking</li>
+        </ul>
+      </div>
+    </div>
+    <div style="padding:18px 24px;background:rgba(31,102,116,0.06);border-radius:6px;display:flex;gap:16px;align-items:center;">
+      <span style="font-size:24px;">💡</span>
+      <p style="font-size:13px;color:var(--text-mid);line-height:1.6;">
+        The dual-track architecture allows hospital partners to refer both diagnosed patients (clinical track) and corporate wellness participants (preventive track), maximizing the breadth of clinical collaboration while maintaining protocol integrity across risk profiles.
+      </p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 9 – CLINICAL INTEGRATION
+══════════════════════════════════════════════ -->
+<div class="slide" id="s9">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Integration Model</div><h2 class="slide-h" style="margin-top:12px">How <span>Hospital Partners</span><br>Are Integrated Into the Protocol</h2></div>
+      <div class="slide-num">09</div>
+    </div>
+    <div class="card-grid" style="margin-bottom:28px;">
+      <div class="info-card">
+        <div class="card-icon">🔁</div>
+        <div class="card-title">Patient Referral Channel</div>
+        <div class="card-body">Defined referral pathway for T2D and prediabetic patients. Structured intake form. Coordinated onboarding with treating physician.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Protocol Co-Design</div>
+        <div class="card-body">Partner hospitals and endocrinologists contribute to intervention protocols, dietary parameters, and clinical escalation guidelines.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">High-Risk Case Monitoring</div>
+        <div class="card-body">Complex patients flagged in the system are escalated to the clinical partner for consultation, ensuring safety and care continuity.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">📤</div>
+        <div class="card-title">Structured Outcome Reporting</div>
+        <div class="card-body">Bi-weekly and end-of-program clinical summaries shared with partner physicians. HbA1c delta, adherence rates, progression data.</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:20px;padding:20px 24px;background:var(--navy);border-radius:6px;">
+      <div style="flex:1;text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(168,213,226,0.5);margin-bottom:8px;">Hospital Role</div>
+        <div style="font-size:14px;font-weight:500;color:var(--white);">Clinical Oversight</div>
+        <div style="font-size:12px;color:rgba(168,213,226,0.5);margin-top:4px;">Advisory & escalation authority</div>
+      </div>
+      <div style="width:1px;background:rgba(168,213,226,0.1);"></div>
+      <div style="flex:1;text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(168,213,226,0.5);margin-bottom:8px;">Our Role</div>
+        <div style="font-size:14px;font-weight:500;color:var(--white);">Execution & Compliance</div>
+        <div style="font-size:12px;color:rgba(168,213,226,0.5);margin-top:4px;">Nutrition, monitoring, behavioral support</div>
+      </div>
+      <div style="width:1px;background:rgba(168,213,226,0.1);"></div>
+      <div style="flex:1;text-align:center;">
+        <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(168,213,226,0.5);margin-bottom:8px;">Shared Output</div>
+        <div style="font-size:14px;font-weight:500;color:var(--white);">Verified Outcomes</div>
+        <div style="font-size:12px;color:rgba(168,213,226,0.5);margin-top:4px;">Real-world lifestyle intervention data</div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 10 – OUTCOME MEASUREMENT
+══════════════════════════════════════════════ -->
+<div class="slide" id="s10">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Clinical Metrics</div><h2 class="slide-h" style="margin-top:12px">Rigorous <span>Outcome Measurement</span><br>at Every Intervention Stage</h2></div>
+      <div class="slide-num">10</div>
+    </div>
+    <table class="outcome-table" style="margin-bottom:28px;">
+      <thead>
+        <tr><th>Biomarker / Metric</th><th>Measurement Frequency</th><th>Method</th><th>Reporting To</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>HbA1c</td><td>Baseline · Week 6 · Week 12</td><td>Accredited lab</td><td>Clinical partner + participant</td></tr>
+        <tr><td>Fasting Blood Glucose</td><td>Weekly</td><td>Point-of-care / self-monitoring</td><td>Dietitian dashboard</td></tr>
+        <tr><td>Body Weight</td><td>Weekly</td><td>Standardized protocol</td><td>Program + clinical report</td></tr>
+        <tr><td>Waist Circumference</td><td>Baseline · Week 6 · Week 12</td><td>Standardized measurement</td><td>Outcome report</td></tr>
+        <tr><td>Meal Adherence Score</td><td>Daily (6-day delivery cycle)</td><td>System tracking</td><td>Dietitian + program team</td></tr>
+        <tr><td>Subjective Energy & Wellbeing</td><td>Weekly</td><td>Validated scale (1–10)</td><td>Internal dashboard</td></tr>
+      </tbody>
+    </table>
+    <div style="padding:20px 24px;background:rgba(124,174,152,0.1);border-left:4px solid var(--sage);border-radius:0 6px 6px 0;">
+      <strong style="font-size:13px;color:var(--navy);">Clinical Reporting:</strong>
+      <span style="font-size:13px;color:var(--text-mid);"> All biomarker data compiled into structured clinical summaries delivered to hospital partners at weeks 6 and 12. Reports designed for direct physician review and patient file integration.</span>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 11 – EARLY RESPONSE (DARK)
+══════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s11">
+  <div class="slide-inner" style="background:var(--deep-teal);">
+    <div class="slide-header">
+      <div><div class="slide-tag">Clinical Evidence Pattern</div><h2 class="slide-h" style="margin-top:12px;">Early <span style="color:var(--sky);">Metabolic Response</span><br>Within the First Two Weeks</h2></div>
+      <div class="slide-num" style="color:rgba(168,213,226,0.15);">11</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-num">Wk 1–2</div>
+        <div class="stat-label">Improved postprandial glucose trends with structured, low-glycemic meal delivery</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Wk 2–3</div>
+        <div class="stat-label">Initial weight stabilization observed; waist circumference begins responding</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">Wk 3–4</div>
+        <div class="stat-label">Subjective energy improvement — creates behavioral momentum for sustained adherence</div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">Why Early Response Matters</div>
+        <ul class="bullet-list">
+          <li><strong>Motivational anchor:</strong> visible early results drive 90-day completion rates</li>
+          <li><strong>Clinical validation:</strong> early glycemic improvement confirms protocol efficacy</li>
+          <li><strong>Doctor confidence:</strong> early data gives referring physicians objective feedback</li>
+          <li><strong>Relapse prevention:</strong> early wins reduce drop-off risk in weeks 3–6</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Clinical Basis</div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(168,213,226,0.1);border-radius:6px;padding:20px;">
+          <p style="font-size:13px;color:rgba(168,213,226,0.7);line-height:1.7;">
+            Controlled carbohydrate restriction combined with structured meal timing has demonstrated consistent postprandial glucose improvement within 1–2 weeks in multiple structured dietary intervention studies. This intervention replicates those conditions through operationalized delivery.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 12 – INFRASTRUCTURE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s12">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Operational Capacity</div><h2 class="slide-h" style="margin-top:12px">Infrastructure Built for<br><span>Scale & Clinical Reliability</span></h2></div>
+      <div class="slide-num">12</div>
+    </div>
+    <div class="pillar-row" style="margin-bottom:32px;">
+      <div class="pillar">
+        <div class="pillar-icon">🏭</div>
+        <div class="pillar-title">Cloud Kitchen Infrastructure</div>
+        <div class="pillar-desc">1,000+ order/day capacity. FSSAI compliant. Standardized metabolic meal production with nutritional consistency controls.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">👩‍⚕️</div>
+        <div class="pillar-title">Certified Dietitian Team</div>
+        <div class="pillar-desc">In-house registered dietitian overseeing protocol design, meal calibration, and participant nutrition management.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🚚</div>
+        <div class="pillar-title">Operational Delivery System</div>
+        <div class="pillar-desc">Structured 6-day delivery logistics. Corporate campus and residential delivery. Tracking and adherence confirmation system.</div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📱</div>
+        <div class="pillar-title">Community Tracking Platform</div>
+        <div class="pillar-desc">Participant monitoring, daily check-ins, cohort accountability community, and dietitian communication channel.</div>
+      </div>
+    </div>
+    <div style="padding:20px 24px;background:var(--navy);border-radius:6px;display:flex;align-items:center;gap:24px;">
+      <span style="font-size:32px;">🏥</span>
+      <div>
+        <div style="font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sky);margin-bottom:6px;">Medical Expert Network</div>
+        <p style="font-size:13px;color:rgba(168,213,226,0.65);line-height:1.6;">City-recognized clinical experts with 1,000+ patient experience form our medical advisory layer. Protocol validation, complex case consultation, and clinical credibility for hospital partnership discussions.</p>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 13 – HOSPITAL ROLE
+══════════════════════════════════════════════ -->
+<div class="slide" id="s13">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Partnership Definition</div><h2 class="slide-h" style="margin-top:12px">Defined Role of the<br><span>Hospital Partner</span></h2></div>
+      <div class="slide-num">13</div>
+    </div>
+    <div class="card-grid" style="margin-bottom:28px;">
+      <div class="info-card">
+        <div class="card-icon">🎓</div>
+        <div class="card-title">Clinical Advisory</div>
+        <div class="card-body">Named physician(s) contribute to intervention protocol design. Ensure clinical validity and appropriate patient selection criteria for each program cohort.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Patient Referral</div>
+        <div class="card-body">Referring suitable T2D and prediabetic patients through a structured, low-friction intake pathway. No additional clinical workload for the treating team.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🚨</div>
+        <div class="card-title">Complex Case Oversight</div>
+        <div class="card-body">Escalation of flagged participants (HbA1c spikes, medication changes, comorbidities) back to hospital partner for consultation and clinical decision-making.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">✅</div>
+        <div class="card-title">Outcome Validation</div>
+        <div class="card-body">Review and co-sign structured outcome reports. Provides clinical credibility for program results and forms the foundation for research or publication collaboration.</div>
+      </div>
+    </div>
+    <div style="padding:16px 24px;background:rgba(31,102,116,0.06);border-radius:6px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:20px;">⏱️</span>
+      <p style="font-size:13px;color:var(--text-mid);"><strong>Minimal time commitment:</strong> The hospital partner role is designed to add clinical rigor without creating operational burden. Estimated physician time: 2–3 hours/month per active cohort.</p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 14 – BENEFITS TO HOSPITALS
+══════════════════════════════════════════════ -->
+<div class="slide" id="s14">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Value Proposition</div><h2 class="slide-h" style="margin-top:12px">What <span>Hospital Partners</span><br>Gain From Collaboration</h2></div>
+      <div class="slide-num">14</div>
+    </div>
+    <div class="card-grid col3" style="margin-bottom:24px;">
+      <div class="info-card">
+        <div class="card-icon">📈</div>
+        <div class="card-title">Improved Patient Outcomes</div>
+        <div class="card-body">Structured lifestyle intervention reduces HbA1c, weight, and complication risk — outcomes directly attributed to the hospital's care ecosystem.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">Higher Follow-Up Retention</div>
+        <div class="card-body">Actively enrolled patients are more engaged with their health journey, increasing return visit frequency and long-term hospital relationship.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">🧬</div>
+        <div class="card-title">Research Collaboration</div>
+        <div class="card-body">Real-world lifestyle intervention data with structured outcome tracking — co-publication and data analysis opportunities with named academic institutions.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🏆</div>
+        <div class="card-title">Differentiated Clinical Brand</div>
+        <div class="card-body">Association with an integrated metabolic care program positions the hospital as a leader in preventive and lifestyle-focused chronic disease management.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🤝</div>
+        <div class="card-title">Corporate Healthcare Access</div>
+        <div class="card-body">Partnership unlocks reach into corporate campuses — a high-value, underserved patient segment for hospitals offering preventive and metabolic health services.</div>
+      </div>
+      <div class="info-card accent-gold">
+        <div class="card-icon">💰</div>
+        <div class="card-title">Revenue & Diagnostic Value</div>
+        <div class="card-body">Structured lab testing (HbA1c, glucose panels) at baseline, mid-program, and end drives diagnostic revenue. Referral revenue model available.</div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 15 – REVENUE MODEL
+══════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s15">
+  <div class="slide-inner" style="background:var(--navy);">
+    <div class="slide-header">
+      <div><div class="slide-tag">Commercial Model</div><h2 class="slide-h" style="margin-top:12px;">Revenue & <span style="color:var(--sky);">Commercial Opportunity</span><br>for Hospital Partners</h2></div>
+      <div class="slide-num" style="color:rgba(168,213,226,0.1);">15</div>
+    </div>
+    <div class="card-grid" style="margin-bottom:24px;">
+      <div class="info-card">
+        <div class="card-icon">🔁</div>
+        <div class="card-title">Patient Referral Revenue</div>
+        <div class="card-body">Structured referral fee per enrolled participant from hospital channel. Paid monthly per cohort completion. Clean, auditable referral accounting.</div>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">🧪</div>
+        <div class="card-title">Diagnostic Integration</div>
+        <div class="card-body">All mandatory blood work (HbA1c × 3, glucose panels, lipid profile) processed through partner hospital's diagnostic center. Volume-driven revenue per cohort.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">🏷️</div>
+        <div class="card-title">Co-Branded Program</div>
+        <div class="card-body">"[Hospital Name] Metabolic Health Program" positioning. Increases hospital's brand presence in corporate wellness and preventive health segments.</div>
+      </div>
+      <div class="info-card accent-sage">
+        <div class="card-icon">📊</div>
+        <div class="card-title">Long-Term Patient Lifecycle</div>
+        <div class="card-body">Program completers continue follow-up at partner hospital — driving OPD revisits, annual monitoring, and long-term specialist consultations.</div>
+      </div>
+    </div>
+    <div style="padding:20px 28px;background:rgba(168,213,226,0.05);border:1px solid rgba(168,213,226,0.15);border-radius:6px;">
+      <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sky);margin-bottom:10px;">Illustrative Revenue — 100-Patient Cohort</div>
+      <div style="display:flex;gap:32px;">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--sky);">₹3–5L</div><div style="font-size:12px;color:rgba(168,213,226,0.5);">Referral revenue</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--sage-light);">₹8–12L</div><div style="font-size:12px;color:rgba(168,213,226,0.5);">Diagnostic revenue (3 rounds × 100 pts)</div></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--gold-light);">Ongoing</div><div style="font-size:12px;color:rgba(168,213,226,0.5);">OPD follow-up patient lifetime value</div></div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 16 – RESEARCH POTENTIAL
+══════════════════════════════════════════════ -->
+<div class="slide" id="s16">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Academic & Research Value</div><h2 class="slide-h" style="margin-top:12px">Real-World Data &<br><span>Research Collaboration Potential</span></h2></div>
+      <div class="slide-num">16</div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">Dataset Characteristics</div>
+        <ul class="bullet-list" style="margin-bottom:24px;">
+          <li><strong>Prospective cohort design</strong> — defined entry criteria, structured follow-up</li>
+          <li><strong>Longitudinal biomarkers</strong> — HbA1c, glucose, anthropometrics at structured intervals</li>
+          <li><strong>Behavioral data</strong> — meal adherence, energy, compliance rates</li>
+          <li><strong>Dual-population data</strong> — clinical T2D and preventive cohort comparison</li>
+          <li><strong>Scale:</strong> 1,000+ participants per annual cycle</li>
+        </ul>
+        <div class="col-label">Publication Pathways</div>
+        <ul class="bullet-list">
+          <li>Lifestyle intervention HbA1c reduction in South Indian T2D patients</li>
+          <li>Meal delivery compliance as a modifiable variable in metabolic care</li>
+          <li>Corporate cohort metabolic risk — longitudinal study</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Collaboration Structure</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div class="info-card" style="padding:18px 20px;">
+            <div class="card-title">Data Access Agreement</div>
+            <div class="card-body">De-identified cohort data available to named academic/clinical collaborators under IRB-compliant data sharing agreement.</div>
+          </div>
+          <div class="info-card accent-sage" style="padding:18px 20px;">
+            <div class="card-title">Co-PI Research Proposal</div>
+            <div class="card-body">Hospital clinician listed as Co-Principal Investigator on prospective study design. Joint publication authorship.</div>
+          </div>
+          <div class="info-card" style="padding:18px 20px;">
+            <div class="card-title">Institutional Ethics Pathway</div>
+            <div class="card-body">Hospital ethics committee oversight available. Formalizes research credentials and strengthens publication eligibility.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 17 – PILOT PLAN
+══════════════════════════════════════════════ -->
+<div class="slide" id="s17">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Pilot Proposal</div><h2 class="slide-h" style="margin-top:12px">Proposed <span>Pilot Structure</span><br>for Clinical Validation</h2></div>
+      <div class="slide-num">17</div>
+    </div>
+    <div class="stat-row" style="margin-bottom:32px;">
+      <div class="stat-card"><div class="stat-num">50–100</div><div class="stat-label">Pilot participants across both tracks (clinical + preventive)</div></div>
+      <div class="stat-card"><div class="stat-num">90</div><div class="stat-label">Days. Full structured intervention with weekly monitoring</div></div>
+      <div class="stat-card"><div class="stat-num">3×</div><div class="stat-label">HbA1c assessments per participant (baseline, mid, end)</div></div>
+      <div class="stat-card"><div class="stat-num">12–16 wks</div><div class="stat-label">Total timeline from partner onboarding to outcome report</div></div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="col-label">Pilot Deliverables to Hospital Partner</div>
+        <ul class="bullet-list">
+          <li><strong>Full outcome report</strong> — HbA1c delta, weight, waist, adherence rates</li>
+          <li><strong>Patient-level summaries</strong> for all referred participants</li>
+          <li><strong>Cohort-level statistical analysis</strong> — mean improvements, response distribution</li>
+          <li><strong>Case studies</strong> — 3–5 participant narrative summaries for clinical review</li>
+          <li><strong>Research dataset</strong> — de-identified cohort data for publication consideration</li>
+        </ul>
+      </div>
+      <div>
+        <div class="col-label">Hospital Commitment for Pilot</div>
+        <div class="info-card" style="padding:24px;">
+          <ul class="bullet-list">
+            <li>Nominate 1 physician clinical liaison</li>
+            <li>Refer 30–50 eligible patients via defined intake form</li>
+            <li>Process lab tests at in-house diagnostic center</li>
+            <li>Review mid-program and end-of-program reports</li>
+            <li>Provide clinical feedback for protocol refinement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 18 – LONG-TERM VISION (DARK)
+══════════════════════════════════════════════ -->
+<div class="slide slide-dark" id="s18">
+  <div class="slide-inner" style="background:linear-gradient(150deg,var(--navy) 0%,var(--deep-teal) 100%);align-items:center;justify-content:center;text-align:center;">
+    <div style="max-width:840px;margin:0 auto;">
+      <div style="font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:24px;">Long-Term Vision</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3.5vw,48px);font-weight:300;color:var(--white);line-height:1.2;margin-bottom:40px;">
+        Building an <em style="color:var(--sky);font-style:italic;">Integrated Metabolic Care Ecosystem</em><br>Across Clinical, Nutritional & Behavioral Domains
+      </h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(168,213,226,0.1);border-radius:6px;padding:24px 16px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">🏥</div>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Hospital Layer</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.55);">Diagnosis · Pharmacology · Complex care</div>
+        </div>
+        <div style="background:rgba(31,102,116,0.25);border:1px solid rgba(168,213,226,0.2);border-radius:6px;padding:24px 16px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">🥗</div>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Nutrition Layer</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.55);">Controlled delivery · Personalized plans</div>
+        </div>
+        <div style="background:rgba(124,174,152,0.15);border:1px solid rgba(124,174,152,0.3);border-radius:6px;padding:24px 16px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">🧠</div>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Behavior Layer</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.55);">Monitoring · Accountability · Motivation</div>
+        </div>
+        <div style="background:rgba(196,153,106,0.1);border:1px solid rgba(196,153,106,0.25);border-radius:6px;padding:24px 16px;text-align:center;">
+          <div style="font-size:28px;margin-bottom:12px;">📊</div>
+          <div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Data Layer</div>
+          <div style="font-size:12px;color:rgba(168,213,226,0.55);">Outcomes · Research · Population insights</div>
+        </div>
+      </div>
+      <p style="font-size:14px;color:rgba(168,213,226,0.55);margin-top:36px;line-height:1.7;">
+        Year 1: Pilot program. Year 2: City-scale rollout across 5–10 hospital partners.<br>Year 3+: Multi-city metabolic health network with validated outcome data.
+      </p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 19 – PARTNERSHIP MODEL
+══════════════════════════════════════════════ -->
+<div class="slide" id="s19">
+  <div class="slide-inner">
+    <div class="slide-header">
+      <div><div class="slide-tag">Collaboration Options</div><h2 class="slide-h" style="margin-top:12px">Flexible <span>Partnership Models</span><br>Tailored to Hospital Priorities</h2></div>
+      <div class="slide-num">19</div>
+    </div>
+    <div class="card-grid" style="margin-bottom:24px;">
+      <div class="info-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+          <div class="card-icon">🎓</div>
+          <span class="badge badge-teal">Advisory</span>
+        </div>
+        <div class="card-title">Clinical Advisory Partnership</div>
+        <div class="card-body" style="margin-bottom:12px;">Named physician or department as clinical protocol advisor. Minimal time commitment. Clinical credibility and co-branding benefit.</div>
+        <ul class="bullet-list" style="gap:6px;"><li>Protocol review & approval</li><li>Clinical signoff on outcome reports</li><li>Advisory honorarium</li></ul>
+      </div>
+      <div class="info-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+          <div class="card-icon">🔁</div>
+          <span class="badge badge-teal">Referral</span>
+        </div>
+        <div class="card-title">Patient Referral Partnership</div>
+        <div class="card-body" style="margin-bottom:12px;">Structured patient pipeline from OPD to the program. Referral fee per enrolled participant. Diagnostic revenue from lab integration.</div>
+        <ul class="bullet-list" style="gap:6px;"><li>OPD referral channel</li><li>Monthly revenue share</li><li>Diagnostic center integration</li></ul>
+      </div>
+      <div class="info-card accent-sage">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+          <div class="card-icon">🏷️</div>
+          <span class="badge badge-green">Co-Brand</span>
+        </div>
+        <div class="card-title">Co-Branded Program</div>
+        <div class="card-body" style="margin-bottom:12px;">"[Hospital] Metabolic Health Program" — deepest integration. Hospital brand leads in corporate wellness communication. Joint marketing and patient communication.</div>
+        <ul class="bullet-list" style="gap:6px;"><li>Hospital-branded program</li><li>Joint corporate outreach</li><li>Highest revenue potential</li></ul>
+      </div>
+      <div class="info-card accent-gold">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
+          <div class="card-icon">🔬</div>
+          <span class="badge badge-teal">Research</span>
+        </div>
+        <div class="card-title">Research Collaboration</div>
+        <div class="card-body" style="margin-bottom:12px;">Co-PI on prospective study. Full dataset access. IRB committee involvement. Joint publication authorship on peer-reviewed work.</div>
+        <ul class="bullet-list" style="gap:6px;"><li>Co-PI designation</li><li>Full cohort data access</li><li>Joint publication</li></ul>
+      </div>
+    </div>
+    <div style="padding:14px 24px;background:rgba(31,102,116,0.06);border-radius:6px;">
+      <p style="font-size:13px;color:var(--text-mid);"><strong>Note:</strong> Partnerships can start at any tier and evolve. Most hospital collaborations begin with Advisory + Referral, progressing to Co-Brand or Research as the relationship matures.</p>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SLIDE 20 – CTA
+══════════════════════════════════════════════ -->
+<div class="slide" id="s20">
+  <div class="slide-inner" style="background:linear-gradient(160deg,var(--navy) 0%,var(--deep-teal) 60%,#0F3540 100%);align-items:center;justify-content:center;text-align:center;">
+    <div style="max-width:760px;margin:0 auto;position:relative;z-index:1;">
+      <div class="cta-overline">An Invitation to Collaborate</div>
+      <h2 class="cta-title">Let's Build the<br><em>Integrated Metabolic Care</em><br>Ecosystem Together</h2>
+      <p class="cta-sub">
+        We are seeking forward-looking hospitals and clinicians who believe that structured lifestyle intervention, delivered at scale, is the next frontier in chronic disease management.
+      </p>
+      <div class="cta-options">
+        <button class="cta-option cta-primary">Schedule a Clinical Briefing</button>
+        <button class="cta-option cta-outline">Download Program Brief</button>
+        <button class="cta-option cta-outline">Pilot Program Enquiry</button>
+      </div>
+      <div class="cta-divider"></div>
+      <div class="cta-contact-row">
+        <div class="cta-contact-item"><label>Partnership Lead</label><span>Available on Request</span></div>
+        <div class="cta-contact-item"><label>Program Type</label><span>90-Day Structured Intervention</span></div>
+        <div class="cta-contact-item"><label>Initial Pilot</label><span>50–100 Participants</span></div>
+      </div>
+    </div>
+    <div class="slide-footer"></div>
+  </div>
+</div>
+
+</div><!-- /slides-wrap -->
+
+<script>
+  let current = 0;
+  const total = 20;
+  const slides = document.querySelectorAll('.slide');
+  const counter = document.getElementById('nav-counter');
+  const progress = document.getElementById('progress-bar');
+
+  function showSlide(n) {
+    slides[current].classList.remove('active');
+    current = (n + total) % total;
+    slides[current].classList.add('active');
+    counter.textContent = `${current + 1} / ${total}`;
+    progress.style.width = `${((current + 1) / total) * 100}%`;
+    window.scrollTo(0, 0);
+  }
+
+  function nextSlide() { showSlide(current + 1); }
+  function prevSlide() { showSlide(current - 1); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+  });
+
+  // Touch swipe
+  let startX = 0;
+  document.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+  document.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) dx < 0 ? nextSlide() : prevSlide();
+  });
+
+  // Init progress
+  progress.style.width = `${(1 / total) * 100}%`;
+</script>
+</body>
+</html>

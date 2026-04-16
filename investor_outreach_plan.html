@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Investor Outreach Sequencing Plan — MetaFit</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Archivo:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F2EC;
+  --bg2: #EDE9E0;
+  --bg3: #E4DFD4;
+  --ink: #1A1612;
+  --ink2: #3D3530;
+  --ink3: #6B6259;
+  --ink4: #9C9289;
+  --rule: rgba(26,22,18,0.1);
+  --rule2: rgba(26,22,18,0.06);
+  --red: #C0392B;
+  --red-bg: rgba(192,57,43,0.08);
+  --green: #2E7D52;
+  --green-bg: rgba(46,125,82,0.08);
+  --gold: #B8860B;
+  --gold-bg: rgba(184,134,11,0.08);
+  --blue: #1B4F8A;
+  --blue-bg: rgba(27,79,138,0.08);
+  --accent: #C0392B;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Archivo', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  padding: 40px 64px 36px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-bottom: 3px solid var(--red);
+}
+.mh-left {}
+.mh-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(255,255,255,0.35);
+  margin-bottom: 10px;
+}
+.mh-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 42px); font-weight: 500;
+  color: #FFFFFF; line-height: 1.1;
+}
+.mh-title em { font-style: italic; color: #E8A090; }
+.mh-right { text-align: right; }
+.mh-meta { display: flex; flex-direction: column; gap: 4px; }
+.mh-meta-item {
+  font-size: 11px; color: rgba(255,255,255,0.4);
+  font-family: 'Roboto Mono', monospace; letter-spacing: 0.05em;
+}
+.mh-meta-item span { color: rgba(255,255,255,0.75); }
+
+/* ── SECTION HEADERS ── */
+.section {
+  padding: 48px 64px 0;
+}
+.section-rule {
+  display: flex; align-items: center; gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+.section-num {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 11px; font-weight: 400; color: var(--ink4);
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 500; color: var(--ink);
+}
+.section-sub {
+  margin-left: auto; font-size: 11px; color: var(--ink4);
+  font-style: italic;
+}
+
+/* ── TIMELINE ── */
+.timeline-wrap {
+  padding: 0 64px 40px;
+  position: relative;
+}
+.timeline-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+  margin-bottom: 32px;
+}
+.timeline-track::before {
+  content: '';
+  position: absolute; top: 28px; left: 28px; right: 28px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 8px, transparent 8px, transparent 16px);
+  z-index: 0;
+}
+.tl-node {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative; z-index: 1;
+}
+.tl-dot {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 12px; position: relative;
+  border: 2px solid transparent;
+}
+.tl-dot.phase1 { background: var(--ink); color: #fff; }
+.tl-dot.phase2 { background: var(--red); color: #fff; }
+.tl-dot.phase3 { background: var(--bg3); color: var(--ink); border-color: var(--ink); }
+.tl-dot.phase4 { background: var(--bg3); color: var(--ink); border-color: var(--rule); }
+.tl-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink2); margin-bottom: 4px;
+  text-align: center;
+}
+.tl-period {
+  font-size: 10px; color: var(--ink4);
+  font-family: 'Roboto Mono', monospace; text-align: center;
+}
+
+/* ── INVESTOR TABLES ── */
+.inv-section { padding: 0 64px 48px; }
+.track-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px; padding: 14px 20px;
+  border-radius: 4px;
+}
+.track-header.angel { background: var(--gold-bg); border-left: 4px solid var(--gold); }
+.track-header.strategic { background: var(--blue-bg); border-left: 4px solid var(--blue); }
+.track-header.vc { background: var(--red-bg); border-left: 4px solid var(--red); }
+.track-icon { font-size: 22px; }
+.track-title-wrap {}
+.track-type {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 3px;
+}
+.track-type.angel { color: var(--gold); }
+.track-type.strategic { color: var(--blue); }
+.track-type.vc { color: var(--red); }
+.track-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 500; color: var(--ink);
+}
+.track-meta { margin-left: auto; text-align: right; }
+.track-target {
+  font-size: 12px; font-weight: 600; color: var(--ink2);
+}
+.track-timing {
+  font-size: 11px; color: var(--ink4); font-style: italic; margin-top: 2px;
+}
+
+/* TABLE */
+.inv-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; }
+.inv-table thead tr {
+  background: var(--bg3);
+}
+.inv-table thead th {
+  text-align: left; padding: 10px 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink3);
+  border-bottom: 2px solid var(--rule);
+}
+.inv-table tbody tr {
+  border-bottom: 1px solid var(--rule2);
+  transition: background 0.15s;
+}
+.inv-table tbody tr:hover { background: var(--bg2); }
+.inv-table tbody td {
+  padding: 13px 16px; font-size: 13px; color: var(--ink2);
+  vertical-align: top;
+}
+.inv-table tbody td:first-child {
+  font-weight: 600; color: var(--ink);
+}
+.priority-badge {
+  display: inline-block; padding: 2px 10px; border-radius: 3px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.p-hot { background: rgba(192,57,43,0.1); color: var(--red); }
+.p-warm { background: rgba(184,134,11,0.1); color: var(--gold); }
+.p-cold { background: rgba(27,79,138,0.1); color: var(--blue); }
+.p-hold { background: var(--bg3); color: var(--ink4); }
+
+.reach-tag {
+  display: inline-block; padding: 2px 8px; border-radius: 3px;
+  font-size: 10px; font-weight: 600;
+  background: var(--bg3); color: var(--ink3);
+}
+.reach-tag.direct { background: var(--green-bg); color: var(--green); }
+.reach-tag.warm { background: var(--gold-bg); color: var(--gold); }
+.reach-tag.cold { background: var(--red-bg); color: var(--red); }
+
+/* ── OUTREACH SCRIPTS ── */
+.scripts-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 20px; padding: 0 64px 48px;
+}
+.script-card {
+  background: var(--bg2); border: 1px solid var(--rule);
+  border-radius: 6px; overflow: hidden;
+}
+.script-header {
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+.script-header.angel { background: var(--gold-bg); }
+.script-header.strategic { background: var(--blue-bg); }
+.script-header.vc { background: var(--red-bg); }
+.script-header.followup { background: var(--green-bg); }
+.script-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.script-label.angel { color: var(--gold); }
+.script-label.strategic { color: var(--blue); }
+.script-label.vc { color: var(--red); }
+.script-label.followup { color: var(--green); }
+.script-title {
+  font-size: 13px; font-weight: 600; color: var(--ink);
+}
+.script-body {
+  padding: 18px 20px;
+  font-size: 12.5px; color: var(--ink2); line-height: 1.7;
+  font-style: italic;
+  border-left: 3px solid transparent;
+}
+.script-body.angel { border-color: var(--gold); }
+.script-body.strategic { border-color: var(--blue); }
+.script-body.vc { border-color: var(--red); }
+.script-body.followup { border-color: var(--green); }
+.script-note {
+  padding: 10px 20px 14px;
+  font-size: 11px; color: var(--ink4); line-height: 1.5;
+}
+
+/* ── WEEK PLAN ── */
+.week-grid {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  gap: 12px; padding: 0 64px 48px;
+}
+.week-card {
+  background: var(--bg2); border: 1px solid var(--rule);
+  border-radius: 5px; overflow: hidden;
+}
+.week-num {
+  background: var(--ink); color: white;
+  padding: 8px 12px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; font-weight: 400;
+}
+.week-card.active .week-num { background: var(--red); }
+.week-card.upcoming .week-num { background: var(--ink2); }
+.week-card.future .week-num { background: var(--bg3); color: var(--ink4); }
+.week-body { padding: 12px; }
+.week-task {
+  font-size: 11px; color: var(--ink2); line-height: 1.5;
+  margin-bottom: 6px; display: flex; gap: 6px;
+}
+.week-task::before { content: '–'; color: var(--ink4); flex-shrink: 0; }
+.week-milestone {
+  margin-top: 8px; padding: 6px 8px;
+  background: var(--bg); border-radius: 3px;
+  font-size: 10px; font-weight: 700; color: var(--ink3);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ── RED FLAGS ── */
+.flags-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px; padding: 0 64px 48px;
+}
+.flag-card {
+  border: 1px solid var(--rule);
+  border-radius: 5px; padding: 18px;
+  background: var(--bg2);
+}
+.flag-card.danger { border-top: 3px solid var(--red); }
+.flag-card.caution { border-top: 3px solid var(--gold); }
+.flag-card.info { border-top: 3px solid var(--blue); }
+.flag-icon { font-size: 18px; margin-bottom: 8px; }
+.flag-title { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.flag-desc { font-size: 12px; color: var(--ink3); line-height: 1.55; }
+
+/* ── TRACKER ── */
+.tracker-wrap { padding: 0 64px 64px; }
+.tracker-table { width: 100%; border-collapse: collapse; }
+.tracker-table thead tr { background: var(--ink); }
+.tracker-table thead th {
+  text-align: left; padding: 12px 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.tracker-table tbody tr { border-bottom: 1px solid var(--rule2); }
+.tracker-table tbody tr:hover { background: var(--bg2); }
+.tracker-table tbody td { padding: 12px 16px; font-size: 12px; color: var(--ink2); }
+.tracker-table tbody td:first-child { font-weight: 600; color: var(--ink); }
+.status-dot {
+  display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; margin-right: 6px;
+}
+.s-active { background: var(--green); }
+.s-pending { background: var(--gold); }
+.s-notstarted { background: var(--ink4); }
+.s-hold { background: var(--rule); border: 1px solid var(--ink4); }
+
+/* ── FOOTER ── */
+.doc-footer {
+  background: var(--ink); padding: 28px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5);
+}
+.footer-note {
+  font-size: 11px; color: rgba(255,255,255,0.25);
+  font-style: italic;
+}
+
+/* PRINT */
+@media print {
+  body { background: white; }
+  .masthead { background: #111 !important; }
+}
+
+/* Tabs */
+.tab-nav {
+  display: flex; gap: 0;
+  padding: 0 64px;
+  border-bottom: 2px solid var(--rule);
+  margin-bottom: 0;
+  background: var(--bg2);
+  position: sticky; top: 0; z-index: 100;
+}
+.tab-btn {
+  padding: 14px 22px; background: none; border: none;
+  font-family: 'Archivo', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--ink4); cursor: pointer; transition: all 0.2s;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+}
+.tab-btn:hover { color: var(--ink2); }
+.tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <div class="mh-left">
+    <div class="mh-label">Confidential · Working Document</div>
+    <div class="mh-title">Investor Outreach<br><em>Sequencing Plan</em></div>
+  </div>
+  <div class="mh-right">
+    <div class="mh-meta">
+      <div class="mh-meta-item">Company: <span>MetaFit — Metabolic Health Platform</span></div>
+      <div class="mh-meta-item">Raise: <span>₹3.5 Cr Seed Round</span></div>
+      <div class="mh-meta-item">Valuation: <span>₹22–28 Cr (Pre-Money)</span></div>
+      <div class="mh-meta-item">Geography: <span>Hyderabad-first · India</span></div>
+      <div class="mh-meta-item">Timeline: <span>12–16 weeks to close</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB NAV -->
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('sequence')">01 · Sequence</button>
+  <button class="tab-btn" onclick="showTab('targets')">02 · Target List</button>
+  <button class="tab-btn" onclick="showTab('scripts')">03 · Outreach Scripts</button>
+  <button class="tab-btn" onclick="showTab('weekly')">04 · Weekly Plan</button>
+  <button class="tab-btn" onclick="showTab('flags')">05 · Red Flags</button>
+  <button class="tab-btn" onclick="showTab('tracker')">06 · Deal Tracker</button>
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 1 — SEQUENCE
+══════════════════════════════════ -->
+<div class="tab-content active" id="tab-sequence">
+
+  <div class="section">
+    <div class="section-rule">
+      <span class="section-num">01</span>
+      <span class="section-title">The Four-Phase Fundraising Sequence</span>
+      <span class="section-sub">Total timeline: 12–16 weeks · 3 investor types · 1 coordinated story</span>
+    </div>
+  </div>
+
+  <div class="timeline-wrap">
+    <div class="timeline-track">
+      <div class="tl-node">
+        <div class="tl-dot phase1">1</div>
+        <div class="tl-label">Foundation</div>
+        <div class="tl-period">Weeks 1–3</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot phase2">2</div>
+        <div class="tl-label">Angel Close</div>
+        <div class="tl-period">Weeks 4–7</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot phase3">3</div>
+        <div class="tl-label">Strategic + VC</div>
+        <div class="tl-period">Weeks 8–12</div>
+      </div>
+      <div class="tl-node">
+        <div class="tl-dot phase4">4</div>
+        <div class="tl-label">Close + Deploy</div>
+        <div class="tl-period">Weeks 13–16</div>
+      </div>
+    </div>
+
+    <!-- PHASE DETAILS -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+
+      <div style="background:var(--ink);color:white;border-radius:6px;padding:22px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:12px;">Phase 01 · Foundation</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;margin-bottom:14px;">Prepare Before You Pitch</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Finalize investor deck (done ✓)</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Build 1-page executive summary</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Align revenue numbers across all documents</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Initiate pilot with 30–50 users (critical)</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Map warm intros in your existing network</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.7);padding-left:10px;border-left:2px solid rgba(255,255,255,0.2);">Set up data room (Google Drive, structured)</div>
+        </div>
+        <div style="margin-top:16px;padding:10px 12px;background:rgba(192,57,43,0.3);border-radius:4px;font-size:11px;color:rgba(255,255,255,0.85);">
+          ⚠️ Do NOT approach investors until pilot is live.
+        </div>
+      </div>
+
+      <div style="background:var(--gold-bg);border:1px solid rgba(184,134,11,0.2);border-radius:6px;padding:22px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Phase 02 · Angel Close</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:14px;">Close ₹75L–₹1 Cr First</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Target: 2–3 HNI angels (doctors, pharma execs)</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Preferred: 1 practicing endocrinologist</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Instrument: Convertible note at ₹22 Cr cap</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Use: Social proof for VC conversations</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Leverage: SumanTV network + medical contacts</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--gold);">Offer advisory equity (0.25%) separately</div>
+        </div>
+        <div style="margin-top:16px;padding:10px 12px;background:rgba(184,134,11,0.12);border-radius:4px;font-size:11px;color:var(--gold);">
+          Goal: "Round is ₹1 Cr committed" before VC conversations.
+        </div>
+      </div>
+
+      <div style="background:var(--blue-bg);border:1px solid rgba(27,79,138,0.15);border-radius:6px;padding:22px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;">Phase 03 · Strategic + VC</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:14px;">Run Parallel Tracks</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">Strategic: Approach Thyrocare / SRL first</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">Strategic: Frame as partnership + investment</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">VC: Target healthcare-focused seed funds</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">Lead with: "Round ₹1 Cr committed, seeking lead"</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">Pilot data is now your primary proof point</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--blue);">Create manufactured scarcity — set a close date</div>
+        </div>
+        <div style="margin-top:16px;padding:10px 12px;background:rgba(27,79,138,0.1);border-radius:4px;font-size:11px;color:var(--blue);">
+          Target: 1 strategic LOI + 1 VC term sheet in this phase.
+        </div>
+      </div>
+
+      <div style="background:var(--green-bg);border:1px solid rgba(46,125,82,0.15);border-radius:6px;padding:22px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Phase 04 · Close</div>
+        <div style="font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);margin-bottom:14px;">Close Clean. Deploy Fast.</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">Negotiate final terms (protect data rights)</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">CA review of SHA and subscription docs</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">Capital in account within 30 days of term sheet</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">Issue first corporate expansion contracts</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">Begin Series A narrative from Day 1 post-close</div>
+          <div style="font-size:12px;color:var(--ink2);padding-left:10px;border-left:2px solid var(--green);">Announce round for pipeline credibility</div>
+        </div>
+        <div style="margin-top:16px;padding:10px 12px;background:rgba(46,125,82,0.1);border-radius:4px;font-size:11px;color:var(--green);">
+          18-month milestone: 500 users, ₹3.75 Cr revenue, Series A ready.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 2 — TARGET LIST
+══════════════════════════════════ -->
+<div class="tab-content" id="tab-targets">
+
+  <!-- ANGEL TARGETS -->
+  <div class="inv-section" style="padding-top:40px;">
+    <div class="track-header angel">
+      <div class="track-icon">🏥</div>
+      <div class="track-title-wrap">
+        <div class="track-type angel">Track A · Angel / HNI</div>
+        <div class="track-name">Doctors, Pharma Executives, Healthcare HNIs</div>
+      </div>
+      <div class="track-meta">
+        <div class="track-target">Target: ₹75L – ₹1 Cr</div>
+        <div class="track-timing">Weeks 4–7 · Close first</div>
+      </div>
+    </div>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Profile Type</th>
+          <th>Why They Invest</th>
+          <th>How to Reach</th>
+          <th>Pitch Angle</th>
+          <th>Ticket Size</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Endocrinologist / Diabetologist<br><span style="font-size:11px;color:var(--ink4);">Hyderabad-based, 10+ yrs practice</span></td>
+          <td>Sees problem daily. Personal mission + financial return. Wants to be part of solution.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>Via hospital contacts, medical conferences</td>
+          <td>"You refer patients every day who fall off after your clinic. We're the compliance infrastructure your prescription needs."</td>
+          <td>₹10L–₹25L</td>
+          <td><span class="priority-badge p-hot">Priority 1</span></td>
+        </tr>
+        <tr>
+          <td>Pharma Senior Executive<br><span style="font-size:11px;color:var(--ink4);">Regional/national director at Sun, Dr. Reddy's, Cipla</span></td>
+          <td>Understands the market size. Strategic upside + personal investment. Access to their network.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>LinkedIn + pharma industry events</td>
+          <td>"Your drugs treat the disease. We make patients compliant enough to actually benefit from them. Aligned mission."</td>
+          <td>₹25L–₹50L</td>
+          <td><span class="priority-badge p-hot">Priority 1</span></td>
+        </tr>
+        <tr>
+          <td>Corporate HR / Benefits Head<br><span style="font-size:11px;color:var(--ink4);">IT company VP/Director level, Hyderabad</span></td>
+          <td>Wants to be first mover in employee health. Becomes your champion + first corporate client simultaneously.</td>
+          <td><span class="reach-tag direct">Direct</span><br>LinkedIn outreach, industry HR events</td>
+          <td>"Invest and simultaneously be our first corporate account. Your company gets outcomes + you get equity upside."</td>
+          <td>₹10L–₹20L</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+        <tr>
+          <td>Hospital Administrator / COO<br><span style="font-size:11px;color:var(--ink4);">Mid-tier private hospital, Hyderabad</span></td>
+          <td>Strategic alignment. Referral pipeline + investment return. Bridges angel + strategic tracks.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>Healthcare network, SumanTV medical contacts</td>
+          <td>"We send you patients. You invest in us. Everyone wins on outcomes and economics."</td>
+          <td>₹15L–₹30L</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+        <tr>
+          <td>HealthTech/FoodTech Angel<br><span style="font-size:11px;color:var(--ink4);">Prior founder or operator in adjacent space</span></td>
+          <td>Pattern recognition. Understands the model. Can add operational advice beyond capital.</td>
+          <td><span class="reach-tag cold">Cold Outreach</span><br>AngelList, LetsVenture profiles</td>
+          <td>Use full investor deck. Lead with ARPU + unit economics. They'll do their own research.</td>
+          <td>₹15L–₹50L</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- STRATEGIC TARGETS -->
+  <div class="inv-section">
+    <div class="track-header strategic">
+      <div class="track-icon">🏭</div>
+      <div class="track-title-wrap">
+        <div class="track-type strategic">Track B · Strategic Investors</div>
+        <div class="track-name">Diagnostics, Hospitals, Pharma Companies</div>
+      </div>
+      <div class="track-meta">
+        <div class="track-target">Target: ₹1 Cr – ₹1.5 Cr</div>
+        <div class="track-timing">Weeks 8–12 · Parallel with VC</div>
+      </div>
+    </div>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Strategic Fit</th>
+          <th>Contact Approach</th>
+          <th>Deal Structure</th>
+          <th>Watch Out</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Thyrocare / Dr. Lal PathLabs<br><span style="font-size:11px;color:var(--ink4);">Diagnostic chain</span></td>
+          <td>3× HbA1c per participant = recurring lab revenue at scale. Perfect volume alignment. No conflict of interest.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>BD team or franchise partner intro</td>
+          <td>Investment + exclusive diagnostic partner agreement. Volume pricing in exchange for equity at ₹25 Cr valuation.</td>
+          <td>Don't give exclusive data rights. Lab exclusivity (per city) is OK.</td>
+          <td><span class="priority-badge p-hot">Priority 1</span></td>
+        </tr>
+        <tr>
+          <td>Apollo / Yashoda / Care Hospitals<br><span style="font-size:11px;color:var(--ink4);">Hyderabad hospital network</span></td>
+          <td>Patient referral pipeline + co-branded program. Corporate wellness arm looking for differentiated offerings.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>Via clinical advisors or admin network</td>
+          <td>Start with clinical partnership first. Convert to investment conversation after 90-day pilot proof.</td>
+          <td>Hospital bureaucracy is slow. Don't depend on this for seed close timing.</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+        <tr>
+          <td>Sun Pharma / Dr. Reddy's Ventures<br><span style="font-size:11px;color:var(--ink4);">Pharma corporate venture</span></td>
+          <td>Lifestyle + pharmacology integration data. Patient adherence insights. Real-world evidence programs.</td>
+          <td><span class="reach-tag cold">Cold Outreach</span><br>LinkedIn + industry events. Long lead time.</td>
+          <td>Data partnership + minority investment. Frame as real-world evidence generation platform.</td>
+          <td>Pharma CVCs move slowly (6–12 months). Don't rely on for seed timeline.</td>
+          <td><span class="priority-badge p-cold">Phase 2</span></td>
+        </tr>
+        <tr>
+          <td>Medi Assist / Star Health (TPA)<br><span style="font-size:11px;color:var(--ink4);">Insurance / TPA</span></td>
+          <td>Outcome-linked wellness benefit. Premium reduction data. Employer group health plan integration.</td>
+          <td><span class="reach-tag cold">Cold Outreach</span><br>Corporate BD team approach</td>
+          <td>Commercial agreement first (outcome data licensing). Investment comes after scale proof at 1,000+ users.</td>
+          <td>Insurance moves on data and actuarial proof. Come back post-Series A.</td>
+          <td><span class="priority-badge p-hold">Phase 3+</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- VC TARGETS -->
+  <div class="inv-section">
+    <div class="track-header vc">
+      <div class="track-icon">💼</div>
+      <div class="track-title-wrap">
+        <div class="track-type vc">Track C · Institutional VCs</div>
+        <div class="track-name">Healthcare & Consumer HealthTech Seed Funds</div>
+      </div>
+      <div class="track-meta">
+        <div class="track-target">Target: ₹1.5 Cr – ₹2 Cr</div>
+        <div class="track-timing">Weeks 9–12 · Lead investor</div>
+      </div>
+    </div>
+    <table class="inv-table">
+      <thead>
+        <tr>
+          <th>Fund / Investor</th>
+          <th>Thesis Fit</th>
+          <th>Approach</th>
+          <th>What They'll Ask</th>
+          <th>Your Answer</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kalaari Capital<br><span style="font-size:11px;color:var(--ink4);">Healthcare + consumer focus. Bengaluru.</span></td>
+          <td>Active in HealthTech. Previous investments in D2C health. Understands India ops-heavy models.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>Portfolio founder intro preferred</td>
+          <td>"How do you scale beyond Hyderabad?"</td>
+          <td>Cloud kitchen playbook + corporate B2B replication model. Each city = 1 enterprise deal to trigger.</td>
+          <td><span class="priority-badge p-hot">Priority 1</span></td>
+        </tr>
+        <tr>
+          <td>Stellaris Venture Partners<br><span style="font-size:11px;color:var(--ink4);">Early-stage generalist, India focus</span></td>
+          <td>Backs strong founder-market fit. Will respond to your operator background + infra story.</td>
+          <td><span class="reach-tag warm">Warm Intro</span><br>LinkedIn + AngelList</td>
+          <td>"Is this a tech company or services business?"</td>
+          <td>Phase 1 ops-heavy is the moat. Tech layer in Phase 2 is the multiplier. Frame the transition explicitly.</td>
+          <td><span class="priority-badge p-hot">Priority 1</span></td>
+        </tr>
+        <tr>
+          <td>Orios Venture Partners<br><span style="font-size:11px;color:var(--ink4);">Consumer + D2C focus. Mumbai.</span></td>
+          <td>Invested in health + food space. High ARPU D2C models are in their wheelhouse.</td>
+          <td><span class="reach-tag cold">Cold Outreach</span><br>Partner intro via AngelList</td>
+          <td>"What's your CAC and payback period?"</td>
+          <td>B2B CAC ₹800. ARPU ₹75K/90 days. Payback &lt;45 days on contribution margin basis.</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+        <tr>
+          <td>Blume Ventures<br><span style="font-size:11px;color:var(--ink4);">Early-stage, strong network</span></td>
+          <td>Portfolio includes health + food. Known for backing execution-heavy founders.</td>
+          <td><span class="reach-tag cold">Cold Outreach</span><br>Twitter/LinkedIn + Blume open office</td>
+          <td>"Can this run without the founder?"</td>
+          <td>Pilot demonstrates system, not founder. Hiring City Ops Managers with seed capital as first use of funds.</td>
+          <td><span class="priority-badge p-warm">Priority 2</span></td>
+        </tr>
+        <tr>
+          <td>Let's Venture / Ah! Ventures<br><span style="font-size:11px;color:var(--ink4);">Platform-based angel syndicates</span></td>
+          <td>Good for filling the round after a lead is in. Can raise ₹50L–₹1 Cr quickly from network.</td>
+          <td><span class="reach-tag direct">Direct</span><br>Platform listing after lead term sheet</td>
+          <td>Will follow lead. Not suitable as first money in.</td>
+          <td>Use to fill the round. Don't use as primary outreach.</td>
+          <td><span class="priority-badge p-cold">Round Fill</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 3 — SCRIPTS
+══════════════════════════════════ -->
+<div class="tab-content" id="tab-scripts">
+  <div style="padding:40px 64px 20px;">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">Outreach Message Templates</div>
+    <div style="font-size:13px;color:var(--ink4);margin-bottom:0;">Calibrated by investor type. Adapt names and specifics. Never send a generic message.</div>
+  </div>
+  <div class="scripts-grid">
+
+    <div class="script-card">
+      <div class="script-header angel">
+        <div>
+          <div class="script-label angel">Angel / HNI — Doctor</div>
+          <div class="script-title">LinkedIn / WhatsApp first message</div>
+        </div>
+      </div>
+      <div class="script-body angel">
+        "Dr. [Name], I'm building a structured metabolic health program for corporate employees in Hyderabad — specifically designed to solve what you see every day: patients who get the diagnosis, walk out of your clinic, and fall off within weeks.<br><br>
+        We've built a compliance-controlled system — controlled meal delivery 6 days/week, weekly monitoring, clinical oversight — that operationalizes the lifestyle prescription.<br><br>
+        We're raising a seed round and would love 20 minutes to get your perspective — both as a clinical expert and as someone who might want to be involved at the ground floor.<br><br>
+        Would you be open to a brief call this week?"
+      </div>
+      <div class="script-note">✓ Leads with problem they know personally. ✓ Positions as seeking expertise, not money. ✓ Short. ✓ Clear ask.</div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header angel">
+        <div>
+          <div class="script-label angel">Angel / HNI — Pharma Executive</div>
+          <div class="script-title">LinkedIn connection request + follow-up</div>
+        </div>
+      </div>
+      <div class="script-body angel">
+        "Hi [Name], given your work at [Company] on diabetes/metabolic portfolios, I think you'd find what we're building interesting — and potentially strategically aligned.<br><br>
+        We're building a compliance-controlled metabolic intervention platform for corporate India. The thesis: whoever controls daily food + behavior controls metabolic outcomes. We're operationalizing that.<br><br>
+        High ARPU model (₹75K/90-day cohort), corporate B2B first, existing kitchen infrastructure. We're raising seed and selectively speaking with operators who understand the therapeutic landscape.<br><br>
+        Happy to send a 1-pager if relevant. 15 minutes at your convenience?"
+      </div>
+      <div class="script-note">✓ Acknowledges their domain. ✓ Frames as strategic peer conversation. ✓ Mentions ARPU to signal financial credibility upfront.</div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header strategic">
+        <div>
+          <div class="script-label strategic">Strategic — Diagnostic Partner</div>
+          <div class="script-title">BD + Investment dual-track approach</div>
+        </div>
+      </div>
+      <div class="script-body strategic">
+        "Hi [Name], I'm reaching out regarding a potential commercial + investment partnership between [your company] and MetaFit.<br><br>
+        We're building a 90-day metabolic intervention program targeting corporate employees with Type 2 diabetes and prediabetes. Every participant requires 3 rounds of HbA1c + glucose panel testing — at scale, that's 3,000+ tests per year from Year 1 alone, growing to 30,000+ by Year 3.<br><br>
+        Beyond the commercial volume, we're offering early-stage investment at ₹25 Cr pre-money to a single diagnostic partner — in exchange for exclusive testing integration and volume pricing.<br><br>
+        Would a 30-minute conversation with your BD and investment team make sense?"
+      </div>
+      <div class="script-note">✓ Leads with their commercial interest (test volume). ✓ Investment framed as partnership advantage. ✓ Quantified. ✓ Asks for the right meeting — BD + investment together.</div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header vc">
+        <div>
+          <div class="script-label vc">VC — Cold Outreach</div>
+          <div class="script-title">Email to partner / associate</div>
+        </div>
+      </div>
+      <div class="script-body vc">
+        "Subject: MetaFit — Compliance-Controlled Metabolic Platform · Seed Round<br><br>
+        Hi [Name],<br><br>
+        One line: we're building the compliance infrastructure layer for metabolic health in India — combining clinical nutrition delivery, behavioral tracking, and outcome measurement into a single vertically integrated system.<br><br>
+        Why now: India has 101M+ T2D patients and zero platforms that control daily behavior at scale. Apps track. We deliver, monitor, and measure.<br><br>
+        Business: ₹75K ARPU per 90-day cohort, B2B2C corporate-first, existing kitchen infrastructure (1,000+ orders/day), early pilot underway.<br><br>
+        We're raising ₹3.5 Cr at ₹25 Cr pre-money. Round is partially committed. Attaching a 2-page summary — happy to send the full deck if relevant.<br><br>
+        [Your name]"
+      </div>
+      <div class="script-note">✓ Subject line is a searchable summary. ✓ One-line thesis. ✓ "Why now" up front. ✓ Key numbers in the body. ✓ "Partially committed" creates urgency. ✓ Respects their time.</div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header followup">
+        <div>
+          <div class="script-label followup">All Types — Follow-Up</div>
+          <div class="script-title">After no reply (Day 7–10)</div>
+        </div>
+      </div>
+      <div class="script-body followup">
+        "Hi [Name], following up on my note from last week.<br><br>
+        Since then, we've [added 1 update: new pilot users / confirmed a clinical advisor / received a term sheet from another investor].<br><br>
+        We're closing this round by [date] and have limited allocation remaining. If a 20-minute conversation makes sense, I'd be glad to fit around your schedule this week.<br><br>
+        If the timing isn't right, completely understood — I'd appreciate a quick note so I can close the loop."
+      </div>
+      <div class="script-note">✓ Always lead with a new development — never send a blank "just following up." ✓ Manufactured urgency with a close date. ✓ Gives them an easy out (respects time).</div>
+    </div>
+
+    <div class="script-card">
+      <div class="script-header vc">
+        <div>
+          <div class="script-label vc">All Types — Valuation Q</div>
+          <div class="script-title">When asked: "What's your valuation?"</div>
+        </div>
+      </div>
+      <div class="script-body vc">
+        "We're targeting a ₹25 Cr pre-money range — based on three things: one, existing cloud kitchen infrastructure that most seed-stage companies don't have yet; two, a high-ARPU model at ₹75K per 90-day user with strong unit economics; and three, early corporate access that dramatically reduces our go-to-market risk.<br><br>
+        We're not fixed on a number — we're prioritizing the right partner over the highest valuation. If you see the same potential we do, I'm open to a conversation on structure."
+      </div>
+      <div class="script-note">✓ Justifies the number (never just state it). ✓ Three-point anchoring. ✓ Signals flexibility without desperation. ✓ "Right partner" framing — investors like being called the right fit.</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 4 — WEEKLY PLAN
+══════════════════════════════════ -->
+<div class="tab-content" id="tab-weekly">
+  <div style="padding:40px 64px 24px;">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">12-Week Execution Calendar</div>
+    <div style="font-size:13px;color:var(--ink4);">Week-by-week actions, milestones, and decision gates.</div>
+  </div>
+  <div class="week-grid">
+    <div class="week-card active">
+      <div class="week-num">WEEK 01–02</div>
+      <div class="week-body">
+        <div class="week-task">Finalize all deck versions (investor, hospital, summary)</div>
+        <div class="week-task">Align revenue numbers across documents</div>
+        <div class="week-task">Build data room (Google Drive, structured)</div>
+        <div class="week-task">Launch pilot with 30 users minimum</div>
+        <div class="week-milestone">⚑ Pilot Go-Live</div>
+      </div>
+    </div>
+    <div class="week-card active">
+      <div class="week-num">WEEK 03</div>
+      <div class="week-body">
+        <div class="week-task">Map all warm intros in network (doctors, pharma, corporates)</div>
+        <div class="week-task">Identify 10 angel targets, research each</div>
+        <div class="week-task">Draft personalized messages for top 5</div>
+        <div class="week-task">Register on AngelList India / LetsVenture</div>
+        <div class="week-milestone">⚑ Outreach Ready</div>
+      </div>
+    </div>
+    <div class="week-card upcoming">
+      <div class="week-num">WEEK 04–05</div>
+      <div class="week-body">
+        <div class="week-task">Send angel outreach (top 5 warm intros)</div>
+        <div class="week-task">Target: 3–4 meetings booked</div>
+        <div class="week-task">Follow up with diagnostic partner (Thyrocare/SRL)</div>
+        <div class="week-task">Share 1-pager + invite to call</div>
+        <div class="week-milestone">⚑ First Meetings</div>
+      </div>
+    </div>
+    <div class="week-card upcoming">
+      <div class="week-num">WEEK 06–07</div>
+      <div class="week-body">
+        <div class="week-task">Run angel pitch meetings (2–3 per week)</div>
+        <div class="week-task">Iterate on objections, sharpen answers</div>
+        <div class="week-task">Pilot: Collect first 2-week results (glucose trends)</div>
+        <div class="week-task">Use pilot data in follow-up conversations</div>
+        <div class="week-milestone">⚑ First Soft Commit</div>
+      </div>
+    </div>
+    <div class="week-card future">
+      <div class="week-num">WEEK 08</div>
+      <div class="week-body">
+        <div class="week-task">Close first angel (₹25–50L). Get commitment in writing.</div>
+        <div class="week-task">Begin VC outreach (top 3 funds)</div>
+        <div class="week-task">Diagnostic partner: push for LOI or term sheet</div>
+        <div class="week-milestone">⚑ Round Partially Committed</div>
+      </div>
+    </div>
+    <div class="week-card future">
+      <div class="week-num">WEEK 09–12</div>
+      <div class="week-body">
+        <div class="week-task">VC first meetings + follow-up decks</div>
+        <div class="week-task">Share pilot outcome data (6-week results)</div>
+        <div class="week-task">Set public close date ("closing by [date]")</div>
+        <div class="week-task">Negotiate term sheet with lead VC</div>
+        <div class="week-milestone">⚑ Term Sheet Received</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:0 64px 48px;">
+    <div style="background:var(--ink);color:white;border-radius:6px;padding:28px 32px;">
+      <div style="font-family:'Playfair Display',serif;font-size:18px;margin-bottom:16px;color:rgba(255,255,255,0.9);">The One Rule That Governs All 12 Weeks</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        <div style="padding:16px;background:rgba(255,255,255,0.05);border-radius:4px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;">Never</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Approach a VC without at least one angel committed. Approach a strategic without a pilot running. Send a follow-up without a new development to share.</div>
+        </div>
+        <div style="padding:16px;background:rgba(255,255,255,0.05);border-radius:4px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;">Always</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;">Have a close date. Manufactured scarcity is real scarcity. Investors decide faster when the clock is running. Set it. Mean it. Enforce it.</div>
+        </div>
+        <div style="padding:16px;background:rgba(192,57,43,0.2);border-radius:4px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#E8A090;margin-bottom:8px;">The Unlock Sentence</div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;font-style:italic;">"We have a 30-user pilot running, ₹[X]L committed, and we're closing this round by [date]. We have one slot remaining at this valuation."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 5 — RED FLAGS
+══════════════════════════════════ -->
+<div class="tab-content" id="tab-flags">
+  <div style="padding:40px 64px 24px;">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">Red Flags & Deal Killers</div>
+    <div style="font-size:13px;color:var(--ink4);">What to watch for — and how to respond — in every investor conversation.</div>
+  </div>
+  <div class="flags-grid">
+    <div class="flag-card danger">
+      <div class="flag-icon">🚫</div>
+      <div class="flag-title">Investor wants a board seat at seed</div>
+      <div class="flag-desc">Any investor asking for board control at seed stage is a structural red flag. You need operational flexibility. Counter: offer a board observer seat as a compromise. If they insist, walk away.</div>
+    </div>
+    <div class="flag-card danger">
+      <div class="flag-icon">🚫</div>
+      <div class="flag-title">Demands data rights as investment condition</div>
+      <div class="flag-desc">Your anonymized cohort dataset is your Series A story. Any investor — especially strategic — who wants bulk data access as a condition is trying to extract your moat. Refuse cleanly: "Data governance is handled separately from investment terms."</div>
+    </div>
+    <div class="flag-card danger">
+      <div class="flag-icon">🚫</div>
+      <div class="flag-title">Exclusivity clause from strategic investor</div>
+      <div class="flag-desc">A hospital or diagnostic partner wanting city exclusivity sounds flattering but caps your expansion. If forced: time-limit to 6 months with automatic expiry, and cap geography tightly. Never sign open-ended exclusivity.</div>
+    </div>
+    <div class="flag-card danger">
+      <div class="flag-icon">🚫</div>
+      <div class="flag-title">2× or higher liquidation preference</div>
+      <div class="flag-desc">Standard is 1× non-participating. Any VC asking for 2× or participating preference is taking asymmetric downside protection at your expense. Push back firmly. It's a known negotiating tactic, not a standard term.</div>
+    </div>
+    <div class="flag-card caution">
+      <div class="flag-icon">⚠️</div>
+      <div class="flag-title">Investor wants to "advise" operationally</div>
+      <div class="flag-desc">Angels who want weekly check-ins or operational involvement slow you down. Offer a quarterly update call and a seat on a formal advisory board. Keep day-to-day decisions clean. Be friendly but firm about governance.</div>
+    </div>
+    <div class="flag-card caution">
+      <div class="flag-icon">⚠️</div>
+      <div class="flag-title">Slow due diligence beyond 3 weeks</div>
+      <div class="flag-desc">If a VC takes more than 3 weeks post-deck to make a decision at seed stage, they are not the right lead. Move on. Use them as a follow-on investor when your round closes. Their slowness tells you something about how they'll behave as a partner.</div>
+    </div>
+    <div class="flag-card caution">
+      <div class="flag-icon">⚠️</div>
+      <div class="flag-title">Investor re-trades valuation mid-close</div>
+      <div class="flag-desc">If someone agreed to ₹25 Cr and suddenly wants ₹18 Cr after due diligence with no new negative information, it's a negotiating tactic. Either push back with data ("Nothing has changed in the fundamentals") or walk. Re-traders are usually difficult partners.</div>
+    </div>
+    <div class="flag-card caution">
+      <div class="flag-icon">⚠️</div>
+      <div class="flag-title">Strong anti-dilution at seed (full ratchet)</div>
+      <div class="flag-desc">Full ratchet anti-dilution is extremely punishing if you raise a flat round later. Broad-based weighted average is standard and acceptable. Full ratchet is not. Push hard on this clause — most sophisticated investors won't insist.</div>
+    </div>
+    <div class="flag-card info">
+      <div class="flag-icon">ℹ️</div>
+      <div class="flag-title">VC wants to "lead but needs co-investor first"</div>
+      <div class="flag-desc">This is chicken-and-egg positioning. They want social proof before committing. Your response: "We have committed angels in the round. What would you need to see to move to a term sheet?" Force specificity. Vague interest is not interest.</div>
+    </div>
+    <div class="flag-card info">
+      <div class="flag-icon">ℹ️</div>
+      <div class="flag-title">Strategic investor moves slowly, makes no decision</div>
+      <div class="flag-desc">Corporates (hospitals, pharma) have complex internal approvals. If no movement in 4 weeks, they are not a seed investor for this round. Pivot to a commercial agreement (referral, diagnostic integration) and revisit investment at Series A.</div>
+    </div>
+    <div class="flag-card info">
+      <div class="flag-icon">ℹ️</div>
+      <div class="flag-title">Investor only interested in the data asset</div>
+      <div class="flag-desc">If the conversation keeps returning to "what data will we have access to," this is a data extraction play, not a growth investment. Data rights in any investment agreement must be explicitly scoped, time-limited, and tied only to their pro-rata share of governance.</div>
+    </div>
+    <div class="flag-card info">
+      <div class="flag-icon">ℹ️</div>
+      <div class="flag-title">Investor compares you to Noom / Fitterfly unfavorably</div>
+      <div class="flag-desc">Correct framing: "Noom is a behavioral app. Fitterfly is a coaching platform. We are the only company that delivers controlled nutrition. That's the compliance mechanism they don't have." You are not competing — you are in a different infrastructure category.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  TAB 6 — DEAL TRACKER
+══════════════════════════════════ -->
+<div class="tab-content" id="tab-tracker">
+  <div style="padding:40px 64px 24px;">
+    <div style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:6px;">Live Deal Tracker</div>
+    <div style="font-size:13px;color:var(--ink4);">Update weekly. Track every investor conversation from first contact to close.</div>
+  </div>
+  <div class="tracker-wrap">
+    <table class="tracker-table">
+      <thead>
+        <tr>
+          <th>Investor / Org</th>
+          <th>Type</th>
+          <th>Target Ticket</th>
+          <th>Status</th>
+          <th>Last Contact</th>
+          <th>Next Action</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dr. [Endocrinologist]<br><span style="font-size:11px;color:var(--ink4);">Warm intro via hospital network</span></td>
+          <td><span style="color:var(--gold);font-weight:600;font-size:12px;">Angel</span></td>
+          <td>₹15L–₹25L</td>
+          <td><span class="status-dot s-pending"></span>Intro Pending</td>
+          <td>—</td>
+          <td>Get intro via [contact name]. Send 1-pager.</td>
+          <td>Priority 1. Clinical advisory role as hook.</td>
+        </tr>
+        <tr>
+          <td>Pharma Executive<br><span style="font-size:11px;color:var(--ink4);">Dr. Reddy's / Sun Pharma region</span></td>
+          <td><span style="color:var(--gold);font-weight:600;font-size:12px;">Angel</span></td>
+          <td>₹25L–₹50L</td>
+          <td><span class="status-dot s-notstarted"></span>Not Started</td>
+          <td>—</td>
+          <td>Research via LinkedIn. Identify warm intro path.</td>
+          <td>Week 3 target. Needs personalized research.</td>
+        </tr>
+        <tr>
+          <td>Thyrocare BD<br><span style="font-size:11px;color:var(--ink4);">Diagnostic partner + investor</span></td>
+          <td><span style="color:var(--blue);font-weight:600;font-size:12px;">Strategic</span></td>
+          <td>₹50L–₹1 Cr</td>
+          <td><span class="status-dot s-pending"></span>Research Phase</td>
+          <td>—</td>
+          <td>Identify BD + investment team contact. Frame as commercial + equity conversation.</td>
+          <td>Highest strategic priority. Lab volume = compelling commercial angle.</td>
+        </tr>
+        <tr>
+          <td>Kalaari Capital<br><span style="font-size:11px;color:var(--ink4);">Healthcare seed focus</span></td>
+          <td><span style="color:var(--red);font-weight:600;font-size:12px;">VC</span></td>
+          <td>₹1–₹1.5 Cr</td>
+          <td><span class="status-dot s-notstarted"></span>Not Started</td>
+          <td>—</td>
+          <td>Find portfolio founder intro. Approach Week 8 after angel committed.</td>
+          <td>Do NOT approach before round is partially filled.</td>
+        </tr>
+        <tr>
+          <td>Stellaris Venture Partners<br><span style="font-size:11px;color:var(--ink4);">Early stage, India focus</span></td>
+          <td><span style="color:var(--red);font-weight:600;font-size:12px;">VC</span></td>
+          <td>₹75L–₹1 Cr</td>
+          <td><span class="status-dot s-notstarted"></span>Not Started</td>
+          <td>—</td>
+          <td>LinkedIn research. Check AngelList for open applications.</td>
+          <td>Week 9 target. Responds well to ops-heavy founder story.</td>
+        </tr>
+        <tr>
+          <td>[Corporate HR Head — IT Co]<br><span style="font-size:11px;color:var(--ink4);">Dual role: investor + first client</span></td>
+          <td><span style="color:var(--gold);font-weight:600;font-size:12px;">Angel</span></td>
+          <td>₹10L–₹20L</td>
+          <td><span class="status-dot s-notstarted"></span>Not Started</td>
+          <td>—</td>
+          <td>Identify via LinkedIn. Warm intro from SumanTV corporate network preferred.</td>
+          <td>Potential dual win: investor + pilot client simultaneously.</td>
+        </tr>
+        <tr style="background:rgba(46,125,82,0.04);">
+          <td colspan="7" style="text-align:center;color:var(--ink4);font-style:italic;font-size:12px;padding:18px;">
+            Add rows as outreach progresses. Update status weekly. Aim for 15–20 active conversations simultaneously at peak.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div style="background:var(--bg2);border:1px solid var(--rule);border-radius:5px;padding:18px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--ink);">₹0</div>
+        <div style="font-size:11px;color:var(--ink4);margin-top:4px;">Committed so far</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--rule);border-radius:5px;padding:18px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--ink);">₹3.5 Cr</div>
+        <div style="font-size:11px;color:var(--ink4);margin-top:4px;">Round target</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--rule);border-radius:5px;padding:18px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--ink);">6</div>
+        <div style="font-size:11px;color:var(--ink4);margin-top:4px;">Active conversations</div>
+      </div>
+      <div style="background:var(--red-bg);border:1px solid rgba(192,57,43,0.2);border-radius:5px;padding:18px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:32px;color:var(--red);">Wk 12</div>
+        <div style="font-size:11px;color:var(--red);margin-top:4px;">Target close date</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="doc-footer">
+  <div class="footer-brand">MetaFit · Investor Outreach Plan · Confidential</div>
+  <div class="footer-note">Update weekly. Share only with founding team and advisors.</div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
