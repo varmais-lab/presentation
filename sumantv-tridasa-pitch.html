@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suman TV × Tridasa Realty — The Voice That Matters</title>
+<meta name="description" content="Beyond traditional SEO & ad limits. Suman TV offers unlimited content-based connectivity for Tridasa Realty across 10 Cr+ Telugu audiences." />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Distinctive typography: Fraunces (editorial serif) + Manrope (body) + DM Mono (accents) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script>
+  // Tailwind config — custom palette & fonts
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#060812',         // near-black navy
+          midnight: '#0B0F1F',    // deep navy
+          dusk: '#141a2e',        // lifted navy
+          saffron: '#E8A253',     // warm saffron/gold
+          gold: '#D4AF37',        // richer gold
+          ivory: '#F6F1E7',       // warm off-white
+          muted: '#8892A6',       // muted text
+          magenta: '#E5107A',     // Suman TV brand pink (subtle accent)
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['Manrope', 'sans-serif'],
+          mono: ['DM Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  /* =========================================================
+     CORE ATMOSPHERE
+     ========================================================= */
+  html { scroll-behavior: smooth; }
+  body {
+    background: #060812;
+    color: #F6F1E7;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain overlay for filmic texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  /* Custom cursor accent on large screens */
+  @media (min-width: 1024px) {
+    .cursor-hint:hover { cursor: none; }
+  }
+
+  /* =========================================================
+     TYPOGRAPHY
+     ========================================================= */
+  .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    color: #E8A253;
+  }
+  .display-xl {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* Italic accent for serif emphasis */
+  .serif-italic { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+
+  /* =========================================================
+     GRADIENTS & ACCENTS
+     ========================================================= */
+  .radial-glow {
+    background: radial-gradient(ellipse at top, rgba(232,162,83,0.15), transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(229,16,122,0.08), transparent 50%),
+                #060812;
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #E8A253 0%, #D4AF37 50%, #E8A253 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .divider-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(232,162,83,0.4), transparent);
+  }
+
+  /* Glassmorphism card */
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(232,162,83,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass:hover {
+    border-color: rgba(232,162,83,0.35);
+    background: linear-gradient(180deg, rgba(232,162,83,0.05), rgba(255,255,255,0.02));
+  }
+
+  /* =========================================================
+     HERO VIDEO OVERLAY
+     ========================================================= */
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(6,8,18,0.3) 0%, rgba(6,8,18,0.55) 50%, rgba(6,8,18,0.95) 100%),
+      radial-gradient(ellipse at center, transparent 0%, rgba(6,8,18,0.4) 100%);
+  }
+
+  /* =========================================================
+     ANIMATIONS
+     ========================================================= */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes lineDraw {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(232,162,83,0.5); }
+    50% { box-shadow: 0 0 40px 8px rgba(232,162,83,0.15); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+  .reveal-delay-4 { transition-delay: 0.48s; }
+
+  /* Hero stagger */
+  .hero-stagger > * { opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .hero-stagger > *:nth-child(1) { animation-delay: 0.2s; }
+  .hero-stagger > *:nth-child(2) { animation-delay: 0.45s; }
+  .hero-stagger > *:nth-child(3) { animation-delay: 0.7s; }
+  .hero-stagger > *:nth-child(4) { animation-delay: 0.95s; }
+  .hero-stagger > *:nth-child(5) { animation-delay: 1.15s; }
+
+  /* Marquee */
+  .marquee-track { animation: marquee 40s linear infinite; }
+
+  /* =========================================================
+     BUTTONS
+     ========================================================= */
+  .btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.05rem 2rem;
+    background: #E8A253;
+    color: #060812;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -10px rgba(232,162,83,0.5); }
+  .btn-primary:hover::after { transform: translateX(100%); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.05rem 2rem;
+    border: 1px solid rgba(246,241,231,0.2);
+    color: #F6F1E7;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { border-color: #E8A253; color: #E8A253; }
+
+  /* =========================================================
+     NUMBER COUNTER
+     ========================================================= */
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    line-height: 1;
+  }
+
+  /* =========================================================
+     TIMELINE STEPS
+     ========================================================= */
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(232,162,83,0.35);
+  }
+
+  /* Dotted divider for editorial feel */
+  .dot-divider {
+    background-image: radial-gradient(circle, rgba(232,162,83,0.4) 1px, transparent 1.5px);
+    background-size: 16px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 2px;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #060812; }
+  ::-webkit-scrollbar-thumb { background: #E8A253; border-radius: 10px; border: 2px solid #060812; }
+
+  /* Form styling */
+  .form-field {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(246,241,231,0.1);
+    color: #F6F1E7;
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-family: 'Manrope', sans-serif;
+  }
+  .form-field:focus {
+    outline: none;
+    border-color: #E8A253;
+    background: rgba(232,162,83,0.04);
+  }
+  .form-field::placeholder { color: rgba(246,241,231,0.35); }
+
+  /* Highlight underline */
+  .highlight-underline {
+    background-image: linear-gradient(120deg, rgba(232,162,83,0.35) 0%, rgba(232,162,83,0.35) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.35em;
+    background-position: 0 88%;
+    padding: 0 0.15em;
+  }
+
+  /* World map dots pulse */
+  @keyframes ping-soft {
+    0% { transform: scale(1); opacity: 1; }
+    75%, 100% { transform: scale(2.5); opacity: 0; }
+  }
+  .ping-soft { animation: ping-soft 2.5s cubic-bezier(0,0,0.2,1) infinite; }
+
+  /* Funnel arrows */
+  .funnel-arrow {
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%, 15% 50%);
+  }
+  .funnel-arrow-first {
+    clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  }
+
+  /* Decorative corner ornament */
+  .corner-ornament {
+    position: absolute;
+    width: 40px; height: 40px;
+    border-color: rgba(232,162,83,0.35);
+  }
+
+  /* Responsive display-xl tweaks */
+  @media (max-width: 640px) {
+    .display-xl { font-size: clamp(2.4rem, 11vw, 3.6rem); }
+  }
+</style>
+</head>
+
+<body class="bg-ink">
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="mainNav">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-lg">S</div>
+      <div class="leading-tight">
+        <div class="font-display text-ivory text-lg tracking-tight">Suman TV</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-saffron/70 font-mono">× Tridasa Realty</div>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-8 text-sm text-ivory/70">
+      <a href="#shift" class="hover:text-saffron transition">The Shift</a>
+      <a href="#scale" class="hover:text-saffron transition">Scale</a>
+      <a href="#advantages" class="hover:text-saffron transition">Advantages</a>
+      <a href="#flow" class="hover:text-saffron transition">5-Step Flow</a>
+      <a href="#tridasa" class="hover:text-saffron transition">Tridasa Rise</a>
+    </div>
+    <a href="#cta" class="btn-ghost text-sm !py-2.5 !px-5">Schedule a Meeting →</a>
+  </div>
+</nav>
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+<section id="top" class="relative min-h-screen flex items-center overflow-hidden radial-glow">
+
+  <!-- Background video / fallback image -->
+  <div class="absolute inset-0 z-0">
+    <video autoplay muted loop playsinline class="w-full h-full object-cover opacity-40">
+      <source src="https://cdn.pixabay.com/video/2023/11/10/188918-884401195_large.mp4" type="video/mp4" />
+    </video>
+    <!-- Fallback: cinematic Hyderabad/real-estate image behind video -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-25"
+         style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80');"></div>
+    <div class="absolute inset-0 hero-overlay"></div>
+  </div>
+
+  <!-- Decorative orbs -->
+  <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-saffron/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-magenta/10 blur-[120px] pointer-events-none"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
+    <div class="hero-stagger max-w-5xl">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-px bg-saffron"></div>
+        <span class="eyebrow">A Collaboration Proposal · 2026</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="display-xl text-ivory text-[clamp(2.8rem,7.5vw,7rem)] mb-8">
+        Beyond Traditional <span class="serif-italic text-saffron">SEO</span> & Ad Limits.<br />
+        Unlock <span class="gold-gradient font-semibold">Unlimited</span> Content-Based Connectivity<br />
+        <span class="serif-italic text-ivory/80">in the AI Era.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg md:text-2xl text-ivory/70 max-w-3xl font-light leading-relaxed mb-12">
+        Suman TV — where powerful storytelling meets the <span class="text-saffron">massive Telugu audience</span>
+        developers like Tridasa Realty have been trying to reach.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 mb-16">
+        <a href="#cta" class="btn-primary">
+          Explore the Collaboration
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#scale" class="btn-ghost">Schedule a Meeting</a>
+      </div>
+
+      <!-- Quick stats bar -->
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 pt-10 border-t border-ivory/10 max-w-4xl">
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">10 Cr<span class="text-saffron">+</span></div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Engaged Subscribers</div>
+        </div>
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">300 Cr<span class="text-saffron">+</span></div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Monthly Views</div>
+        </div>
+        <div class="col-span-2 md:col-span-1">
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">Uncapped</div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Brand Reach</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/40 text-xs tracking-widest uppercase font-mono">
+    <span>Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-saffron to-transparent"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MARQUEE — Brand Partners / Recognition strip
+     ========================================================= -->
+<section class="border-y border-ivory/5 overflow-hidden bg-midnight py-8">
+  <div class="flex gap-16 marquee-track whitespace-nowrap">
+    <!-- Items duplicated for seamless loop -->
+    <div class="flex gap-16 items-center shrink-0">
+      <span class="font-display text-2xl text-ivory/40">29+ YouTube Channels</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">500+ Digital Properties</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">100+ Google & YouTube Awards</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">10 Crore Daily Views</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">India's Largest Regional Digital Network</span>
+      <span class="text-saffron">◆</span>
+    </div>
+    <div class="flex gap-16 items-center shrink-0" aria-hidden="true">
+      <span class="font-display text-2xl text-ivory/40">29+ YouTube Channels</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">500+ Digital Properties</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">100+ Google & YouTube Awards</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">10 Crore Daily Views</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">India's Largest Regional Digital Network</span>
+      <span class="text-saffron">◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 2 — THE DIGITAL SHIFT
+     ========================================================= -->
+<section id="shift" class="relative py-28 md:py-40 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="eyebrow">01 · The Digital Shift</span>
+        <div class="h-px flex-1 bg-ivory/10"></div>
+      </div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)] mb-8">
+        The old internet is <span class="serif-italic text-saffron">fading.</span><br />
+        The age of <span class="highlight-underline">influence</span> has begun.
+      </h2>
+      <p class="text-lg md:text-xl text-ivory/60 leading-relaxed max-w-3xl">
+        In 2026, search engines are being answered by AI. Paid ads hit ceilings. Audiences scroll past. What wins is
+        <span class="text-saffron">trust, storytelling, and community</span> — exactly where Suman TV has built a 10-year head start.
+      </p>
+    </div>
+
+    <!-- Versus comparison -->
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+
+      <!-- LEFT: Traditional -->
+      <div class="reveal reveal-delay-1 relative p-8 md:p-10 glass rounded-sm">
+        <div class="corner-ornament top-3 left-3 border-t border-l"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r"></div>
+
+        <div class="eyebrow !text-ivory/40 mb-6">The Traditional Way</div>
+        <h3 class="font-display text-3xl md:text-4xl text-ivory/80 mb-8 leading-tight">
+          Google & Meta Ads:<br /><span class="serif-italic text-ivory/50">capped, costly, cold.</span>
+        </h3>
+        <ul class="space-y-4 text-ivory/60">
+          <li class="flex gap-3"><span class="text-ivory/30">—</span> Rising CPC & CPL every quarter</li>
+          <li class="flex gap-3"><span class="text-ivory/30">—</span> Ad fatigue and banner blindness</li>
+          <li class="flex gap-3"><span class="text-ivory/30">—</span> No narrative, no emotion, no trust</li>
+          <li class="flex gap-3"><span class="text-ivory/30">—</span> AI summaries replacing clicks</li>
+          <li class="flex gap-3"><span class="text-ivory/30">—</span> Reach ends when budget ends</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT: Suman TV way -->
+      <div class="reveal reveal-delay-2 relative p-8 md:p-10 rounded-sm overflow-hidden"
+           style="background: linear-gradient(135deg, rgba(232,162,83,0.08), rgba(212,175,55,0.02)); border: 1px solid rgba(232,162,83,0.3);">
+        <div class="corner-ornament top-3 left-3 border-t border-l !border-saffron"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r !border-saffron"></div>
+
+        <div class="eyebrow mb-6">The Suman TV Way</div>
+        <h3 class="font-display text-3xl md:text-4xl text-ivory mb-8 leading-tight">
+          Content-Based Connectivity:<br /><span class="serif-italic text-saffron">uncapped, credible, compounding.</span>
+        </h3>
+        <ul class="space-y-4 text-ivory/85">
+          <li class="flex gap-3"><span class="text-saffron">◆</span> Stories that live inside people's feeds</li>
+          <li class="flex gap-3"><span class="text-saffron">◆</span> Anchor-led trust, not algorithmic noise</li>
+          <li class="flex gap-3"><span class="text-saffron">◆</span> Influencers, celebrities, hyperlocal teams</li>
+          <li class="flex gap-3"><span class="text-saffron">◆</span> AI-proof: humans still watch humans</li>
+          <li class="flex gap-3"><span class="text-saffron">◆</span> Content lives forever — reach keeps compounding</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Editorial pull quote -->
+    <div class="reveal reveal-delay-3 mt-24 max-w-4xl mx-auto text-center">
+      <div class="dot-divider mb-12"></div>
+      <p class="font-display text-2xl md:text-4xl text-ivory/80 italic leading-snug">
+        "In the AI era, the brands that win are the ones audiences <span class="text-saffron not-italic font-normal">recognise, remember, and repeat.</span>"
+      </p>
+      <div class="dot-divider mt-12"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 3 — SUMAN TV BY THE NUMBERS
+     ========================================================= -->
+<section id="scale" class="relative py-28 md:py-40 bg-midnight overflow-hidden">
+  <!-- Decorative arch -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full border border-saffron/5 pointer-events-none"></div>
+  <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-saffron/10 pointer-events-none"></div>
+
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+    <div class="reveal text-center mb-20">
+      <div class="eyebrow mb-4">02 · Scale That Brands Can Trust</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        Suman TV <span class="serif-italic text-saffron">by the numbers.</span>
+      </h2>
+    </div>
+
+    <!-- HERO NUMBER — 300 Crores -->
+    <div class="reveal text-center mb-20">
+      <div class="stat-num font-semibold text-[clamp(4rem,18vw,16rem)] leading-none gold-gradient">300 Cr<span class="text-saffron">+</span></div>
+      <div class="font-display text-2xl md:text-3xl text-ivory/80 mt-2">Monthly Views</div>
+      <p class="text-ivory/50 mt-4 max-w-xl mx-auto text-sm md:text-base">
+        That's not scale. That's <span class="text-saffron">strategic influence</span> — available to brands that want more than just impressions.
+      </p>
+    </div>
+
+    <!-- Secondary stats grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+
+      <div class="reveal reveal-delay-1 glass p-6 md:p-8 rounded-sm">
+        <div class="text-saffron mb-4">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 21v-2a6 6 0 0 1 12 0v2"/></svg>
+        </div>
+        <div class="stat-num text-4xl md:text-5xl text-ivory font-semibold">10 Cr+</div>
+        <div class="text-saffron text-sm font-medium mt-2">Engaged Subscribers</div>
+        <p class="text-ivory/50 text-sm mt-3 leading-relaxed">Loyal followers across 500+ digital properties.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 glass p-6 md:p-8 rounded-sm">
+        <div class="text-saffron mb-4">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="stat-num text-4xl md:text-5xl text-ivory font-semibold">10 Cr+</div>
+        <div class="text-saffron text-sm font-medium mt-2">Views Every Day</div>
+        <p class="text-ivory/50 text-sm mt-3 leading-relaxed">Every single day. Compounding forever.</p>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass p-6 md:p-8 rounded-sm">
+        <div class="text-saffron mb-4">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+        </div>
+        <div class="stat-num text-4xl md:text-5xl text-ivory font-semibold">500+</div>
+        <div class="text-saffron text-sm font-medium mt-2">Digital Channels & Pages</div>
+        <p class="text-ivory/50 text-sm mt-3 leading-relaxed">Including 29+ dedicated YouTube channels.</p>
+      </div>
+
+      <div class="reveal reveal-delay-4 glass p-6 md:p-8 rounded-sm">
+        <div class="text-saffron mb-4">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+        </div>
+        <div class="stat-num text-4xl md:text-5xl text-ivory font-semibold">100+</div>
+        <div class="text-saffron text-sm font-medium mt-2">Google & YouTube Awards</div>
+        <p class="text-ivory/50 text-sm mt-3 leading-relaxed">The most decorated Telugu digital network.</p>
+      </div>
+    </div>
+
+    <!-- Tagline strip -->
+    <div class="reveal mt-16 glass p-8 md:p-10 rounded-sm text-center">
+      <p class="font-display italic text-xl md:text-2xl text-ivory/80">
+        "From a single channel in 2015, to India's largest regional digital network in 2026. <span class="text-saffron not-italic">Trust is our biggest asset. Impact is our biggest responsibility.</span>"
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 4 — KEY ADVANTAGES
+     ========================================================= -->
+<section id="advantages" class="relative py-28 md:py-40 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <div class="eyebrow mb-4">03 · Our Key Advantages</div>
+        <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+          What makes<br />us <span class="serif-italic text-saffron">unmatched.</span>
+        </h2>
+      </div>
+      <p class="text-ivory/60 text-lg max-w-md leading-relaxed">
+        We don't sell ad slots. We deliver a full influence ecosystem — from celebrity anchors to NRI reach,
+        from ground teams to prime-time TV.
+      </p>
+    </div>
+
+    <!-- Advantages asymmetric grid -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-6 auto-rows-[minmax(240px,auto)]">
+
+      <!-- Card 1 - Influencer Marketing (wide) -->
+      <div class="reveal md:col-span-4 glass p-8 md:p-10 rounded-sm flex flex-col justify-between group hover:border-saffron/40 transition-all">
+        <div class="flex items-start justify-between mb-8">
+          <span class="eyebrow">01 / 06</span>
+          <svg class="w-10 h-10 text-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+            Influencer Marketing<br /><span class="serif-italic text-saffron">& Celebrity Management.</span>
+          </h3>
+          <p class="text-ivory/60 leading-relaxed max-w-xl">
+            Direct access to Telugu film stars, top YouTube creators, and trusted anchors. Your brand placed
+            inside stories people already love — not beside them.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 - Hyperlocal -->
+      <div class="reveal reveal-delay-1 md:col-span-2 rounded-sm p-8 flex flex-col justify-between group hover:scale-[1.01] transition-transform"
+           style="background: linear-gradient(160deg, #E8A253 0%, #D4AF37 100%);">
+        <div class="flex items-start justify-between mb-8">
+          <span class="eyebrow !text-ink/70">02 / 06</span>
+          <svg class="w-10 h-10 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl text-ink mb-3 leading-tight">
+            Hyperlocal Ground Team in Hyderabad.
+          </h3>
+          <p class="text-ink/70 text-sm leading-relaxed">
+            Reporters, videographers & street-level presence across the city.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 - YouTube Networks -->
+      <div class="reveal reveal-delay-2 md:col-span-2 glass p-8 rounded-sm flex flex-col justify-between">
+        <div class="flex items-start justify-between mb-8">
+          <span class="eyebrow">03 / 06</span>
+          <svg class="w-10 h-10 text-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl text-ivory mb-3 leading-tight">
+            Prime Telugu YouTube Networks.
+          </h3>
+          <p class="text-ivory/60 text-sm leading-relaxed">
+            Cross-channel integration across 29+ flagship properties.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4 - PR -->
+      <div class="reveal reveal-delay-1 md:col-span-2 glass p-8 rounded-sm flex flex-col justify-between">
+        <div class="flex items-start justify-between mb-8">
+          <span class="eyebrow">04 / 06</span>
+          <svg class="w-10 h-10 text-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+        </div>
+        <div>
+          <h3 class="font-display text-2xl text-ivory mb-3 leading-tight">
+            Full-Spectrum PR.
+          </h3>
+          <p class="text-ivory/60 text-sm leading-relaxed">
+            Print, TV, outdoor, auto, theater — one integrated campaign, every touchpoint.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 5 - Prime-Time TV & OTT (wide) -->
+      <div class="reveal reveal-delay-2 md:col-span-4 glass p-8 md:p-10 rounded-sm flex flex-col justify-between relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-60 h-60 bg-gradient-to-br from-magenta/10 to-transparent rounded-full blur-3xl"></div>
+        <div class="relative flex items-start justify-between mb-8">
+          <span class="eyebrow">05 / 06</span>
+          <svg class="w-10 h-10 text-saffron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="2"/><polyline points="17 2 12 7 7 2"/></svg>
+        </div>
+        <div class="relative">
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+            Integration in <span class="serif-italic text-saffron">top prime-time</span> TV & OTT shows.
+          </h3>
+          <p class="text-ivory/60 leading-relaxed max-w-xl">
+            Seamlessly place your brand inside India's most-watched Telugu programs — not beside them, <em class="text-saffron not-italic">within them</em>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 6 - NRI Reach (full-width) -->
+      <div class="reveal reveal-delay-3 md:col-span-6 rounded-sm p-8 md:p-10 relative overflow-hidden"
+           style="background: linear-gradient(135deg, rgba(20,26,46,0.9) 0%, rgba(11,15,31,0.9) 100%); border: 1px solid rgba(232,162,83,0.2);">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <span class="eyebrow">06 / 06</span>
+              <div class="h-px flex-1 bg-saffron/30"></div>
+            </div>
+            <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+              Strong NRI Reach.<br /><span class="serif-italic text-saffron">Global Telugu families.</span>
+            </h3>
+            <p class="text-ivory/60 leading-relaxed">
+              High-value diaspora audiences across USA, UK, Middle East, and Australia — the very people buying
+              second homes & luxury properties back in Hyderabad.
+            </p>
+          </div>
+
+          <!-- NRI regions mini map -->
+          <div class="grid grid-cols-2 gap-3">
+            <div class="glass p-4 rounded-sm flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-saffron relative">
+                <div class="absolute inset-0 rounded-full bg-saffron ping-soft"></div>
+              </div>
+              <div>
+                <div class="font-display text-ivory text-lg">USA</div>
+                <div class="text-xs text-ivory/50 font-mono">NJ · TX · CA</div>
+              </div>
+            </div>
+            <div class="glass p-4 rounded-sm flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-saffron relative">
+                <div class="absolute inset-0 rounded-full bg-saffron ping-soft" style="animation-delay: 0.5s"></div>
+              </div>
+              <div>
+                <div class="font-display text-ivory text-lg">UK</div>
+                <div class="text-xs text-ivory/50 font-mono">London · Bham</div>
+              </div>
+            </div>
+            <div class="glass p-4 rounded-sm flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-saffron relative">
+                <div class="absolute inset-0 rounded-full bg-saffron ping-soft" style="animation-delay: 1s"></div>
+              </div>
+              <div>
+                <div class="font-display text-ivory text-lg">Middle East</div>
+                <div class="text-xs text-ivory/50 font-mono">UAE · KSA</div>
+              </div>
+            </div>
+            <div class="glass p-4 rounded-sm flex items-center gap-3">
+              <div class="w-2 h-2 rounded-full bg-saffron relative">
+                <div class="absolute inset-0 rounded-full bg-saffron ping-soft" style="animation-delay: 1.5s"></div>
+              </div>
+              <div>
+                <div class="font-display text-ivory text-lg">Australia</div>
+                <div class="text-xs text-ivory/50 font-mono">Sydney · MEL</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 5 — 5-STEP FLOW
+     ========================================================= -->
+<section id="flow" class="relative py-28 md:py-40 bg-midnight overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="eyebrow mb-4">04 · Our Proven Method</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        A <span class="serif-italic text-saffron">5-step flow</span> built for real estate success.
+      </h2>
+      <p class="text-ivory/60 text-lg mt-6 max-w-2xl leading-relaxed">
+        This isn't theory. This is the exact system we've run for hundreds of brands across Healthcare, Real Estate,
+        FMCG, and Finance — rewritten for Tridasa Realty.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+
+      <!-- Vertical line -->
+      <div class="absolute left-8 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-saffron via-saffron/30 to-transparent"></div>
+
+      <!-- Step 1 -->
+      <div class="reveal relative flex flex-col md:flex-row items-start gap-6 md:gap-16 mb-20">
+        <div class="md:w-1/2 md:text-right md:pr-16 pl-20 md:pl-0">
+          <div class="step-num text-7xl md:text-9xl mb-2">01</div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4">Brand Reach</h3>
+          <p class="text-ivory/60 leading-relaxed md:max-w-md md:ml-auto">
+            Natural integration across news, lifestyle & entertainment content. Tridasa Rise appears where
+            homebuyers already spend their evenings — not as an ad, but as a <em class="text-saffron not-italic">story.</em>
+          </p>
+        </div>
+        <div class="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-2 w-4 h-4 rounded-full bg-saffron border-4 border-midnight z-10"></div>
+        <div class="md:w-1/2 md:pl-16 pl-20 md:pl-16 hidden md:block">
+          <div class="glass p-6 rounded-sm">
+            <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Deliverables</div>
+            <div class="text-ivory/70 text-sm">News mentions · Lifestyle reels · Anchor stories · Regional YouTube spots</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="reveal relative flex flex-col md:flex-row items-start gap-6 md:gap-16 mb-20">
+        <div class="md:w-1/2 md:order-2 md:pl-16 pl-20 md:pl-16">
+          <div class="step-num text-7xl md:text-9xl mb-2">02</div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4">Brand Recall</h3>
+          <p class="text-ivory/60 leading-relaxed md:max-w-md">
+            Creative content, contests & emotional stories make Tridasa unforgettable. When a family finally
+            decides to upgrade, <span class="text-saffron">yours is the name they already trust.</span>
+          </p>
+        </div>
+        <div class="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-2 w-4 h-4 rounded-full bg-saffron border-4 border-midnight z-10"></div>
+        <div class="md:w-1/2 md:order-1 md:text-right md:pr-16 hidden md:block">
+          <div class="glass p-6 rounded-sm">
+            <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Deliverables</div>
+            <div class="text-ivory/70 text-sm">"Dream Home" series · Caption contests · Family testimonials · Jingles & reels</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="reveal relative flex flex-col md:flex-row items-start gap-6 md:gap-16 mb-20">
+        <div class="md:w-1/2 md:text-right md:pr-16 pl-20 md:pl-0">
+          <div class="step-num text-7xl md:text-9xl mb-2">03</div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4">Reputation Management</h3>
+          <p class="text-ivory/60 leading-relaxed md:max-w-md md:ml-auto">
+            Daily Google reviews, curated comment sections, and proactive trust-building. We protect the name
+            you've spent years building — <em class="text-saffron not-italic">24×7.</em>
+          </p>
+        </div>
+        <div class="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-2 w-4 h-4 rounded-full bg-saffron border-4 border-midnight z-10"></div>
+        <div class="md:w-1/2 md:pl-16 pl-20 md:pl-16 hidden md:block">
+          <div class="glass p-6 rounded-sm">
+            <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Deliverables</div>
+            <div class="text-ivory/70 text-sm">Daily review generation · Sentiment monitoring · Crisis response · Community moderation</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="reveal relative flex flex-col md:flex-row items-start gap-6 md:gap-16 mb-20">
+        <div class="md:w-1/2 md:order-2 md:pl-16 pl-20 md:pl-16">
+          <div class="step-num text-7xl md:text-9xl mb-2">04</div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4">Edutainment Videos</h3>
+          <p class="text-ivory/60 leading-relaxed md:max-w-md">
+            Explainers on RERA, loans, Vastu, NRI purchases, gated-community living. Educate the buyer
+            and <span class="text-saffron">position Tridasa as the expert</span> — not just a seller.
+          </p>
+        </div>
+        <div class="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-2 w-4 h-4 rounded-full bg-saffron border-4 border-midnight z-10"></div>
+        <div class="md:w-1/2 md:order-1 md:text-right md:pr-16 hidden md:block">
+          <div class="glass p-6 rounded-sm">
+            <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Deliverables</div>
+            <div class="text-ivory/70 text-sm">RERA explainers · NRI buying guides · Vastu & design content · Market insights</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="reveal relative flex flex-col md:flex-row items-start gap-6 md:gap-16">
+        <div class="md:w-1/2 md:text-right md:pr-16 pl-20 md:pl-0">
+          <div class="step-num text-7xl md:text-9xl mb-2">05</div>
+          <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4">Premium Video Production</h3>
+          <p class="text-ivory/60 leading-relaxed md:max-w-md md:ml-auto">
+            Studio services, cinematic walkthroughs, 360° tours, drone shots, broadcast-quality ads.
+            Everything under one roof — no agency fees, <em class="text-saffron not-italic">network-grade quality.</em>
+          </p>
+        </div>
+        <div class="absolute left-8 md:left-1/2 md:-translate-x-1/2 top-2 w-4 h-4 rounded-full bg-saffron border-4 border-midnight z-10 animate-pulse"></div>
+        <div class="md:w-1/2 md:pl-16 pl-20 md:pl-16 hidden md:block">
+          <div class="glass p-6 rounded-sm">
+            <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Deliverables</div>
+            <div class="text-ivory/70 text-sm">Cinematic walkthroughs · 360° tours · Drone films · TVCs · Testimonials · Lifestyle reels</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Outcome strip -->
+    <div class="reveal mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="glass p-6 rounded-sm text-center hover:border-saffron/50 transition">
+        <div class="stat-num text-3xl md:text-4xl gold-gradient font-semibold">More</div>
+        <div class="text-ivory text-lg font-medium mt-1">Leads</div>
+      </div>
+      <div class="glass p-6 rounded-sm text-center hover:border-saffron/50 transition">
+        <div class="stat-num text-3xl md:text-4xl gold-gradient font-semibold">More</div>
+        <div class="text-ivory text-lg font-medium mt-1">Customers</div>
+      </div>
+      <div class="glass p-6 rounded-sm text-center hover:border-saffron/50 transition">
+        <div class="stat-num text-3xl md:text-4xl gold-gradient font-semibold">More</div>
+        <div class="text-ivory text-lg font-medium mt-1">Sales</div>
+      </div>
+      <div class="glass p-6 rounded-sm text-center hover:border-saffron/50 transition">
+        <div class="stat-num text-3xl md:text-4xl gold-gradient font-semibold">Increased</div>
+        <div class="text-ivory text-lg font-medium mt-1">Trust</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 6 — TARGET AUDIENCE
+     ========================================================= -->
+<section id="audience" class="relative py-28 md:py-40 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="eyebrow mb-4">05 · The Audience</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        Reaching the<br /><span class="serif-italic text-saffron">decision-makers</span> who control the wallet.
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-6 mb-16">
+
+      <!-- Big stat left -->
+      <div class="md:col-span-5 reveal glass rounded-sm p-10 flex flex-col justify-between min-h-[400px]">
+        <div>
+          <div class="eyebrow mb-6">Primary Decision-Makers</div>
+          <!-- Circular progress -->
+          <div class="relative w-48 h-48 mx-auto my-8">
+            <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(232,162,83,0.1)" stroke-width="4"/>
+              <circle cx="50" cy="50" r="44" fill="none" stroke="#E8A253" stroke-width="4"
+                      stroke-dasharray="276.46" stroke-dashoffset="152.05" stroke-linecap="round"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">45%</div>
+              <div class="text-xs uppercase tracking-widest text-ivory/60 font-mono mt-1">Women</div>
+            </div>
+          </div>
+        </div>
+        <p class="text-ivory/60 text-center leading-relaxed">
+          Women are the primary decision-makers for home, health, lifestyle, and family purchases.
+        </p>
+      </div>
+
+      <!-- Audience cards right -->
+      <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+
+        <div class="reveal reveal-delay-1 glass p-6 rounded-sm">
+          <svg class="w-8 h-8 text-saffron mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          <div class="font-display text-xl text-ivory mb-2">Software Professionals</div>
+          <div class="text-sm text-ivory/60 leading-relaxed">₹25L+ household income. Hyderabad's IT corridor.</div>
+        </div>
+
+        <div class="reveal reveal-delay-2 glass p-6 rounded-sm">
+          <svg class="w-8 h-8 text-saffron mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <div class="font-display text-xl text-ivory mb-2">Home Upgraders</div>
+          <div class="text-sm text-ivory/60 leading-relaxed">3BHK buyers moving to gated communities.</div>
+        </div>
+
+        <div class="reveal reveal-delay-3 glass p-6 rounded-sm">
+          <svg class="w-8 h-8 text-saffron mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="font-display text-xl text-ivory mb-2">Telugu NRIs</div>
+          <div class="text-sm text-ivory/60 leading-relaxed">USA, UK, Middle East, Australia. Premium budgets.</div>
+        </div>
+
+        <div class="reveal reveal-delay-4 glass p-6 rounded-sm">
+          <svg class="w-8 h-8 text-saffron mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg>
+          <div class="font-display text-xl text-ivory mb-2">Doctors, Pharma, Govt</div>
+          <div class="text-sm text-ivory/60 leading-relaxed">Business owners with high purchasing power.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Demographics bar -->
+    <div class="reveal glass p-8 md:p-10 rounded-sm">
+      <div class="grid md:grid-cols-4 gap-8 md:gap-12 items-center">
+        <div>
+          <div class="eyebrow mb-2">Age Range</div>
+          <div class="font-display text-4xl text-ivory">25–50</div>
+        </div>
+        <div>
+          <div class="eyebrow mb-2">Intent</div>
+          <div class="font-display text-2xl text-ivory italic">First-time buyers</div>
+        </div>
+        <div>
+          <div class="eyebrow mb-2">Portfolio</div>
+          <div class="font-display text-2xl text-ivory italic">Investors</div>
+        </div>
+        <div>
+          <div class="eyebrow mb-2">Global</div>
+          <div class="font-display text-2xl text-ivory italic">Foreign investors</div>
+        </div>
+      </div>
+      <div class="dot-divider my-8"></div>
+      <p class="font-display italic text-xl md:text-2xl text-ivory/80 text-center leading-snug">
+        These aren't just viewers. They are <span class="text-saffron not-italic font-normal">buyers, influencers, and decision-makers.</span>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 7 — WHY PARTNER FOR TRIDASA RISE
+     ========================================================= -->
+<section id="tridasa" class="relative py-28 md:py-40 bg-midnight overflow-hidden">
+  <!-- Backdrop image -->
+  <div class="absolute inset-0 opacity-[0.08]">
+    <div class="w-full h-full bg-cover bg-center"
+         style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80');"></div>
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-midnight via-midnight/80 to-midnight"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-16 text-center max-w-4xl mx-auto">
+      <div class="eyebrow mb-4">06 · Built for Tridasa Realty</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)] mb-6">
+        Why partner with Suman TV for <span class="serif-italic text-saffron">Tridasa Rise.</span>
+      </h2>
+      <p class="text-ivory/60 text-lg md:text-xl leading-relaxed">
+        Premium low-density projects in <span class="text-saffron">Nallagandla & Gachibowli</span> deserve a media partner
+        that matches the ambition — not another ad buy.
+      </p>
+    </div>
+
+    <!-- Three pillars -->
+    <div class="grid md:grid-cols-3 gap-6 mb-16">
+
+      <div class="reveal reveal-delay-1 glass p-8 rounded-sm">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(232,162,83,0.15); border: 1px solid rgba(232,162,83,0.4);">
+            <span class="font-display text-saffron text-lg">01</span>
+          </div>
+          <div class="eyebrow">Trust</div>
+        </div>
+        <h3 class="font-display text-2xl md:text-3xl text-ivory mb-4 leading-tight">
+          Responsible content that <em class="text-saffron not-italic">ensures brand safety.</em>
+        </h3>
+        <p class="text-ivory/60 leading-relaxed">
+          Our philosophy — "Content that is responsible. Content that is respectful." — keeps audiences loyal
+          and your brand always in safe hands.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 glass p-8 rounded-sm relative overflow-hidden">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(232,162,83,0.15); border: 1px solid rgba(232,162,83,0.4);">
+            <span class="font-display text-saffron text-lg">02</span>
+          </div>
+          <div class="eyebrow">Scale</div>
+        </div>
+        <h3 class="font-display text-2xl md:text-3xl text-ivory mb-4 leading-tight">
+          <span class="text-saffron">300 Cr</span> monthly views.<br /><span class="serif-italic text-ivory/80">10 Cr subscribers.</span>
+        </h3>
+        <p class="text-ivory/60 leading-relaxed">
+          More eyeballs than any regional broadcaster or portal. Ready-made audience for every Tridasa launch,
+          milestone, and story.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass p-8 rounded-sm">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background: rgba(232,162,83,0.15); border: 1px solid rgba(232,162,83,0.4);">
+            <span class="font-display text-saffron text-lg">03</span>
+          </div>
+          <div class="eyebrow">Impact</div>
+        </div>
+        <h3 class="font-display text-2xl md:text-3xl text-ivory mb-4 leading-tight">
+          A proven growth engine that <em class="text-saffron not-italic">converts viewers into buyers.</em>
+        </h3>
+        <p class="text-ivory/60 leading-relaxed">
+          Hundreds of businesses have scaled from startup to market leader with us — from hospitals to builders.
+          Tridasa Rise is next.
+        </p>
+      </div>
+    </div>
+
+    <!-- Closing pull -->
+    <div class="reveal text-center">
+      <div class="divider-line mb-10"></div>
+      <p class="font-display italic text-2xl md:text-4xl text-ivory leading-snug max-w-4xl mx-auto">
+        Aligned with Tridasa's promise of <span class="text-saffron not-italic">"Brightening Lives"</span> — we don't just advertise homes,
+        we help families <em>imagine</em> them.
+      </p>
+      <div class="divider-line mt-10"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 8 — TESTIMONIALS / SOCIAL PROOF
+     ========================================================= -->
+<section id="proof" class="relative py-28 md:py-40 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <div>
+        <div class="eyebrow mb-4">07 · The Proof</div>
+        <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+          Loved by <span class="serif-italic text-saffron">the brands</span><br />that grew with us.
+        </h2>
+      </div>
+      <p class="text-ivory/60 text-lg max-w-md">
+        From healthcare to real estate, from FMCG to finance — Suman TV has transformed ambition into brand equity.
+      </p>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal reveal-delay-1 glass p-8 rounded-sm relative">
+        <div class="absolute top-6 right-6 font-display text-5xl text-saffron/30 leading-none">"</div>
+        <p class="text-ivory/80 leading-relaxed mb-8 text-lg">
+          Suman TV's anchor-led storytelling shifted how families perceived our hospital. Walk-ins
+          doubled in six months.
+        </p>
+        <div class="flex items-center gap-3 pt-6 border-t border-ivory/10">
+          <div class="w-10 h-10 rounded-full bg-saffron/20 flex items-center justify-center text-saffron font-display">H</div>
+          <div>
+            <div class="text-ivory font-medium">Healthcare Partner</div>
+            <div class="text-xs text-ivory/40 font-mono uppercase tracking-widest">Hyderabad · 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 rounded-sm p-8 relative"
+           style="background: linear-gradient(160deg, rgba(232,162,83,0.08), transparent); border: 1px solid rgba(232,162,83,0.3);">
+        <div class="absolute top-6 right-6 font-display text-5xl text-saffron/40 leading-none">"</div>
+        <p class="text-ivory/90 leading-relaxed mb-8 text-lg">
+          We stopped chasing Google ad CPCs. One integrated Suman TV campaign delivered <span class="text-saffron">more
+          qualified leads</span> than a year of performance marketing.
+        </p>
+        <div class="flex items-center gap-3 pt-6 border-t border-saffron/20">
+          <div class="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold">R</div>
+          <div>
+            <div class="text-ivory font-medium">Real Estate Developer</div>
+            <div class="text-xs text-saffron font-mono uppercase tracking-widest">Gachibowli · 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass p-8 rounded-sm relative">
+        <div class="absolute top-6 right-6 font-display text-5xl text-saffron/30 leading-none">"</div>
+        <p class="text-ivory/80 leading-relaxed mb-8 text-lg">
+          Their NRI audience is real. We received enquiries from US & UK within days of the first integration.
+        </p>
+        <div class="flex items-center gap-3 pt-6 border-t border-ivory/10">
+          <div class="w-10 h-10 rounded-full bg-saffron/20 flex items-center justify-center text-saffron font-display">L</div>
+          <div>
+            <div class="text-ivory font-medium">Luxury Lifestyle Brand</div>
+            <div class="text-xs text-ivory/40 font-mono uppercase tracking-widest">Pan-India · 2025</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Industries served -->
+    <div class="reveal mt-20">
+      <div class="eyebrow text-center mb-8">Industries Transformed</div>
+      <div class="flex flex-wrap justify-center gap-3 md:gap-4">
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Healthcare</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Real Estate</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Retail</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">FMCG</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Finance</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Education</span>
+        <span class="px-5 py-2.5 rounded-full border border-ivory/15 text-ivory/70 text-sm hover:border-saffron hover:text-saffron transition cursor-default">Tech</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION 9 — CTA / FORM
+     ========================================================= -->
+<section id="cta" class="relative py-28 md:py-40 overflow-hidden">
+  <!-- Backdrop -->
+  <div class="absolute inset-0">
+    <div class="w-full h-full bg-cover bg-center opacity-20"
+         style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/95 to-ink"></div>
+  </div>
+
+  <!-- Decorative orbs -->
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-saffron/8 blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-magenta/8 blur-[140px] pointer-events-none"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+
+      <!-- Left: pitch -->
+      <div class="reveal">
+        <div class="eyebrow mb-6">08 · Let's Begin</div>
+        <h2 class="display-xl text-ivory text-[clamp(2.4rem,5vw,4.5rem)] mb-8">
+          You need a <span class="serif-italic text-saffron">partner,</span><br />not just a platform.
+        </h2>
+        <p class="text-ivory/70 text-lg leading-relaxed mb-8">
+          In a crowded marketplace, brands need real influence. If you want to grow faster and reach customers
+          who believe you — you need Suman TV.
+        </p>
+        <p class="font-display text-2xl text-saffron italic mb-12">
+          Let's create unlimited connectivity for Tridasa Rise.
+        </p>
+
+        <!-- Contact info blocks -->
+        <div class="space-y-5">
+          <div class="flex items-start gap-4 p-5 glass rounded-sm">
+            <div class="text-saffron mt-1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-ivory/50 font-mono mb-1">Call Us</div>
+              <div class="text-ivory text-lg">+91 · Suman TV Network, Hyderabad</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 glass rounded-sm">
+            <div class="text-saffron mt-1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-ivory/50 font-mono mb-1">Email</div>
+              <div class="text-ivory text-lg">partnerships@sumantv.com</div>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-5 glass rounded-sm">
+            <div class="text-saffron mt-1">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="text-xs uppercase tracking-widest text-ivory/50 font-mono mb-1">Visit</div>
+              <div class="text-ivory text-lg">Suman TV Network · Hyderabad, India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="reveal reveal-delay-2 glass rounded-sm p-8 md:p-10 relative">
+        <div class="corner-ornament top-3 left-3 border-t border-l !border-saffron"></div>
+        <div class="corner-ornament top-3 right-3 border-t border-r !border-saffron"></div>
+        <div class="corner-ornament bottom-3 left-3 border-b border-l !border-saffron"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r !border-saffron"></div>
+
+        <div class="eyebrow mb-4">Start the Conversation</div>
+        <h3 class="font-display text-3xl text-ivory mb-8">
+          Make Tridasa Rise<br /><span class="serif-italic text-saffron">the next success story.</span>
+        </h3>
+
+        <form id="pitchForm" class="space-y-5">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="eyebrow mb-2 block">Name</label>
+              <input type="text" name="name" placeholder="Your full name" required class="form-field" />
+            </div>
+            <div>
+              <label class="eyebrow mb-2 block">Company</label>
+              <input type="text" name="company" placeholder="Tridasa Realty" required class="form-field" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="eyebrow mb-2 block">Phone</label>
+              <input type="tel" name="phone" placeholder="+91 ..." required class="form-field" />
+            </div>
+            <div>
+              <label class="eyebrow mb-2 block">Email</label>
+              <input type="email" name="email" placeholder="you@company.com" required class="form-field" />
+            </div>
+          </div>
+          <div>
+            <label class="eyebrow mb-2 block">Message</label>
+            <textarea name="message" rows="4" placeholder="Tell us about your project & goals..." class="form-field resize-none"></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full justify-center mt-2">
+            Send & Schedule a Meeting
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+          <p class="text-xs text-ivory/40 text-center font-mono">We respond within 24 hours · Hyderabad time</p>
+        </form>
+
+        <!-- Success message -->
+        <div id="formSuccess" class="hidden mt-6 p-4 rounded-sm" style="background: rgba(232,162,83,0.1); border: 1px solid rgba(232,162,83,0.4);">
+          <p class="text-saffron text-sm">✓ Thank you. Our partnerships team will reach out shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="relative bg-ink border-t border-ivory/10 pt-20 pb-10">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-xl">S</div>
+          <div>
+            <div class="font-display text-2xl text-ivory">Suman TV</div>
+            <div class="text-xs uppercase tracking-widest text-saffron/70 font-mono">The Voice That Matters</div>
+          </div>
+        </div>
+        <p class="text-ivory/50 leading-relaxed max-w-md">
+          India's largest regional digital network. Trust · Scale · Impact. A proven growth engine that converts
+          viewers into buyers, from Hyderabad to the world.
+        </p>
+      </div>
+
+      <div>
+        <div class="eyebrow mb-4">Explore</div>
+        <ul class="space-y-3 text-ivory/60 text-sm">
+          <li><a href="#shift" class="hover:text-saffron transition">The Digital Shift</a></li>
+          <li><a href="#scale" class="hover:text-saffron transition">By the Numbers</a></li>
+          <li><a href="#advantages" class="hover:text-saffron transition">Our Advantages</a></li>
+          <li><a href="#flow" class="hover:text-saffron transition">5-Step Flow</a></li>
+          <li><a href="#tridasa" class="hover:text-saffron transition">For Tridasa</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="eyebrow mb-4">Connect</div>
+        <ul class="space-y-3 text-ivory/60 text-sm">
+          <li><a href="#cta" class="hover:text-saffron transition">Schedule a Meeting</a></li>
+          <li><a href="#" class="hover:text-saffron transition">YouTube Channels</a></li>
+          <li><a href="#" class="hover:text-saffron transition">Media Kit</a></li>
+          <li><a href="#" class="hover:text-saffron transition">Partnerships</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="divider-line mb-8"></div>
+
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-ivory/40 font-mono">
+      <p>© 2026 Suman TV Network · Crafted for Tridasa Realty. All rights reserved.</p>
+      <p>The Voice That Matters.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+<script>
+  // Intersection Observer for reveal animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target); // reveal once
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav backdrop on scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(6,8,18,0.82)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.borderBottom = '1px solid rgba(232,162,83,0.12)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = '1px solid transparent';
+    }
+  }, { passive: true });
+
+  // Form handling (demo)
+  document.getElementById('pitchForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const success = document.getElementById('formSuccess');
+    success.classList.remove('hidden');
+    e.target.reset();
+    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    setTimeout(() => success.classList.add('hidden'), 8000);
+  });
+</script>
+
+</body>
+</html>
