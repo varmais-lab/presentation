@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tridasa Rise × Suman TV — 90-Day Integrated Launch Campaign</title>
+<meta name="description" content="90-day integrated launch campaign — ₹10 Lakh/month. 54 premium assets, 2 Cr guaranteed impressions, 3-month distribution across 29+ Telugu channels." />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Fonts: Fraunces + Manrope + DM Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Manrope:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#060812',
+          midnight: '#0B0F1F',
+          dusk: '#141a2e',
+          saffron: '#E8A253',
+          gold: '#D4AF37',
+          ivory: '#F6F1E7',
+          muted: '#8892A6',
+          magenta: '#E5107A',
+        },
+        fontFamily: {
+          display: ['Fraunces', 'serif'],
+          sans: ['Manrope', 'sans-serif'],
+          mono: ['DM Mono', 'monospace'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  /* =========================================================
+     CORE ATMOSPHERE
+     ========================================================= */
+  html { scroll-behavior: smooth; }
+  body {
+    background: #060812;
+    color: #F6F1E7;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.72rem;
+    color: #E8A253;
+  }
+  .display-xl {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    font-variation-settings: "opsz" 144;
+  }
+  .serif-italic { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .stat-num { font-family: 'Fraunces', serif; font-variation-settings: "opsz" 144; line-height: 1; }
+
+  .radial-glow {
+    background: radial-gradient(ellipse at top, rgba(232,162,83,0.18), transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(229,16,122,0.08), transparent 50%),
+                #060812;
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #E8A253 0%, #D4AF37 50%, #E8A253 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .divider-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(232,162,83,0.4), transparent); }
+
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(232,162,83,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass:hover { border-color: rgba(232,162,83,0.35); }
+
+  .glass-gold {
+    background: linear-gradient(180deg, rgba(232,162,83,0.08), rgba(212,175,55,0.02));
+    border: 1px solid rgba(232,162,83,0.35);
+  }
+
+  .dot-divider {
+    background-image: radial-gradient(circle, rgba(232,162,83,0.4) 1px, transparent 1.5px);
+    background-size: 16px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 2px;
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes drawLine {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+  @keyframes countPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  @keyframes ping-soft {
+    0% { transform: scale(1); opacity: 1; }
+    75%, 100% { transform: scale(2.5); opacity: 0; }
+  }
+  .ping-soft { animation: ping-soft 2.5s cubic-bezier(0,0,0.2,1) infinite; }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.12s; }
+  .reveal-delay-2 { transition-delay: 0.24s; }
+  .reveal-delay-3 { transition-delay: 0.36s; }
+  .reveal-delay-4 { transition-delay: 0.48s; }
+
+  .hero-stagger > * { opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .hero-stagger > *:nth-child(1) { animation-delay: 0.2s; }
+  .hero-stagger > *:nth-child(2) { animation-delay: 0.45s; }
+  .hero-stagger > *:nth-child(3) { animation-delay: 0.7s; }
+  .hero-stagger > *:nth-child(4) { animation-delay: 0.95s; }
+  .hero-stagger > *:nth-child(5) { animation-delay: 1.15s; }
+
+  /* Buttons */
+  .btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.05rem 2rem;
+    background: #E8A253;
+    color: #060812;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 40px -10px rgba(232,162,83,0.5); }
+  .btn-primary:hover::after { transform: translateX(100%); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.05rem 2rem;
+    border: 1px solid rgba(246,241,231,0.2);
+    color: #F6F1E7;
+    font-weight: 500;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover { border-color: #E8A253; color: #E8A253; }
+
+  /* Phase card accents */
+  .phase-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    color: rgba(232,162,83,0.25);
+    font-size: 6rem;
+    line-height: 1;
+  }
+
+  /* Corner ornaments */
+  .corner-ornament {
+    position: absolute;
+    width: 32px; height: 32px;
+  }
+
+  .highlight-underline {
+    background-image: linear-gradient(120deg, rgba(232,162,83,0.35) 0%, rgba(232,162,83,0.35) 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.3em;
+    background-position: 0 90%;
+    padding: 0 0.1em;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #060812; }
+  ::-webkit-scrollbar-thumb { background: #E8A253; border-radius: 10px; border: 2px solid #060812; }
+
+  /* Timeline dashes */
+  .timeline-dash {
+    border-left: 1px dashed rgba(232,162,83,0.3);
+  }
+
+  /* Marquee */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .marquee-track { animation: marquee 38s linear infinite; }
+
+  /* Value-bar animation */
+  @keyframes growWidth {
+    from { width: 0%; }
+  }
+  .grow-bar { animation: growWidth 1.4s cubic-bezier(0.22,1,0.36,1) forwards; }
+
+  /* Crown ribbon for recommended badge */
+  .ribbon {
+    background: linear-gradient(135deg, #E8A253, #D4AF37);
+    color: #060812;
+  }
+
+  @media (max-width: 640px) {
+    .display-xl { font-size: clamp(2.2rem, 10vw, 3.4rem); }
+    .phase-num { font-size: 4rem; }
+  }
+</style>
+</head>
+<body class="bg-ink">
+
+<!-- =========================================================
+     NAV
+     ========================================================= -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="mainNav">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 py-5 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-lg">S</div>
+      <div class="leading-tight">
+        <div class="font-display text-ivory text-lg tracking-tight">Suman TV</div>
+        <div class="text-[10px] uppercase tracking-[0.2em] text-saffron/70 font-mono">90-Day Proposal · Tridasa Rise</div>
+      </div>
+    </a>
+    <div class="hidden lg:flex items-center gap-8 text-sm text-ivory/70">
+      <a href="#overview" class="hover:text-saffron transition">Overview</a>
+      <a href="#phases" class="hover:text-saffron transition">3 Phases</a>
+      <a href="#deliverables" class="hover:text-saffron transition">Deliverables</a>
+      <a href="#value" class="hover:text-saffron transition">Value Stack</a>
+      <a href="#timeline" class="hover:text-saffron transition">Timeline</a>
+    </div>
+    <a href="#signoff" class="btn-ghost text-sm !py-2.5 !px-5">Approve & Sign →</a>
+  </div>
+</nav>
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+<section id="top" class="relative min-h-screen flex items-center overflow-hidden radial-glow">
+
+  <!-- Background image/video -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-cover bg-center opacity-30"
+         style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/70 to-ink"></div>
+  </div>
+
+  <!-- Decorative orbs -->
+  <div class="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-saffron/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-magenta/10 blur-[120px] pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 pt-32 pb-20 w-full">
+    <div class="hero-stagger max-w-5xl">
+
+      <!-- Eyebrow -->
+      <div class="flex items-center gap-4 mb-8">
+        <div class="w-12 h-px bg-saffron"></div>
+        <span class="eyebrow">Confidential Proposal · For Tridasa Realty</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="display-xl text-ivory text-[clamp(2.6rem,7vw,6.5rem)] mb-8">
+        The <span class="serif-italic text-saffron">90-Day</span><br />
+        Integrated Launch Campaign<br />
+        <span class="gold-gradient font-semibold">for Tridasa Rise.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg md:text-2xl text-ivory/70 max-w-3xl font-light leading-relaxed mb-12">
+        One investment. Three compounding layers. A Telugu content engine, a 90-day distribution runway,
+        and <span class="text-saffron">2 Crore guaranteed impressions</span> — all for ₹10 Lakh/month.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 mb-16">
+        <a href="#signoff" class="btn-primary">
+          Approve this Proposal
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#phases" class="btn-ghost">See the Full Plan</a>
+      </div>
+
+      <!-- Top-line stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 pt-10 border-t border-ivory/10">
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">₹10L<span class="text-saffron">/mo</span></div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Monthly Investment</div>
+        </div>
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">90 <span class="serif-italic">Days</span></div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Integrated Campaign</div>
+        </div>
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">2 Cr<span class="text-saffron">+</span></div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Guaranteed Impressions</div>
+        </div>
+        <div>
+          <div class="stat-num text-3xl md:text-5xl gold-gradient font-semibold">54</div>
+          <div class="text-xs md:text-sm text-ivory/60 mt-2 uppercase tracking-wider font-mono">Premium Content Assets</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/40 text-xs tracking-widest uppercase font-mono">
+    <span>Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-saffron to-transparent"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     MARQUEE STRIP
+     ========================================================= -->
+<section class="border-y border-ivory/5 overflow-hidden bg-midnight py-8">
+  <div class="flex gap-16 marquee-track whitespace-nowrap">
+    <div class="flex gap-16 items-center shrink-0">
+      <span class="font-display text-2xl text-ivory/40 italic">90-Day Runway</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">54 Premium Assets</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">2 Crore Guaranteed Impressions</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">29+ YouTube Channels</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">3-Month Compounding Distribution</span>
+      <span class="text-saffron">◆</span>
+    </div>
+    <div class="flex gap-16 items-center shrink-0" aria-hidden="true">
+      <span class="font-display text-2xl text-ivory/40 italic">90-Day Runway</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">54 Premium Assets</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">2 Crore Guaranteed Impressions</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40">29+ YouTube Channels</span>
+      <span class="text-saffron">◆</span>
+      <span class="font-display text-2xl text-ivory/40 italic">3-Month Compounding Distribution</span>
+      <span class="text-saffron">◆</span>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: CAMPAIGN OVERVIEW
+     ========================================================= -->
+<section id="overview" class="relative py-28 md:py-36 bg-ink">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-16 max-w-4xl">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="eyebrow">01 · The Campaign in Brief</span>
+        <div class="h-px flex-1 bg-ivory/10"></div>
+      </div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)] mb-8">
+        One package.<br /><span class="serif-italic text-saffron">Three compounding layers.</span>
+      </h2>
+      <p class="text-ivory/60 text-lg md:text-xl leading-relaxed max-w-3xl">
+        Traditional agencies charge you for production <em>or</em> distribution <em>or</em> media. We combine all three
+        into one investment — where every rupee works on all three fronts simultaneously.
+      </p>
+    </div>
+
+    <!-- Three layers visual -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="reveal reveal-delay-1 glass rounded-sm p-8 group hover:border-saffron/40 transition-all relative overflow-hidden">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-saffron/5 blur-3xl"></div>
+        <div class="relative">
+          <div class="eyebrow mb-4">Layer 01</div>
+          <div class="text-saffron mb-6">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3 leading-tight">Content Production</h3>
+          <p class="text-ivory/60 leading-relaxed text-sm">
+            54 premium assets — shorts, explainers, podcasts, walkthroughs, social posts —
+            crafted by our full writer-camera-edit team.
+          </p>
+          <div class="mt-6 pt-6 border-t border-ivory/10">
+            <div class="text-xs font-mono text-saffron/60 uppercase tracking-widest">Standalone Value</div>
+            <div class="font-display text-2xl text-saffron mt-1">₹4,00,000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 rounded-sm p-8 group relative overflow-hidden"
+           style="background: linear-gradient(160deg, rgba(232,162,83,0.08), rgba(212,175,55,0.02)); border: 1px solid rgba(232,162,83,0.35);">
+        <div class="absolute top-3 right-3 ribbon px-3 py-1 text-[10px] uppercase tracking-widest font-bold rounded-full font-mono">
+          Core Engine
+        </div>
+        <div class="eyebrow mb-4">Layer 02</div>
+        <div class="text-saffron mb-6">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3 leading-tight">3-Month Distribution</h3>
+        <p class="text-ivory/80 leading-relaxed text-sm">
+          Every asset republished, repackaged & amplified across 29+ channels for 90 days.
+          This is where your content compounds beyond paid reach.
+        </p>
+        <div class="mt-6 pt-6 border-t border-saffron/20">
+          <div class="text-xs font-mono text-saffron/80 uppercase tracking-widest">Standalone Value</div>
+          <div class="font-display text-2xl text-saffron mt-1">₹3,00,000</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-3 glass rounded-sm p-8 group hover:border-saffron/40 transition-all relative overflow-hidden">
+        <div class="absolute -top-12 -left-12 w-40 h-40 rounded-full bg-magenta/5 blur-3xl"></div>
+        <div class="relative">
+          <div class="eyebrow mb-4">Layer 03</div>
+          <div class="text-saffron mb-6">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3 leading-tight">Paid Impression Boost</h3>
+          <p class="text-ivory/60 leading-relaxed text-sm">
+            <span class="text-saffron">2 Crore guaranteed</span> strip ad impressions across premium prime-time
+            content. Saturation campaign to lock attention.
+          </p>
+          <div class="mt-6 pt-6 border-t border-ivory/10">
+            <div class="text-xs font-mono text-saffron/60 uppercase tracking-widest">Standalone Value</div>
+            <div class="font-display text-2xl text-saffron mt-1">₹20,00,000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compound result -->
+    <div class="reveal mt-16 text-center max-w-3xl mx-auto">
+      <div class="dot-divider mb-10"></div>
+      <p class="font-display italic text-2xl md:text-3xl text-ivory/90 leading-snug">
+        Together, these three layers deliver an expected <span class="text-saffron not-italic font-normal">4–5 Crore total impressions</span>
+        across 90 days — at an effective cost Google and Meta cannot match.
+      </p>
+      <div class="dot-divider mt-10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: 3 PHASES
+     ========================================================= -->
+<section id="phases" class="relative py-28 md:py-36 bg-midnight overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] rounded-full border border-saffron/5 pointer-events-none"></div>
+
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="eyebrow mb-4">02 · The Campaign Rhythm</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        Three phases.<br /><span class="serif-italic text-saffron">Ninety days of momentum.</span>
+      </h2>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="reveal mb-12">
+      <div class="glass rounded-sm p-8 md:p-12 relative overflow-hidden group hover:border-saffron/30 transition-all">
+        <div class="corner-ornament top-3 left-3 border-t border-l border-saffron/40"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r border-saffron/40"></div>
+
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-2">
+            <div class="phase-num">01</div>
+            <div class="eyebrow !text-saffron">Phase One</div>
+            <div class="text-sm text-ivory/50 mt-2 font-mono">Days 1 – 28</div>
+          </div>
+
+          <div class="md:col-span-6">
+            <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+              Content Production<br /><span class="serif-italic text-saffron">& Creative Build</span>
+            </h3>
+            <p class="text-ivory/60 leading-relaxed mb-6">
+              Our full production team — writer, anchor, camera, lights, sound, edit, graphics, SEO, social —
+              deploys to craft <strong class="text-ivory">54 premium assets</strong> tailor-built for Tridasa Rise.
+              Every script reviewed, every frame considered, every post calibrated for the Telugu buyer.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Script Development</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Anchor Shoots</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Property Filming</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Edit & VFX</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Sound Design</span>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 glass rounded-sm p-5">
+            <div class="eyebrow mb-4">Key Deliverables</div>
+            <ul class="space-y-3 text-sm text-ivory/70">
+              <li class="flex gap-3"><span class="text-saffron">✓</span> 20 Shorts & Reels (1–2 min)</li>
+              <li class="flex gap-3"><span class="text-saffron">✓</span> 8 Long-format explainers (5–8 min)</li>
+              <li class="flex gap-3"><span class="text-saffron">✓</span> 1 Flagship podcast (45 min)</li>
+              <li class="flex gap-3"><span class="text-saffron">✓</span> 5 Property walkthrough films</li>
+              <li class="flex gap-3"><span class="text-saffron">✓</span> 20 Social media posts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="reveal mb-12">
+      <div class="rounded-sm p-8 md:p-12 relative overflow-hidden group"
+           style="background: linear-gradient(135deg, rgba(232,162,83,0.08), rgba(11,15,31,0.9) 60%); border: 1px solid rgba(232,162,83,0.25);">
+        <div class="absolute top-3 right-3 ribbon px-3 py-1 text-[10px] uppercase tracking-widest font-bold rounded-full font-mono">
+          Compounding Engine
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-2">
+            <div class="phase-num">02</div>
+            <div class="eyebrow !text-saffron">Phase Two</div>
+            <div class="text-sm text-ivory/50 mt-2 font-mono">Days 14 – 90</div>
+          </div>
+
+          <div class="md:col-span-6">
+            <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+              3-Month Distribution<br /><span class="serif-italic text-saffron">& Amplification</span>
+            </h3>
+            <p class="text-ivory/70 leading-relaxed mb-6">
+              This is where Suman TV breaks the mould. Your content doesn't disappear after one post — every asset is
+              <strong class="text-ivory">republished, repackaged, and cross-promoted</strong> across our 29+ YouTube channels,
+              Facebook, Instagram, and X, compounding organic reach for 90 full days.
+            </p>
+
+            <!-- Month-by-month -->
+            <div class="space-y-3">
+              <div class="flex items-start gap-4 p-4 bg-ink/40 rounded-sm border border-saffron/15">
+                <div class="text-saffron font-display text-xl">M1</div>
+                <div class="text-sm text-ivory/70">
+                  <strong class="text-ivory">Fresh release</strong> across all 29+ channels · First-run cross-promotion · Prime-time anchor slots
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-ink/40 rounded-sm border border-saffron/15">
+                <div class="text-saffron font-display text-xl">M2</div>
+                <div class="text-sm text-ivory/70">
+                  <strong class="text-ivory">"Most Watched" reposts</strong> with fresh thumbnails · Reel cut-downs from long formats · Community tab features
+                </div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-ink/40 rounded-sm border border-saffron/15">
+                <div class="text-saffron font-display text-xl">M3</div>
+                <div class="text-sm text-ivory/70">
+                  <strong class="text-ivory">"Best of Tridasa"</strong> compilations · Shorts re-edits · Retargeting warm audiences · Final push content
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 glass rounded-sm p-5">
+            <div class="eyebrow mb-4">Expected Organic Lift</div>
+            <div class="stat-num text-5xl text-saffron font-semibold mb-2">2–3 Cr</div>
+            <p class="text-ivory/70 text-sm leading-relaxed mb-4">
+              Additional organic impressions generated by the distribution engine — <strong class="text-saffron">on top of paid</strong>.
+            </p>
+            <div class="pt-4 border-t border-saffron/20">
+              <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest">Compounding Effect</div>
+              <div class="text-sm text-ivory/80 mt-1">Content earns views for years, not days.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="reveal mb-12">
+      <div class="glass rounded-sm p-8 md:p-12 relative overflow-hidden group hover:border-saffron/30 transition-all">
+        <div class="corner-ornament top-3 left-3 border-t border-l border-saffron/40"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r border-saffron/40"></div>
+
+        <div class="grid md:grid-cols-12 gap-8 items-start">
+          <div class="md:col-span-2">
+            <div class="phase-num">03</div>
+            <div class="eyebrow !text-saffron">Phase Three</div>
+            <div class="text-sm text-ivory/50 mt-2 font-mono">Days 28 – 90</div>
+          </div>
+
+          <div class="md:col-span-6">
+            <h3 class="font-display text-3xl md:text-4xl text-ivory mb-4 leading-tight">
+              Paid Impression<br /><span class="serif-italic text-saffron">Saturation Campaign</span>
+            </h3>
+            <p class="text-ivory/60 leading-relaxed mb-6">
+              <strong class="text-ivory">2 Crore guaranteed strip ad impressions</strong> deployed across our highest-traffic
+              channels — Suman TV News, Suman TV Health, Entertainment, Business, and Lifestyle. Premium L-band
+              placement on prime-time content watched by Hyderabad's highest-spending households.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">L-Band Strip</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Prime-Time Slots</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Non-Skippable</span>
+              <span class="px-3 py-1 text-xs rounded-full border border-saffron/30 text-saffron bg-saffron/5 font-mono uppercase tracking-wider">Geo-Targeted Hyderabad+</span>
+            </div>
+          </div>
+
+          <div class="md:col-span-4 glass rounded-sm p-5">
+            <div class="eyebrow mb-4">Delivery Commitment</div>
+            <div class="space-y-4">
+              <div>
+                <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest">Minimum Guaranteed</div>
+                <div class="font-display text-3xl text-ivory font-semibold">2 Crore</div>
+                <div class="text-xs text-ivory/50 mt-1">Delivered within 90 days</div>
+              </div>
+              <div class="pt-4 border-t border-ivory/10">
+                <div class="text-xs font-mono text-saffron uppercase tracking-widest">Typical Over-Delivery</div>
+                <div class="font-display text-xl text-saffron">2.2 – 2.5 Cr</div>
+                <div class="text-xs text-ivory/50 mt-1">At no additional cost</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: DELIVERABLES BREAKDOWN
+     ========================================================= -->
+<section id="deliverables" class="relative py-28 md:py-36 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="eyebrow mb-4">03 · What You Get</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        54 premium assets.<br /><span class="serif-italic text-saffron">One cohesive story.</span>
+      </h2>
+    </div>
+
+    <!-- Asset grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-16">
+
+      <!-- Shorts -->
+      <div class="reveal reveal-delay-1 glass rounded-sm p-6 flex flex-col justify-between min-h-[260px] hover:border-saffron/40 transition-all">
+        <div>
+          <div class="text-saffron mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">20</div>
+          <h3 class="font-display text-xl text-ivory mt-2 leading-tight">Shorts & Reels</h3>
+        </div>
+        <div class="pt-4 mt-4 border-t border-ivory/10">
+          <div class="text-xs font-mono text-ivory/40 uppercase tracking-widest">Per Asset</div>
+          <div class="text-sm text-ivory/70">1–2 minutes</div>
+        </div>
+      </div>
+
+      <!-- Explainers -->
+      <div class="reveal reveal-delay-2 glass rounded-sm p-6 flex flex-col justify-between min-h-[260px] hover:border-saffron/40 transition-all">
+        <div>
+          <div class="text-saffron mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">8</div>
+          <h3 class="font-display text-xl text-ivory mt-2 leading-tight">Long Explainers</h3>
+        </div>
+        <div class="pt-4 mt-4 border-t border-ivory/10">
+          <div class="text-xs font-mono text-ivory/40 uppercase tracking-widest">Per Asset</div>
+          <div class="text-sm text-ivory/70">5–8 minutes</div>
+        </div>
+      </div>
+
+      <!-- Podcast -->
+      <div class="reveal reveal-delay-3 rounded-sm p-6 flex flex-col justify-between min-h-[260px]"
+           style="background: linear-gradient(160deg, rgba(232,162,83,0.1), rgba(212,175,55,0.02)); border: 1px solid rgba(232,162,83,0.35);">
+        <div>
+          <div class="text-saffron mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">1</div>
+          <h3 class="font-display text-xl text-ivory mt-2 leading-tight">Flagship Podcast</h3>
+        </div>
+        <div class="pt-4 mt-4 border-t border-saffron/30">
+          <div class="text-xs font-mono text-saffron uppercase tracking-widest">Per Asset</div>
+          <div class="text-sm text-ivory/80">30–60 minutes</div>
+        </div>
+      </div>
+
+      <!-- Walkthroughs -->
+      <div class="reveal reveal-delay-4 glass rounded-sm p-6 flex flex-col justify-between min-h-[260px] hover:border-saffron/40 transition-all">
+        <div>
+          <div class="text-saffron mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">5</div>
+          <h3 class="font-display text-xl text-ivory mt-2 leading-tight">Property Walkthroughs</h3>
+        </div>
+        <div class="pt-4 mt-4 border-t border-ivory/10">
+          <div class="text-xs font-mono text-ivory/40 uppercase tracking-widest">Per Asset</div>
+          <div class="text-sm text-ivory/70">5–8 min + 360°</div>
+        </div>
+      </div>
+
+      <!-- Social Posts -->
+      <div class="reveal glass rounded-sm p-6 flex flex-col justify-between min-h-[260px] hover:border-saffron/40 transition-all">
+        <div>
+          <div class="text-saffron mb-4">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <div class="stat-num text-5xl md:text-6xl gold-gradient font-semibold">20</div>
+          <h3 class="font-display text-xl text-ivory mt-2 leading-tight">Social Media Posts</h3>
+        </div>
+        <div class="pt-4 mt-4 border-t border-ivory/10">
+          <div class="text-xs font-mono text-ivory/40 uppercase tracking-widest">Per Asset</div>
+          <div class="text-sm text-ivory/70">Graphics + copy</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Content theme ideas -->
+    <div class="reveal glass-gold rounded-sm p-8 md:p-10">
+      <div class="eyebrow mb-4">Content Themes Built for Tridasa Rise</div>
+      <h3 class="font-display text-2xl md:text-3xl text-ivory mb-8">
+        Every asset tells a piece of the <span class="serif-italic text-saffron">Tridasa story.</span>
+      </h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">Education</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">RERA · Home Loans · Vastu</div>
+          <div class="text-ivory/60 text-sm">Build buyer trust through expertise</div>
+        </div>
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">Lifestyle</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">Gated Living · Family Stories</div>
+          <div class="text-ivory/60 text-sm">Show the emotional win of upgrading</div>
+        </div>
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">NRI Focus</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">Investment Guides · Buying Remotely</div>
+          <div class="text-ivory/60 text-sm">Capture the high-value diaspora buyer</div>
+        </div>
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">Property Tours</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">Walkthroughs · 360° Tours</div>
+          <div class="text-ivory/60 text-sm">Cinematic presentations of Rise</div>
+        </div>
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">Leadership</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">Founder Podcast · Vision Talks</div>
+          <div class="text-ivory/60 text-sm">Humanize the brand</div>
+        </div>
+        <div class="p-4 bg-ink/30 rounded-sm border border-saffron/15">
+          <div class="text-saffron text-sm font-mono uppercase tracking-widest mb-2">Community</div>
+          <div class="text-ivory text-lg font-display leading-tight mb-2">Reviews · Walkthrough Reels</div>
+          <div class="text-ivory/60 text-sm">Social proof at scale</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: VALUE STACK
+     ========================================================= -->
+<section id="value" class="relative py-28 md:py-36 bg-midnight overflow-hidden">
+  <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-saffron/8 blur-[140px] pointer-events-none"></div>
+  <div class="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-magenta/5 blur-[140px] pointer-events-none"></div>
+
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+    <div class="reveal mb-20 text-center max-w-4xl mx-auto">
+      <div class="eyebrow mb-4">04 · The Value Stack</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        ₹29 Lakh of value.<br /><span class="serif-italic text-saffron">₹10 Lakh investment.</span>
+      </h2>
+    </div>
+
+    <!-- Value breakdown -->
+    <div class="max-w-4xl mx-auto">
+      <div class="reveal glass rounded-sm p-8 md:p-10">
+        <div class="eyebrow mb-6">Market Value Breakdown</div>
+
+        <div class="space-y-6">
+          <!-- Row 1 -->
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex-1">
+              <div class="text-ivory text-lg font-medium">Content Production</div>
+              <div class="text-ivory/50 text-sm">160 minutes of premium video × ₹2,500/min</div>
+            </div>
+            <div class="flex-1 max-w-[300px]">
+              <div class="h-2 bg-saffron/10 rounded-full overflow-hidden">
+                <div class="h-full bg-saffron grow-bar" style="width: 14%"></div>
+              </div>
+            </div>
+            <div class="font-display text-xl text-ivory w-32 text-right">₹4,00,000</div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex-1">
+              <div class="text-ivory text-lg font-medium">3-Month Distribution</div>
+              <div class="text-ivory/50 text-sm">Cross-promotion across 29+ channels × 90 days</div>
+            </div>
+            <div class="flex-1 max-w-[300px]">
+              <div class="h-2 bg-saffron/10 rounded-full overflow-hidden">
+                <div class="h-full bg-saffron grow-bar" style="width: 10%; animation-delay: 0.2s"></div>
+              </div>
+            </div>
+            <div class="font-display text-xl text-ivory w-32 text-right">₹3,00,000</div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex-1">
+              <div class="text-ivory text-lg font-medium">Strip Ad Inventory</div>
+              <div class="text-ivory/50 text-sm">2 Crore impressions × ₹100 CPM market rate</div>
+            </div>
+            <div class="flex-1 max-w-[300px]">
+              <div class="h-2 bg-saffron/10 rounded-full overflow-hidden">
+                <div class="h-full bg-saffron grow-bar" style="width: 69%; animation-delay: 0.4s"></div>
+              </div>
+            </div>
+            <div class="font-display text-xl text-ivory w-32 text-right">₹20,00,000</div>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="flex items-center justify-between gap-6">
+            <div class="flex-1">
+              <div class="text-ivory text-lg font-medium">Account Management</div>
+              <div class="text-ivory/50 text-sm">Dedicated team, weekly reports, optimization</div>
+            </div>
+            <div class="flex-1 max-w-[300px]">
+              <div class="h-2 bg-saffron/10 rounded-full overflow-hidden">
+                <div class="h-full bg-saffron grow-bar" style="width: 7%; animation-delay: 0.6s"></div>
+              </div>
+            </div>
+            <div class="font-display text-xl text-ivory w-32 text-right">₹2,00,000</div>
+          </div>
+        </div>
+
+        <div class="divider-line my-8"></div>
+
+        <div class="flex items-center justify-between">
+          <div class="text-ivory/60 font-mono uppercase tracking-widest text-sm">Total Market Value</div>
+          <div class="font-display text-4xl md:text-5xl text-ivory font-semibold">₹29,00,000</div>
+        </div>
+
+        <div class="flex items-center justify-between mt-4">
+          <div class="text-saffron font-mono uppercase tracking-widest text-sm">Your Investment</div>
+          <div class="font-display text-4xl md:text-5xl gold-gradient font-semibold">₹10,00,000</div>
+        </div>
+
+        <div class="mt-8 p-6 rounded-sm text-center" style="background: linear-gradient(135deg, rgba(232,162,83,0.15), rgba(212,175,55,0.05)); border: 1px solid rgba(232,162,83,0.4);">
+          <div class="text-xs font-mono text-saffron uppercase tracking-widest mb-2">Bundled Savings</div>
+          <div class="font-display text-3xl md:text-4xl text-ivory">
+            ₹19,00,000 <span class="text-saffron serif-italic">(65%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Competitive comparison -->
+    <div class="reveal mt-20 max-w-5xl mx-auto">
+      <div class="eyebrow text-center mb-4">What ₹10 Lakh Delivers — Platform vs Platform</div>
+      <h3 class="font-display text-3xl md:text-4xl text-ivory text-center mb-12">
+        No other platform comes close.
+      </h3>
+
+      <div class="grid md:grid-cols-4 gap-4">
+
+        <div class="glass rounded-sm p-6">
+          <div class="text-ivory/50 text-sm font-medium mb-3">Meta Feed Ads</div>
+          <div class="stat-num text-4xl text-ivory/60 font-semibold mb-1">25–50L</div>
+          <div class="text-xs text-ivory/40 font-mono uppercase tracking-widest mb-4">Impressions</div>
+          <div class="text-xs text-ivory/50 leading-relaxed">CPM ₹200-400 · 1.7 sec dwell</div>
+        </div>
+
+        <div class="glass rounded-sm p-6">
+          <div class="text-ivory/50 text-sm font-medium mb-3">YouTube Pre-roll</div>
+          <div class="stat-num text-4xl text-ivory/60 font-semibold mb-1">17–33L</div>
+          <div class="text-xs text-ivory/40 font-mono uppercase tracking-widest mb-4">Impressions</div>
+          <div class="text-xs text-ivory/50 leading-relaxed">CPM ₹300-600 · 80% skipped</div>
+        </div>
+
+        <div class="glass rounded-sm p-6">
+          <div class="text-ivory/50 text-sm font-medium mb-3">Google Display</div>
+          <div class="stat-num text-4xl text-ivory/60 font-semibold mb-1">70L–1Cr</div>
+          <div class="text-xs text-ivory/40 font-mono uppercase tracking-widest mb-4">Impressions</div>
+          <div class="text-xs text-ivory/50 leading-relaxed">CPM ₹50-150 · banner blind</div>
+        </div>
+
+        <div class="rounded-sm p-6 relative"
+             style="background: linear-gradient(160deg, rgba(232,162,83,0.18), rgba(212,175,55,0.05)); border: 1px solid rgba(232,162,83,0.55);">
+          <div class="ribbon px-2 py-0.5 text-[10px] uppercase tracking-widest font-bold rounded-full font-mono absolute top-3 right-3">Best</div>
+          <div class="text-saffron text-sm font-medium mb-3">Suman TV Package</div>
+          <div class="stat-num text-4xl gold-gradient font-semibold mb-1">4–5 Cr</div>
+          <div class="text-xs text-saffron font-mono uppercase tracking-widest mb-4">Total Impressions</div>
+          <div class="text-xs text-ivory/80 leading-relaxed">2 Cr paid + 2-3 Cr organic · 30+ sec dwell · Trust transfer</div>
+        </div>
+      </div>
+
+      <p class="text-center text-ivory/60 mt-8 text-sm max-w-2xl mx-auto">
+        That's up to <span class="text-saffron font-semibold">10x more reach</span> for the same rupee — and every impression
+        comes wrapped in trusted Telugu storytelling.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: 90-DAY TIMELINE
+     ========================================================= -->
+<section id="timeline" class="relative py-28 md:py-36 bg-ink overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal mb-20 max-w-4xl">
+      <div class="eyebrow mb-4">05 · The 90-Day Roadmap</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)]">
+        From kickoff to <span class="serif-italic text-saffron">compounding reach.</span>
+      </h2>
+    </div>
+
+    <!-- Week-by-week -->
+    <div class="relative max-w-5xl mx-auto">
+
+      <!-- Vertical line -->
+      <div class="absolute left-4 md:left-16 top-2 bottom-2 w-px bg-gradient-to-b from-saffron via-saffron/40 to-transparent"></div>
+
+      <!-- Week 1 -->
+      <div class="reveal relative flex gap-6 md:gap-12 mb-12">
+        <div class="relative z-10 shrink-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-sm md:text-base">
+            01
+          </div>
+        </div>
+        <div class="flex-1 pt-1">
+          <div class="eyebrow mb-2">Week 1 · Kickoff</div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3">Strategy & Creative Planning</h3>
+          <p class="text-ivory/60 leading-relaxed">
+            Onboarding workshop with Tridasa leadership · Brand tone decisions · Content calendar finalized ·
+            Script development begins · Channel assignments mapped.
+          </p>
+        </div>
+      </div>
+
+      <!-- Week 2-4 -->
+      <div class="reveal reveal-delay-1 relative flex gap-6 md:gap-12 mb-12">
+        <div class="relative z-10 shrink-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-sm md:text-base">
+            02
+          </div>
+        </div>
+        <div class="flex-1 pt-1">
+          <div class="eyebrow mb-2">Weeks 2–4 · Production Sprint</div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3">Filming, Editing & First Releases</h3>
+          <p class="text-ivory/60 leading-relaxed">
+            Property shoots at Tridasa Rise site · Studio filming with anchors · Podcast recording with leadership ·
+            Editing bay delivers first 15 assets · <strong class="text-saffron">First content goes live end of Week 2.</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Month 2 -->
+      <div class="reveal reveal-delay-2 relative flex gap-6 md:gap-12 mb-12">
+        <div class="relative z-10 shrink-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-sm md:text-base">
+            03
+          </div>
+        </div>
+        <div class="flex-1 pt-1">
+          <div class="eyebrow mb-2">Weeks 5–8 · Distribution & Paid Launch</div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3">Saturation Campaign Begins</h3>
+          <p class="text-ivory/60 leading-relaxed">
+            All 54 assets live across the network · <strong class="text-saffron">Strip ad campaign launches</strong> with
+            prime-time slots · Cross-promotion activated · First performance report delivered (Week 6) · Content optimized based on early data.
+          </p>
+        </div>
+      </div>
+
+      <!-- Month 3 -->
+      <div class="reveal reveal-delay-3 relative flex gap-6 md:gap-12 mb-12">
+        <div class="relative z-10 shrink-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-sm md:text-base">
+            04
+          </div>
+        </div>
+        <div class="flex-1 pt-1">
+          <div class="eyebrow mb-2">Weeks 9–12 · Amplification & Retargeting</div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3">Compounding Reach Peaks</h3>
+          <p class="text-ivory/60 leading-relaxed">
+            "Most Watched" reposts with fresh thumbnails · Reel cut-downs from long formats · Community engagement
+            accelerates · Retargeting warm audiences · <strong class="text-saffron">Campaign hits guaranteed 2 Cr impressions.</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Day 90 -->
+      <div class="reveal reveal-delay-4 relative flex gap-6 md:gap-12">
+        <div class="relative z-10 shrink-0">
+          <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold text-sm md:text-base animate-pulse">
+            ✓
+          </div>
+        </div>
+        <div class="flex-1 pt-1">
+          <div class="eyebrow mb-2">Day 90 · Campaign Close</div>
+          <h3 class="font-display text-2xl md:text-3xl text-ivory mb-3">Full Report & Forward Plan</h3>
+          <p class="text-ivory/60 leading-relaxed">
+            Comprehensive 90-day performance report · Lead generation summary · Content archive handover ·
+            Review meeting · Renewal options presented. <strong class="text-saffron">Your content keeps earning views forever.</strong>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     SECTION: INVESTMENT & SIGNOFF
+     ========================================================= -->
+<section id="signoff" class="relative py-28 md:py-36 overflow-hidden">
+  <div class="absolute inset-0">
+    <div class="w-full h-full bg-cover bg-center opacity-15"
+         style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink/95 to-ink"></div>
+  </div>
+
+  <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-saffron/10 blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-magenta/8 blur-[140px] pointer-events-none"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-12">
+
+    <div class="reveal text-center mb-16 max-w-4xl mx-auto">
+      <div class="eyebrow mb-4">06 · Investment & Commitment</div>
+      <h2 class="display-xl text-ivory text-[clamp(2.2rem,5vw,4.5rem)] mb-6">
+        Ready to make <span class="serif-italic text-saffron">Tridasa Rise</span><br />the next Suman TV success story?
+      </h2>
+    </div>
+
+    <!-- Investment card -->
+    <div class="reveal max-w-4xl mx-auto">
+      <div class="relative rounded-sm p-8 md:p-14"
+           style="background: linear-gradient(160deg, rgba(232,162,83,0.15), rgba(11,15,31,0.95) 60%); border: 1px solid rgba(232,162,83,0.5);">
+        <div class="corner-ornament top-3 left-3 border-t border-l border-saffron"></div>
+        <div class="corner-ornament top-3 right-3 border-t border-r border-saffron"></div>
+        <div class="corner-ornament bottom-3 left-3 border-b border-l border-saffron"></div>
+        <div class="corner-ornament bottom-3 right-3 border-b border-r border-saffron"></div>
+
+        <div class="text-center mb-12">
+          <div class="eyebrow mb-4">Tridasa Rise Launch Campaign</div>
+          <div class="font-display italic text-2xl text-ivory/70 mb-2">90-Day Integrated Package</div>
+          <div class="stat-num text-6xl md:text-8xl gold-gradient font-semibold my-6">
+            ₹10 <span class="text-5xl md:text-7xl">Lakh</span>
+          </div>
+          <div class="font-display italic text-2xl text-saffron">per month</div>
+          <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest mt-3">Total: ₹30 Lakh over 90 days</div>
+        </div>
+
+        <!-- What's included -->
+        <div class="grid md:grid-cols-2 gap-x-8 gap-y-4 mb-10 max-w-2xl mx-auto">
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">54 premium content assets</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">2 Crore guaranteed impressions</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">3-month distribution across 29+ channels</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">Expected 4–5 Cr total impressions</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">Dedicated account management team</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">Weekly performance reports</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">Category exclusivity (premium RE)</div>
+          </div>
+          <div class="flex gap-3 items-start">
+            <span class="text-saffron text-xl leading-none mt-1">✓</span>
+            <div class="text-ivory/90">Perpetual content ownership rights</div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="#contact" class="btn-primary">
+            Approve & Schedule Kickoff
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <p class="text-xs text-ivory/40 mt-4 font-mono">All figures exclusive of applicable GST</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment terms -->
+    <div class="reveal mt-12 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+      <div class="glass rounded-sm p-6 text-center">
+        <div class="text-saffron mb-3">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mx-auto"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="eyebrow mb-2">Month 1</div>
+        <div class="font-display text-2xl text-ivory">₹10 Lakh</div>
+        <div class="text-xs text-ivory/50 mt-2">Kickoff + Production</div>
+      </div>
+      <div class="glass rounded-sm p-6 text-center">
+        <div class="text-saffron mb-3">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mx-auto"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="eyebrow mb-2">Month 2</div>
+        <div class="font-display text-2xl text-ivory">₹10 Lakh</div>
+        <div class="text-xs text-ivory/50 mt-2">Distribution + Paid Launch</div>
+      </div>
+      <div class="glass rounded-sm p-6 text-center">
+        <div class="text-saffron mb-3">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="mx-auto"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="eyebrow mb-2">Month 3</div>
+        <div class="font-display text-2xl text-ivory">₹10 Lakh</div>
+        <div class="text-xs text-ivory/50 mt-2">Amplification + Close</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+<section id="contact" class="relative py-28 md:py-36 bg-midnight">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="reveal max-w-3xl mx-auto text-center">
+      <div class="eyebrow mb-4">Next Steps</div>
+      <h2 class="display-xl text-ivory text-[clamp(2rem,4.5vw,3.8rem)] mb-8">
+        Let's sign and <span class="serif-italic text-saffron">start shooting next week.</span>
+      </h2>
+      <p class="text-ivory/60 text-lg mb-12 leading-relaxed">
+        This proposal is valid for 14 days from the date of issue. Category exclusivity in premium low-density
+        real estate (Nallagandla · Gachibowli) is reserved for the first signatory.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-4 mb-12">
+        <div class="glass rounded-sm p-5">
+          <div class="text-saffron mb-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest mb-1">Call</div>
+          <div class="text-ivory text-sm">Partnerships Desk</div>
+        </div>
+        <div class="glass rounded-sm p-5">
+          <div class="text-saffron mb-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest mb-1">Email</div>
+          <div class="text-ivory text-sm">partnerships@sumantv.com</div>
+        </div>
+        <div class="glass rounded-sm p-5">
+          <div class="text-saffron mb-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mx-auto"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="text-xs font-mono text-ivory/50 uppercase tracking-widest mb-1">Visit</div>
+          <div class="text-ivory text-sm">Suman TV, Hyderabad</div>
+        </div>
+      </div>
+
+      <a href="#" class="btn-primary">
+        Download Signed Proposal PDF
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="relative bg-ink border-t border-ivory/10 pt-16 pb-10">
+  <div class="max-w-[1400px] mx-auto px-6 lg:px-12">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-saffron flex items-center justify-center text-ink font-display font-bold">S</div>
+        <div>
+          <div class="font-display text-ivory text-lg">Suman TV × Tridasa Realty</div>
+          <div class="text-xs uppercase tracking-widest text-saffron/70 font-mono">90-Day Proposal · Confidential</div>
+        </div>
+      </div>
+      <div class="text-xs text-ivory/40 font-mono text-center md:text-right">
+        Prepared by Suman TV Network · Hyderabad<br />
+        Proposal valid 14 days from issue · All figures exclusive of GST
+      </div>
+    </div>
+    <div class="divider-line mb-6"></div>
+    <div class="text-center text-xs text-ivory/40 font-mono">
+      © 2026 Suman TV Network · The Voice That Matters
+    </div>
+  </div>
+</footer>
+
+<!-- =========================================================
+     SCRIPTS
+     ========================================================= -->
+<script>
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Nav backdrop on scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      nav.style.background = 'rgba(6,8,18,0.82)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.borderBottom = '1px solid rgba(232,162,83,0.12)';
+    } else {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = '1px solid transparent';
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>
