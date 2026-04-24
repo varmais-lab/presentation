@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suman TV — The Heritage & Wisdom Vertical</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=Archivo:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1614;
+    --ink-soft: #2e2824;
+    --paper: #f5f1ea;
+    --paper-warm: #ede5d6;
+    --paper-deep: #e2d7c1;
+    --magenta: #e6007e;
+    --magenta-deep: #b8005f;
+    --gold: #c9a348;
+    --rust: #a8461f;
+    --sage: #4a6b4a;
+    --muted: #7a726a;
+    --rule: rgba(26, 22, 20, 0.15);
+    --rule-strong: rgba(26, 22, 20, 0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Archivo', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  /* Paper texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201, 163, 72, 0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(230, 0, 126, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.35;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+    z-index: 2;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Typography System */
+  .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.03em;
+    line-height: 0.92;
+  }
+
+  .serif {
+    font-family: 'Fraunces', serif;
+    letter-spacing: -0.02em;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Navigation bar */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245, 241, 234, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--magenta);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    border-radius: 3px;
+    transform: rotate(-4deg);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+
+  .brand-text { font-family: 'Fraunces', serif; font-weight: 600; font-size: 15px; }
+
+  .nav-meta { display: flex; gap: 32px; align-items: center; }
+  .nav-meta span { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 64px;
+  }
+
+  .hero-meta .rule-text {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-meta .center-stamp {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--magenta);
+  }
+
+  .hero-meta .right { text-align: right; }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(56px, 10vw, 148px);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+    color: var(--ink);
+  }
+
+  .hero-title .italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--magenta);
+  }
+
+  .hero-title .amp {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold);
+    font-size: 0.85em;
+    vertical-align: 0.05em;
+  }
+
+  .hero-sub {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .hero-sub-left {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink-soft);
+  }
+
+  .hero-sub-right {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 420px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .scroll-hint::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  /* SECTION base */
+  section {
+    padding: 120px 0;
+    position: relative;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 56px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .section-label .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 48px;
+    color: var(--magenta);
+    line-height: 1;
+  }
+
+  .section-label .txt {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .section-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 84px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin-bottom: 24px;
+  }
+
+  .section-h em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 300;
+  }
+
+  /* WHY NOW — The Market Gap */
+  .market-gap {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 120px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .market-gap::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(230, 0, 126, 0.25);
+    border-radius: 50%;
+  }
+
+  .market-gap::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 320px;
+    height: 320px;
+    border: 1px solid rgba(201, 163, 72, 0.15);
+    border-radius: 50%;
+  }
+
+  .market-gap .section-label { border-color: rgba(245, 241, 234, 0.2); }
+  .market-gap .section-label .num { color: var(--gold); }
+  .market-gap .section-label .txt { color: rgba(245, 241, 234, 0.5); }
+
+  .market-gap-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+
+  .market-gap-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 6vw, 96px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--paper);
+  }
+
+  .market-gap-h em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+
+  .market-gap-h .strike {
+    position: relative;
+    opacity: 0.5;
+  }
+
+  .market-gap-h .strike::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52%;
+    height: 2px;
+    background: var(--magenta);
+    transform: rotate(-2deg);
+  }
+
+  .market-gap-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .stat-row {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(245, 241, 234, 0.15);
+  }
+
+  .stat-row:last-child { border-bottom: 1px solid rgba(245, 241, 234, 0.15); }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 56px;
+    color: var(--gold);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .stat-txt {
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(245, 241, 234, 0.85);
+  }
+
+  /* VISION section */
+  .vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .vision-statement {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .vision-statement em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+
+  .vision-quote {
+    background: var(--paper-warm);
+    padding: 48px 40px;
+    border-left: 3px solid var(--magenta);
+    position: relative;
+  }
+
+  .vision-quote::before {
+    content: '"';
+    position: absolute;
+    top: 16px;
+    left: 32px;
+    font-family: 'Fraunces', serif;
+    font-size: 120px;
+    line-height: 1;
+    color: var(--magenta);
+    opacity: 0.2;
+  }
+
+  .vision-quote p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    position: relative;
+    z-index: 2;
+  }
+
+  .vision-quote .attr {
+    margin-top: 20px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* CONTENT PILLARS */
+  .pillars-header {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 64px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  .pillars-header p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 480px;
+  }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--rule-strong);
+    border: 1px solid var(--rule-strong);
+  }
+
+  .pillar-card {
+    background: var(--paper);
+    padding: 40px 32px;
+    position: relative;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s ease;
+    cursor: default;
+  }
+
+  .pillar-card:hover {
+    background: var(--paper-warm);
+  }
+
+  .pillar-card .pillar-img {
+    width: 100%;
+    height: 180px;
+    background: var(--paper-deep);
+    margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+    filter: sepia(0.25) saturate(0.9) contrast(1.05);
+  }
+
+  .pillar-card .pillar-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  .pillar-card .pillar-num {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 28px;
+    color: var(--magenta);
+    opacity: 0.6;
+  }
+
+  .pillar-card h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .pillar-card h3 em { font-style: italic; color: var(--magenta); font-weight: 400; }
+
+  .pillar-card .pillar-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .pillar-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  .pillar-card ul {
+    list-style: none;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .pillar-card li {
+    font-size: 12px;
+    padding: 4px 0;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pillar-card li::before {
+    content: '→';
+    color: var(--magenta);
+    flex-shrink: 0;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* The 6 Verticals spotlight grid */
+  .vertical-feature {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+
+  .vertical-feature-block {
+    padding: 40px;
+    background: var(--paper-warm);
+    position: relative;
+  }
+
+  .vertical-feature-block .tag {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .vertical-feature-block h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .vertical-feature-block p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  /* PLAYBOOK / ACTION PLAN - Timeline */
+  .playbook {
+    background: var(--paper-warm);
+  }
+
+  .phase-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    position: relative;
+  }
+
+  .phase-track::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--rule-strong);
+  }
+
+  .phase-card {
+    padding: 0 24px;
+    position: relative;
+  }
+
+  .phase-card:not(:last-child) {
+    border-right: 1px dashed var(--rule);
+  }
+
+  .phase-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--magenta);
+    border-radius: 50%;
+    margin-bottom: 24px;
+    position: relative;
+    box-shadow: 0 0 0 8px var(--paper-warm);
+  }
+
+  .phase-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid var(--magenta);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .phase-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .phase-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .phase-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+
+  .phase-deliv {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    font-weight: 600;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* THE ADVANTAGE — Why Suman TV Wins */
+  .advantage-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+  }
+
+  .advantage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--rule);
+  }
+
+  .advantage-row {
+    background: var(--paper);
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+  }
+
+  .advantage-row .adv-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 32px;
+    color: var(--magenta);
+    line-height: 1;
+  }
+
+  .advantage-row h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+
+  .advantage-row p {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  .advantage-row .metric {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+
+  .advantage-sidebar {
+    position: sticky;
+    top: 120px;
+    align-self: start;
+    padding: 40px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+  }
+
+  .advantage-sidebar .mono {
+    color: var(--magenta);
+    margin-bottom: 24px;
+  }
+
+  .advantage-sidebar .big-stat {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 72px;
+    line-height: 0.95;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .advantage-sidebar .big-stat-sub {
+    font-size: 13px;
+    color: rgba(245, 241, 234, 0.7);
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(245, 241, 234, 0.15);
+  }
+
+  .advantage-sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .advantage-sidebar li {
+    font-size: 13px;
+    color: rgba(245, 241, 234, 0.9);
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .advantage-sidebar li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--magenta);
+    font-size: 9px;
+  }
+
+  /* MONETIZATION bridge */
+  .monet {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .monet::before {
+    content: 'REVENUE';
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Fraunces', serif;
+    font-size: 180px;
+    font-weight: 300;
+    color: rgba(230, 0, 126, 0.06);
+    letter-spacing: -0.02em;
+  }
+
+  .monet .section-label { border-color: rgba(245, 241, 234, 0.2); }
+  .monet .section-label .num { color: var(--gold); }
+  .monet .section-label .txt { color: rgba(245, 241, 234, 0.5); }
+
+  .monet-head {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    margin-bottom: 72px;
+    align-items: end;
+  }
+
+  .monet-head h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 6vw, 88px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--paper);
+  }
+
+  .monet-head h2 em { font-style: italic; color: var(--magenta); }
+
+  .monet-head p {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.4;
+    color: rgba(245, 241, 234, 0.75);
+  }
+
+  .revenue-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid rgba(245, 241, 234, 0.15);
+  }
+
+  .revenue-cell {
+    padding: 36px 28px;
+    border-right: 1px solid rgba(245, 241, 234, 0.15);
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .revenue-cell:last-child { border-right: none; }
+
+  .revenue-cell .rev-num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .revenue-cell h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    color: var(--paper);
+  }
+
+  .revenue-cell p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(245, 241, 234, 0.75);
+    margin-bottom: auto;
+  }
+
+  .revenue-cell .tier {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(245, 241, 234, 0.15);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+  }
+
+  /* MANIFESTO / Team motivation */
+  .manifesto {
+    padding: 140px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .manifesto-label {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    padding: 8px 20px;
+    border: 1px solid var(--magenta);
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  .manifesto-h {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(44px, 7vw, 108px);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+    margin-bottom: 64px;
+  }
+
+  .manifesto-h em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+
+  .manifesto-punch {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule-strong);
+    border: 1px solid var(--rule-strong);
+    margin-top: 64px;
+  }
+
+  .punch-card {
+    background: var(--paper);
+    padding: 48px 32px;
+    text-align: left;
+  }
+
+  .punch-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--magenta);
+    margin-bottom: 24px;
+  }
+
+  .punch-line {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+
+  .punch-line em { font-style: italic; color: var(--magenta); font-weight: 400; }
+
+  .punch-foot {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--magenta);
+    color: var(--paper);
+    padding: 160px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0.08) 50%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .final-cta .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: rgba(245, 241, 234, 0.8);
+    margin-bottom: 40px;
+  }
+
+  .final-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(48px, 8vw, 132px);
+    line-height: 0.92;
+    letter-spacing: -0.04em;
+    color: var(--paper);
+    margin-bottom: 48px;
+  }
+
+  .final-cta p {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 1.4;
+    max-width: 720px;
+    margin: 0 auto 56px;
+    color: rgba(245, 241, 234, 0.95);
+  }
+
+  .final-signature {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(245, 241, 234, 0.8);
+  }
+
+  .final-signature::before, .final-signature::after {
+    content: '—';
+    margin: 0 16px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(245, 241, 234, 0.6);
+    padding: 48px 0;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer .mono { color: rgba(245, 241, 234, 0.4); }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+    .phase-track { grid-template-columns: repeat(2, 1fr); gap: 48px 0; }
+    .revenue-grid { grid-template-columns: repeat(2, 1fr); }
+    .revenue-cell:nth-child(2) { border-right: none; }
+    .advantage-grid { grid-template-columns: 1fr; }
+    .advantage-sidebar { position: relative; top: 0; }
+    .vision-grid, .monet-head, .hero-sub, .pillars-header, .vertical-feature, .market-gap-grid { grid-template-columns: 1fr; gap: 40px; }
+    .manifesto-punch { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .topbar { padding: 16px 20px; }
+    .nav-meta { display: none; }
+    .pillar-grid { grid-template-columns: 1fr; }
+    .phase-track { grid-template-columns: 1fr; gap: 40px; }
+    .phase-track::before { display: none; }
+    .phase-card:not(:last-child) { border-right: none; padding-bottom: 40px; border-bottom: 1px dashed var(--rule); }
+    .revenue-grid { grid-template-columns: 1fr; }
+    .revenue-cell { border-right: none; border-bottom: 1px solid rgba(245, 241, 234, 0.15); }
+    .hero { padding: 100px 0 60px; }
+    .hero-meta { grid-template-columns: 1fr; text-align: left; }
+    .hero-meta .right { text-align: left; }
+  }
+
+  /* Scroll-triggered subtle fade */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV -->
+<nav class="topbar">
+  <div class="brand">
+    <div class="brand-mark">S</div>
+    <div class="brand-text">Suman TV <span style="color: var(--muted); font-weight: 400;">/ Internal Briefing</span></div>
+  </div>
+  <div class="nav-meta">
+    <span>Vol. 01 · 2026</span>
+    <span style="color: var(--magenta);">● Confidential</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-meta">
+      <div class="rule-text">The Heritage &amp; Wisdom Vertical</div>
+      <div class="center-stamp">— an internal vision document —</div>
+      <div class="rule-text right">Prepared for the Suman TV team</div>
+    </div>
+
+    <h1 class="hero-title">
+      Where <span class="italic">memory</span><br>
+      meets <span class="italic">momentum.</span>
+    </h1>
+
+    <div class="hero-sub">
+      <div class="hero-sub-left">
+        A new content IP that blends India's forgotten stories with the skills our audience needs to earn, learn and rise — today.
+      </div>
+      <div class="hero-sub-right">
+        This document outlines the vision, the six content pillars, the monetization path, and the Suman TV advantage that makes this vertical inevitable. Built for a team that has already proven what scale looks like. Now we build what permanence looks like.
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll · Read · Align</div>
+</section>
+
+<!-- THE MARKET GAP -->
+<section class="market-gap">
+  <div class="container">
+    <div class="section-label">
+      <span class="num">01</span>
+      <span class="txt">The Market Gap · Why Now</span>
+    </div>
+
+    <div class="market-gap-grid">
+      <div>
+        <h2 class="market-gap-h">
+          Our audience is <span class="strike">entertained</span><br>
+          — they are <em>hungry.</em>
+        </h2>
+        <p style="margin-top: 32px; font-size: 16px; line-height: 1.6; color: rgba(245,241,234,0.8); max-width: 560px;">
+          The Telugu digital viewer of 2026 doesn't just want celebrity gossip, film news, or surface-level lifestyle content. They are job-seekers, parents, migrants, and young professionals asking harder questions: <em style="color: var(--gold); font-style: italic;">Where do I come from? What skill should I build? What story was never told to me?</em>
+        </p>
+        <p style="margin-top: 20px; font-size: 16px; line-height: 1.6; color: rgba(245,241,234,0.8); max-width: 560px;">
+          Nobody in Telugu digital media is answering all three questions under one roof. That gap is our vertical.
+        </p>
+      </div>
+
+      <div class="market-gap-stats">
+        <div class="stat-row">
+          <div class="stat-num">300Cr+</div>
+          <div class="stat-txt">Monthly views we already serve — the largest Telugu digital footprint ready to be redirected into high-intent learning</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-num">10Cr+</div>
+          <div class="stat-txt">Engaged subscribers and followers — an instant audience for any new vertical we launch</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-num">0</div>
+          <div class="stat-txt">Telugu media brands covering heritage, career skills, and untold history under one trusted voice</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION -->
+<section>
+  <div class="container">
+    <div class="section-label">
+      <span class="num">02</span>
+      <span class="txt">The Vision · What We Are Building</span>
+    </div>
+
+    <div class="vision-grid">
+      <div>
+        <h2 class="section-h">
+          Not a channel.<br>
+          A <em>curriculum</em> for modern Telugu life.
+        </h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--ink-soft); max-width: 520px;">
+          We are not building another education platform. We are building the place where a 19-year-old in Warangal learns the story of the Kakatiyas, the skill to earn ₹15,000 part-time from home, and the truth behind a Vedic concept — all in the same week, from the same trusted voice.
+        </p>
+      </div>
+
+      <div class="vision-quote">
+        <p>
+          We will teach Telugu people who they are, what they can build, and where they come from — and we will do it without ever being boring.
+        </p>
+        <div class="attr">— The editorial mandate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT PILLARS -->
+<section style="background: var(--paper-warm);">
+  <div class="container">
+    <div class="section-label">
+      <span class="num">03</span>
+      <span class="txt">The Six Pillars · What We Will Make</span>
+    </div>
+
+    <div class="pillars-header">
+      <h2 class="section-h">
+        Six verticals.<br>
+        One <em>narrative universe.</em>
+      </h2>
+      <p>
+        Three pillars serve curiosity and cultural pride — the stories never told in regular Telugu media. Three pillars serve ambition and survival — the skills our audience is quietly searching for on Google at 11pm. Together, they build the complete Telugu mind.
+      </p>
+    </div>
+
+    <div class="pillar-grid">
+
+      <!-- Pillar 1: Heritage -->
+      <div class="pillar-card">
+        <div class="pillar-num">01</div>
+        <div class="pillar-img">
+          <img src="https://edyau.com/wp-content/uploads/2020/12/indian-temples-3.jpg" alt="Heritage temples" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">Heritage &amp; Identity</div>
+        <h3>Indian <em>Heritage</em> Decoded</h3>
+        <p>Stories of our temples, our architecture, our forgotten sciences — told the way a favourite uncle would tell them, not a textbook.</p>
+        <ul>
+          <li>Lost sciences of ancient India</li>
+          <li>The architecture code of our temples</li>
+          <li>Festivals — the real origin stories</li>
+          <li>Regional Telugu heritage specials</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 2: Kings & Kingdoms -->
+      <div class="pillar-card">
+        <div class="pillar-num">02</div>
+        <div class="pillar-img">
+          <img src="https://5.imimg.com/data5/SELLER/Default/2024/3/404378773/AB/HN/GT/152459268/rajasthani-miniature-painting-of-maharaja-royal-procession-artwork-on-synthetic-ivory-board-500x500.jpg" alt="Indian Maharaja painting" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">History &amp; Drama</div>
+        <h3>Kings, Kingdoms &amp; <em>Conquests</em></h3>
+        <p>The Kakatiyas, the Vijayanagara empire, the Satavahanas, the Marathas — cinematic storytelling of the dynasties Bollywood never made films about.</p>
+        <ul>
+          <li>The Telugu kings you were never taught</li>
+          <li>How empires really collapsed</li>
+          <li>The women rulers history erased</li>
+          <li>Battle stories — the tactics &amp; the truth</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 3: Vedic & Untold -->
+      <div class="pillar-card">
+        <div class="pillar-num">03</div>
+        <div class="pillar-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Rigveda_MS2097.jpg/800px-Rigveda_MS2097.jpg" alt="Vedic manuscript" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">Wisdom &amp; Origins</div>
+        <h3>Vedic Era &amp; <em>Untold</em> Stories</h3>
+        <p>What the Vedas actually say. What really happened in 1857. The freedom fighters no schoolbook mentions. The cross-cultural origins of religions. Truth, without agenda.</p>
+        <ul>
+          <li>Vedic wisdom — simplified, not simplified-down</li>
+          <li>Untold heroes of independence</li>
+          <li>Cross-culture &amp; religion origin stories</li>
+          <li>Historic moments that changed India</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 4: Career -->
+      <div class="pillar-card">
+        <div class="pillar-num">04</div>
+        <div class="pillar-img">
+          <img src="https://www.dheya.com/Content/images/Future-Proof-Your-Career-Best-Skills-To-Learn-In-2025.jpg" alt="Career aspirants learning" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">Career &amp; Skills</div>
+        <h3>Career &amp; <em>Instant</em> Learning</h3>
+        <p>Built directly on our industry brand partnerships. Real skills from real companies. What to learn this weekend to be hireable Monday.</p>
+        <ul>
+          <li>90-day skill challenges</li>
+          <li>Industry-partner masterclasses</li>
+          <li>Interview &amp; resume decoded</li>
+          <li>Career path reality checks</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 5: Part-time & DIY -->
+      <div class="pillar-card">
+        <div class="pillar-num">05</div>
+        <div class="pillar-img">
+          <img src="https://i.pinimg.com/originals/c0/32/d3/c032d338f4af16aea50ff19b3f52a6e7.jpg" alt="DIY home business crafts" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">Earn &amp; Self-Help</div>
+        <h3>Part-Time &amp; <em>DIY</em> Income</h3>
+        <p>Home-based and community-based self-help ideas. Real earnings, not MLM fantasies. For the housewife, the student, the small-town starter.</p>
+        <ul>
+          <li>₹5k–₹50k part-time ideas that actually work</li>
+          <li>Home-based production &amp; packaging</li>
+          <li>Community-based self-help models</li>
+          <li>First-customer, first-sale playbooks</li>
+        </ul>
+      </div>
+
+      <!-- Pillar 6: Science & AI -->
+      <div class="pillar-card">
+        <div class="pillar-num">06</div>
+        <div class="pillar-img">
+          <img src="https://thumbs.dreamstime.com/b/close-up-chips-computer-circuit-board-electronic-component-printed-as-main-technology-trend-concept-computer-148078946.jpg" alt="Science AI circuit technology" onerror="this.style.display='none'">
+        </div>
+        <div class="pillar-tag">Future &amp; Innovation</div>
+        <h3>Science &amp; <em>AI</em> Innovation</h3>
+        <p>What's actually happening in AI, biotech, space, robotics — explained in Telugu, for people who feel the future is being built in a language they don't speak. We translate it.</p>
+        <ul>
+          <li>AI for the Telugu household</li>
+          <li>Innovation stories from Indian labs</li>
+          <li>Future jobs — what's coming for us</li>
+          <li>Big science, small words</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Spotlight callouts -->
+    <div class="vertical-feature">
+      <div class="vertical-feature-block">
+        <div class="tag">The Cultural Lane</div>
+        <h4>Heritage, Kings, Vedic — the stories nobody else is telling in Telugu.</h4>
+        <p>These pillars build permanence. Evergreen IP. Content that works today, next year, and in 2035. This is what makes us a library, not a feed.</p>
+      </div>
+      <div class="vertical-feature-block" style="background: var(--ink); color: var(--paper);">
+        <div class="tag" style="color: var(--gold);">The Ambition Lane</div>
+        <h4 style="color: var(--paper);">Career, DIY, AI — the skills nobody else is delivering at our scale.</h4>
+        <p style="color: rgba(245,241,234,0.75);">These pillars build revenue. High-intent viewers. Brand partnership inventory. This is what converts viewers into customers — and customers into lifetime subscribers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYBOOK / ACTION PLAN -->
+<section class="playbook">
+  <div class="container">
+    <div class="section-label">
+      <span class="num">04</span>
+      <span class="txt">The Playbook · How We Launch</span>
+    </div>
+
+    <h2 class="section-h" style="margin-bottom: 24px;">
+      From idea to <em>episode one</em> in 90 days.
+    </h2>
+    <p style="font-size: 15px; line-height: 1.6; color: var(--ink-soft); max-width: 620px; margin-bottom: 16px;">
+      A four-phase rollout designed to prove the format before scaling the production. Low risk at the front, compounding value at the back.
+    </p>
+
+    <div class="phase-track">
+
+      <div class="phase-card">
+        <div class="phase-dot"></div>
+        <div class="phase-num">PHASE · 01</div>
+        <h3 class="phase-title">Foundation<br>&amp; Format</h3>
+        <p class="phase-desc">Lock the visual identity, anchor-led vs. voice-over treatment, and episode structure for each pillar. Build 3 pilot episodes — one heritage, one career, one DIY — to test audience response.</p>
+        <div class="phase-deliv">Weeks 1 – 4 · 3 pilots</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-dot"></div>
+        <div class="phase-num">PHASE · 02</div>
+        <h3 class="phase-title">Pilot Drop<br>&amp; Signal Read</h3>
+        <p class="phase-desc">Release pilots across Suman TV's existing digital surface. Read CTR, watch-time, comment sentiment, and share behaviour. Identify the one pillar with the strongest pull — that becomes the flagship.</p>
+        <div class="phase-deliv">Weeks 5 – 8 · Data wins</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-dot"></div>
+        <div class="phase-num">PHASE · 03</div>
+        <h3 class="phase-title">Scale<br>the Winner</h3>
+        <p class="phase-desc">Commission a 20-episode season of the strongest pillar. Parallel-run the other five at 1 episode per week. Begin brand integration conversations with industry partners aligned to the career &amp; DIY pillars.</p>
+        <div class="phase-deliv">Weeks 9 – 16 · Season 01</div>
+      </div>
+
+      <div class="phase-card">
+        <div class="phase-dot"></div>
+        <div class="phase-num">PHASE · 04</div>
+        <h3 class="phase-title">Monetize<br>&amp; Compound</h3>
+        <p class="phase-desc">Launch the first paid asset — a cheat-sheet, micro-certification, or WhatsApp deep-dive — off the highest-engagement episodes. Turn viewership into a high-intent user base. Repeat.</p>
+        <div class="phase-deliv">Week 17+ · Revenue on</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUMAN TV ADVANTAGE -->
+<section>
+  <div class="container">
+    <div class="section-label">
+      <span class="num">05</span>
+      <span class="txt">The Suman TV Advantage · Why We Will Win</span>
+    </div>
+
+    <h2 class="section-h" style="margin-bottom: 56px;">
+      Nobody else starts<br>
+      from <em>here.</em>
+    </h2>
+
+    <div class="advantage-grid">
+      <div class="advantage-list">
+
+        <div class="advantage-row">
+          <div class="adv-num">i</div>
+          <div>
+            <h4>A built-in audience of 10 crore.</h4>
+            <p>Every new content vertical we launch inherits an instant audience most startups would kill for. We don't build distribution. We flip a switch.</p>
+          </div>
+          <div class="metric">Day One</div>
+        </div>
+
+        <div class="advantage-row">
+          <div class="adv-num">ii</div>
+          <div>
+            <h4>Brand-partner relationships, already active.</h4>
+            <p>We already work with industries across healthcare, real estate, FMCG, finance, education, and tech. Career and DIY content has monetization waiting before episode one airs.</p>
+          </div>
+          <div class="metric">Warm pipeline</div>
+        </div>
+
+        <div class="advantage-row">
+          <div class="adv-num">iii</div>
+          <div>
+            <h4>Brand-safe trust, compounded over a decade.</h4>
+            <p>Our "responsible, respectful" editorial standard is our moat. Heritage and Vedic content needs a trusted voice — advertisers avoid controversial creators in these lanes. They choose us.</p>
+          </div>
+          <div class="metric">Moat</div>
+        </div>
+
+        <div class="advantage-row">
+          <div class="adv-num">iv</div>
+          <div>
+            <h4>A production engine that already ships at scale.</h4>
+            <p>500+ digital channels and pages. We don't need to learn how to make content at volume — we need to point the engine at a new subject. Speed-to-market nobody can match.</p>
+          </div>
+          <div class="metric">Zero R&amp;D</div>
+        </div>
+
+        <div class="advantage-row">
+          <div class="adv-num">v</div>
+          <div>
+            <h4>Global Telugu reach — the diaspora advantage.</h4>
+            <p>NRI viewers in the US, UK, Gulf, and Southeast Asia are hungry for heritage content they can share with their kids. This vertical monetises globally from day one.</p>
+          </div>
+          <div class="metric">Cross-border</div>
+        </div>
+
+        <div class="advantage-row">
+          <div class="adv-num">vi</div>
+          <div>
+            <h4>Evergreen IP — content that doesn't decay.</h4>
+            <p>A Kakatiya dynasty episode works in 2026 and 2036. A DIY income episode works for every new graduating class. This vertical is a library we build once and monetise forever.</p>
+          </div>
+          <div class="metric">Compounding</div>
+        </div>
+
+      </div>
+
+      <div class="advantage-sidebar">
+        <div class="mono">The Unfair Numbers</div>
+        <div class="big-stat">100×</div>
+        <div class="big-stat-sub">the head-start any new creator in this space has to overcome to reach our footprint.</div>
+
+        <ul>
+          <li>10 years of audience trust already banked</li>
+          <li>100+ Google &amp; YouTube awards validating quality</li>
+          <li>Flagship IPs (Doctor Awards, Real Estate Expo) that prove we own categories</li>
+          <li>A decision-maker audience: women, 25–54, who buy &amp; influence</li>
+          <li>Pan-India growth engine now extending into Tamil, Kannada, Hindi</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MONETIZATION -->
+<section class="monet">
+  <div class="container">
+    <div class="section-label">
+      <span class="num">06</span>
+      <span class="txt">The Revenue Engine · How It Pays</span>
+    </div>
+
+    <div class="monet-head">
+      <h2>
+        Beyond AdSense.<br>
+        An <em>ecosystem,</em> not an ad slot.
+      </h2>
+      <p>
+        A viewer is not just an impression. A viewer is a future student, a future customer, a future subscriber. This vertical earns four ways simultaneously.
+      </p>
+    </div>
+
+    <div class="revenue-grid">
+
+      <div class="revenue-cell">
+        <div class="rev-num">i</div>
+        <h4>Brand Integrations</h4>
+        <p>Industry partners sponsor "How It's Made" style episodes on their products, processes, and factories. The brand becomes the teacher, not the interrupter.</p>
+        <div class="tier">Very High · Medium effort</div>
+      </div>
+
+      <div class="revenue-cell">
+        <div class="rev-num">ii</div>
+        <h4>Digital Products</h4>
+        <p>Micro-certifications, cheat-sheets, WhatsApp deep-dive newsletters built on top of career, AI, and DIY episodes. Sold at ₹99–₹999.</p>
+        <div class="tier">High · Scalable</div>
+      </div>
+
+      <div class="revenue-cell">
+        <div class="rev-num">iii</div>
+        <h4>Affiliate &amp; D2C</h4>
+        <p>DIY kits, career tools, Heritage travel bookings, book recommendations. Practical purchases the audience is already making — captured through our links.</p>
+        <div class="tier">Moderate · Low effort</div>
+      </div>
+
+      <div class="revenue-cell">
+        <div class="rev-num">iv</div>
+        <h4>Licensing &amp; B2B</h4>
+        <p>Heritage and Vedic episodes licensed to schools, airlines, OTT platforms, and state tourism boards. Evergreen content sold multiple times.</p>
+        <div class="tier">Passive · Bulk</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO / TEAM PUNCHLINES -->
+<section class="manifesto">
+  <div class="container">
+    <div class="manifesto-label">For the team · Read aloud</div>
+
+    <h2 class="manifesto-h">
+      We have the reach.<br>
+      Now we build the <em>reason.</em>
+    </h2>
+
+    <div class="manifesto-punch">
+
+      <div class="punch-card">
+        <div class="punch-num">01 · ON PURPOSE</div>
+        <div class="punch-line">
+          "Every other channel gives Telugu viewers <em>something to watch.</em> We will give them something <em>to become.</em>"
+        </div>
+        <div class="punch-foot">This vertical turns passive viewing into personal progress — and that is worth paying for.</div>
+      </div>
+
+      <div class="punch-card">
+        <div class="punch-num">02 · ON SCALE</div>
+        <div class="punch-line">
+          "A new creator needs <em>10 years</em> to reach 10 crore people. We reach them <em>before breakfast.</em>"
+        </div>
+        <div class="punch-foot">We don't have a distribution problem. We have a permission to be ambitious.</div>
+      </div>
+
+      <div class="punch-card">
+        <div class="punch-num">03 · ON TRUST</div>
+        <div class="punch-line">
+          "The world has louder voices. But when a Telugu family needs the <em>truth</em> — they still come to us."
+        </div>
+        <div class="punch-foot">Heritage and Vedic content only works on a brand-safe platform. That platform is us.</div>
+      </div>
+
+      <div class="punch-card">
+        <div class="punch-num">04 · ON STORIES</div>
+        <div class="punch-line">
+          "The Kakatiyas ruled for 300 years. Nobody made a show about them. <em>We will.</em>"
+        </div>
+        <div class="punch-foot">The Telugu audience is waiting for its own Ancient Aliens, its own Roman Empire documentary, its own Planet Earth. That slot is empty. We fill it.</div>
+      </div>
+
+      <div class="punch-card">
+        <div class="punch-num">05 · ON EARNING</div>
+        <div class="punch-line">
+          "A housewife in Khammam wants to earn ₹10,000 a month. She shouldn't have to learn English to find out <em>how.</em>"
+        </div>
+        <div class="punch-foot">The DIY and part-time pillar is not a feature. It is a service to our people — and a massive new ad inventory for our business.</div>
+      </div>
+
+      <div class="punch-card">
+        <div class="punch-num">06 · ON LEGACY</div>
+        <div class="punch-line">
+          "News expires. Entertainment forgets. <em>Wisdom compounds.</em> We're finally building the Suman TV that outlives the trends."
+        </div>
+        <div class="punch-foot">This is the vertical that makes us a media company for the next decade — not just this quarter.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="tag">THE ASK · TO EVERY DEPARTMENT</div>
+    <h2>
+      Let's build<br>
+      what can't be copied.
+    </h2>
+    <p>
+      Scale alone is a metric. Trust alone is a feeling. Heritage alone is a museum. Skills alone are a course. When we combine all four — and only Suman TV can — we don't just build a new vertical. We build the Telugu internet's single most valuable piece of real estate.
+    </p>
+    <div class="final-signature">Let's get to work</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="mono">SUMAN TV · INTERNAL STRATEGY · 2026</div>
+    <div class="mono">Heritage &amp; Wisdom Vertical · v1.0</div>
+  </div>
+</footer>
+
+<script>
+  // Subtle scroll-fade
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('section > .container, .pillar-card, .phase-card, .advantage-row, .punch-card, .revenue-cell').forEach(el => {
+    el.classList.add('fade-up');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
