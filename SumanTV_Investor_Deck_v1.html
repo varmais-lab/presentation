@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suman TV — Master Investor Deck v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --magenta: #E6007E;
+    --magenta-soft: #FFE4F1;
+    --magenta-deep: #B8005F;
+    --ink: #0A0A0A;
+    --ink-soft: #1F1F1F;
+    --slate: #475569;
+    --slate-light: #94A3B8;
+    --paper: #FAFAF7;
+    --paper-warm: #F5F2EC;
+    --line: #E5E5E0;
+    --gold: #C8A94A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    z-index: 1000;
+    padding: 14px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .nav-brand span { color: var(--magenta); }
+  .nav-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--slate);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Slide framework */
+  .slide {
+    min-height: 100vh;
+    padding: 100px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .slide-num {
+    position: absolute;
+    top: 80px;
+    right: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--slate-light);
+    letter-spacing: 0.15em;
+  }
+  .slide-act {
+    position: absolute;
+    top: 80px;
+    left: 80px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--magenta);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .slide-act::before {
+    content: "■";
+    margin-right: 8px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  h1 { font-weight: 700; }
+  h2 { font-weight: 600; }
+  .display {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(56px, 7vw, 104px);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.98;
+  }
+  .display em { font-style: italic; color: var(--magenta); font-weight: 500; }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .body-lg {
+    font-size: 21px;
+    color: var(--slate);
+    max-width: 720px;
+    line-height: 1.55;
+  }
+  .body-md {
+    font-size: 17px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* Speaker notes */
+  .notes {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px;
+    color: var(--slate);
+    font-style: italic;
+    max-width: 900px;
+  }
+  .notes strong {
+    font-style: normal;
+    color: var(--ink);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--magenta);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .visual-note {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 14px;
+    background: var(--magenta-soft);
+    color: var(--magenta-deep);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    border-radius: 100px;
+  }
+
+  /* SLIDE 1 — COVER */
+  .cover {
+    background:
+      radial-gradient(circle at 20% 80%, rgba(230,0,126,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(230,0,126,0.05) 0%, transparent 50%),
+      var(--paper);
+    text-align: left;
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .cover h1 {
+    font-size: clamp(72px, 10vw, 144px);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+  }
+  .cover .tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--slate);
+    margin-top: 32px;
+    font-weight: 300;
+  }
+  .cover-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 2;
+    color: var(--slate);
+    border-left: 2px solid var(--magenta);
+    padding-left: 20px;
+  }
+  .cover-meta strong { color: var(--ink); display: block; margin-bottom: 4px; }
+  .badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  /* SLIDE 2 — PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 64px;
+    align-items: start;
+  }
+  .stat-block {
+    border-top: 1px solid var(--ink);
+    padding-top: 24px;
+  }
+  .stat-block .num {
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    font-weight: 600;
+    color: var(--magenta);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .stat-block .label {
+    font-size: 14px;
+    color: var(--slate);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 3 — MARKET */
+  .market-rings {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .ring-card {
+    padding: 40px 32px;
+    background: white;
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .ring-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--magenta);
+  }
+  .ring-card.tam::before { opacity: 1; }
+  .ring-card.sam::before { opacity: 0.6; }
+  .ring-card.som::before { opacity: 0.3; }
+  .ring-tier {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+  }
+  .ring-num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 600;
+    margin-top: 12px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .ring-desc {
+    font-size: 14px;
+    color: var(--slate);
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 4 — WHY NOW */
+  .why-now-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .force-card {
+    padding: 32px 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--magenta);
+  }
+  .force-card .icon {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    color: var(--magenta);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .force-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .force-card p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* SLIDE 5 — WHO WE ARE */
+  .scale-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-top: 40px;
+    align-items: center;
+  }
+  .mega-stat {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(96px, 14vw, 200px);
+    font-weight: 700;
+    color: var(--magenta);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+  .mega-stat sup {
+    font-size: 0.4em;
+    vertical-align: super;
+    color: var(--ink);
+  }
+  .mega-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-top: 16px;
+  }
+  .secondary-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .sec-stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .sec-stat .label {
+    font-size: 13px;
+    color: var(--slate);
+    margin-top: 8px;
+  }
+
+  /* SLIDE 6 — AUDIENCE GRAPH */
+  .moat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .moat-list {
+    list-style: none;
+  }
+  .moat-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .moat-list li:last-child { border-bottom: none; }
+  .moat-list .moat-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--magenta);
+    font-weight: 500;
+  }
+  .moat-list h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .moat-list p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* SLIDE 7 — IPs */
+  .ip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .ip-card {
+    padding: 48px 40px;
+    background: linear-gradient(180deg, white 0%, var(--paper-warm) 100%);
+    border: 1px solid var(--line);
+    position: relative;
+  }
+  .ip-card .ip-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--magenta);
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .ip-card h3 {
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+  .ip-card .ip-desc {
+    font-size: 15px;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .ip-card .ip-metric {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--magenta);
+    line-height: 1;
+  }
+  .ip-card .ip-metric-label {
+    font-size: 12px;
+    color: var(--slate);
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* SLIDE 8 — GEO */
+  .geo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+  .geo-tier {
+    padding: 32px;
+    background: white;
+    border: 1px solid var(--line);
+  }
+  .geo-tier h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+  .geo-tier .geo-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .geo-tier ul {
+    list-style: none;
+    margin-top: 16px;
+  }
+  .geo-tier ul li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--slate);
+    border-bottom: 1px dashed var(--line);
+  }
+  .geo-tier ul li:last-child { border-bottom: none; }
+
+  /* SLIDE 9 — REVENUE ARCHITECTURE */
+  .revenue-table {
+    margin-top: 48px;
+    border-top: 2px solid var(--ink);
+  }
+  .rev-row {
+    display: grid;
+    grid-template-columns: 60px 1fr 2fr 1fr;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .rev-row.header {
+    border-bottom: 1px solid var(--ink);
+    padding: 12px 0;
+  }
+  .rev-row.header span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .rev-row .rev-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--magenta);
+  }
+  .rev-row .rev-name {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .rev-row .rev-desc {
+    font-size: 13px;
+    color: var(--slate);
+    padding-right: 24px;
+  }
+  .rev-row .rev-stage {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    padding: 4px 10px;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: inline-block;
+    width: fit-content;
+  }
+  .rev-stage.live { background: var(--magenta-soft); color: var(--magenta-deep); border-color: var(--magenta-soft); }
+  .rev-stage.scaling { background: #FFF4D6; color: #8B6914; border-color: #FFF4D6; }
+  .rev-stage.new { background: #E5F0FF; color: #1B4D8C; border-color: #E5F0FF; }
+
+  /* SLIDE 10 — EQUITY FLYWHEEL */
+  .flywheel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+    position: relative;
+  }
+  .flywheel-step {
+    padding: 32px 24px;
+    background: white;
+    border: 1px solid var(--line);
+    position: relative;
+    text-align: center;
+  }
+  .flywheel-step .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--magenta);
+    line-height: 1;
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+  .flywheel-step h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .flywheel-step p {
+    font-size: 13px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+  .flywheel-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: var(--magenta);
+    z-index: 2;
+  }
+
+  /* SLIDE 11 — AI LAYER */
+  .ai-layers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .ai-layer {
+    padding: 32px;
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .ai-layer:nth-child(2) { background: var(--ink-soft); }
+  .ai-layer:nth-child(3) { background: var(--magenta); }
+  .ai-layer .layer-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+  .ai-layer h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: white;
+  }
+  .ai-layer p {
+    font-size: 14px;
+    line-height: 1.55;
+    opacity: 0.85;
+  }
+
+  /* SLIDE 12 — UNIT ECONOMICS */
+  .econ-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+  .econ-card {
+    padding: 32px 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-bottom: 4px solid var(--magenta);
+  }
+  .econ-card .econ-num {
+    font-family: 'Fraunces', serif;
+    font-size: 44px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .econ-card .econ-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-top: 12px;
+  }
+  .econ-card .econ-note {
+    font-size: 12px;
+    color: var(--slate);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 13 — VISION */
+  .vision-slide {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .vision-slide .eyebrow { color: var(--magenta); }
+  .vision-slide .display { color: white; }
+  .vision-slide .display em { color: var(--magenta); }
+  .vision-slide .body-lg { color: var(--slate-light); }
+  .vision-slide .slide-act { color: var(--magenta); }
+  .vision-slide .slide-num { color: rgba(255,255,255,0.3); }
+  .vision-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 64px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 32px;
+  }
+  .vision-year {
+    padding-right: 16px;
+  }
+  .vision-year .year {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--magenta);
+    line-height: 1;
+  }
+  .vision-year h5 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+    color: white;
+  }
+  .vision-year p {
+    font-size: 12px;
+    color: var(--slate-light);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 14 — VERTICALS */
+  .verticals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .vertical-card {
+    padding: 36px 28px;
+    background: white;
+    border: 1px solid var(--line);
+    transition: all 0.3s;
+  }
+  .vertical-card:hover {
+    border-color: var(--magenta);
+    transform: translateY(-2px);
+  }
+  .vertical-card .v-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--magenta);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  .vertical-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.1;
+  }
+  .vertical-card p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .vertical-card .v-rev {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    letter-spacing: 0.05em;
+  }
+  .vertical-card .v-rev strong { color: var(--magenta); }
+
+  /* SLIDE 15 — MOAT */
+  .moat-table {
+    margin-top: 48px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .moat-table-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+  }
+  .moat-table-row:last-child { border-bottom: none; }
+  .moat-table-row.header { background: var(--ink); color: white; }
+  .moat-table-row > div {
+    padding: 18px 20px;
+    border-right: 1px solid var(--line);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+  }
+  .moat-table-row.header > div {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-right-color: rgba(255,255,255,0.15);
+  }
+  .moat-table-row > div:last-child { border-right: none; }
+  .moat-table-row .row-label {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--paper-warm);
+  }
+  .moat-table-row .check {
+    color: var(--magenta);
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .moat-table-row .partial { color: var(--gold); font-weight: 600; }
+  .moat-table-row .x { color: var(--slate-light); }
+
+  /* SLIDE 16 — ROADMAP */
+  .roadmap {
+    margin-top: 56px;
+    position: relative;
+  }
+  .roadmap-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    position: relative;
+  }
+  .roadmap-track::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 0; right: 0;
+    height: 2px;
+    background: var(--line);
+    z-index: 0;
+  }
+  .roadmap-stage {
+    position: relative;
+    z-index: 1;
+    padding-right: 24px;
+  }
+  .roadmap-stage .dot {
+    width: 16px;
+    height: 16px;
+    background: var(--magenta);
+    border-radius: 50%;
+    margin-bottom: 24px;
+    margin-top: 22px;
+    border: 4px solid var(--paper);
+    box-shadow: 0 0 0 2px var(--magenta);
+  }
+  .roadmap-stage h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 8px;
+  }
+  .roadmap-stage h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .roadmap-stage ul {
+    list-style: none;
+  }
+  .roadmap-stage ul li {
+    font-size: 13px;
+    color: var(--slate);
+    padding: 6px 0;
+    line-height: 1.5;
+    padding-left: 16px;
+    position: relative;
+  }
+  .roadmap-stage ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--magenta);
+  }
+
+  /* SLIDE 17 — FINANCIALS */
+  .financials-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .fin-table {
+    border-top: 2px solid var(--ink);
+  }
+  .fin-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .fin-row.header {
+    border-bottom: 1px solid var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+  .fin-row.total {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    font-weight: 700;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+  }
+  .fin-row .fin-num { text-align: right; font-variant-numeric: tabular-nums; }
+  .fin-row .fin-num.highlight { color: var(--magenta); font-weight: 600; }
+  .assumptions {
+    padding: 24px;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--magenta);
+    font-size: 12px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .assumptions h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  /* SLIDE 18 — USE OF FUNDS */
+  .funds-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 48px;
+    align-items: start;
+  }
+  .funds-bar {
+    margin-bottom: 24px;
+  }
+  .funds-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .funds-bar-header .label {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .funds-bar-header .value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--magenta);
+    font-weight: 500;
+  }
+  .funds-bar-track {
+    height: 6px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .funds-bar-fill {
+    height: 100%;
+    background: var(--magenta);
+  }
+  .funds-bar-desc {
+    font-size: 12px;
+    color: var(--slate);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* SLIDE 19 — TEAM */
+  .team-callout {
+    padding: 48px;
+    background: white;
+    border: 1px solid var(--line);
+    margin-top: 48px;
+  }
+  .team-callout h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+  .team-pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .team-pillar h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 12px;
+  }
+  .team-pillar p {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* SLIDE 20 — CLOSING */
+  .closing {
+    background:
+      radial-gradient(circle at 70% 30%, rgba(230,0,126,0.12) 0%, transparent 50%),
+      var(--ink);
+    color: var(--paper);
+    text-align: center;
+    align-items: center;
+  }
+  .closing .display {
+    color: white;
+    font-size: clamp(64px, 9vw, 128px);
+  }
+  .closing .display em { color: var(--magenta); font-style: italic; }
+  .closing .body-lg {
+    color: var(--slate-light);
+    margin: 32px auto 0;
+    text-align: center;
+  }
+  .closing .slide-act { color: var(--magenta); }
+  .closing .slide-num { color: rgba(255,255,255,0.3); }
+  .closing-cta {
+    margin-top: 56px;
+    display: inline-flex;
+    gap: 16px;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid var(--magenta);
+    padding: 16px 32px;
+    background: var(--magenta);
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--paper-warm);
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 48px;
+    margin-top: 56px;
+  }
+  .toc-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.2s;
+  }
+  .toc-item:hover { color: var(--magenta); padding-left: 8px; }
+  .toc-item .toc-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--magenta);
+  }
+  .toc-item .toc-title {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  .toc-item .toc-act {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--slate-light);
+    letter-spacing: 0.15em;
+  }
+
+  /* Print / Mobile */
+  @media (max-width: 900px) {
+    .slide { padding: 80px 24px 40px; }
+    .slide-act, .slide-num { left: 24px; right: 24px; top: 24px; }
+    .cover-grid, .problem-grid, .moat-grid, .scale-hero, .financials-grid, .funds-grid { grid-template-columns: 1fr; gap: 40px; }
+    .market-rings, .why-now-grid, .ip-grid, .geo-grid, .ai-layers, .econ-grid, .verticals-grid, .flywheel, .roadmap-track, .toc-grid { grid-template-columns: 1fr; }
+    .flywheel-step:not(:last-child)::after { display: none; }
+    .vision-timeline { grid-template-columns: 1fr 1fr; }
+    .moat-table-row, .rev-row, .fin-row { grid-template-columns: 1fr 1fr; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-brand">Suman <span>TV</span> — Master Investor Deck</div>
+  <div class="nav-meta">v1.0 · Confidential · Preview</div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1 — COVER -->
+<!-- ============================================================ -->
+<section class="slide cover" id="slide-1">
+  <div class="slide-act">Cover</div>
+  <div class="slide-num">01 / 20</div>
+
+  <div class="cover-grid">
+    <div>
+      <div class="badge">Confidential — Investor Preview</div>
+      <h1>Suman <em>TV.</em></h1>
+      <div class="tagline">The trust-powered media, commerce, and AI ecosystem<br>shaping how 500 million people live, learn, and buy.</div>
+    </div>
+    <div class="cover-meta">
+      <strong>Series A Pitch</strong>
+      Master Investor Deck<br><br>
+      <strong>Prepared</strong>
+      April 2026<br><br>
+      <strong>Audience</strong>
+      Strategic & Institutional Investors<br><br>
+      <strong>Status</strong>
+      Confidential Draft v1.0
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Open with confidence. Suman TV is not introducing itself — it is announcing its next chapter. The cover is intentionally restrained because the numbers inside speak louder than any tagline. Pause for 3 seconds after revealing the slide. Let the room read it.
+    <div class="visual-note">VISUAL: Replace tagline area with hero film loop — 6-second cut of flagship moments (Doctor Awards, Real Estate Expo, anchor close-ups, NRI families watching).</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ============================================================ -->
+<section class="slide toc">
+  <div class="slide-act">Index</div>
+  <div class="slide-num">— / —</div>
+
+  <div class="eyebrow">Navigation</div>
+  <h2 class="display">The <em>Story.</em></h2>
+  <p class="body-lg" style="margin-top: 24px;">Five acts. Twenty slides. One thesis: the next great Indian media company will not look like a media company.</p>
+
+  <div class="toc-grid">
+    <a class="toc-item" href="#slide-2"><span class="toc-num">02</span><span class="toc-title">The Trust Crisis in Indian Media</span><span class="toc-act">Act I</span></a>
+    <a class="toc-item" href="#slide-3"><span class="toc-num">03</span><span class="toc-title">The Market Opportunity</span><span class="toc-act">Act I</span></a>
+    <a class="toc-item" href="#slide-4"><span class="toc-num">04</span><span class="toc-title">Why Now — The Four Forces</span><span class="toc-act">Act I</span></a>
+    <a class="toc-item" href="#slide-5"><span class="toc-num">05</span><span class="toc-title">Suman TV Today — Scale</span><span class="toc-act">Act II</span></a>
+    <a class="toc-item" href="#slide-6"><span class="toc-num">06</span><span class="toc-title">The Audience Graph — Our Moat</span><span class="toc-act">Act II</span></a>
+    <a class="toc-item" href="#slide-7"><span class="toc-num">07</span><span class="toc-title">Flagship IPs</span><span class="toc-act">Act II</span></a>
+    <a class="toc-item" href="#slide-8"><span class="toc-num">08</span><span class="toc-title">Geographic & Language Expansion</span><span class="toc-act">Act II</span></a>
+    <a class="toc-item" href="#slide-9"><span class="toc-num">09</span><span class="toc-title">Revenue Architecture</span><span class="toc-act">Act III</span></a>
+    <a class="toc-item" href="#slide-10"><span class="toc-num">10</span><span class="toc-title">The Equity Partnership Flywheel</span><span class="toc-act">Act III</span></a>
+    <a class="toc-item" href="#slide-11"><span class="toc-num">11</span><span class="toc-title">The AI Transformation Layer</span><span class="toc-act">Act III</span></a>
+    <a class="toc-item" href="#slide-12"><span class="toc-num">12</span><span class="toc-title">Unit Economics</span><span class="toc-act">Act III</span></a>
+    <a class="toc-item" href="#slide-13"><span class="toc-num">13</span><span class="toc-title">The Five-Year Vision</span><span class="toc-act">Act IV</span></a>
+    <a class="toc-item" href="#slide-14"><span class="toc-num">14</span><span class="toc-title">New Verticals</span><span class="toc-act">Act IV</span></a>
+    <a class="toc-item" href="#slide-15"><span class="toc-num">15</span><span class="toc-title">Competitive Moat Analysis</span><span class="toc-act">Act IV</span></a>
+    <a class="toc-item" href="#slide-16"><span class="toc-num">16</span><span class="toc-title">Roadmap & Milestones</span><span class="toc-act">Act IV</span></a>
+    <a class="toc-item" href="#slide-17"><span class="toc-num">17</span><span class="toc-title">Financial Projections</span><span class="toc-act">Act V</span></a>
+    <a class="toc-item" href="#slide-18"><span class="toc-num">18</span><span class="toc-title">Use of Funds</span><span class="toc-act">Act V</span></a>
+    <a class="toc-item" href="#slide-19"><span class="toc-num">19</span><span class="toc-title">The Team & Governance</span><span class="toc-act">Act V</span></a>
+    <a class="toc-item" href="#slide-20"><span class="toc-num">20</span><span class="toc-title">The Voice That Matters</span><span class="toc-act">Act V</span></a>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2 — THE PROBLEM -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-2">
+  <div class="slide-act">Act I — The Opportunity</div>
+  <div class="slide-num">02 / 20</div>
+
+  <div class="eyebrow">The Problem</div>
+  <h2 class="display">India has 800 million<br>digital viewers.<br>And a <em>trust deficit.</em></h2>
+
+  <div class="problem-grid">
+    <div>
+      <p class="body-lg">Mainstream Indian media has fragmented into noise — clickbait, sensationalism, and content optimized for outrage rather than influence. Brands burn billions reaching audiences that no longer believe what they see.</p>
+      <p class="body-lg" style="margin-top: 24px;">The vacuum: a regional, hyperlocal media network that audiences actively trust — and brands can safely scale within.</p>
+    </div>
+    <div>
+      <div class="stat-block">
+        <div class="num">63%</div>
+        <div class="label">of Indian audiences distrust mainstream news media (Reuters Digital News Report).</div>
+      </div>
+      <div class="stat-block" style="margin-top: 32px;">
+        <div class="num">2.4×</div>
+        <div class="label">higher purchase intent from regional, trust-led content vs. pan-India English media.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Frame the problem in macro terms before zooming in. The room must accept three truths: (1) trust is broken, (2) brands are burning capital, (3) regional + trust = the highest-converting combination in Indian media. Do not over-explain — investors already know this.
+    <div class="visual-note">VISUAL: Add a faint background graph showing trust decline 2018→2026 across major media categories.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3 — MARKET -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-3">
+  <div class="slide-act">Act I — The Opportunity</div>
+  <div class="slide-num">03 / 20</div>
+
+  <div class="eyebrow">Market Opportunity</div>
+  <h2 class="display">A <em>$58 billion</em><br>opportunity hidden<br>inside India's regional shift.</h2>
+
+  <p class="body-lg" style="margin-top: 32px;">India's digital ad spend is moving from English to regional at the fastest pace in the world. Telugu, Tamil, Kannada, and Hindi digital audiences now outspend English audiences by margin — and most networks are not built for them.</p>
+
+  <div class="market-rings">
+    <div class="ring-card tam">
+      <div class="ring-tier">TAM</div>
+      <div class="ring-num">$58B</div>
+      <div class="ring-desc">India digital media + creator economy + regional commerce by 2030. The total category Suman TV operates within.</div>
+    </div>
+    <div class="ring-card sam">
+      <div class="ring-tier">SAM</div>
+      <div class="ring-num">$12B</div>
+      <div class="ring-desc">South Indian + NRI digital media, regional commerce, and brand-led influence. Our addressable market.</div>
+    </div>
+    <div class="ring-card som">
+      <div class="ring-tier">SOM (5Y)</div>
+      <div class="ring-num">$420M</div>
+      <div class="ring-desc">Realistic capture by 2030 across media, equity partnerships, AI marketing, and new verticals.</div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Numbers are industry-benchmarked placeholders pending validation. The story matters more than precision: regional digital is the fastest-growing segment in the world's fastest-growing media market. Suman TV is the dominant operator in the largest regional language cluster.
+    <div class="visual-note">DATA SOURCES TO VALIDATE: FICCI-EY Media Report 2025, Redseer Regional Internet Report, Statista India Digital Ad Spend 2024–30.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4 — WHY NOW -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-4">
+  <div class="slide-act">Act I — The Opportunity</div>
+  <div class="slide-num">04 / 20</div>
+
+  <div class="eyebrow">Why Now</div>
+  <h2 class="display">Four forces are<br>colliding. <em>Once.</em></h2>
+
+  <div class="why-now-grid">
+    <div class="force-card">
+      <div class="icon">i.</div>
+      <h3>Regional Internet</h3>
+      <p>India added 300M+ regional-language users in 5 years. Telugu is the third-largest digital language cohort.</p>
+    </div>
+    <div class="force-card">
+      <div class="icon">ii.</div>
+      <h3>Trust Inversion</h3>
+      <p>Audiences actively reject mainstream news. Regional, anchor-led, women-centric content is the new currency.</p>
+    </div>
+    <div class="force-card">
+      <div class="icon">iii.</div>
+      <h3>AI Margin Shift</h3>
+      <p>Content production cost is dropping 80%. Networks with audience graphs win; production-first players lose.</p>
+    </div>
+    <div class="force-card">
+      <div class="icon">iv.</div>
+      <h3>Creator-Commerce</h3>
+      <p>D2C and influencer commerce are converging. Trust-led media networks become commerce platforms.</p>
+    </div>
+  </div>
+
+  <p class="body-lg" style="margin-top: 56px; max-width: 900px;"><strong style="color: var(--ink); font-weight: 600;">The window is 36 months.</strong> The first network to combine regional dominance, trust capital, AI-native production, and commerce monetization wins the next decade.</p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    "Why now" is the single most important investor question. The answer must be specific and time-bound. Emphasize the 36-month window — investors fund urgency, not optionality. Suman TV is the only company that can credibly claim all four advantages simultaneously.
+    <div class="visual-note">VISUAL: Optional — add a Venn diagram showing all four forces overlapping, with Suman TV at the intersection.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 5 — WHO WE ARE / SCALE -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-5">
+  <div class="slide-act">Act II — The Company</div>
+  <div class="slide-num">05 / 20</div>
+
+  <div class="eyebrow">Suman TV Today</div>
+  <h2 class="display">Already at <em>institutional</em> scale.</h2>
+
+  <div class="scale-hero">
+    <div>
+      <div class="mega-stat">300<sup>Cr</sup></div>
+      <div class="mega-stat-label">Monthly Views — across the network</div>
+      <div class="secondary-stats">
+        <div class="sec-stat">
+          <div class="num">10 Cr+</div>
+          <div class="label">Engaged subscribers & followers</div>
+        </div>
+        <div class="sec-stat">
+          <div class="num">10 Cr+</div>
+          <div class="label">Daily views</div>
+        </div>
+        <div class="sec-stat">
+          <div class="num">500+</div>
+          <div class="label">Digital channels & pages</div>
+        </div>
+        <div class="sec-stat">
+          <div class="num">100+</div>
+          <div class="label">Awards from Google & YouTube</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="body-lg">From a single channel in 2015 to India's largest regional digital network. Built channel by channel, audience by audience, by founders who understood that <em>trust compounds.</em></p>
+      <p class="body-md" style="margin-top: 24px;">Suman TV is now the default home of the Telugu digital household — and rapidly becoming the same in Kannada, Tamil, Hindi, and NRI markets.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Lead with the headline number. 300 crore monthly views is a stat that earns silence in a room. Pause. Then layer the supporting metrics. Avoid jargon — let the scale do the work. End on the founding date (2015) to communicate that this was not built overnight.
+    <div class="visual-note">VISUAL: Replace right column with a simple hand-drawn growth curve from 2015 (1 channel) to 2026 (500+ channels), labeled with key milestones.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 6 — AUDIENCE GRAPH (THE MOAT) -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-6">
+  <div class="slide-act">Act II — The Company</div>
+  <div class="slide-num">06 / 20</div>
+
+  <div class="eyebrow">The Defensible Moat</div>
+  <h2 class="display">Our real asset isn't<br>the views. It's the<br><em>audience graph.</em></h2>
+
+  <div class="moat-grid">
+    <div>
+      <p class="body-lg">Anyone can buy attention. No one can buy a decade of trust, behavioral data, and content-to-purchase mapping across 500+ channels and 10 crore subscribers.</p>
+      <p class="body-md" style="margin-top: 24px;">This proprietary audience graph — what people watch, when they engage, what they buy after watching — is the asset that powers every revenue line we will build for the next ten years.</p>
+    </div>
+    <ul class="moat-list">
+      <li>
+        <div class="moat-num">01</div>
+        <div>
+          <h4>Trust Capital</h4>
+          <p>10+ years of brand-safe, family-friendly content has created a relationship audiences renew daily. Cannot be acquired with capital alone.</p>
+        </div>
+      </li>
+      <li>
+        <div class="moat-num">02</div>
+        <div>
+          <h4>Distribution Density</h4>
+          <p>500+ channels gives us category-level dominance — health, women, business, culture, celebrity — not just channel-level reach.</p>
+        </div>
+      </li>
+      <li>
+        <div class="moat-num">03</div>
+        <div>
+          <h4>Behavioral Data</h4>
+          <p>First-party signals on viewing, purchase, and engagement — the foundation for AI personalization and commerce monetization.</p>
+        </div>
+      </li>
+      <li>
+        <div class="moat-num">04</div>
+        <div>
+          <h4>Anchor & Talent IP</h4>
+          <p>Network-owned anchors and brand-equity hosts create transferable trust — the most valuable currency in commerce.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    This is the slide where the deck shifts from "media company" to "platform business." The audience graph framing is critical — it positions Suman TV alongside Meta, Spotify, and Netflix as data-leveraged businesses, not alongside Zee or Star.
+    <div class="visual-note">VISUAL: Optional second pass — visualize the audience graph as a network diagram (channels → audiences → categories → purchase signals).</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 7 — FLAGSHIP IPs -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-7">
+  <div class="slide-act">Act II — The Company</div>
+  <div class="slide-num">07 / 20</div>
+
+  <div class="eyebrow">Category Leadership</div>
+  <h2 class="display">IPs that <em>own</em><br>their categories.</h2>
+
+  <div class="ip-grid">
+    <div class="ip-card">
+      <div class="ip-tag">Healthcare Authority</div>
+      <h3>Suman TV<br>Doctor Awards</h3>
+      <p class="ip-desc">India's largest medical recognition platform. Every leading hospital and specialist actively pursues participation. We do not chase authority — authority comes to us.</p>
+      <div class="ip-metric">500+</div>
+      <div class="ip-metric-label">Doctors Honored</div>
+    </div>
+    <div class="ip-card">
+      <div class="ip-tag">Commerce Marketplace</div>
+      <h3>Suman TV<br>Real Estate Expo</h3>
+      <p class="ip-desc">A high-intent marketplace where Telugu developers and buyers transact. Not a media event — a transaction engine, with measurable footfall and conversion.</p>
+      <div class="ip-metric">High-Intent</div>
+      <div class="ip-metric-label">Verified Buyer Footfall</div>
+    </div>
+  </div>
+
+  <p class="body-md" style="margin-top: 48px; max-width: 800px;"><strong style="color: var(--ink); font-weight: 600;">Future IP Pipeline:</strong> Suman TV Education Honors · Suman TV Women Founders · Suman TV NRI Excellence · Suman TV Wellness Summit. Each IP is a category-defining platform with sponsorship, ticketing, and commerce monetization built in.</p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    IPs are how Suman TV converts media reach into category authority. Each IP is a moat: hard to replicate, sponsorship-rich, and creates an annual flywheel. Investors should hear this as: "owned events with predictable revenue, not one-off campaigns."
+    <div class="visual-note">VISUAL: Add small thumbnails of past Doctor Awards and Real Estate Expo events. Real photos build instant credibility.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 8 — GEOGRAPHIC EXPANSION -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-8">
+  <div class="slide-act">Act II — The Company</div>
+  <div class="slide-num">08 / 20</div>
+
+  <div class="eyebrow">Expansion Strategy</div>
+  <h2 class="display">Hyperlocal dominance.<br><em>Global</em> ambition.</h2>
+
+  <div class="geo-grid">
+    <div class="geo-tier">
+      <h4>Tier 1 — Stronghold</h4>
+      <div class="geo-title">Telugu Market</div>
+      <p class="body-md" style="font-size: 14px;">The most influential digital network in Andhra Pradesh and Telangana. The cash engine that funds expansion.</p>
+      <ul>
+        <li>500+ channels active</li>
+        <li>Category-leading IPs</li>
+        <li>Equity-grade trust</li>
+      </ul>
+    </div>
+    <div class="geo-tier">
+      <h4>Tier 2 — Active Expansion</h4>
+      <div class="geo-title">Pan-India</div>
+      <p class="body-md" style="font-size: 14px;">Kannada network scaling rapidly. Tamil and Hindi entry underway with proven playbook from Telugu market.</p>
+      <ul>
+        <li>Kannada · scaling</li>
+        <li>Tamil · in development</li>
+        <li>Hindi · 2026 launch</li>
+      </ul>
+    </div>
+    <div class="geo-tier">
+      <h4>Tier 3 — Global</h4>
+      <div class="geo-title">NRI Markets</div>
+      <p class="body-md" style="font-size: 14px;">Strong organic NRI viewership in USA, UK, UAE, Australia, Canada. Premium-monetizable diaspora segment.</p>
+      <ul>
+        <li>USA · Largest NRI base</li>
+        <li>UAE · Middle East hub</li>
+        <li>UK + AU + CA</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="body-lg" style="margin-top: 56px; max-width: 800px;">The Telugu playbook — anchor-led trust + women-centric programming + IP-driven authority — is replicable across every regional market in India and every diaspora cluster globally.</p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Show that expansion is not aspirational — it is in motion. The Kannada market is already scaling. The Telugu market funds expansion (no need to raise to enter Tamil or Hindi). NRI is high-margin and underserved.
+    <div class="visual-note">VISUAL: Use the existing world map graphic from your current deck — it is excellent. Layer expansion phases (1, 2, 3) on top.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 9 — REVENUE ARCHITECTURE -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-9">
+  <div class="slide-act">Act III — The Business Model</div>
+  <div class="slide-num">09 / 20</div>
+
+  <div class="eyebrow">Revenue Architecture</div>
+  <h2 class="display">Seven engines.<br>One audience graph.</h2>
+
+  <div class="revenue-table">
+    <div class="rev-row header">
+      <span>#</span><span>Engine</span><span>Description</span><span>Stage</span>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">01</div>
+      <div class="rev-name">Brand Integrations</div>
+      <div class="rev-desc">L-band, strip branding, anchor-led storytelling, live integrations, pre/mid/post rolls, shorts amplification.</div>
+      <div><span class="rev-stage live">Live · Core</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">02</div>
+      <div class="rev-name">Flagship IPs</div>
+      <div class="rev-desc">Doctor Awards, Real Estate Expo, future IPs — sponsorship + ticketing + transaction revenue.</div>
+      <div><span class="rev-stage live">Live</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">03</div>
+      <div class="rev-name">Equity Partnerships</div>
+      <div class="rev-desc">Media-for-equity model with high-potential brands. Long-term portfolio value.</div>
+      <div><span class="rev-stage scaling">Scaling</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">04</div>
+      <div class="rev-name">AI Marketing Platform</div>
+      <div class="rev-desc">SaaS-style audience intelligence and ad-targeting platform built on the audience graph.</div>
+      <div><span class="rev-stage new">New</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">05</div>
+      <div class="rev-name">D2C & Commerce</div>
+      <div class="rev-desc">Content-to-commerce funnels — health products, NRI premium goods, women-centric brands.</div>
+      <div><span class="rev-stage new">New</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">06</div>
+      <div class="rev-name">Education & Skilling</div>
+      <div class="rev-desc">Suman Skills Academy — government-funded skilling, B2C upskilling, regional EdTech.</div>
+      <div><span class="rev-stage new">New</span></div>
+    </div>
+    <div class="rev-row">
+      <div class="rev-num">07</div>
+      <div class="rev-name">Government & CSR</div>
+      <div class="rev-desc">Long-term contracts for awareness campaigns, tourism, public health, financial inclusion.</div>
+      <div><span class="rev-stage scaling">Scaling</span></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    The story here: Suman TV is not a one-revenue-stream business. The audience graph powers seven monetization engines, three of which are still nascent. Investors fund optionality; this slide creates it.
+    <div class="visual-note">VISUAL: Optional Sankey diagram showing audience graph → seven revenue streams.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 10 — EQUITY PARTNERSHIP FLYWHEEL -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-10">
+  <div class="slide-act">Act III — The Business Model</div>
+  <div class="slide-num">10 / 20</div>
+
+  <div class="eyebrow">Innovation in Monetization</div>
+  <h2 class="display">We don't sell ads.<br>We <em>partner</em> in growth.</h2>
+
+  <p class="body-lg" style="margin-top: 32px;">The Equity Partnership Model: Suman TV trades media reach for ownership in high-potential brands. We become co-builders of the next generation of Indian D2C, healthcare, and education companies.</p>
+
+  <div class="flywheel">
+    <div class="flywheel-step">
+      <div class="step-num">i</div>
+      <h4>Identify</h4>
+      <p>Source emerging brands with strong product but weak distribution.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="step-num">ii</div>
+      <h4>Invest Media</h4>
+      <p>Deploy reach, anchor-led storytelling, IP integration in exchange for equity.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="step-num">iii</div>
+      <h4>Scale</h4>
+      <p>Drive measurable growth — leads, customers, revenue — at near-zero CAC.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="step-num">iv</div>
+      <h4>Compound</h4>
+      <p>Hold equity in a portfolio of brands built on Suman TV's audience graph.</p>
+    </div>
+  </div>
+
+  <p class="body-md" style="margin-top: 56px; max-width: 800px; font-style: italic; color: var(--ink);"><strong style="font-style: normal; color: var(--magenta);">Strategic precedent:</strong> ProSiebenSat.1 (Germany) built a €500M+ portfolio through media-for-equity. Suman TV brings this model to India's regional markets — a category-creating play.</p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    This is the slide investors lean forward for. Position the equity model as Suman TV's most defensible long-term asset — a portfolio of category-leading brands built using media that would otherwise be sold for cash. Reference the German precedent for credibility.
+    <div class="visual-note">CITATION: ProSiebenSat.1 SevenVentures has executed media-for-equity since 2009; portfolio includes Zalando, Trivago, etc.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 11 — AI LAYER -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-11">
+  <div class="slide-act">Act III — The Business Model</div>
+  <div class="slide-num">11 / 20</div>
+
+  <div class="eyebrow">AI Transformation</div>
+  <h2 class="display">An AI-native<br>media network.</h2>
+
+  <p class="body-lg" style="margin-top: 32px;">Three AI layers, built on a decade of proprietary content and audience data. AI is not a feature — it is the operating system.</p>
+
+  <div class="ai-layers">
+    <div class="ai-layer">
+      <div class="layer-tag">Layer 01 — Production</div>
+      <h4>Content<br>Velocity</h4>
+      <p>AI-assisted scripting, multilingual dubbing, automated editing, and shorts generation. 10× output at 1/10th cost. Enables Tamil, Hindi, NRI expansion without proportional headcount.</p>
+    </div>
+    <div class="ai-layer">
+      <div class="layer-tag">Layer 02 — Intelligence</div>
+      <h4>Audience<br>Graph AI</h4>
+      <p>Real-time signals on what 10 crore viewers watch, skip, and act on. Powers content decisions, ad placement, and category strategy. The proprietary brain of the network.</p>
+    </div>
+    <div class="ai-layer">
+      <div class="layer-tag">Layer 03 — Commerce</div>
+      <h4>Conversion<br>Engine</h4>
+      <p>Personalized ad-targeting, predictive purchase intent, AI-driven brand-audience matching. The bridge from impression to transaction.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Investors are saturated with "we use AI" claims. The differentiator: Suman TV has the proprietary data — 10 years of content and audience behavior — that almost no one else has. AI without data is commodity. Suman TV's AI is built on a moat.
+    <div class="visual-note">VISUAL: Optional — show layered architecture diagram (Production → Intelligence → Commerce) as stacked planes.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 12 — UNIT ECONOMICS -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-12">
+  <div class="slide-act">Act III — The Business Model</div>
+  <div class="slide-num">12 / 20</div>
+
+  <div class="eyebrow">Unit Economics</div>
+  <h2 class="display">A media business<br>with <em>software</em> margins.</h2>
+
+  <div class="econ-grid">
+    <div class="econ-card">
+      <div class="econ-num">~65%</div>
+      <div class="econ-label">Gross Margin</div>
+      <div class="econ-note">Owned distribution + AI-assisted production = software-like margins on media revenue.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-num">~25%</div>
+      <div class="econ-label">EBITDA Margin (Steady State)</div>
+      <div class="econ-note">Industry-leading for Indian media — driven by digital-only model and lean ops.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-num">3–4×</div>
+      <div class="econ-label">LTV / CAC (Brand Partners)</div>
+      <div class="econ-note">Brand integrations renew at 70%+ — high-trust media creates durable client revenue.</div>
+    </div>
+    <div class="econ-card">
+      <div class="econ-num">12–18mo</div>
+      <div class="econ-label">Payback (New Verticals)</div>
+      <div class="econ-note">New revenue lines (AI, D2C, Education) leverage existing audience — fast time-to-revenue.</div>
+    </div>
+  </div>
+
+  <p class="body-md" style="margin-top: 56px; max-width: 800px; color: var(--slate);"><em>Industry-benchmarked figures pending validation against actual Suman TV financials. Final deck will include audited numbers.</em></p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    The framing "media business with software margins" is the headline. Most media businesses operate at 8–15% EBITDA. Digital-only, AI-leveraged regional media can sustain 25%+. This is the case for premium valuation.
+    <div class="visual-note">CRITICAL: Replace placeholder figures with actual Suman TV audited numbers before showing to any investor. Mark this slide as "Pending Final Numbers" until confirmed.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 13 — VISION -->
+<!-- ============================================================ -->
+<section class="slide vision-slide" id="slide-13">
+  <div class="slide-act">Act IV — The Future</div>
+  <div class="slide-num">13 / 20</div>
+
+  <div class="eyebrow">The Five-Year Vision</div>
+  <h2 class="display">From a network.<br>To an <em>ecosystem.</em></h2>
+
+  <p class="body-lg" style="margin-top: 32px; max-width: 760px;">By 2030, Suman TV will not be a media company. It will be the operating system for trust-based commerce, education, and influence across 500 million people.</p>
+
+  <div class="vision-timeline">
+    <div class="vision-year">
+      <div class="year">2026</div>
+      <h5>Foundation</h5>
+      <p>Series A close. AI infrastructure live. Tamil + Hindi entry.</p>
+    </div>
+    <div class="vision-year">
+      <div class="year">2027</div>
+      <h5>Vertical Launch</h5>
+      <p>Education arm + Health platform live. NRI commerce activated.</p>
+    </div>
+    <div class="vision-year">
+      <div class="year">2028</div>
+      <h5>Scale</h5>
+      <p>Equity portfolio at 25+ brands. Pan-India language coverage complete.</p>
+    </div>
+    <div class="vision-year">
+      <div class="year">2029</div>
+      <h5>Platformization</h5>
+      <p>AI marketing SaaS opens to third-party brands. Global NRI commerce mature.</p>
+    </div>
+    <div class="vision-year">
+      <div class="year">2030</div>
+      <h5>The Ecosystem</h5>
+      <p>$420M+ revenue. IPO-ready. The default platform for regional India.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    This slide is the emotional peak of the deck. Slow down. Let the timeline land. The phrase "operating system for trust-based commerce" should be delivered slowly — it is the central thesis. Investors who don't believe this thesis won't fund. Investors who do, will pay a premium.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 14 — NEW VERTICALS -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-14">
+  <div class="slide-act">Act IV — The Future</div>
+  <div class="slide-num">14 / 20</div>
+
+  <div class="eyebrow">New Verticals</div>
+  <h2 class="display">Six new businesses.<br>One audience.</h2>
+
+  <div class="verticals-grid">
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 01</div>
+      <h4>Suman Ventures</h4>
+      <p>Media-for-equity studio. 25+ portfolio brands by 2028 across D2C, health, education.</p>
+      <div class="v-rev">Revenue · <strong>Equity · Carry · Exit</strong></div>
+    </div>
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 02</div>
+      <h4>Suman Skills Academy</h4>
+      <p>Regional skilling platform. Government partnerships + B2C subscriptions + CSR mandates.</p>
+      <div class="v-rev">Revenue · <strong>Subscription · Grants</strong></div>
+    </div>
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 03</div>
+      <h4>Suman Health</h4>
+      <p>Built on Doctor Awards authority. Telemedicine, wellness commerce, hospital partnerships.</p>
+      <div class="v-rev">Revenue · <strong>Commission · Listing · D2C</strong></div>
+    </div>
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 04</div>
+      <h4>Suman Commerce</h4>
+      <p>Curated D2C marketplace. Trust-driven product listings. NRI premium category.</p>
+      <div class="v-rev">Revenue · <strong>Margin · Marketplace fees</strong></div>
+    </div>
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 05</div>
+      <h4>Suman AI Studio</h4>
+      <p>SaaS marketing platform. Audience-graph powered targeting. Sold to brands & agencies.</p>
+      <div class="v-rev">Revenue · <strong>SaaS subscription</strong></div>
+    </div>
+    <div class="vertical-card">
+      <div class="v-num">VERTICAL · 06</div>
+      <h4>Suman Public</h4>
+      <p>Government, CSR, and public sector media partnerships. Long-term annuity contracts.</p>
+      <div class="v-rev">Revenue · <strong>Multi-year contracts</strong></div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    The framing is critical: every vertical leverages the same audience graph. This is not diversification risk — it is asset utilization. The same 10 crore subscribers fuel six businesses. That is platform economics.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 15 — COMPETITIVE MOAT -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-15">
+  <div class="slide-act">Act IV — The Future</div>
+  <div class="slide-num">15 / 20</div>
+
+  <div class="eyebrow">Competitive Position</div>
+  <h2 class="display">No one else has<br><em>all four.</em></h2>
+
+  <div class="moat-table">
+    <div class="moat-table-row header">
+      <div></div>
+      <div>Suman TV</div>
+      <div>Legacy TV (Zee, Star)</div>
+      <div>Pan-India Digital (TV9, ETV)</div>
+      <div>Creator Networks</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Regional dominance</div>
+      <div class="check">●</div>
+      <div class="partial">◐</div>
+      <div class="partial">◐</div>
+      <div class="x">○</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Trust capital</div>
+      <div class="check">●</div>
+      <div class="x">○</div>
+      <div class="partial">◐</div>
+      <div class="partial">◐</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Digital-native</div>
+      <div class="check">●</div>
+      <div class="x">○</div>
+      <div class="partial">◐</div>
+      <div class="check">●</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Audience graph (1P data)</div>
+      <div class="check">●</div>
+      <div class="x">○</div>
+      <div class="x">○</div>
+      <div class="partial">◐</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Equity partnership model</div>
+      <div class="check">●</div>
+      <div class="x">○</div>
+      <div class="x">○</div>
+      <div class="x">○</div>
+    </div>
+    <div class="moat-table-row">
+      <div class="row-label">Commerce-ready audience</div>
+      <div class="check">●</div>
+      <div class="x">○</div>
+      <div class="x">○</div>
+      <div class="partial">◐</div>
+    </div>
+  </div>
+
+  <p class="body-lg" style="margin-top: 48px; max-width: 800px;">Legacy networks have scale but no trust. Digital networks have reach but no graph. Creators have intimacy but no scale. <strong style="color: var(--ink); font-weight: 600;">Suman TV is the only operator with all four.</strong></p>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Position this as "category of one" not "best of category." The competitive table is not about beating others — it is about defining a new category that only Suman TV occupies.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 16 — ROADMAP -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-16">
+  <div class="slide-act">Act IV — The Future</div>
+  <div class="slide-num">16 / 20</div>
+
+  <div class="eyebrow">Execution Roadmap</div>
+  <h2 class="display">Specific. Sequential.<br><em>Funded.</em></h2>
+
+  <div class="roadmap">
+    <div class="roadmap-track">
+      <div class="roadmap-stage">
+        <div class="dot"></div>
+        <h5>Q3 2026 — Phase 1</h5>
+        <h4>Foundation</h4>
+        <ul>
+          <li>Series A close</li>
+          <li>AI production stack live</li>
+          <li>Tamil network launch</li>
+          <li>Equity portfolio v1 (5 brands)</li>
+        </ul>
+      </div>
+      <div class="roadmap-stage">
+        <div class="dot"></div>
+        <h5>2027 — Phase 2</h5>
+        <h4>Vertical Launch</h4>
+        <ul>
+          <li>Skills Academy MVP</li>
+          <li>Health platform live</li>
+          <li>Hindi network entry</li>
+          <li>NRI commerce v1</li>
+        </ul>
+      </div>
+      <div class="roadmap-stage">
+        <div class="dot"></div>
+        <h5>2028 — Phase 3</h5>
+        <h4>Platform Scale</h4>
+        <ul>
+          <li>AI Studio external launch</li>
+          <li>Equity portfolio at 25+ brands</li>
+          <li>Government MOUs (3 states)</li>
+          <li>Series B optionality</li>
+        </ul>
+      </div>
+      <div class="roadmap-stage">
+        <div class="dot"></div>
+        <h5>2029–30 — Phase 4</h5>
+        <h4>Ecosystem</h4>
+        <ul>
+          <li>$420M revenue run-rate</li>
+          <li>Pre-IPO maturity</li>
+          <li>Strategic exits in portfolio</li>
+          <li>Global NRI footprint</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Specificity earns credibility. Each phase has named milestones. The Series B optionality in Phase 3 is intentional — signals that this round is not the only path to liquidity.
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 17 — FINANCIALS -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-17">
+  <div class="slide-act">Act V — The Ask</div>
+  <div class="slide-num">17 / 20</div>
+
+  <div class="eyebrow">Financial Projections</div>
+  <h2 class="display">Five years.<br>10× revenue.</h2>
+
+  <div class="financials-grid">
+    <div>
+      <div class="fin-table">
+        <div class="fin-row header">
+          <div>Revenue Stream (₹ Cr)</div>
+          <div class="fin-num">FY26</div>
+          <div class="fin-num">FY27</div>
+          <div class="fin-num">FY28</div>
+          <div class="fin-num">FY30</div>
+        </div>
+        <div class="fin-row">
+          <div>Brand Integrations</div>
+          <div class="fin-num">85</div>
+          <div class="fin-num">130</div>
+          <div class="fin-num">195</div>
+          <div class="fin-num">340</div>
+        </div>
+        <div class="fin-row">
+          <div>Flagship IPs</div>
+          <div class="fin-num">28</div>
+          <div class="fin-num">48</div>
+          <div class="fin-num">75</div>
+          <div class="fin-num">140</div>
+        </div>
+        <div class="fin-row">
+          <div>Equity Partnerships*</div>
+          <div class="fin-num">12</div>
+          <div class="fin-num">35</div>
+          <div class="fin-num">75</div>
+          <div class="fin-num">220</div>
+        </div>
+        <div class="fin-row">
+          <div>AI Marketing Platform</div>
+          <div class="fin-num">—</div>
+          <div class="fin-num">8</div>
+          <div class="fin-num">32</div>
+          <div class="fin-num">180</div>
+        </div>
+        <div class="fin-row">
+          <div>D2C & Commerce</div>
+          <div class="fin-num">5</div>
+          <div class="fin-num">22</div>
+          <div class="fin-num">60</div>
+          <div class="fin-num">240</div>
+        </div>
+        <div class="fin-row">
+          <div>Education & Skilling</div>
+          <div class="fin-num">—</div>
+          <div class="fin-num">15</div>
+          <div class="fin-num">40</div>
+          <div class="fin-num">160</div>
+        </div>
+        <div class="fin-row">
+          <div>Government & CSR</div>
+          <div class="fin-num">18</div>
+          <div class="fin-num">32</div>
+          <div class="fin-num">55</div>
+          <div class="fin-num">120</div>
+        </div>
+        <div class="fin-row total">
+          <div>Total Revenue</div>
+          <div class="fin-num highlight">₹148</div>
+          <div class="fin-num highlight">₹290</div>
+          <div class="fin-num highlight">₹532</div>
+          <div class="fin-num highlight">₹1,400</div>
+        </div>
+      </div>
+    </div>
+    <div class="assumptions">
+      <h5>Assumptions</h5>
+      Industry-benchmarked projections. Revenue model assumes:<br><br>
+      • Telugu base CAGR: 25–35%<br>
+      • Tamil + Hindi entry yields 40% of Telugu base by Y3<br>
+      • Equity portfolio carrying value, not cash revenue<br>
+      • EBITDA margin ramps from 18% (FY26) to 27% (FY30)<br>
+      • All figures pre-validation against actual financials<br><br>
+      <em>* Equity revenue = mark-to-fair-value of portfolio carry, not realized cash. Realized exits modeled separately.</em>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    The honest framing: these are scaffolding numbers. Replace with actual financials before any investor meeting. The shape of growth — diversification of revenue streams, increasing share of new verticals over time — is what investors evaluate.
+    <div class="visual-note">ACTION: Schedule a finance working session to overlay Suman TV's actual revenue, costs, and growth assumptions.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 18 — USE OF FUNDS -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-18">
+  <div class="slide-act">Act V — The Ask</div>
+  <div class="slide-num">18 / 20</div>
+
+  <div class="eyebrow">The Ask</div>
+  <h2 class="display">Raising <em>$25M</em><br>Series A.</h2>
+
+  <div class="funds-grid">
+    <div>
+      <div class="funds-bar">
+        <div class="funds-bar-header">
+          <span class="label">AI Infrastructure & Tech</span>
+          <span class="value">30% · $7.5M</span>
+        </div>
+        <div class="funds-bar-track"><div class="funds-bar-fill" style="width: 30%;"></div></div>
+        <div class="funds-bar-desc">AI production stack, audience graph platform, marketing SaaS development.</div>
+      </div>
+      <div class="funds-bar">
+        <div class="funds-bar-header">
+          <span class="label">Pan-India Expansion</span>
+          <span class="value">25% · $6.25M</span>
+        </div>
+        <div class="funds-bar-track"><div class="funds-bar-fill" style="width: 25%;"></div></div>
+        <div class="funds-bar-desc">Tamil + Hindi network launch, talent, content libraries, regional studios.</div>
+      </div>
+      <div class="funds-bar">
+        <div class="funds-bar-header">
+          <span class="label">New Verticals</span>
+          <span class="value">20% · $5.0M</span>
+        </div>
+        <div class="funds-bar-track"><div class="funds-bar-fill" style="width: 20%;"></div></div>
+        <div class="funds-bar-desc">Suman Skills Academy, Health platform, Commerce marketplace MVPs.</div>
+      </div>
+      <div class="funds-bar">
+        <div class="funds-bar-header">
+          <span class="label">Equity Portfolio Reserve</span>
+          <span class="value">15% · $3.75M</span>
+        </div>
+        <div class="funds-bar-track"><div class="funds-bar-fill" style="width: 15%;"></div></div>
+        <div class="funds-bar-desc">Working capital for media-for-equity deployments to high-conviction brands.</div>
+      </div>
+      <div class="funds-bar">
+        <div class="funds-bar-header">
+          <span class="label">Talent & Operations</span>
+          <span class="value">10% · $2.5M</span>
+        </div>
+        <div class="funds-bar-track"><div class="funds-bar-fill" style="width: 10%;"></div></div>
+        <div class="funds-bar-desc">Senior leadership hires, governance, finance infrastructure, advisory board.</div>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; margin-bottom: 24px; line-height: 1.1;">What this round buys.</h3>
+      <p class="body-md">A 36-month runway to:</p>
+      <ul style="list-style: none; margin-top: 16px;">
+        <li style="padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px;">→ Triple revenue (₹148 → ₹500+ Cr)</li>
+        <li style="padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px;">→ Launch 4 of 6 new verticals</li>
+        <li style="padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px;">→ Build a 25-brand equity portfolio</li>
+        <li style="padding: 10px 0; border-bottom: 1px dashed var(--line); font-size: 14px;">→ Reach Series B / strategic optionality</li>
+        <li style="padding: 10px 0; font-size: 14px;">→ EBITDA-positive across all core lines</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    The $25M figure is a strategic placeholder. Validate against actual capital needs and investor benchmarks for Indian media + AI Series A rounds. The 30/25/20/15/10 allocation signals discipline — investors hate vague allocations.
+    <div class="visual-note">DECISION: Confirm raise size and dilution range before issuing this version externally.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 19 — TEAM -->
+<!-- ============================================================ -->
+<section class="slide" id="slide-19">
+  <div class="slide-act">Act V — The Ask</div>
+  <div class="slide-num">19 / 20</div>
+
+  <div class="eyebrow">Team & Governance</div>
+  <h2 class="display">Founder-led.<br><em>Builder-grade.</em></h2>
+
+  <div class="team-callout">
+    <h3>The Suman TV team has spent a decade building the<br>most trusted regional digital network in India —<br>before "regional" was a category.</h3>
+
+    <div class="team-pillars">
+      <div class="team-pillar">
+        <h4>Founding Leadership</h4>
+        <p>Operators who built Suman TV from one channel to 500+. Deep understanding of Telugu audience, regional production economics, and trust-led storytelling.</p>
+      </div>
+      <div class="team-pillar">
+        <h4>Strategic Hires (Post-Funding)</h4>
+        <p>CTO/AI Lead from a top product company. Head of New Verticals from D2C/healthtech. CFO with India + global media experience.</p>
+      </div>
+      <div class="team-pillar">
+        <h4>Advisory Board</h4>
+        <p>Senior advisors from Indian media, regional commerce, AI/ML research, and government policy. Quarterly strategic council.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <strong>Speaker Notes</strong>
+    Insert real team photos and bios in the final version. For initial investor conversations, the focus is on what the team has built (not just resumes). 10 years, 500 channels, 10 crore subscribers — that is the credential.
+    <div class="visual-note">ACTION: Build a separate team-detail appendix with full leadership profiles, advisor bios, and org chart.</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 20 — CLOSING -->
+<!-- ============================================================ -->
+<section class="slide closing" id="slide-20">
+  <div class="slide-act">Act V — The Ask</div>
+  <div class="slide-num">20 / 20</div>
+
+  <div class="eyebrow">The Close</div>
+  <h2 class="display">The Voice<br>That <em>Matters.</em></h2>
+
+  <p class="body-lg">For 500 million people, Suman TV will be the trusted lens through which they discover, decide, and buy. We are building India's first trust-powered media-commerce-AI ecosystem.</p>
+
+  <p class="body-lg" style="margin-top: 32px; font-style: italic; color: white;">The next decade of Indian media will not be won by the loudest voice. It will be won by the most trusted one.</p>
+
+  <div class="closing-cta">Let's build it together →</div>
+
+  <div class="notes" style="border-color: rgba(255,255,255,0.15); color: var(--slate-light);">
+    <strong>Speaker Notes</strong>
+    End with restraint. Do not pitch in the closing — the deck has already pitched. The closing is a quiet, confident invitation. Look at the room. Pause. Sit down.
+  </div>
+</section>
+
+</body>
+</html>

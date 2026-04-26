@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suman Startup Advisor · Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script src="https://cdn.tailwindcss.com"></script>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+  body { margin: 0; font-family: 'Inter', system-ui, sans-serif; }
+  #root { min-height: 100vh; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react">
+const { useState, useMemo, createElement } = React;
+
+// Helper: build a React component from a Lucide icon name
+function makeIcon(name) {
+  return function LucideIcon(props) {
+    const ref = React.useRef(null);
+    React.useEffect(() => {
+      if (ref.current && window.lucide) {
+        ref.current.innerHTML = '';
+        const el = document.createElement('i');
+        el.setAttribute('data-lucide', name.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase());
+        ref.current.appendChild(el);
+        window.lucide.createIcons({ attrs: {
+          'stroke-width': props.strokeWidth || 2,
+          'width': 'inherit', 'height': 'inherit'
+        }});
+      }
+    });
+    const { className = '', style = {}, strokeWidth, fill, ...rest } = props;
+    return <span ref={ref} className={'inline-flex items-center justify-center ' + className} style={{ width: '1em', height: '1em', ...style }} />;
+  };
+}
+
+const __ICON_NAMES__ = ["Compass", "Lightbulb", "FileText", "Landmark", "Video", "CheckSquare", "TrendingUp", "Clock", "Shield", "Sparkles", "ArrowRight", "IndianRupee", "Search", "Target", "MapPin", "Play", "Circle", "CheckCircle2", "Leaf", "Award", "Flame", "Zap", "Users"];
+const Icons = {};
+__ICON_NAMES__.forEach(n => { Icons[n] = makeIcon(n); });
+const { Compass, Lightbulb, FileText, Landmark, Video, CheckSquare, TrendingUp, Clock, Shield, Sparkles, ArrowRight, IndianRupee, Search, Target, MapPin, Play, Circle, CheckCircle2, Leaf, Award, Flame, Zap, Users } = Icons;
+
+function SumanStartupAdvisor() {
+  const [activeView, setActiveView] = useState('ideas');
+  const [selectedIdea, setSelectedIdea] = useState(null);
+  const [filterTier, setFilterTier] = useState('all');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [completedSteps, setCompletedSteps] = useState({});
+  const [showScript, setShowScript] = useState(false);
+
+  // ═══════════════════════════════════════════════════════════
+  // DATA LAYER — 10 Business Ideas under ₹1 Lakh Budget
+  // ═══════════════════════════════════════════════════════════
+  const ideas = [
+    {
+      id: 1,
+      name: 'Eco Paper Bag Unit',
+      tagline: 'Sustainable packaging for the plastic-ban era',
+      category: 'Manufacturing',
+      tier: 'Starter',
+      feasibility: 92,
+      roi: '4–6 months',
+      target: 'Women SHGs, Rural Youth',
+      icon: Leaf,
+      accent: 'sage',
+      budget: [
+        { item: 'Manual Paper Bag Machine', cost: 45000 },
+        { item: 'Raw Material (Kraft Paper, Glue)', cost: 25000 },
+        { item: 'Branding & Dies', cost: 8000 },
+        { item: 'Working Capital', cost: 15000 },
+        { item: 'Licenses & Registration', cost: 7000 },
+      ],
+      licenses: ['MSME / Udyam', 'GST Registration', 'Trade License', 'Pollution NOC (Green)'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'Break-Even', weeks: 16, progress: 65 },
+        { phase: 'Profitability', weeks: 24, progress: 40 },
+        { phase: 'Scale-up', weeks: 52, progress: 15 },
+      ],
+      schemes: ['PMEGP', 'Mudra (Shishu)', 'Stand-Up India'],
+    },
+    {
+      id: 2,
+      name: 'Cloud Kitchen',
+      tagline: 'Delivery-only kitchen from home or compact space',
+      category: 'Food & Beverage',
+      tier: 'Growth',
+      feasibility: 85,
+      roi: '6–9 months',
+      target: 'Home Chefs, Women Entrepreneurs',
+      icon: Flame,
+      accent: 'ember',
+      budget: [
+        { item: 'Commercial Cooking Equipment', cost: 35000 },
+        { item: 'Packaging & Branding', cost: 12000 },
+        { item: 'Raw Material (1 month)', cost: 20000 },
+        { item: 'Aggregator Onboarding', cost: 8000 },
+        { item: 'Licenses (FSSAI + GST)', cost: 10000 },
+        { item: 'Working Capital', cost: 15000 },
+      ],
+      licenses: ['FSSAI Basic', 'GST Registration', 'MSME / Udyam', 'Shops & Establishment'],
+      timeline: [
+        { phase: 'Setup', weeks: 3, progress: 100 },
+        { phase: 'Break-Even', weeks: 20, progress: 55 },
+        { phase: 'Profitability', weeks: 32, progress: 30 },
+        { phase: 'Scale-up', weeks: 60, progress: 10 },
+      ],
+      schemes: ['Mudra (Kishore)', 'PMFME', 'T-Hub Food Tech'],
+    },
+    {
+      id: 3,
+      name: 'Mushroom Cultivation',
+      tagline: 'High-margin agri-business in 200 sq.ft.',
+      category: 'Agri-Business',
+      tier: 'Starter',
+      feasibility: 88,
+      roi: '3–5 months',
+      target: 'Rural Youth, Farmers',
+      icon: Leaf,
+      accent: 'sage',
+      budget: [
+        { item: 'Shed & Rack Setup', cost: 30000 },
+        { item: 'Spawn & Substrate', cost: 18000 },
+        { item: 'Humidifier & Thermometer', cost: 12000 },
+        { item: 'Packaging', cost: 8000 },
+        { item: 'Training & Certification', cost: 10000 },
+        { item: 'Working Capital', cost: 22000 },
+      ],
+      licenses: ['MSME / Udyam', 'APEDA (if exporting)', 'FSSAI', 'Local Agri Dept. Registration'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'First Harvest', weeks: 6, progress: 80 },
+        { phase: 'Break-Even', weeks: 14, progress: 60 },
+        { phase: 'Scale-up', weeks: 40, progress: 25 },
+      ],
+      schemes: ['NHB Subsidy', 'Agri Infra Fund', 'PMEGP'],
+    },
+    {
+      id: 4,
+      name: 'Digital Marketing Agency',
+      tagline: 'Service SMEs with social media & SEO',
+      category: 'Services',
+      tier: 'Growth',
+      feasibility: 90,
+      roi: '2–4 months',
+      target: 'Graduates, Tech-Savvy Women',
+      icon: Zap,
+      accent: 'ink',
+      budget: [
+        { item: 'Laptop Upgrade / Workstation', cost: 40000 },
+        { item: 'Software Subscriptions (1yr)', cost: 18000 },
+        { item: 'Website & Portfolio', cost: 12000 },
+        { item: 'Certifications (Meta, Google)', cost: 10000 },
+        { item: 'Marketing & Lead Gen', cost: 15000 },
+        { item: 'Registration & Misc.', cost: 5000 },
+      ],
+      licenses: ['MSME / Udyam', 'GST (if turnover > 20L)', 'Startup India DPIIT'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'First Client', weeks: 6, progress: 85 },
+        { phase: 'Break-Even', weeks: 10, progress: 70 },
+        { phase: 'Scale-up', weeks: 30, progress: 35 },
+      ],
+      schemes: ['Startup India Seed', 'T-Hub Lab32', 'Mudra (Kishore)'],
+    },
+    {
+      id: 5,
+      name: 'Tailoring & Boutique',
+      tagline: 'Bespoke stitching with a local brand',
+      category: 'Retail & Craft',
+      tier: 'Starter',
+      feasibility: 86,
+      roi: '5–7 months',
+      target: 'Women, Rural Artisans',
+      icon: Award,
+      accent: 'rose',
+      budget: [
+        { item: 'Sewing Machines (2 units)', cost: 35000 },
+        { item: 'Fabric Inventory', cost: 25000 },
+        { item: 'Interior & Display', cost: 15000 },
+        { item: 'Branding & Signage', cost: 10000 },
+        { item: 'Working Capital', cost: 10000 },
+        { item: 'Registration', cost: 5000 },
+      ],
+      licenses: ['MSME / Udyam', 'Shops & Establishment', 'GST (optional)'],
+      timeline: [
+        { phase: 'Setup', weeks: 3, progress: 100 },
+        { phase: 'Break-Even', weeks: 18, progress: 60 },
+        { phase: 'Profitability', weeks: 28, progress: 35 },
+        { phase: 'Scale-up', weeks: 52, progress: 15 },
+      ],
+      schemes: ['Mudra (Shishu)', 'Stand-Up India', 'PM Vishwakarma'],
+    },
+    {
+      id: 6,
+      name: 'Organic Dairy Unit',
+      tagline: 'A2 milk and value-added dairy products',
+      category: 'Agri-Business',
+      tier: 'Intensive',
+      feasibility: 78,
+      roi: '8–12 months',
+      target: 'Rural Farmers, SHGs',
+      icon: Leaf,
+      accent: 'sage',
+      budget: [
+        { item: '2 Cattle (indigenous breed)', cost: 60000 },
+        { item: 'Shed Upgrade', cost: 15000 },
+        { item: 'Feed & Fodder (3 months)', cost: 12000 },
+        { item: 'Milking & Storage', cost: 8000 },
+        { item: 'Registration & Insurance', cost: 5000 },
+      ],
+      licenses: ['FSSAI Basic', 'Animal Husbandry Dept.', 'MSME / Udyam'],
+      timeline: [
+        { phase: 'Setup', weeks: 4, progress: 100 },
+        { phase: 'Steady Production', weeks: 12, progress: 70 },
+        { phase: 'Break-Even', weeks: 28, progress: 40 },
+        { phase: 'Scale-up', weeks: 60, progress: 15 },
+      ],
+      schemes: ['Dairy Entrepreneurship Dev. Scheme', 'NABARD', 'PMEGP'],
+    },
+    {
+      id: 7,
+      name: 'Mobile Repair & Accessories',
+      tagline: 'Tier-2/3 town essentials business',
+      category: 'Services',
+      tier: 'Starter',
+      feasibility: 89,
+      roi: '3–5 months',
+      target: 'ITI Graduates, Youth',
+      icon: Zap,
+      accent: 'ink',
+      budget: [
+        { item: 'Tools & Repair Kit', cost: 25000 },
+        { item: 'Accessories Inventory', cost: 40000 },
+        { item: 'Shop Setup & Display', cost: 18000 },
+        { item: 'Branding', cost: 7000 },
+        { item: 'Registration', cost: 5000 },
+        { item: 'Working Capital', cost: 5000 },
+      ],
+      licenses: ['GST Registration', 'Shops & Establishment', 'MSME / Udyam'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'Break-Even', weeks: 14, progress: 70 },
+        { phase: 'Profitability', weeks: 22, progress: 45 },
+        { phase: 'Scale-up', weeks: 40, progress: 20 },
+      ],
+      schemes: ['Mudra (Shishu)', 'PMEGP', 'Skill India Mission'],
+    },
+    {
+      id: 8,
+      name: 'Home Bakery',
+      tagline: 'Cakes, cookies, and artisan breads',
+      category: 'Food & Beverage',
+      tier: 'Starter',
+      feasibility: 84,
+      roi: '4–6 months',
+      target: 'Home-based Women Entrepreneurs',
+      icon: Flame,
+      accent: 'ember',
+      budget: [
+        { item: 'Commercial Oven & Mixer', cost: 40000 },
+        { item: 'Baking Tools & Moulds', cost: 12000 },
+        { item: 'Raw Material (1 month)', cost: 18000 },
+        { item: 'Packaging & Branding', cost: 15000 },
+        { item: 'FSSAI + GST Registration', cost: 8000 },
+        { item: 'Working Capital', cost: 7000 },
+      ],
+      licenses: ['FSSAI Basic', 'GST Registration', 'MSME / Udyam'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'Break-Even', weeks: 16, progress: 60 },
+        { phase: 'Profitability', weeks: 24, progress: 35 },
+        { phase: 'Scale-up', weeks: 48, progress: 15 },
+      ],
+      schemes: ['PMFME', 'Mudra (Shishu)', 'Stand-Up India'],
+    },
+    {
+      id: 9,
+      name: 'EdTech Coaching (Hybrid)',
+      tagline: 'Local coaching with online reach',
+      category: 'Education',
+      tier: 'Growth',
+      feasibility: 87,
+      roi: '4–7 months',
+      target: 'Teachers, Graduates',
+      icon: Users,
+      accent: 'ink',
+      budget: [
+        { item: 'Laptop + Camera + Mic', cost: 35000 },
+        { item: 'Smart Board / Whiteboard', cost: 20000 },
+        { item: 'Online Platform Setup', cost: 15000 },
+        { item: 'Study Material Creation', cost: 12000 },
+        { item: 'Marketing (Local + Digital)', cost: 13000 },
+        { item: 'Registration', cost: 5000 },
+      ],
+      licenses: ['MSME / Udyam', 'GST (if > 20L turnover)', 'Shops & Establishment'],
+      timeline: [
+        { phase: 'Setup', weeks: 3, progress: 100 },
+        { phase: 'First Batch', weeks: 8, progress: 80 },
+        { phase: 'Break-Even', weeks: 16, progress: 55 },
+        { phase: 'Scale-up', weeks: 40, progress: 25 },
+      ],
+      schemes: ['Startup India', 'T-Hub EdTech Cohort', 'Mudra (Kishore)'],
+    },
+    {
+      id: 10,
+      name: 'Agarbatti & Candle Making',
+      tagline: 'High-demand devotional & decor products',
+      category: 'Manufacturing',
+      tier: 'Starter',
+      feasibility: 83,
+      roi: '4–6 months',
+      target: 'Women SHGs, Rural Homes',
+      icon: Sparkles,
+      accent: 'rose',
+      budget: [
+        { item: 'Agarbatti Machine (Semi-Auto)', cost: 40000 },
+        { item: 'Raw Material (Bamboo, Oils)', cost: 22000 },
+        { item: 'Candle Moulds & Wax', cost: 15000 },
+        { item: 'Packaging & Branding', cost: 10000 },
+        { item: 'Licenses & Registration', cost: 6000 },
+        { item: 'Working Capital', cost: 7000 },
+      ],
+      licenses: ['MSME / Udyam', 'GST Registration', 'Trade License', 'Pollution NOC'],
+      timeline: [
+        { phase: 'Setup', weeks: 2, progress: 100 },
+        { phase: 'Break-Even', weeks: 18, progress: 60 },
+        { phase: 'Profitability', weeks: 26, progress: 35 },
+        { phase: 'Scale-up', weeks: 52, progress: 15 },
+      ],
+      schemes: ['KVIC Scheme', 'PMEGP', 'Mudra (Shishu)'],
+    },
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  // FUNDING SCHEMES
+  // ═══════════════════════════════════════════════════════════
+  const centralSchemes = [
+    {
+      name: 'PM Mudra Yojana',
+      tier: 'Shishu • Kishore • Tarun',
+      amount: 'Up to ₹10 Lakh',
+      interest: '8–12% p.a.',
+      eligibility: 'Non-corporate, non-farm micro enterprises',
+      best: 'First-time entrepreneurs, women, rural businesses',
+    },
+    {
+      name: 'PMEGP',
+      tier: 'Subsidy Scheme',
+      amount: 'Up to ₹25 Lakh (Manufacturing)',
+      interest: '15–35% subsidy',
+      eligibility: 'Age 18+, VIII std pass for >₹10L projects',
+      best: 'Manufacturing & service units in rural/urban',
+    },
+    {
+      name: 'Startup India Seed Fund',
+      tier: 'Seed Stage',
+      amount: 'Up to ₹20 Lakh grant + ₹50L convertible',
+      interest: 'Grant / Equity',
+      eligibility: 'DPIIT-recognised, <2 years old',
+      best: 'Tech-enabled, scalable, IP-driven ventures',
+    },
+    {
+      name: 'Stand-Up India',
+      tier: 'SC/ST & Women',
+      amount: '₹10 Lakh to ₹1 Crore',
+      interest: 'MCLR + 3% + tenor premium',
+      eligibility: 'SC/ST or Women entrepreneurs (≥51% stake)',
+      best: 'Greenfield enterprises in manufacturing/services',
+    },
+  ];
+
+  const stateSchemes = [
+    {
+      name: 'T-Hub (Telangana)',
+      tier: 'Incubation',
+      amount: 'Mentorship + ₹5–25L access',
+      interest: 'Equity-based cohorts',
+      eligibility: 'Scalable, tech-oriented startups',
+      best: 'Hyderabad-based deep-tech & SaaS founders',
+    },
+    {
+      name: 'TSIC Grand Challenge',
+      tier: 'Innovation Grant',
+      amount: 'Up to ₹10 Lakh',
+      interest: 'Non-dilutive grant',
+      eligibility: 'Telangana-registered innovators',
+      best: 'Social & rural innovation projects',
+    },
+    {
+      name: 'WE-Hub (Telangana)',
+      tier: 'Women-focused',
+      amount: 'Mentorship + ₹1–10L',
+      interest: 'Grants & soft loans',
+      eligibility: 'Women-led ventures',
+      best: 'Women entrepreneurs at idea/early stage',
+    },
+    {
+      name: 'MSME State Grants',
+      tier: 'Infrastructure & Credit',
+      amount: 'Capital subsidy 15–35%',
+      interest: 'Interest subvention up to 5%',
+      eligibility: 'Udyam-registered MSMEs',
+      best: 'Manufacturing & processing units',
+    },
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  // ROADMAP
+  // ═══════════════════════════════════════════════════════════
+  const roadmap = [
+    { phase: 'Research', items: ['Market size analysis', 'Competitor mapping', 'Customer persona', 'Pricing study'] },
+    { phase: 'Validation', items: ['MVP / Pilot batch', '10 customer interviews', 'Pre-orders / LOIs', 'Unit economics'] },
+    { phase: 'Documentation', items: ['Udyam / MSME registration', 'GST / FSSAI / Trade License', 'Bank account opening', 'Basic accounting setup'] },
+    { phase: 'Funding', items: ['Scheme application (Mudra/PMEGP)', 'Bank loan documentation', 'Pitch deck (if equity)', 'Disbursement & deployment'] },
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  // FILTERING & DERIVED STATE
+  // ═══════════════════════════════════════════════════════════
+  const filteredIdeas = useMemo(() => {
+    return ideas.filter(i => {
+      const matchesTier = filterTier === 'all' || i.tier === filterTier;
+      const matchesSearch = searchTerm === '' ||
+        i.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        i.category.toLowerCase().includes(searchTerm.toLowerCase());
+      return matchesTier && matchesSearch;
+    });
+  }, [filterTier, searchTerm]);
+
+  const totalBudget = selectedIdea
+    ? selectedIdea.budget.reduce((sum, b) => sum + b.cost, 0)
+    : 0;
+
+  // Script generator
+  const generateScript = (idea) => {
+    return `[SUMAN TV — ALTERNATIVE CAREER EPISODE]
+
+HOOK (0–5s):
+"₹1 lakh. One machine. One decision that changed a life."
+
+PROBLEM (5–12s):
+Meet thousands of ${idea.target.toLowerCase()} searching for dignified income close to home.
+
+SOLUTION (12–22s):
+${idea.name} — ${idea.tagline}.
+Start-up cost: ₹${(totalBudget/100000).toFixed(1)} Lakh.
+Break-even: ${idea.roi}.
+Feasibility: ${idea.feasibility}%.
+
+CALL TO ACTION (22–30s):
+"Central schemes like ${idea.schemes[0]} can fund your first step.
+Watch the full blueprint on Suman TV.
+Your village needs you. Your idea is ready."
+
+— END —`;
+  };
+
+  // ═══════════════════════════════════════════════════════════
+  // STYLE HELPERS
+  // ═══════════════════════════════════════════════════════════
+  const accentMap = {
+    sage:  { bg: 'bg-[#e8ede4]', text: 'text-[#3d5a3a]', border: 'border-[#3d5a3a]', ring: 'bg-[#3d5a3a]' },
+    ember: { bg: 'bg-[#f5e6dc]', text: 'text-[#8b3a1f]', border: 'border-[#8b3a1f]', ring: 'bg-[#8b3a1f]' },
+    ink:   { bg: 'bg-[#e5e7ec]', text: 'text-[#1f2d4a]', border: 'border-[#1f2d4a]', ring: 'bg-[#1f2d4a]' },
+    rose:  { bg: 'bg-[#f3e4e1]', text: 'text-[#7a2e3b]', border: 'border-[#7a2e3b]', ring: 'bg-[#7a2e3b]' },
+  };
+
+  const tierBadge = {
+    'Starter':   'bg-[#f5efe3] text-[#6b5326] border-[#c9a961]',
+    'Growth':    'bg-[#e8ede4] text-[#3d5a3a] border-[#3d5a3a]',
+    'Intensive': 'bg-[#f3e4e1] text-[#7a2e3b] border-[#7a2e3b]',
+  };
+
+  // Feasibility label
+  const feasLabel = (s) => s >= 88 ? 'Excellent' : s >= 82 ? 'Strong' : s >= 75 ? 'Viable' : 'Challenging';
+
+  // ═══════════════════════════════════════════════════════════
+  // RENDER
+  // ═══════════════════════════════════════════════════════════
+  return (
+    <div className="min-h-screen w-full" style={{
+      background: 'radial-gradient(ellipse at top, #faf7f0 0%, #f5efe3 50%, #ebe4d2 100%)',
+      fontFamily: "'Inter', sans-serif"
+    }}>
+      {/* Google Fonts */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+        .font-display { font-family: 'Fraunces', serif; font-optical-sizing: auto; }
+        .font-mono    { font-family: 'JetBrains Mono', monospace; }
+        .grain { background-image: radial-gradient(circle at 1px 1px, rgba(60,40,20,0.04) 1px, transparent 0); background-size: 24px 24px; }
+        .hairline { box-shadow: inset 0 0 0 1px rgba(60,40,20,0.12); }
+        @keyframes fadeInUp { from { opacity:0; transform: translateY(8px);} to {opacity:1; transform: translateY(0);} }
+        .fade-in { animation: fadeInUp 0.4s ease-out both; }
+      `}</style>
+
+      {/* ═══════════════ HEADER / PHILOSOPHY STRIP ═══════════════ */}
+      <div className="w-full border-b border-[#3d2817]/20 bg-[#1a1410] text-[#f5efe3] px-6 py-2 text-xs font-mono tracking-widest uppercase flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Leaf className="w-3 h-3" />
+          <span>Responsible &amp; Respectful Content · Sustainable &amp; Ethical Business Growth</span>
+        </div>
+        <div className="hidden md:flex items-center gap-4 text-[#c9a961]">
+          <span>EST. 2025</span>
+          <span>·</span>
+          <span>IDEA → FUNDING → FREEDOM</span>
+        </div>
+      </div>
+
+      <div className="flex flex-col lg:flex-row min-h-[calc(100vh-34px)]">
+        {/* ═══════════════ SIDEBAR ═══════════════ */}
+        <aside className="lg:w-72 lg:min-h-[calc(100vh-34px)] bg-[#faf7f0] border-r border-[#3d2817]/15 grain">
+          <div className="p-6 border-b border-[#3d2817]/15">
+            <div className="flex items-center gap-3 mb-1">
+              <div className="w-10 h-10 rounded-sm bg-[#1a1410] flex items-center justify-center">
+                <Compass className="w-5 h-5 text-[#c9a961]" strokeWidth={1.5} />
+              </div>
+              <div>
+                <div className="font-display text-xl font-700 text-[#1a1410] leading-none" style={{fontWeight:700}}>Suman</div>
+                <div className="font-mono text-[10px] tracking-[0.25em] text-[#8b7355] uppercase">Startup Advisor</div>
+              </div>
+            </div>
+            <div className="mt-4 text-xs text-[#5a4a38] italic font-display" style={{fontStyle:'italic'}}>
+              "From an idea in your village to a business that funds your freedom."
+            </div>
+          </div>
+
+          <nav className="p-4 space-y-1">
+            {[
+              { id: 'ideas',    label: 'Idea Explorer',    icon: Lightbulb, meta: '10 curated' },
+              { id: 'blueprint',label: 'The Blueprint',    icon: FileText,  meta: selectedIdea ? 'Active' : 'Select an idea' },
+              { id: 'funding',  label: 'Funding Navigator',icon: Landmark,  meta: 'Central + State' },
+              { id: 'media',    label: 'Suman TV Media',   icon: Video,     meta: 'Content Hook' },
+              { id: 'roadmap',  label: 'Launch Roadmap',   icon: CheckSquare,meta: '4 phases' },
+            ].map(item => {
+              const Icon = item.icon;
+              const active = activeView === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveView(item.id)}
+                  className={`w-full text-left px-4 py-3 flex items-center gap-3 transition-all border-l-2 ${
+                    active
+                      ? 'bg-[#1a1410] text-[#f5efe3] border-[#c9a961]'
+                      : 'border-transparent text-[#3d2817] hover:bg-[#f0e8d4] hover:border-[#c9a961]/50'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" strokeWidth={1.75} />
+                  <div className="flex-1">
+                    <div className="text-sm font-medium">{item.label}</div>
+                    <div className={`text-[10px] font-mono uppercase tracking-wider mt-0.5 ${active ? 'text-[#c9a961]' : 'text-[#8b7355]'}`}>
+                      {item.meta}
+                    </div>
+                  </div>
+                  {active && <ArrowRight className="w-3.5 h-3.5 text-[#c9a961]" />}
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* Selected idea preview */}
+          {selectedIdea && (
+            <div className="mx-4 mt-4 p-4 bg-[#1a1410] text-[#f5efe3] rounded-sm fade-in">
+              <div className="font-mono text-[10px] tracking-[0.2em] text-[#c9a961] uppercase mb-2">Currently analyzing</div>
+              <div className="font-display text-lg leading-tight" style={{fontWeight:600}}>{selectedIdea.name}</div>
+              <div className="mt-3 pt-3 border-t border-[#c9a961]/20 flex items-center justify-between text-xs">
+                <span className="font-mono text-[#c9a961]">FEAS {selectedIdea.feasibility}</span>
+                <span className="font-mono text-[#8b7355]">ROI {selectedIdea.roi}</span>
+              </div>
+            </div>
+          )}
+
+          <div className="p-4 mt-auto">
+            <div className="text-[10px] font-mono uppercase tracking-widest text-[#8b7355] text-center pt-6 border-t border-[#3d2817]/10">
+              Suman TV Ecosystem
+            </div>
+          </div>
+        </aside>
+
+        {/* ═══════════════ MAIN CONTENT ═══════════════ */}
+        <main className="flex-1 p-6 lg:p-10 max-w-full overflow-hidden">
+
+          {/* ───────── IDEAS EXPLORER ───────── */}
+          {activeView === 'ideas' && (
+            <div className="fade-in">
+              <div className="mb-8">
+                <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8b7355] mb-2">Module 01 — Opportunity Discovery</div>
+                <h1 className="font-display text-5xl lg:text-6xl text-[#1a1410] leading-[0.95] tracking-tight" style={{fontWeight:400}}>
+                  Ten ideas. <span className="italic" style={{fontWeight:300}}>One lakh.</span>
+                  <br />
+                  <span className="text-[#8b3a1f]" style={{fontWeight:700}}>Infinite paths forward.</span>
+                </h1>
+                <p className="mt-4 max-w-2xl text-[#3d2817]/75 leading-relaxed text-[15px]">
+                  Hand-curated for graduates, women entrepreneurs, and rural founders.
+                  Each idea is scored on feasibility, budgeted under ₹1,00,000, and mapped
+                  to the right government scheme. Click any card to unlock the full blueprint.
+                </p>
+              </div>
+
+              {/* Filter Bar */}
+              <div className="flex flex-col md:flex-row gap-3 mb-6 items-stretch md:items-center">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8b7355]" />
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search by idea or category…"
+                    className="w-full pl-10 pr-4 py-3 bg-[#faf7f0] hairline text-[#1a1410] placeholder:text-[#8b7355] font-mono text-sm outline-none focus:shadow-[inset_0_0_0_2px_rgba(26,20,16,1)]"
+                  />
+                </div>
+                <div className="flex gap-1 bg-[#faf7f0] hairline p-1">
+                  {['all', 'Starter', 'Growth', 'Intensive'].map(t => (
+                    <button
+                      key={t}
+                      onClick={() => setFilterTier(t)}
+                      className={`px-4 py-2 text-xs font-mono uppercase tracking-wider transition-all ${
+                        filterTier === t
+                          ? 'bg-[#1a1410] text-[#f5efe3]'
+                          : 'text-[#3d2817] hover:bg-[#f0e8d4]'
+                      }`}
+                    >
+                      {t}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Ideas Grid */}
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {filteredIdeas.map((idea, idx) => {
+                  const Icon = idea.icon;
+                  const accent = accentMap[idea.accent];
+                  const isSelected = selectedIdea?.id === idea.id;
+                  return (
+                    <button
+                      key={idea.id}
+                      onClick={() => { setSelectedIdea(idea); setActiveView('blueprint'); }}
+                      style={{ animationDelay: `${idx * 40}ms` }}
+                      className={`fade-in group text-left bg-[#faf7f0] hairline p-6 transition-all hover:shadow-[0_8px_24px_-12px_rgba(26,20,16,0.25)] hover:-translate-y-0.5 ${
+                        isSelected ? 'shadow-[inset_0_0_0_2px_#1a1410]' : ''
+                      }`}
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <div className={`w-11 h-11 ${accent.bg} flex items-center justify-center`}>
+                          <Icon className={`w-5 h-5 ${accent.text}`} strokeWidth={1.5} />
+                        </div>
+                        <div className={`text-[10px] font-mono uppercase tracking-widest px-2 py-1 border ${tierBadge[idea.tier]}`}>
+                          {idea.tier}
+                        </div>
+                      </div>
+
+                      <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#8b7355] mb-1">
+                        {String(idea.id).padStart(2,'0')} · {idea.category}
+                      </div>
+                      <h3 className="font-display text-2xl text-[#1a1410] leading-tight mb-2" style={{fontWeight:600}}>
+                        {idea.name}
+                      </h3>
+                      <p className="text-sm text-[#3d2817]/70 leading-relaxed mb-5 min-h-[40px]">
+                        {idea.tagline}
+                      </p>
+
+                      {/* Feasibility bar */}
+                      <div className="mb-4">
+                        <div className="flex items-center justify-between mb-1.5">
+                          <span className="text-[10px] font-mono tracking-wider uppercase text-[#8b7355]">Feasibility</span>
+                          <span className="font-display text-sm text-[#1a1410]" style={{fontWeight:600}}>
+                            {idea.feasibility} <span className="text-[#8b7355] text-[10px] font-mono uppercase ml-1">{feasLabel(idea.feasibility)}</span>
+                          </span>
+                        </div>
+                        <div className="h-[3px] bg-[#ebe4d2] relative overflow-hidden">
+                          <div
+                            className={`h-full ${accent.ring} transition-all duration-500`}
+                            style={{ width: `${idea.feasibility}%` }}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="pt-4 border-t border-[#3d2817]/10 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5 text-xs text-[#3d2817]/70">
+                          <Clock className="w-3 h-3" />
+                          <span className="font-mono">{idea.roi}</span>
+                        </div>
+                        <div className="flex items-center gap-1 text-xs text-[#1a1410] font-medium group-hover:gap-2 transition-all">
+                          Blueprint <ArrowRight className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {filteredIdeas.length === 0 && (
+                <div className="text-center py-16 font-display text-xl text-[#8b7355] italic">
+                  No ideas match that search. Try a broader term.
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ───────── BLUEPRINT ───────── */}
+          {activeView === 'blueprint' && (
+            <div className="fade-in">
+              {!selectedIdea ? (
+                <div className="flex flex-col items-center justify-center py-24 text-center">
+                  <FileText className="w-12 h-12 text-[#8b7355] mb-4" strokeWidth={1} />
+                  <h2 className="font-display text-3xl text-[#1a1410] mb-2" style={{fontWeight:600}}>No blueprint selected</h2>
+                  <p className="text-[#3d2817]/70 mb-6">Choose an idea from the Explorer to unlock its full blueprint.</p>
+                  <button
+                    onClick={() => setActiveView('ideas')}
+                    className="px-6 py-3 bg-[#1a1410] text-[#f5efe3] font-mono text-xs uppercase tracking-[0.2em] hover:bg-[#3d2817] transition-colors"
+                  >
+                    Browse Ideas →
+                  </button>
+                </div>
+              ) : (
+                <>
+                  {/* Blueprint Header */}
+                  <div className="mb-8">
+                    <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8b7355] mb-2">Module 02 — The Blueprint</div>
+                    <div className="flex flex-wrap items-end justify-between gap-4">
+                      <div>
+                        <h1 className="font-display text-5xl text-[#1a1410] leading-tight" style={{fontWeight:400}}>
+                          {selectedIdea.name}
+                        </h1>
+                        <p className="font-display italic text-lg text-[#8b3a1f] mt-1" style={{fontWeight:300}}>
+                          {selectedIdea.tagline}
+                        </p>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className={`text-[10px] font-mono uppercase tracking-widest px-3 py-1.5 border ${tierBadge[selectedIdea.tier]}`}>
+                          {selectedIdea.tier} Tier
+                        </div>
+                        <div className="text-[10px] font-mono uppercase tracking-widest px-3 py-1.5 border border-[#3d2817]/30 text-[#3d2817] bg-[#faf7f0]">
+                          {selectedIdea.category}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Top metrics strip */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-0 bg-[#1a1410] text-[#f5efe3] hairline mb-8">
+                    {[
+                      { label: 'Investment', value: `₹${(totalBudget/1000).toFixed(0)}K`, sub: `of ₹1 Lakh` },
+                      { label: 'Feasibility', value: selectedIdea.feasibility, sub: feasLabel(selectedIdea.feasibility) },
+                      { label: 'ROI Window', value: selectedIdea.roi, sub: 'to break-even' },
+                      { label: 'Target Founder', value: selectedIdea.target.split(',')[0], sub: 'primary segment' },
+                    ].map((m, i) => (
+                      <div key={i} className="p-5 border-r border-[#c9a961]/15 last:border-r-0">
+                        <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#c9a961] mb-2">{m.label}</div>
+                        <div className="font-display text-3xl leading-none" style={{fontWeight:600}}>{m.value}</div>
+                        <div className="text-[11px] text-[#f5efe3]/60 mt-1.5">{m.sub}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="grid lg:grid-cols-2 gap-6">
+                    {/* BUDGET BREAKDOWN */}
+                    <div className="bg-[#faf7f0] hairline p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355]">02.1 Capital</div>
+                          <h3 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:600}}>Investment Breakdown</h3>
+                        </div>
+                        <IndianRupee className="w-5 h-5 text-[#8b7355]" strokeWidth={1.5} />
+                      </div>
+                      <div className="space-y-3">
+                        {selectedIdea.budget.map((b, i) => {
+                          const pct = (b.cost / totalBudget) * 100;
+                          return (
+                            <div key={i}>
+                              <div className="flex items-baseline justify-between mb-1">
+                                <span className="text-sm text-[#3d2817]">{b.item}</span>
+                                <span className="font-mono text-xs text-[#1a1410]">
+                                  ₹{b.cost.toLocaleString('en-IN')}
+                                  <span className="text-[#8b7355] ml-2">{pct.toFixed(0)}%</span>
+                                </span>
+                              </div>
+                              <div className="h-1 bg-[#ebe4d2]">
+                                <div className="h-full bg-[#1a1410]" style={{width: `${pct}%`}} />
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className="mt-5 pt-4 border-t-2 border-[#1a1410] flex justify-between items-baseline">
+                        <span className="font-display text-lg text-[#1a1410]" style={{fontWeight:600}}>Total Deployment</span>
+                        <span className="font-display text-2xl text-[#8b3a1f]" style={{fontWeight:700}}>₹{totalBudget.toLocaleString('en-IN')}</span>
+                      </div>
+                    </div>
+
+                    {/* ROI TIMELINE */}
+                    <div className="bg-[#faf7f0] hairline p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355]">02.2 Trajectory</div>
+                          <h3 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:600}}>ROI Timeline</h3>
+                        </div>
+                        <TrendingUp className="w-5 h-5 text-[#8b7355]" strokeWidth={1.5} />
+                      </div>
+                      <div className="space-y-5">
+                        {selectedIdea.timeline.map((t, i) => (
+                          <div key={i}>
+                            <div className="flex items-baseline justify-between mb-2">
+                              <div className="flex items-center gap-2">
+                                <span className="font-mono text-[10px] text-[#8b7355]">{String(i+1).padStart(2,'0')}</span>
+                                <span className="font-display text-base text-[#1a1410]" style={{fontWeight:600}}>{t.phase}</span>
+                              </div>
+                              <span className="font-mono text-xs text-[#3d2817]">Week {t.weeks}</span>
+                            </div>
+                            <div className="h-2 bg-[#ebe4d2] relative">
+                              <div
+                                className="h-full bg-gradient-to-r from-[#8b3a1f] to-[#c9a961] transition-all duration-1000"
+                                style={{width: `${t.progress}%`}}
+                              />
+                              <div
+                                className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#1a1410] border border-[#c9a961]"
+                                style={{left: `calc(${t.progress}% - 4px)`}}
+                              />
+                            </div>
+                            <div className="text-[10px] font-mono text-[#8b7355] mt-1 text-right">{t.progress}% likelihood</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* LICENSES */}
+                    <div className="bg-[#1a1410] text-[#f5efe3] p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#c9a961]">02.3 Compliance</div>
+                          <h3 className="font-display text-2xl" style={{fontWeight:600}}>Required Licenses</h3>
+                        </div>
+                        <Shield className="w-5 h-5 text-[#c9a961]" strokeWidth={1.5} />
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {selectedIdea.licenses.map((lic, i) => (
+                          <div key={i} className="flex items-center gap-3 p-3 border border-[#c9a961]/20 hover:bg-[#3d2817]/50 transition-colors">
+                            <CheckCircle2 className="w-4 h-4 text-[#c9a961] flex-shrink-0" strokeWidth={1.5} />
+                            <span className="text-sm">{lic}</span>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="mt-4 text-[11px] text-[#f5efe3]/50 italic font-display" style={{fontStyle:'italic'}}>
+                        Complete these before deployment of funds. Udyam registration is free at udyamregistration.gov.in.
+                      </div>
+                    </div>
+
+                    {/* RECOMMENDED SCHEMES */}
+                    <div className="bg-[#faf7f0] hairline p-6">
+                      <div className="flex items-center justify-between mb-5">
+                        <div>
+                          <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355]">02.4 Capital Access</div>
+                          <h3 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:600}}>Recommended Funding</h3>
+                        </div>
+                        <Target className="w-5 h-5 text-[#8b7355]" strokeWidth={1.5} />
+                      </div>
+                      <div className="space-y-2 mb-4">
+                        {selectedIdea.schemes.map((s, i) => (
+                          <div key={i} className="flex items-center justify-between p-3 bg-[#ebe4d2]/50 border-l-2 border-[#8b3a1f]">
+                            <span className="font-display text-[#1a1410]" style={{fontWeight:600}}>{s}</span>
+                            <ArrowRight className="w-4 h-4 text-[#8b3a1f]" />
+                          </div>
+                        ))}
+                      </div>
+                      <button
+                        onClick={() => setActiveView('funding')}
+                        className="w-full py-3 bg-[#1a1410] text-[#f5efe3] font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-[#3d2817] transition-colors"
+                      >
+                        Open Full Funding Navigator →
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    <button
+                      onClick={() => setActiveView('media')}
+                      className="flex items-center gap-2 px-5 py-3 bg-[#8b3a1f] text-[#f5efe3] font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-[#6b2a15] transition-colors"
+                    >
+                      <Video className="w-4 h-4" /> Generate Suman TV Script
+                    </button>
+                    <button
+                      onClick={() => setActiveView('roadmap')}
+                      className="flex items-center gap-2 px-5 py-3 bg-[#faf7f0] hairline text-[#1a1410] font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-[#ebe4d2] transition-colors"
+                    >
+                      <CheckSquare className="w-4 h-4" /> Launch Roadmap
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* ───────── FUNDING ───────── */}
+          {activeView === 'funding' && (
+            <div className="fade-in">
+              <div className="mb-8">
+                <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8b7355] mb-2">Module 03 — Capital Access</div>
+                <h1 className="font-display text-5xl text-[#1a1410] leading-[0.95]" style={{fontWeight:400}}>
+                  Funding &amp; <span className="italic" style={{fontWeight:300}}>Schemes</span> Navigator
+                </h1>
+                <p className="mt-4 max-w-2xl text-[#3d2817]/75 leading-relaxed text-[15px]">
+                  Every rupee you need is already allocated by Central &amp; State governments.
+                  The challenge is matching the right scheme to the right stage. Here's the map.
+                </p>
+              </div>
+
+              <div className="grid lg:grid-cols-2 gap-6">
+                <section>
+                  <div className="flex items-center gap-3 mb-4">
+                    <Landmark className="w-5 h-5 text-[#1a1410]" strokeWidth={1.5} />
+                    <h2 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:700}}>Central Schemes</h2>
+                    <div className="flex-1 h-px bg-[#3d2817]/20" />
+                  </div>
+                  <div className="space-y-3">
+                    {centralSchemes.map((s, i) => (
+                      <div key={i} className="bg-[#faf7f0] hairline p-5 hover:bg-[#f5efe3] transition-colors">
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="font-display text-xl text-[#1a1410]" style={{fontWeight:600}}>{s.name}</h3>
+                          <span className="font-mono text-[10px] uppercase tracking-wider text-[#8b3a1f] bg-[#f3e4e1] px-2 py-0.5 border border-[#8b3a1f]/30">{s.tier}</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 mt-3 text-sm">
+                          <div>
+                            <div className="font-mono text-[10px] tracking-wider uppercase text-[#8b7355]">Amount</div>
+                            <div className="font-display text-[#1a1410]" style={{fontWeight:600}}>{s.amount}</div>
+                          </div>
+                          <div>
+                            <div className="font-mono text-[10px] tracking-wider uppercase text-[#8b7355]">Rate / Terms</div>
+                            <div className="font-display text-[#1a1410]" style={{fontWeight:600}}>{s.interest}</div>
+                          </div>
+                        </div>
+                        <div className="mt-3 pt-3 border-t border-[#3d2817]/10 text-xs text-[#3d2817]/80">
+                          <div className="mb-1"><span className="font-mono uppercase tracking-wider text-[9px] text-[#8b7355] mr-2">Eligibility</span>{s.eligibility}</div>
+                          <div><span className="font-mono uppercase tracking-wider text-[9px] text-[#8b7355] mr-2">Best for</span>{s.best}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section>
+                  <div className="flex items-center gap-3 mb-4">
+                    <MapPin className="w-5 h-5 text-[#8b3a1f]" strokeWidth={1.5} />
+                    <h2 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:700}}>State Specific · Telangana</h2>
+                    <div className="flex-1 h-px bg-[#3d2817]/20" />
+                  </div>
+                  <div className="space-y-3">
+                    {stateSchemes.map((s, i) => (
+                      <div key={i} className="bg-[#1a1410] text-[#f5efe3] p-5 border-l-2 border-[#c9a961]">
+                        <div className="flex items-start justify-between mb-2">
+                          <h3 className="font-display text-xl" style={{fontWeight:600}}>{s.name}</h3>
+                          <span className="font-mono text-[10px] uppercase tracking-wider text-[#c9a961] bg-[#3d2817] px-2 py-0.5 border border-[#c9a961]/30">{s.tier}</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 mt-3 text-sm">
+                          <div>
+                            <div className="font-mono text-[10px] tracking-wider uppercase text-[#c9a961]">Amount</div>
+                            <div className="font-display" style={{fontWeight:600}}>{s.amount}</div>
+                          </div>
+                          <div>
+                            <div className="font-mono text-[10px] tracking-wider uppercase text-[#c9a961]">Rate / Terms</div>
+                            <div className="font-display" style={{fontWeight:600}}>{s.interest}</div>
+                          </div>
+                        </div>
+                        <div className="mt-3 pt-3 border-t border-[#c9a961]/20 text-xs text-[#f5efe3]/80">
+                          <div className="mb-1"><span className="font-mono uppercase tracking-wider text-[9px] text-[#c9a961] mr-2">Eligibility</span>{s.eligibility}</div>
+                          <div><span className="font-mono uppercase tracking-wider text-[9px] text-[#c9a961] mr-2">Best for</span>{s.best}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </div>
+            </div>
+          )}
+
+          {/* ───────── SUMAN TV MEDIA ───────── */}
+          {activeView === 'media' && (
+            <div className="fade-in">
+              <div className="mb-8">
+                <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8b7355] mb-2">Module 04 — Suman TV Integration</div>
+                <h1 className="font-display text-5xl text-[#1a1410] leading-[0.95]" style={{fontWeight:400}}>
+                  Content <span className="italic" style={{fontWeight:300}}>meets</span> Commerce.
+                </h1>
+                <p className="mt-4 max-w-2xl text-[#3d2817]/75 leading-relaxed text-[15px]">
+                  Every entrepreneur is a story. Turn your selected blueprint into a 30-second
+                  Suman TV script and a ready-to-shoot episode thumbnail.
+                </p>
+              </div>
+
+              {!selectedIdea ? (
+                <div className="bg-[#faf7f0] hairline p-10 text-center">
+                  <Video className="w-10 h-10 text-[#8b7355] mx-auto mb-3" strokeWidth={1} />
+                  <div className="font-display text-xl text-[#1a1410] mb-2" style={{fontWeight:600}}>Select a business idea first</div>
+                  <p className="text-sm text-[#3d2817]/70 mb-5">The script engine needs a blueprint to work from.</p>
+                  <button
+                    onClick={() => setActiveView('ideas')}
+                    className="px-6 py-3 bg-[#1a1410] text-[#f5efe3] font-mono text-xs uppercase tracking-[0.2em] hover:bg-[#3d2817] transition-colors"
+                  >
+                    Open Idea Explorer →
+                  </button>
+                </div>
+              ) : (
+                <div className="grid lg:grid-cols-5 gap-6">
+                  {/* Thumbnail Preview */}
+                  <div className="lg:col-span-2">
+                    <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355] mb-3">Episode Thumbnail Preview</div>
+                    <div className="relative aspect-video bg-gradient-to-br from-[#1a1410] via-[#3d2817] to-[#8b3a1f] overflow-hidden shadow-[0_20px_40px_-12px_rgba(26,20,16,0.5)]">
+                      {/* Texture */}
+                      <div className="absolute inset-0 grain opacity-30" />
+                      {/* Big icon */}
+                      <div className="absolute -right-8 -bottom-8 opacity-20">
+                        {(() => { const Icon = selectedIdea.icon; return <Icon className="w-48 h-48 text-[#c9a961]" strokeWidth={0.5} />; })()}
+                      </div>
+                      {/* Content */}
+                      <div className="absolute inset-0 p-6 flex flex-col justify-between">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 bg-[#8b3a1f] rounded-full animate-pulse" />
+                            <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#f5efe3]">Suman TV · Live</span>
+                          </div>
+                          <div className="font-mono text-[10px] text-[#c9a961]">EP 0{selectedIdea.id}</div>
+                        </div>
+                        <div>
+                          <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-[#c9a961] mb-2">Alternative Career</div>
+                          <div className="font-display text-3xl text-[#f5efe3] leading-[0.95] mb-2" style={{fontWeight:700}}>
+                            ₹1 Lakh<br/>
+                            <span className="italic text-[#c9a961]" style={{fontWeight:300}}>to {selectedIdea.name}</span>
+                          </div>
+                          <div className="text-xs text-[#f5efe3]/80">{selectedIdea.tagline}</div>
+                        </div>
+                      </div>
+                      {/* Play button */}
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 bg-[#f5efe3]/90 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform cursor-pointer">
+                        <Play className="w-5 h-5 text-[#1a1410] ml-1" fill="#1a1410" />
+                      </div>
+                    </div>
+                    <div className="mt-3 text-[11px] text-[#8b7355] font-mono">
+                      Thumbnail auto-composed from blueprint data. Export dimensions: 1920×1080.
+                    </div>
+                  </div>
+
+                  {/* Script Generator */}
+                  <div className="lg:col-span-3">
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355]">Content Hook Generator</div>
+                      <button
+                        onClick={() => setShowScript(!showScript)}
+                        className="flex items-center gap-2 px-4 py-2 bg-[#8b3a1f] text-[#f5efe3] font-mono text-[10px] uppercase tracking-[0.2em] hover:bg-[#6b2a15] transition-colors"
+                      >
+                        <Sparkles className="w-3.5 h-3.5" /> {showScript ? 'Regenerate' : 'Generate 30-sec Script'}
+                      </button>
+                    </div>
+                    <div className="bg-[#1a1410] text-[#f5efe3] p-6 min-h-[420px] relative">
+                      <div className="flex items-center justify-between pb-4 border-b border-[#c9a961]/20 mb-4">
+                        <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#c9a961]">
+                          Script v1 · {selectedIdea.name}
+                        </div>
+                        <div className="font-mono text-[10px] text-[#f5efe3]/50">30s · Regional + English</div>
+                      </div>
+                      {showScript ? (
+                        <pre className="font-mono text-xs leading-relaxed text-[#f5efe3] whitespace-pre-wrap fade-in">
+                          {generateScript(selectedIdea)}
+                        </pre>
+                      ) : (
+                        <div className="flex flex-col items-center justify-center h-[340px] text-center">
+                          <Video className="w-10 h-10 text-[#c9a961]/40 mb-3" strokeWidth={1} />
+                          <div className="font-display italic text-lg text-[#f5efe3]/60 mb-1" style={{fontStyle:'italic'}}>
+                            Ready to turn this business into a broadcast?
+                          </div>
+                          <div className="text-xs text-[#f5efe3]/40">Click the generator above.</div>
+                        </div>
+                      )}
+                    </div>
+                    {showScript && (
+                      <div className="mt-3 flex gap-2 text-[10px] font-mono uppercase tracking-wider text-[#8b7355]">
+                        <span className="px-2 py-1 bg-[#faf7f0] hairline">#AlternativeCareer</span>
+                        <span className="px-2 py-1 bg-[#faf7f0] hairline">#RuralFounder</span>
+                        <span className="px-2 py-1 bg-[#faf7f0] hairline">#{selectedIdea.category.replace(/\s/g,'')}</span>
+                        <span className="px-2 py-1 bg-[#faf7f0] hairline">#SumanStartup</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* ───────── ROADMAP ───────── */}
+          {activeView === 'roadmap' && (
+            <div className="fade-in">
+              <div className="mb-8">
+                <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#8b7355] mb-2">Module 05 — Execution Roadmap</div>
+                <h1 className="font-display text-5xl text-[#1a1410] leading-[0.95]" style={{fontWeight:400}}>
+                  From <span className="italic" style={{fontWeight:300}}>Idea</span> to <span className="text-[#8b3a1f]" style={{fontWeight:700}}>Launch.</span>
+                </h1>
+                <p className="mt-4 max-w-2xl text-[#3d2817]/75 leading-relaxed text-[15px]">
+                  A four-phase checklist grounded in real founder experience. Tick items as you complete them — this roadmap is yours.
+                </p>
+              </div>
+
+              <div className="relative">
+                {/* Vertical line */}
+                <div className="absolute left-[19px] top-4 bottom-4 w-px bg-[#3d2817]/20 hidden md:block" />
+
+                <div className="space-y-8">
+                  {roadmap.map((phase, pi) => {
+                    const phaseItems = phase.items;
+                    const completedInPhase = phaseItems.filter((_, ii) => completedSteps[`${pi}-${ii}`]).length;
+                    const phaseComplete = completedInPhase === phaseItems.length;
+                    return (
+                      <div key={pi} className="relative flex gap-6">
+                        {/* Marker */}
+                        <div className={`relative z-10 w-10 h-10 flex-shrink-0 flex items-center justify-center font-display text-sm transition-all ${
+                          phaseComplete
+                            ? 'bg-[#3d5a3a] text-[#f5efe3]'
+                            : completedInPhase > 0
+                              ? 'bg-[#c9a961] text-[#1a1410]'
+                              : 'bg-[#faf7f0] hairline text-[#1a1410]'
+                        }`} style={{fontWeight:700}}>
+                          {phaseComplete ? <CheckCircle2 className="w-5 h-5" /> : String(pi+1).padStart(2,'0')}
+                        </div>
+
+                        {/* Content */}
+                        <div className="flex-1 bg-[#faf7f0] hairline p-6">
+                          <div className="flex items-center justify-between mb-4">
+                            <div>
+                              <div className="font-mono text-[10px] tracking-[0.25em] uppercase text-[#8b7355]">Phase {pi+1}</div>
+                              <h3 className="font-display text-2xl text-[#1a1410]" style={{fontWeight:600}}>{phase.phase}</h3>
+                            </div>
+                            <div className="font-mono text-xs text-[#3d2817]">
+                              {completedInPhase}/{phaseItems.length}
+                            </div>
+                          </div>
+
+                          {/* Progress bar */}
+                          <div className="h-1 bg-[#ebe4d2] mb-5">
+                            <div
+                              className="h-full bg-[#3d5a3a] transition-all duration-500"
+                              style={{width: `${(completedInPhase/phaseItems.length)*100}%`}}
+                            />
+                          </div>
+
+                          {/* Items */}
+                          <div className="space-y-2">
+                            {phaseItems.map((item, ii) => {
+                              const key = `${pi}-${ii}`;
+                              const done = !!completedSteps[key];
+                              return (
+                                <button
+                                  key={ii}
+                                  onClick={() => setCompletedSteps({...completedSteps, [key]: !done})}
+                                  className={`w-full flex items-center gap-3 p-3 text-left transition-all border-l-2 ${
+                                    done
+                                      ? 'bg-[#e8ede4] border-[#3d5a3a]'
+                                      : 'bg-transparent border-[#3d2817]/15 hover:bg-[#ebe4d2]/50 hover:border-[#8b7355]'
+                                  }`}
+                                >
+                                  {done
+                                    ? <CheckCircle2 className="w-4 h-4 text-[#3d5a3a] flex-shrink-0" strokeWidth={2} />
+                                    : <Circle className="w-4 h-4 text-[#8b7355]/50 flex-shrink-0" strokeWidth={1.5} />
+                                  }
+                                  <span className={`text-sm ${done ? 'text-[#3d5a3a] line-through' : 'text-[#1a1410]'}`}>
+                                    {item}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+        </main>
+      </div>
+
+      {/* ═══════════════ FOOTER ═══════════════ */}
+      <footer className="border-t border-[#3d2817]/20 bg-[#1a1410] text-[#f5efe3] px-6 lg:px-10 py-6 mt-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Compass className="w-5 h-5 text-[#c9a961]" strokeWidth={1.5} />
+            <div>
+              <div className="font-display text-lg" style={{fontWeight:600}}>Suman Startup Advisor</div>
+              <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#c9a961]">
+                A Suman TV Initiative · Hyderabad
+              </div>
+            </div>
+          </div>
+          <div className="font-display italic text-sm text-[#f5efe3]/70 max-w-md text-right" style={{fontStyle:'italic'}}>
+            "Responsible and respectful content. Sustainable &amp; ethical business growth for every village, every graduate, every woman."
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<SumanStartupAdvisor />);
+</script>
+</body>
+</html>
