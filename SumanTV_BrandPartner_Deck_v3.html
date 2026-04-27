@@ -1,0 +1,2942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Suman TV — A Brand Partner Brief · v3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Premium Editorial palette */
+    --paper: #F8F4E9;          /* warm cream paper */
+    --paper-deep: #F2EDDD;     /* darker cream for cards */
+    --paper-warm: #EFE9D6;     /* warmest cream for accents */
+    --ink: #1A1815;            /* deep warm black */
+    --ink-soft: #2D2A24;
+    --charcoal: #4A4640;
+    --slate: #6B655D;
+    --slate-light: #948E83;
+    --line: #D4CDB9;           /* warm hairline */
+    --line-soft: #E5DEC9;
+    --gold: #B8935A;           /* antique gold */
+    --gold-deep: #8B6F3F;
+    --gold-soft: rgba(184,147,90,0.08);
+    --magenta: #C72E6E;        /* refined magenta — restrained */
+    --magenta-soft: rgba(199,46,110,0.06);
+    --green: #5A7A4F;
+    --red: #A8423E;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Subtle paper texture */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle at 25% 25%, rgba(184,147,90,0.025) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, rgba(199,46,110,0.015) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .placeholder {
+    background: rgba(184,147,90,0.12);
+    padding: 1px 8px;
+    border-bottom: 1px dotted var(--gold);
+    color: var(--gold-deep);
+    font-weight: 600;
+    font-style: normal;
+  }
+  .placeholder::before { content: "✎ "; opacity: 0.6; }
+
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(248, 244, 233, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--line);
+    z-index: 1000;
+    padding: 16px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .nav-brand .nav-mark {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .nav-brand::after {
+    content: '';
+    height: 16px;
+    width: 1px;
+    background: var(--line);
+    margin: 0 4px;
+  }
+  .nav-brand .nav-doc-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-weight: 400;
+  }
+  .nav-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--slate);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* Slide framework */
+  .slide {
+    min-height: 100vh;
+    padding: 140px 96px 120px;
+    position: relative;
+    border-bottom: 1px solid var(--line-soft);
+    z-index: 1;
+  }
+  .slide-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Roman numeral section markers */
+  .roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--gold-deep);
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .roman::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+  .roman .num-roman {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--gold-deep);
+  }
+  .roman .roman-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    font-style: normal;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4 {
+    font-family: 'Fraunces', serif;
+    color: var(--ink);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  h1 { font-weight: 600; }
+  h2 { font-weight: 500; }
+
+  .display-xl {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(56px, 8vw, 128px);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 0.96;
+    color: var(--ink);
+  }
+  .display-lg {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 6vw, 88px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    color: var(--ink);
+  }
+  .display em, .display-xl em, .display-lg em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--magenta);
+  }
+  .display-italic {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* Drop cap */
+  .drop-cap::first-letter {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 72px;
+    float: left;
+    line-height: 0.85;
+    margin: 8px 12px 0 0;
+    color: var(--magenta);
+  }
+
+  .body-lg {
+    font-size: 20px;
+    color: var(--charcoal);
+    max-width: 720px;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .body-md {
+    font-size: 16px;
+    color: var(--charcoal);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .body-sm {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.6;
+    font-weight: 400;
+  }
+  .body em, .body-lg em, .body-md em { font-style: italic; }
+
+  /* Gold hairline divider */
+  .hairline {
+    width: 64px;
+    height: 1px;
+    background: var(--gold);
+    margin: 32px 0;
+  }
+  .hairline.center { margin-left: auto; margin-right: auto; }
+
+  /* Speaker notes — editorial sidebar style */
+  .notes {
+    margin-top: 80px;
+    padding: 32px 36px;
+    background: rgba(184,147,90,0.04);
+    border-left: 2px solid var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--charcoal);
+    font-style: italic;
+    max-width: 1080px;
+    line-height: 1.6;
+  }
+  .notes strong {
+    font-style: normal;
+    color: var(--gold-deep);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    display: block;
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .visual-note {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 12px;
+    background: var(--magenta-soft);
+    color: var(--magenta);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(199,46,110,0.15);
+    font-style: normal;
+  }
+
+  /* ============================================================ */
+  /* SLIDE 1 — COVER (Editorial Magazine Style) */
+  /* ============================================================ */
+  .cover {
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(184,147,90,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(199,46,110,0.05) 0%, transparent 50%),
+      var(--paper);
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    align-items: center;
+    min-height: calc(100vh - 260px);
+  }
+  .cover-issue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .cover-issue::before, .cover-issue::after {
+    content: '';
+    height: 1px;
+    background: var(--gold);
+    flex: 1;
+    max-width: 80px;
+  }
+  .cover h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(72px, 10vw, 156px);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.94;
+    color: var(--ink);
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 400;
+  }
+  .cover .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(22px, 2.4vw, 32px);
+    color: var(--charcoal);
+    margin-top: 40px;
+    font-weight: 400;
+    line-height: 1.35;
+    max-width: 760px;
+  }
+  .cover-footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .cover-foot-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 8px;
+  }
+  .cover-foot-item .value {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .cover-foot-item .value em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+
+  /* MASTHEAD MARQUEE */
+  .masthead-line {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+  }
+  .masthead-track {
+    display: inline-flex;
+    animation: marquee 50s linear infinite;
+    gap: 56px;
+    align-items: center;
+    padding-left: 56px;
+  }
+  .masthead-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--paper);
+    letter-spacing: 0.01em;
+  }
+  .masthead-sep {
+    color: var(--gold);
+    font-size: 14px;
+    font-style: normal;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ============================================================ */
+  /* SLIDE 2 — UNCOMFORTABLE TRUTH (Editorial Spread) */
+  /* ============================================================ */
+  .truth-spread {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-top: 64px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .truth-col {
+    padding: 56px 48px;
+    background: var(--paper);
+    position: relative;
+  }
+  .truth-col.right {
+    background: var(--paper-deep);
+  }
+  .truth-col .col-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    color: var(--slate);
+  }
+  .truth-col.right .col-tag { color: var(--magenta); }
+  .truth-col h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    margin-bottom: 32px;
+    line-height: 1.15;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .truth-col h3 em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .truth-col ul {
+    list-style: none;
+  }
+  .truth-col ul li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.55;
+    padding-left: 28px;
+    position: relative;
+  }
+  .truth-col ul li:last-child { border-bottom: none; }
+  .truth-col ul li::before {
+    position: absolute;
+    left: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    top: 16px;
+  }
+  .truth-col.left ul li { color: var(--slate); }
+  .truth-col.left ul li::before {
+    content: "—";
+    color: var(--slate-light);
+  }
+  .truth-col.right ul li::before {
+    content: "◆";
+    color: var(--gold);
+    font-size: 9px;
+    top: 18px;
+  }
+
+  .pull-quote {
+    margin: 96px auto 0;
+    max-width: 920px;
+    text-align: center;
+    padding: 48px 0;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Fraunces', serif;
+    font-size: 80px;
+    color: var(--gold);
+    font-style: italic;
+    background: var(--paper);
+    padding: 0 16px;
+    line-height: 1;
+  }
+  .pull-quote p {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(22px, 2.6vw, 34px);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  .pull-quote .attr {
+    margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--slate);
+    font-style: normal;
+  }
+
+  /* ============================================================ */
+  /* SLIDE 3 — HEADLINE STAT (The Number) */
+  /* ============================================================ */
+  .stat-hero {
+    text-align: center;
+    margin: 96px auto 0;
+    max-width: 1200px;
+  }
+  .stat-mega {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(160px, 26vw, 440px);
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 0.82;
+    letter-spacing: -0.06em;
+  }
+  .stat-mega sup {
+    font-size: 0.28em;
+    vertical-align: super;
+    color: var(--magenta);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .stat-mega-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+    letter-spacing: 0;
+    color: var(--charcoal);
+    margin-top: 32px;
+    font-weight: 400;
+  }
+  .stat-mega-context {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--slate);
+    margin-top: 24px;
+    font-style: italic;
+    font-weight: 300;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================ */
+  /* SLIDE 4 — REAL SCALE (Editorial Number Grid) */
+  /* ============================================================ */
+  .scale-editorial {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+  }
+  .scale-item {
+    text-align: center;
+    padding: 0 16px;
+  }
+  .scale-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(72px, 8vw, 120px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .scale-item .num sup {
+    font-size: 0.32em;
+    vertical-align: super;
+    color: var(--magenta);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .scale-item .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin-top: 16px;
+    font-weight: 400;
+  }
+  .scale-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--line);
+    margin: 64px 0;
+  }
+  .scale-secondary-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .scale-secondary-row .scale-item .num {
+    font-size: clamp(48px, 5vw, 72px);
+    color: var(--ink);
+  }
+  .scale-secondary-row .scale-item .label {
+    font-size: 14px;
+  }
+
+  /* ============================================================ */
+  /* NEW: SLIDE — PRODUCTION REALITY (What You See) */
+  /* ============================================================ */
+  .production-spread-a {
+    margin-top: 80px;
+    text-align: center;
+  }
+  .what-you-see-visual {
+    margin: 0 auto;
+    max-width: 700px;
+    padding: 80px 0;
+    border: 1px solid var(--line);
+    background: var(--paper-deep);
+    position: relative;
+  }
+  .what-you-see-visual .icon {
+    font-family: 'Fraunces', serif;
+    font-size: 96px;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+  .what-you-see-visual h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .what-you-see-visual p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--slate);
+    margin-top: 8px;
+  }
+  .yousee-line {
+    margin-top: 64px;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--charcoal);
+    font-weight: 300;
+  }
+  .yousee-line .gold-em {
+    color: var(--gold-deep);
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* PRODUCTION REALITY (What It Takes) */
+  .production-takes {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+  }
+  .takes-col h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .takes-list {
+    list-style: none;
+  }
+  .takes-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.5;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .takes-list li:last-child { border-bottom: none; }
+  .takes-list li .item-name {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .takes-list li .item-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--gold-deep);
+    letter-spacing: 0.05em;
+  }
+
+  .time-reality {
+    margin-top: 80px;
+    padding: 48px;
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+  }
+  .time-reality::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+  .time-reality .label-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .time-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    align-items: center;
+    text-align: center;
+  }
+  .time-step {
+    padding: 0 16px;
+    position: relative;
+  }
+  .time-step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 18px;
+  }
+  .time-step .num {
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 1;
+    font-style: italic;
+  }
+  .time-step .step-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--paper);
+    margin-top: 12px;
+    opacity: 0.85;
+  }
+  .time-equation {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(212,205,185,0.2);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--paper);
+    font-weight: 300;
+  }
+  .time-equation strong {
+    color: var(--gold);
+    font-style: normal;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+  }
+
+  /* PRODUCTION INFRASTRUCTURE */
+  .infrastructure-row {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .infra-card {
+    padding: 36px 32px;
+    background: var(--paper-deep);
+    border-left: 2px solid var(--gold);
+  }
+  .infra-card h5 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+  }
+  .infra-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--ink);
+  }
+  .infra-card p {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  /* CRAFT NUMBERS */
+  .craft-numbers-block {
+    margin-top: 96px;
+    padding: 64px 0;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    text-align: center;
+  }
+  .craft-num-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(64px, 7vw, 104px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  .craft-num-item .num em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 400;
+  }
+  .craft-num-item .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--charcoal);
+    margin-top: 12px;
+  }
+
+  /* ============================================================ */
+  /* WORLD MAP — Hyperlocal + Global */
+  /* ============================================================ */
+  .geo-block {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .map-frame {
+    padding: 32px;
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+    aspect-ratio: 16 / 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .map-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .geo-tiers ul {
+    list-style: none;
+  }
+  .geo-tiers li {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .geo-tiers li:last-child { border-bottom: none; }
+  .geo-tiers .tier-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 8px;
+  }
+  .geo-tiers h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .geo-tiers p {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.55;
+  }
+
+  /* ============================================================ */
+  /* COMPARISON TABLE — Editorial */
+  /* ============================================================ */
+  .compare-wrapper {
+    margin-top: 56px;
+    overflow-x: auto;
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .compare-table thead {
+    background: var(--ink);
+  }
+  .compare-table thead th {
+    padding: 20px 18px;
+    text-align: left;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--paper);
+    border-right: 1px solid rgba(248,244,233,0.1);
+  }
+  .compare-table thead th:last-child { border-right: none; }
+  .compare-table thead th.sumantv-col {
+    background: var(--magenta);
+    color: var(--paper);
+    position: relative;
+  }
+  .compare-table thead th.sumantv-col::after {
+    content: "★";
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    color: var(--paper);
+    font-size: 11px;
+  }
+  .compare-table tbody td {
+    padding: 18px;
+    border-bottom: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft);
+    background: var(--paper);
+    color: var(--charcoal);
+    font-size: 14px;
+    vertical-align: top;
+  }
+  .compare-table tbody tr:last-child td { border-bottom: none; }
+  .compare-table tbody td:last-child { border-right: none; }
+  .compare-table tbody td.metric {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 500;
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+  .compare-table tbody td.sumantv {
+    background: rgba(199,46,110,0.05);
+    color: var(--ink);
+    font-weight: 600;
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    border-left: 2px solid var(--magenta);
+  }
+  .compare-table tbody td .small-note {
+    font-size: 11px;
+    color: var(--slate);
+    display: block;
+    margin-top: 4px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-style: italic;
+  }
+  .delta-positive {
+    color: var(--green);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    margin-top: 4px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ============================================================ */
+  /* VALUE STACK — Editorial */
+  /* ============================================================ */
+  .value-stack {
+    margin-top: 56px;
+    border-top: 2px solid var(--ink);
+  }
+  .value-row-edit {
+    display: grid;
+    grid-template-columns: 80px 1.5fr 2fr 1fr;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .value-row-edit .v-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold-deep);
+  }
+  .value-row-edit .v-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .value-row-edit .v-desc {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.55;
+    padding-right: 24px;
+  }
+  .value-row-edit .v-impact {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--magenta);
+    text-align: right;
+  }
+
+  .value-summary {
+    margin-top: 56px;
+    padding: 40px 48px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .value-summary .vs-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 12px;
+  }
+  .value-summary .vs-num {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .value-summary .vs-num em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .value-summary .arrow {
+    font-size: 24px;
+    color: var(--gold);
+    font-family: 'Fraunces', serif;
+  }
+
+  /* ============================================================ */
+  /* RETENTION — Hero Stat */
+  /* ============================================================ */
+  .retention-editorial {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 96px;
+    margin-top: 80px;
+    align-items: center;
+  }
+  .retention-mega {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(128px, 18vw, 280px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+  }
+  .retention-mega em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 400;
+  }
+  .retention-mega-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--charcoal);
+    margin-top: 24px;
+    font-weight: 400;
+  }
+  .retention-text p {
+    font-family: 'Fraunces', serif;
+    font-size: 21px;
+    color: var(--ink);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    font-weight: 400;
+  }
+  .retention-text p em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .retention-text p:last-child {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--charcoal);
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gold);
+  }
+
+  /* ============================================================ */
+  /* TRUST GRID — Editorial */
+  /* ============================================================ */
+  .trust-editorial {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    margin-top: 80px;
+  }
+  .trust-edit-item {
+    text-align: center;
+    padding: 0 8px;
+  }
+  .trust-edit-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(72px, 7vw, 104px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+  .trust-edit-item .num em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 400;
+  }
+  .trust-edit-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gold);
+  }
+  .trust-edit-item .desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--charcoal);
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ============================================================ */
+  /* BRAND SAFETY PILLARS */
+  /* ============================================================ */
+  .pillars-edit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 64px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .pillar-edit {
+    padding: 48px 36px;
+    background: var(--paper);
+  }
+  .pillar-edit .p-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--gold-deep);
+    margin-bottom: 20px;
+  }
+  .pillar-edit h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .pillar-edit p {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.65;
+  }
+
+  /* ============================================================ */
+  /* CASE STUDIES — Editorial Cards */
+  /* ============================================================ */
+  .case-edit {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+  .case-edit-card {
+    padding: 40px 36px;
+    background: var(--paper-deep);
+    border-top: 2px solid var(--gold);
+  }
+  .case-edit-card .c-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 16px;
+  }
+  .case-edit-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .case-edit-card .c-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .case-edit-card .c-results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  .case-edit-card .c-num {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .case-edit-card .c-num em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .case-edit-card .c-num-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--slate);
+    margin-top: 8px;
+  }
+
+  /* ============================================================ */
+  /* DEMOGRAPHIC ADVANTAGE */
+  /* ============================================================ */
+  .demo-edit {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 96px;
+    margin-top: 80px;
+    align-items: start;
+  }
+  .demo-mega {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(120px, 16vw, 240px);
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+  }
+  .demo-mega em {
+    font-style: italic;
+    color: var(--magenta);
+    font-weight: 400;
+  }
+  .demo-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+    margin-top: 32px;
+    line-height: 1.35;
+    color: var(--ink);
+    font-weight: 400;
+    max-width: 560px;
+  }
+  .demo-tagline em { color: var(--magenta); }
+  .demo-cells-edit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--gold);
+  }
+  .demo-cell-edit .num {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .demo-cell-edit .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--slate);
+    margin-top: 10px;
+  }
+
+  /* ============================================================ */
+  /* 5-STEP METHOD */
+  /* ============================================================ */
+  .method-flow {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .method-step {
+    padding: 48px 28px 36px;
+    background: var(--paper);
+    text-align: center;
+    position: relative;
+  }
+  .method-step .step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+  }
+  .method-step h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .method-step p {
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.55;
+  }
+
+  /* ============================================================ */
+  /* INTEGRATION ECOSYSTEM — Editorial */
+  /* ============================================================ */
+  .integ-edit {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .integ-edit-item {
+    padding: 36px 28px;
+    background: var(--paper);
+    transition: background 0.2s;
+  }
+  .integ-edit-item:hover {
+    background: var(--paper-deep);
+  }
+  .integ-edit-item .i-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold-deep);
+    margin-bottom: 14px;
+  }
+  .integ-edit-item h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .integ-edit-item p {
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.55;
+  }
+
+  /* ============================================================ */
+  /* ROI FUNNEL — Editorial */
+  /* ============================================================ */
+  .funnel-edit {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 80px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding: 48px 0;
+  }
+  .funnel-step-edit {
+    padding: 0 32px;
+    border-right: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+  }
+  .funnel-step-edit:last-child { border-right: none; }
+  .funnel-step-edit .step-rom {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--gold-deep);
+    margin-bottom: 16px;
+  }
+  .funnel-step-edit h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--ink);
+    line-height: 1.15;
+  }
+  .funnel-step-edit p {
+    font-size: 14px;
+    color: var(--charcoal);
+    line-height: 1.55;
+  }
+
+  /* ============================================================ */
+  /* WHY SUMAN TV — Editorial Three Reasons */
+  /* ============================================================ */
+  .why-edit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 64px;
+    margin-top: 80px;
+  }
+  .why-edit-card {
+    text-align: left;
+  }
+  .why-edit-card .w-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 56px;
+    color: var(--gold-deep);
+    line-height: 1;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--gold);
+  }
+  .why-edit-card h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .why-edit-card h4 em {
+    font-style: italic;
+    color: var(--magenta);
+  }
+  .why-edit-card p {
+    font-size: 15px;
+    color: var(--charcoal);
+    line-height: 1.65;
+  }
+
+  /* ============================================================ */
+  /* TIERS — Editorial */
+  /* ============================================================ */
+  .tiers-edit {
+    margin-top: 56px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .tiers-edit-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .tiers-edit-row:last-child { border-bottom: none; }
+  .tiers-edit-row.header {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .tiers-edit-row > div {
+    padding: 24px 28px;
+    border-right: 1px solid var(--line-soft);
+    font-size: 14px;
+  }
+  .tiers-edit-row.header > div {
+    border-right-color: rgba(248,244,233,0.1);
+  }
+  .tiers-edit-row > div:last-child { border-right: none; }
+  .tiers-edit-row .t-feat {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 500;
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+  .tiers-edit-row.header .t-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--paper);
+  }
+  .tiers-edit-row.header .t-name.signature {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .tiers-edit-row.header .t-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: rgba(248,244,233,0.7);
+    margin-top: 4px;
+  }
+  .t-check-edit {
+    color: var(--magenta);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .t-x-edit {
+    color: var(--slate-light);
+    font-size: 14px;
+  }
+
+  /* ============================================================ */
+  /* CLOSING */
+  /* ============================================================ */
+  .closing-edit {
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(184,147,90,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 70%, rgba(199,46,110,0.06) 0%, transparent 50%),
+      var(--paper);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .closing-edit .display-xl {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .closing-edit .body-lg {
+    margin: 32px auto 0;
+    text-align: center;
+    max-width: 720px;
+  }
+  .closing-cta-row {
+    margin-top: 64px;
+    display: inline-flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-edit-primary {
+    padding: 18px 40px;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid var(--ink);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-edit-primary:hover {
+    background: var(--magenta);
+    border-color: var(--magenta);
+  }
+  .btn-edit-secondary {
+    padding: 18px 40px;
+    background: transparent;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border: 1px solid var(--gold);
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-edit-secondary:hover { background: var(--paper-deep); }
+
+  .closing-contact-edit {
+    margin-top: 72px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 32px;
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    text-align: left;
+  }
+  .contact-edit-block .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 8px;
+  }
+  .contact-edit-block .value {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .closing-signature-edit {
+    margin-top: 64px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--charcoal);
+  }
+  .closing-signature-edit em {
+    color: var(--magenta);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* SCROLL HINT */
+  .scroll-hint-edit {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--slate);
+    animation: scrollPulse 2s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .scroll-hint-edit::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* Mobile */
+  @media (max-width: 1000px) {
+    .slide { padding: 100px 24px 60px; }
+    .nav { padding: 12px 16px; }
+    .cover-footer, .scale-editorial, .scale-secondary-row, .truth-spread, .production-takes, .infrastructure-row, .craft-numbers-block, .geo-block, .trust-editorial, .pillars-edit, .case-edit, .demo-edit, .demo-cells-edit, .method-flow, .integ-edit, .funnel-edit, .why-edit, .tiers-edit-row, .closing-contact-edit, .time-flow {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .method-flow, .integ-edit, .pillars-edit, .truth-spread { background: transparent; border: none; }
+    .method-step, .integ-edit-item, .pillar-edit, .truth-col { border: 1px solid var(--line); }
+    .funnel-edit { padding: 24px 0; }
+    .funnel-step-edit { border-right: none; border-bottom: 1px solid var(--line); padding: 24px; }
+    .compare-table { font-size: 11px; }
+    .compare-table thead th, .compare-table tbody td { padding: 10px 8px; }
+    .value-summary { grid-template-columns: 1fr; gap: 16px; text-align: center; }
+    .time-step:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-brand">
+    Suman <span class="nav-mark">TV</span>
+    <span class="nav-doc-type">A Brand Partner Brief</span>
+  </div>
+  <div class="nav-meta">Vol. III · Apr 2026</div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- SLIDE 1 — COVER (Editorial Magazine) -->
+<!-- ============================================================ -->
+<section class="slide cover" id="top">
+  <div class="slide-inner">
+    <div class="cover-grid">
+      <div>
+        <div class="cover-issue">
+          <span>Vol. III</span>
+          <span>·</span>
+          <span>April 2026</span>
+          <span>·</span>
+          <span>The Brand Partner Issue</span>
+        </div>
+
+        <h1>The brands you trust<br>have a <em>secret.</em></h1>
+
+        <p class="tagline">They stopped buying impressions.<br>They started building influence with Suman TV.</p>
+
+        <div class="cover-footer">
+          <div class="cover-foot-item">
+            <div class="label">Network</div>
+            <div class="value">India's <em>largest</em><br>regional digital</div>
+          </div>
+          <div class="cover-foot-item">
+            <div class="label">Established</div>
+            <div class="value">2015<br><span style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--slate); font-size: 14px;">Eleven years on</span></div>
+          </div>
+          <div class="cover-foot-item">
+            <div class="label">Reach</div>
+            <div class="value">300 Cr+<br><span style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--slate); font-size: 14px;">monthly views</span></div>
+          </div>
+          <div class="cover-foot-item">
+            <div class="label">Status</div>
+            <div class="value">Confidential<br><span style="font-style: italic; font-family: 'Cormorant Garamond', serif; color: var(--slate); font-size: 14px;">For brand partners</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint-edit">Begin Reading</div>
+</section>
+
+<!-- MASTHEAD MARQUEE -->
+<div class="masthead-line">
+  <div class="masthead-track">
+    <span class="masthead-item">India's Largest Regional Digital Network</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">300 Crore+ Monthly Views</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">10 Crore+ Engaged Subscribers</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">500+ Digital Properties</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">560+ Craftsmen Behind The Lens</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">100+ Awards from Google &amp; YouTube</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">Eleven Years of Continuous Trust</span>
+    <span class="masthead-sep">◆</span>
+    <!-- Loop -->
+    <span class="masthead-item">India's Largest Regional Digital Network</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">300 Crore+ Monthly Views</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">10 Crore+ Engaged Subscribers</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">500+ Digital Properties</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">560+ Craftsmen Behind The Lens</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">100+ Awards from Google &amp; YouTube</span>
+    <span class="masthead-sep">◆</span>
+    <span class="masthead-item">Eleven Years of Continuous Trust</span>
+    <span class="masthead-sep">◆</span>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- SLIDE 2 — UNCOMFORTABLE TRUTH -->
+<!-- ============================================================ -->
+<section class="slide" id="truth">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">I.</span>
+      <span class="roman-label">An Uncomfortable Truth</span>
+    </div>
+
+    <h2 class="display-lg">The biggest names<br>in regional media<br><em>aren't</em> the biggest.</h2>
+
+    <p class="body-lg drop-cap" style="margin-top: 40px;">The market rewards loud claims. Inflated subscriber numbers. Borrowed reach. Overlapping accounts. Premium-priced impressions that do not move the needle. We are not the loudest in the room. We are the largest. And we have the verified analytics to prove it.</p>
+
+    <div class="truth-spread">
+      <div class="truth-col left">
+        <div class="col-tag">The Old Way</div>
+        <h3>Pay premium for inflated reach.</h3>
+        <ul>
+          <li>Subscriber counts inflated by inactive accounts</li>
+          <li>Cross-platform views reported as unique audience</li>
+          <li>Paid amplification reported as organic reach</li>
+          <li>Borrowed celebrity reach passed as network reach</li>
+          <li>Brand-safety left to chance</li>
+          <li>Renewal rates that nobody publishes — for a reason</li>
+        </ul>
+      </div>
+      <div class="truth-col right">
+        <div class="col-tag">The Suman TV Way</div>
+        <h3>Pay for verified, sustained <em>influence.</em></h3>
+        <ul>
+          <li>YouTube + Meta verified analytics, exportable on request</li>
+          <li>30-day active subscriber definition — no inflation</li>
+          <li>100% organic monthly view reporting</li>
+          <li>Network-owned anchors. Reach we control, you trust</li>
+          <li>Editorial-controlled distribution across 500+ properties</li>
+          <li><span class="placeholder">70%+</span> of partners renew. Year after year.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pull-quote">
+      <p>Most brands are paying premium rates to networks with half the actual reach of Suman TV — and a fraction of the trust.</p>
+      <div class="attr">A truth the market would prefer you didn't read</div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Open the conversation by reframing the prospect's current spend. The two columns invite them to quietly audit their existing media budget. Do not name competitors — let the contrast do the work. Pause after the pull quote. Let it sit.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 3 — THE NUMBER -->
+<!-- ============================================================ -->
+<section class="slide" id="scale">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">II.</span>
+      <span class="roman-label">The Number That Changes The Conversation</span>
+    </div>
+
+    <h2 class="display-lg" style="text-align: center;">One stat.<br><em>Everything else.</em></h2>
+
+    <div class="stat-hero">
+      <div class="stat-mega">300<sup>cr+</sup></div>
+      <div class="stat-mega-label">Verified Monthly Views Across The Network</div>
+      <div class="stat-mega-context">Larger than the combined reach of most competitors who position themselves as "leaders."</div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Stop. Pause. Do not explain. The number is the argument. Wait at least five seconds before scrolling. If a prospect asks "is this verified?" — the answer is yes (YouTube + Meta analytics, exportable on request). Confidence is the weapon.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE 4 — REAL SCALE (Editorial Numbers) -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">III.</span>
+      <span class="roman-label">Numbers, Not Claims</span>
+    </div>
+
+    <h2 class="display-lg">Numbers that <em>don't</em><br>need explanation.</h2>
+
+    <div class="scale-editorial">
+      <div class="scale-item">
+        <div class="num">10<sup>cr+</sup></div>
+        <div class="label">Engaged subscribers, across every platform</div>
+      </div>
+      <div class="scale-item">
+        <div class="num">10<sup>cr+</sup></div>
+        <div class="label">Daily views, sustained &amp; organic</div>
+      </div>
+      <div class="scale-item">
+        <div class="num">500<sup>+</sup></div>
+        <div class="label">Owned digital channels &amp; pages</div>
+      </div>
+    </div>
+
+    <div class="scale-divider"></div>
+
+    <div class="scale-secondary-row">
+      <div class="scale-item">
+        <div class="num"><span class="placeholder">1,200+</span></div>
+        <div class="label">Hours of original content / month</div>
+      </div>
+      <div class="scale-item">
+        <div class="num"><span class="placeholder">85%</span></div>
+        <div class="label">Average watch-through rate</div>
+      </div>
+      <div class="scale-item">
+        <div class="num">100<sup>+</sup></div>
+        <div class="label">Awards from Google &amp; YouTube</div>
+      </div>
+      <div class="scale-item">
+        <div class="num">11</div>
+        <div class="label">Years of continuous operation</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The line: "These aren't projections. These aren't claims. These are this month's numbers." Editorial restraint here — let the typography do the talking, no boxes around the data.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NEW SLIDE — WHAT YOU SEE -->
+<!-- ============================================================ -->
+<section class="slide" style="background: var(--paper-warm);">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">IV.</span>
+      <span class="roman-label">What You See</span>
+    </div>
+
+    <h2 class="display-lg">What the audience<br>sees on screen.</h2>
+
+    <div class="production-spread-a">
+      <div class="what-you-see-visual">
+        <div class="icon">▷</div>
+        <h3>One Anchor.<br>One Camera.<br>Sixty Minutes.</h3>
+        <p>That's what your audience watches.</p>
+      </div>
+
+      <div class="yousee-line">
+        It is also <span class="gold-em">10%</span> of what it actually takes to make.
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      A deliberately quiet slide. The point is not to impress here — it is to set up the reveal on the next page. Read the closing line slowly: "It is also ten percent of what it actually takes to make."
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NEW SLIDE — WHAT IT TAKES -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">V.</span>
+      <span class="roman-label">What It Takes</span>
+    </div>
+
+    <h2 class="display-lg">The other <em>ninety percent.</em></h2>
+
+    <p class="body-lg" style="margin-top: 40px;">Every hour of content you see on Suman TV is the visible peak of an iceberg the market rarely talks about. Five production stages. Nineteen specialists per project. Studios across multiple centers. Broadcast-grade infrastructure. A modern production stack of AI tools, software licenses, and stock libraries.</p>
+
+    <div class="hairline" style="margin-top: 56px;"></div>
+
+    <!-- THE 5 STAGES, 19 PEOPLE, INFRASTRUCTURE -->
+    <div class="production-takes">
+      <div class="takes-col">
+        <h4>The Five Stages</h4>
+        <ul class="takes-list">
+          <li><span class="item-name">Pre-Production</span><span class="item-count">i</span></li>
+          <li><span class="item-name">Production</span><span class="item-count">ii</span></li>
+          <li><span class="item-name">Post-Production</span><span class="item-count">iii</span></li>
+          <li><span class="item-name">Distribution</span><span class="item-count">iv</span></li>
+          <li><span class="item-name">Reports &amp; Insights</span><span class="item-count">v</span></li>
+        </ul>
+      </div>
+
+      <div class="takes-col">
+        <h4>The Nineteen Hands</h4>
+        <ul class="takes-list">
+          <li><span class="item-name">Researcher &amp; Producer</span><span class="item-count">02</span></li>
+          <li><span class="item-name">Director</span><span class="item-count">01</span></li>
+          <li><span class="item-name">Camera Operators</span><span class="item-count">03</span></li>
+          <li><span class="item-name">Sound &amp; Lighting</span><span class="item-count">02</span></li>
+          <li><span class="item-name">Anchor &amp; Stylist</span><span class="item-count">02</span></li>
+          <li><span class="item-name">Editors &amp; Color Grader</span><span class="item-count">03</span></li>
+          <li><span class="item-name">Motion &amp; Captions</span><span class="item-count">02</span></li>
+          <li><span class="item-name">Distribution &amp; Analytics</span><span class="item-count">02</span></li>
+          <li><span class="item-name">Quality &amp; Publishing</span><span class="item-count">02</span></li>
+        </ul>
+      </div>
+
+      <div class="takes-col">
+        <h4>The Infrastructure</h4>
+        <ul class="takes-list">
+          <li><span class="item-name">State-of-art studios</span><span class="item-count">across centers</span></li>
+          <li><span class="item-name">Broadcast cameras &amp; rigs</span></li>
+          <li><span class="item-name">High-performance editing suites</span></li>
+          <li><span class="item-name">Servers &amp; storage arrays</span></li>
+          <li><span class="item-name">Uninterrupted power backups</span></li>
+          <li><span class="item-name">Lighting, audio &amp; production gear</span></li>
+          <li><span class="item-name">Modern production stack</span><span class="item-count">AI · stock</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TIME REALITY -->
+    <div class="time-reality">
+      <div class="label-tag">The Time Reality</div>
+      <div class="time-flow">
+        <div class="time-step">
+          <div class="num">01</div>
+          <div class="step-label">Hour of shoot time</div>
+        </div>
+        <div class="time-step">
+          <div class="num">01</div>
+          <div class="step-label">Day of production</div>
+        </div>
+        <div class="time-step">
+          <div class="num">04–05</div>
+          <div class="step-label">Days of editorial craft</div>
+        </div>
+        <div class="time-step">
+          <div class="num">01</div>
+          <div class="step-label">Day of distribution</div>
+        </div>
+      </div>
+      <div class="time-equation">
+        Seven days of work for every <strong>one hour</strong> your audience sees.
+      </div>
+    </div>
+
+    <!-- INFRASTRUCTURE DETAIL -->
+    <div class="infrastructure-row">
+      <div class="infra-card">
+        <h5>Studios &amp; Hardware</h5>
+        <h4>Built To Broadcast Standard</h4>
+        <p>Multiple owned studios across our centers. Broadcast-grade cameras, lighting, sound. High-performance editing workstations. Redundant servers and storage. Uninterrupted power backups across every location.</p>
+      </div>
+      <div class="infra-card">
+        <h5>Software &amp; Stack</h5>
+        <h4>A Modern Production Stack</h4>
+        <p>Industry-standard editorial software, AI tooling subscriptions, audio &amp; video stock libraries. Continuously upgraded as the market evolves. The invisible scaffolding that makes premium production possible.</p>
+      </div>
+    </div>
+
+    <!-- THE FINAL NUMBERS — 560+ Craftsmen -->
+    <div class="craft-numbers-block">
+      <div class="craft-num-item">
+        <div class="num"><em>560<sup>+</sup></em></div>
+        <div class="label">Craftsmen behind every camera</div>
+      </div>
+      <div class="craft-num-item">
+        <div class="num"><em>19</em></div>
+        <div class="label">Specialists, every single project</div>
+      </div>
+      <div class="craft-num-item">
+        <div class="num"><em>07</em></div>
+        <div class="label">Days of craft per hour of content</div>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top: 96px;">
+      <p>Most networks sell you what's on screen.<br>We're paid for what isn't.</p>
+      <div class="attr">The Production Reality</div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      This is the most important slide in the deck. Walk it slowly. Pause on each section: stages, people, infrastructure, time, the 560+ team. The takeaway: when a competitor undercuts your price, you have a complete answer for what they don't have. This slide ends most pricing objections.
+      <div class="visual-note">VERIFY BEFORE SHARING: Confirm the exact 560+ team count and 19 specialist breakdown reflects your actual production process. Adjust per Suman TV's reality.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- NEW SLIDE — HYPERLOCAL + GLOBAL (World Map) -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">VI.</span>
+      <span class="roman-label">Hyperlocal Dominance, Global Reach</span>
+    </div>
+
+    <h2 class="display-lg">Rooted in Telugu.<br>Reaching <em>everywhere.</em></h2>
+
+    <p class="body-lg" style="margin-top: 32px;">A network that owns the most influential Telugu households — and now reaches Telugu families across every major NRI market. The same trust, on six continents.</p>
+
+    <div class="geo-block">
+      <div class="map-frame">
+        <svg class="map-svg" viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stylized world (simplified continents) -->
+          <g fill="#D4CDB9" stroke="#B8935A" stroke-width="0.5">
+            <!-- North America -->
+            <path d="M 60 100 Q 80 80 130 90 L 200 110 Q 220 130 200 170 L 180 200 Q 140 220 100 200 L 70 170 Q 50 140 60 100 Z" />
+            <!-- South America -->
+            <path d="M 180 240 Q 200 230 220 250 L 230 320 Q 220 360 200 380 L 180 360 Q 170 320 170 280 Z" />
+            <!-- Europe -->
+            <path d="M 360 100 Q 380 90 420 100 L 440 130 Q 430 150 410 160 L 380 155 Q 360 140 360 100 Z" />
+            <!-- Africa -->
+            <path d="M 380 180 Q 410 170 450 190 L 460 280 Q 440 320 410 330 L 380 310 Q 370 260 370 220 Z" />
+            <!-- Asia -->
+            <path d="M 440 90 Q 480 80 580 100 L 640 140 Q 660 180 620 210 L 540 200 Q 480 190 440 160 Z" />
+            <!-- India highlight -->
+            <path d="M 540 175 Q 555 170 575 185 L 580 215 Q 565 230 545 220 L 535 200 Z" fill="#C72E6E" stroke="#C72E6E" />
+            <!-- Australia -->
+            <path d="M 620 290 Q 660 285 700 300 L 710 330 Q 690 350 650 345 L 620 330 Z" />
+          </g>
+
+          <!-- Connection lines from India -->
+          <g fill="none" stroke="#B8935A" stroke-width="1" stroke-dasharray="3,3" opacity="0.6">
+            <path d="M 555 195 Q 350 80 130 130" />
+            <path d="M 555 195 Q 480 100 400 125" />
+            <path d="M 555 195 Q 520 240 480 270" />
+            <path d="M 555 195 Q 600 240 660 320" />
+            <path d="M 555 195 Q 200 180 100 180" />
+          </g>
+
+          <!-- City markers — NRI hubs -->
+          <g>
+            <!-- USA -->
+            <circle cx="130" cy="130" r="5" fill="#C72E6E" />
+            <text x="142" y="125" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">USA</text>
+            <text x="142" y="138" font-family="Cormorant Garamond" font-size="9" fill="#6B655D" font-style="italic">Largest NRI hub</text>
+
+            <!-- UK -->
+            <circle cx="395" cy="125" r="4" fill="#C72E6E" />
+            <text x="372" y="115" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">UK</text>
+
+            <!-- UAE / Middle East -->
+            <circle cx="475" cy="180" r="4" fill="#C72E6E" />
+            <text x="478" y="172" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">UAE</text>
+
+            <!-- Singapore / SEA -->
+            <circle cx="610" cy="240" r="4" fill="#C72E6E" />
+            <text x="618" y="240" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">SG</text>
+
+            <!-- Australia -->
+            <circle cx="660" cy="320" r="4" fill="#C72E6E" />
+            <text x="668" y="320" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">AUS</text>
+
+            <!-- Canada -->
+            <circle cx="100" cy="100" r="4" fill="#C72E6E" />
+            <text x="60" y="95" font-family="Inter" font-size="10" fill="#1A1815" font-weight="500">CAN</text>
+
+            <!-- India label -->
+            <text x="555" y="248" font-family="Fraunces" font-size="14" fill="#C72E6E" font-style="italic" font-weight="500" text-anchor="middle">The Stronghold</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="geo-tiers">
+        <ul>
+          <li>
+            <div class="tier-tag">Tier I · The Stronghold</div>
+            <h4>Telugu Heartland</h4>
+            <p>The most influential digital network in Andhra Pradesh and Telangana. Home of our deepest trust capital.</p>
+          </li>
+          <li>
+            <div class="tier-tag">Tier II · Active Expansion</div>
+            <h4>Pan-India</h4>
+            <p>Kannada network already scaling. Tamil and Hindi entry underway. The Telugu playbook, replicated.</p>
+          </li>
+          <li>
+            <div class="tier-tag">Tier III · Premium Diaspora</div>
+            <h4>NRI Markets</h4>
+            <p>USA · UK · UAE · Australia · Canada · Singapore. Premium-monetizable Telugu households worldwide.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The world map signals legitimacy and ambition simultaneously. Most regional networks reach one state. Suman TV reaches one community across six continents. Use this slide for any brand with NRI exposure — premium ARPU lives here.
+      <div class="visual-note">VISUAL: The simplified SVG map can be replaced with a higher-fidelity custom map illustration in the final PPT.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SLIDE — COMPARISON TABLE -->
+<!-- ============================================================ -->
+<section class="slide" id="compare">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">VII.</span>
+      <span class="roman-label">Suman TV vs. The Market</span>
+    </div>
+
+    <h2 class="display-lg">Side by side. <em>Honestly.</em></h2>
+
+    <p class="body-lg" style="margin-top: 32px;">When two networks quote the same "reach number" — only one of them is verifiable. Here is how Suman TV actually compares to every category your media plan currently includes.</p>
+
+    <div class="compare-wrapper">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th class="sumantv-col">Suman TV</th>
+            <th>Legacy TV Networks</th>
+            <th>Telugu Digital Sites</th>
+            <th>Pan-India Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric">Monthly Digital Views</td>
+            <td class="sumantv">300 Cr+ <span class="delta-positive">benchmark setter</span></td>
+            <td><span class="placeholder">~80–120 Cr</span><span class="small-note">TV-first; weak digital</span></td>
+            <td><span class="placeholder">~30–60 Cr</span><span class="small-note">Site-driven, low video</span></td>
+            <td><span class="placeholder">~150–200 Cr</span><span class="small-note">National, not regional</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Engaged Subscribers</td>
+            <td class="sumantv">10 Cr+ <span class="delta-positive">verified · 30-day active</span></td>
+            <td><span class="placeholder">~3–5 Cr</span></td>
+            <td><span class="placeholder">~1–3 Cr</span></td>
+            <td><span class="placeholder">~5–8 Cr</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Owned Channels &amp; Pages</td>
+            <td class="sumantv">500+</td>
+            <td><span class="placeholder">10–25</span></td>
+            <td><span class="placeholder">3–8</span></td>
+            <td><span class="placeholder">15–40</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Production Team</td>
+            <td class="sumantv">560+ craftsmen</td>
+            <td><span class="placeholder">~150–250</span></td>
+            <td><span class="placeholder">~20–60</span></td>
+            <td><span class="placeholder">~80–200</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Brand Safety Score</td>
+            <td class="sumantv">Family-safe<br><span class="small-note">Editorial standards</span></td>
+            <td>Mixed<span class="small-note">News-driven</span></td>
+            <td>Mixed<span class="small-note">Clickbait risk</span></td>
+            <td>Mixed<span class="small-note">Outrage-driven</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Decision-Maker Audience</td>
+            <td class="sumantv">45% Women / 25–54</td>
+            <td><span class="placeholder">Older skew</span></td>
+            <td><span class="placeholder">Male-heavy</span></td>
+            <td><span class="placeholder">Younger skew</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Brand Retention (Year+)</td>
+            <td class="sumantv"><span class="placeholder">70%+</span> renew annually</td>
+            <td><span class="placeholder">~30%</span></td>
+            <td><span class="placeholder">~20%</span></td>
+            <td><span class="placeholder">~25%</span></td>
+          </tr>
+          <tr>
+            <td class="metric">Anchor-Led Trust IPs</td>
+            <td class="sumantv">Doctor Awards<br>Real Estate Expo</td>
+            <td>Limited</td>
+            <td>None</td>
+            <td>Some</td>
+          </tr>
+          <tr>
+            <td class="metric">Equity Partnership Option</td>
+            <td class="sumantv">Available</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Rare</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body-md" style="margin-top: 40px; max-width: 900px; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--ink);">We are happy to be audited. Most networks aren't.</p>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Walk this line by line. The retention row is the punchline — most networks lose 70% of clients after one campaign. We retain 70%. The new "Production Team" row is the second punchline — competitors operate with a fraction of our infrastructure.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- VALUE STACK -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">VIII.</span>
+      <span class="roman-label">The Value Stack</span>
+    </div>
+
+    <h2 class="display-lg">What you're<br>actually <em>buying.</em></h2>
+
+    <p class="body-lg" style="margin-top: 32px;">Most networks sell impressions. We sell an integrated influence stack — built on owned distribution, anchor-led trust, broadcast-grade infrastructure, and category-defining IPs. Standalone, each layer would cost a fortune. Together, they become your unfair advantage.</p>
+
+    <div class="value-stack">
+      <div class="value-row-edit">
+        <div class="v-num">i.</div>
+        <div class="v-name">Network Distribution</div>
+        <div class="v-desc">300 Cr+ monthly views across 500+ owned channels and pages — no other regional network comes close.</div>
+        <div class="v-impact">Reach</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">ii.</div>
+        <div class="v-name">Anchor-Led Storytelling</div>
+        <div class="v-desc">Network-owned anchors with established household trust deliver your brand narrative in-context.</div>
+        <div class="v-impact">Trust transfer</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">iii.</div>
+        <div class="v-name">Production Infrastructure</div>
+        <div class="v-desc">560+ craftsmen, broadcast-grade studios, modern production stack — invisible to your audience, essential to your brand.</div>
+        <div class="v-impact">Premium craft</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">iv.</div>
+        <div class="v-name">Flagship IP Integration</div>
+        <div class="v-desc">Doctor Awards, Real Estate Expo, and emerging IPs — category authority you cannot rent elsewhere.</div>
+        <div class="v-impact">Authority</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">v.</div>
+        <div class="v-name">Editorial Brand Safety</div>
+        <div class="v-desc">Family-safe, culturally rooted content — every property editorial-controlled by Suman TV.</div>
+        <div class="v-impact">Risk removed</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">vi.</div>
+        <div class="v-name">Decision-Maker Audience</div>
+        <div class="v-desc">45% women, 25–54 age band — the highest-conversion demographic in Indian regional media.</div>
+        <div class="v-impact">Conversion</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">vii.</div>
+        <div class="v-name">NRI &amp; Pan-India Reach</div>
+        <div class="v-desc">USA, UK, UAE, Australia, Canada — premium NRI audience plus Telugu, Kannada, Tamil, Hindi networks.</div>
+        <div class="v-impact">Premium ARPU</div>
+      </div>
+      <div class="value-row-edit">
+        <div class="v-num">viii.</div>
+        <div class="v-name">Performance Reporting</div>
+        <div class="v-desc">Quarterly outcome reports — leads, conversions, attribution. Data on what worked, why.</div>
+        <div class="v-impact">Accountability</div>
+      </div>
+    </div>
+
+    <div class="value-summary">
+      <div>
+        <div class="vs-label">What The Market Charges</div>
+        <div class="vs-num">Premium Rates</div>
+      </div>
+      <div class="arrow">→</div>
+      <div style="text-align: right;">
+        <div class="vs-label">What Suman TV Delivers</div>
+        <div class="vs-num"><em>Two to Three Times</em><br>The Value</div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The value stack reframes Suman TV from "media line item" to "integrated growth engine." Layer iii (Production Infrastructure) is new and powerful — it directly connects to the Production Reality slide and justifies premium pricing.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- RETENTION -->
+<!-- ============================================================ -->
+<section class="slide" id="trust">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">IX.</span>
+      <span class="roman-label">The Metric That Matters Most</span>
+    </div>
+
+    <h2 class="display-lg">Most networks <em>chase</em> brands.<br>Brands stay with us.</h2>
+
+    <div class="retention-editorial">
+      <div>
+        <div class="retention-mega"><em><span class="placeholder">70%+</span></em></div>
+        <div class="retention-mega-label">Annual brand-partner retention</div>
+      </div>
+      <div class="retention-text">
+        <p>The average regional network <em>loses</em> 70% of brand partners within twelve months.</p>
+        <p>At Suman TV, the math runs in the opposite direction. <span class="placeholder">More than 10 brands</span> have stayed with us for over a year. Some, for several.</p>
+        <p>This isn't loyalty. It is compounding ROI — and the only honest signal that media spend is working.</p>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Retention is your most defensible asset. Deliver: "We have never built a sales team to retain clients. They retain themselves." This is the moment the prospect understands Suman TV is not a vendor — it's a partner.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TRUST GRID -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">X.</span>
+      <span class="roman-label">Trust By The Numbers</span>
+    </div>
+
+    <h2 class="display-lg">Trust isn't a tagline.<br><em>It's measurable.</em></h2>
+
+    <div class="trust-editorial">
+      <div class="trust-edit-item">
+        <div class="num">11</div>
+        <div class="label">Years</div>
+        <div class="desc">Continuous content production since 2015 — through every market cycle.</div>
+      </div>
+      <div class="trust-edit-item">
+        <div class="num">100<sup>+</sup></div>
+        <div class="label">Awards</div>
+        <div class="desc">From Google &amp; YouTube — recognition on metrics they verify themselves.</div>
+      </div>
+      <div class="trust-edit-item">
+        <div class="num">500<sup>+</sup></div>
+        <div class="label">Doctors Honored</div>
+        <div class="desc">India's largest medical recognition platform. Built on credibility.</div>
+      </div>
+      <div class="trust-edit-item">
+        <div class="num"><em><span class="placeholder">10+</span></em></div>
+        <div class="label">Year+ Partners</div>
+        <div class="desc">Long-term partners across healthcare, real estate, finance, retail, education.</div>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top: 96px;">
+      <p>The Telugu household that watches us in 2026 is the same household that watched us in 2015. <em>That</em> is the only retention metric that matters.</p>
+      <div class="attr">A Decade of Continuous Trust</div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Each of these four numbers tells a different trust story: time, platform validation, category authority, commercial proof. Together, they form an unfakeable trust portfolio.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- BRAND SAFETY -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XI.</span>
+      <span class="roman-label">Brand Safety, Engineered</span>
+    </div>
+
+    <h2 class="display-lg">In a market full of risk,<br>we are the <em>safe</em> bet.</h2>
+
+    <p class="body-lg" style="margin-top: 32px;">Every CMO has lived the moment: a campaign goes live next to content the brand never wanted to be associated with. We have designed our network so that moment cannot happen here.</p>
+
+    <div class="pillars-edit">
+      <div class="pillar-edit">
+        <div class="p-num">i.</div>
+        <h4>Editorial Standards</h4>
+        <p>Family-friendly, respectful, and culturally rooted content. No clickbait. No outrage. No content that puts brands at risk of association.</p>
+      </div>
+      <div class="pillar-edit">
+        <div class="p-num">ii.</div>
+        <h4>Owned Distribution</h4>
+        <p>500+ channels — all editorial-controlled. Unlike creator networks, we own the production and the publication. Your brand never appears next to surprise content.</p>
+      </div>
+      <div class="pillar-edit">
+        <div class="p-num">iii.</div>
+        <h4>Anchor-Led Storytelling</h4>
+        <p>Brand integrations are delivered by anchors who understand context. Trust transfers from anchor to brand — measurable and immediate.</p>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Brand safety is the unspoken anxiety of every marketing head. The phrase "moment cannot happen here" is deliberate — reassuring without being defensive.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CASE STUDIES -->
+<!-- ============================================================ -->
+<section class="slide" id="performance">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XII.</span>
+      <span class="roman-label">Real Outcomes, Real Categories</span>
+    </div>
+
+    <h2 class="display-lg">We've moved <em>numbers</em><br>across every category that matters.</h2>
+
+    <div class="case-edit">
+      <div class="case-edit-card">
+        <div class="c-tag">Healthcare</div>
+        <h4>A leading multi-specialty hospital chain</h4>
+        <p class="c-quote">Sustained brand-building through Doctor Awards integration, anchor-led health features, and category authority IPs across 18 months.</p>
+        <div class="c-results">
+          <div>
+            <div class="c-num"><em><span class="placeholder">3.2×</span></em></div>
+            <div class="c-num-label">Footfall lift</div>
+          </div>
+          <div>
+            <div class="c-num"><em><span class="placeholder">42%</span></em></div>
+            <div class="c-num-label">CAC reduction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-edit-card">
+        <div class="c-tag">Real Estate</div>
+        <h4>A top-five residential developer</h4>
+        <p class="c-quote">Real Estate Expo integration plus anchor-led project storytelling delivered measurable, qualified site visits — not vanity views.</p>
+        <div class="c-results">
+          <div>
+            <div class="c-num"><em><span class="placeholder">5,000+</span></em></div>
+            <div class="c-num-label">Verified site visits</div>
+          </div>
+          <div>
+            <div class="c-num"><em><span class="placeholder">2.7×</span></em></div>
+            <div class="c-num-label">Conversion vs. digital</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-edit-card">
+        <div class="c-tag">FMCG &amp; D2C</div>
+        <h4>A regional packaged-foods brand</h4>
+        <p class="c-quote">Anchor-led product storytelling on women-centric channels drove household-level awareness and trial.</p>
+        <div class="c-results">
+          <div>
+            <div class="c-num"><em><span class="placeholder">4×</span></em></div>
+            <div class="c-num-label">SKU awareness lift</div>
+          </div>
+          <div>
+            <div class="c-num"><em><span class="placeholder">28%</span></em></div>
+            <div class="c-num-label">Repeat purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-edit-card">
+        <div class="c-tag">Education</div>
+        <h4>A regional skilling institute</h4>
+        <p class="c-quote">Multi-channel campaign across business and family programming converted viewers to qualified enrollment leads at fraction of digital CAC.</p>
+        <div class="c-results">
+          <div>
+            <div class="c-num"><em><span class="placeholder">12,000+</span></em></div>
+            <div class="c-num-label">Qualified leads</div>
+          </div>
+          <div>
+            <div class="c-num"><em><span class="placeholder">~₹85</span></em></div>
+            <div class="c-num-label">Cost per lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Even rough actuals will dramatically increase the impact of this slide. Conduct a 1-day "outcomes audit" with 3–5 retained brand partners — informal feedback becomes deck gold.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DEMOGRAPHIC ADVANTAGE -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XIII.</span>
+      <span class="roman-label">The Audience That Buys</span>
+    </div>
+
+    <h2 class="display-lg">Reach is cheap.<br><em>Decision-makers</em> aren't.</h2>
+
+    <div class="demo-edit">
+      <div>
+        <div class="demo-mega"><em>45<sup>%</sup></em></div>
+        <div class="demo-tagline">Women — primary household decision-makers for <em>health, lifestyle, and family</em> purchases.</div>
+
+        <div class="demo-cells-edit">
+          <div class="demo-cell-edit">
+            <div class="num">25–54</div>
+            <div class="label">Highest-spend age band</div>
+          </div>
+          <div class="demo-cell-edit">
+            <div class="num"><span class="placeholder">62%</span></div>
+            <div class="label">Tier 1+2 city audience</div>
+          </div>
+          <div class="demo-cell-edit">
+            <div class="num"><span class="placeholder">38%</span></div>
+            <div class="label">NRI + Tier 3 reach</div>
+          </div>
+          <div class="demo-cell-edit">
+            <div class="num"><span class="placeholder">8.4 min</span></div>
+            <div class="label">Avg. session time</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="body-lg">Most networks reach eyeballs. We reach <em>wallets, families, and influence networks.</em></p>
+        <p class="body-md" style="margin-top: 24px;">The Suman TV viewer is not consuming content alone. They are recommending products to family, debating purchases at home, and deciding which brands to trust.</p>
+        <p class="body-md" style="margin-top: 32px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: var(--ink); padding-top: 24px; border-top: 1px solid var(--gold);">When a Suman TV viewer chooses your brand — they bring their household with them.</p>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The 45% women / 25–54 cohort is your single most valuable selling point — these are the people who make 70%+ of household purchase decisions in India.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5-STEP METHOD -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XIV.</span>
+      <span class="roman-label">The Suman TV Method</span>
+    </div>
+
+    <h2 class="display-lg">Five steps.<br>One <em>compounding</em> outcome.</h2>
+
+    <p class="body-lg" style="margin-top: 32px;">A proven sequence that has built every long-term brand partnership we hold. Not a media plan. A growth methodology.</p>
+
+    <div class="method-flow">
+      <div class="method-step">
+        <div class="step-num">i.</div>
+        <h4>Brand Reach</h4>
+        <p>Establish presence at scale across the highest-trust channels in regional India.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">ii.</div>
+        <h4>Brand Recall</h4>
+        <p>Anchor-led storytelling and frequency build top-of-mind recall in target households.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">iii.</div>
+        <h4>Reputation</h4>
+        <p>IP integration and category authority transfer credibility to your brand.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">iv.</div>
+        <h4>Edutainment</h4>
+        <p>Long-form content educates audiences while entertaining — driving deeper consideration.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">v.</div>
+        <h4>Premium Production</h4>
+        <p>Broadcast-grade craft ensures your brand is presented at the standard your audience expects.</p>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The five-step method positions Suman TV as a system, not a vendor. Every retained brand has gone through this sequence — explicitly or organically. Walk the prospect through where their brand sits today.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- INTEGRATION ECOSYSTEM -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XV.</span>
+      <span class="roman-label">The Integration Ecosystem</span>
+    </div>
+
+    <h2 class="display-lg">Your brand doesn't sit<br>outside the story.<br>It <em>lives within it.</em></h2>
+
+    <div class="integ-edit">
+      <div class="integ-edit-item">
+        <div class="i-num">i.</div>
+        <h4>L-Band &amp; Strip Branding</h4>
+        <p>Always-on visibility across selected programming.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">ii.</div>
+        <h4>Pre / Mid / Post Rolls</h4>
+        <p>Strategic placements with editorial alignment.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">iii.</div>
+        <h4>Anchor-Led Storytelling</h4>
+        <p>Trusted hosts deliver brand narratives in-context.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">iv.</div>
+        <h4>Live Integrations</h4>
+        <p>Sponsored live segments with real-time engagement.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">v.</div>
+        <h4>Targeted Shorts &amp; Reels</h4>
+        <p>Cross-platform amplification, demographic-tuned.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">vi.</div>
+        <h4>5-Second High-Impact</h4>
+        <p>Non-skip impressions on premium inventory.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">vii.</div>
+        <h4>Studio &amp; Event Placements</h4>
+        <p>Physical brand presence at flagship IP events.</p>
+      </div>
+      <div class="integ-edit-item">
+        <div class="i-num">viii.</div>
+        <h4>360° Campaign Architecture</h4>
+        <p>One campaign. Every touchpoint. Full funnel.</p>
+      </div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Eight integration formats means your inventory is rich enough for any brand objective. Most networks have two or three formats. We have eight.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ROI FUNNEL -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XVI.</span>
+      <span class="roman-label">From Views To Value</span>
+    </div>
+
+    <h2 class="display-lg">We don't deliver impressions.<br>We deliver <em>outcomes.</em></h2>
+
+    <div class="funnel-edit">
+      <div class="funnel-step-edit">
+        <div class="step-rom">i.</div>
+        <h4>More Leads</h4>
+        <p>Targeted awareness drives qualified inbound enquiry.</p>
+      </div>
+      <div class="funnel-step-edit">
+        <div class="step-rom">ii.</div>
+        <h4>More Customers</h4>
+        <p>Trust-led storytelling shortens consideration cycles.</p>
+      </div>
+      <div class="funnel-step-edit">
+        <div class="step-rom">iii.</div>
+        <h4>More Sales</h4>
+        <p>Repeat purchase and household recommendation.</p>
+      </div>
+      <div class="funnel-step-edit">
+        <div class="step-rom">iv.</div>
+        <h4>Lasting Trust</h4>
+        <p>Brand equity that compounds. The customer who stays.</p>
+      </div>
+    </div>
+
+    <p class="body-lg" style="margin-top: 80px; max-width: 900px;">We have helped hundreds of brands cross this funnel — across Healthcare, Real Estate, Retail, FMCG, Finance, Education, and Tech. <em>Suman TV is a growth engine, not a media line item.</em></p>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Anchor on Stage IV — lasting trust — because that is what justifies premium pricing.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- WHY SUMAN TV -->
+<!-- ============================================================ -->
+<section class="slide" id="partner">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XVII.</span>
+      <span class="roman-label">Why Suman TV</span>
+    </div>
+
+    <h2 class="display-lg">Three reasons.<br><em>One conclusion.</em></h2>
+
+    <div class="why-edit">
+      <div class="why-edit-card">
+        <div class="w-num">i.</div>
+        <h4>Verified <em>Scale</em></h4>
+        <p>300 Cr+ monthly views. 10 Cr+ engaged subscribers. 500+ owned channels. 560+ craftsmen behind every project. Every number is platform-verified, exportable, and current.</p>
+      </div>
+      <div class="why-edit-card">
+        <div class="w-num">ii.</div>
+        <h4>Earned <em>Trust</em></h4>
+        <p>Eleven years of family-safe, culturally rooted content. <span class="placeholder">70%+</span> brand-partner retention. The audience the household actually believes.</p>
+      </div>
+      <div class="why-edit-card">
+        <div class="w-num">iii.</div>
+        <h4>Measurable <em>Impact</em></h4>
+        <p>From leads to sales to lasting brand equity. Outcomes our partners can attribute, defend, and renew on. Year after year.</p>
+      </div>
+    </div>
+
+    <div class="pull-quote" style="margin-top: 96px;">
+      <p>You don't need more impressions.<br>You need the <em>right</em> ones.</p>
+      <div class="attr">— The Suman TV Promise</div>
+    </div>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      Three reasons — Scale, Trust, Impact — is the deck's mnemonic. Every other slide supports these three. The closing italic line is your verbal signature.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- TIERS -->
+<!-- ============================================================ -->
+<section class="slide">
+  <div class="slide-inner">
+    <div class="roman">
+      <span class="num-roman">XVIII.</span>
+      <span class="roman-label">Partnership Models</span>
+    </div>
+
+    <h2 class="display-lg">Three ways to<br>build with us.</h2>
+
+    <div class="tiers-edit">
+      <div class="tiers-edit-row header">
+        <div>Capability</div>
+        <div><div class="t-name">Campaign</div><div class="t-desc">Project-based</div></div>
+        <div><div class="t-name">Partnership</div><div class="t-desc">Annual retainer</div></div>
+        <div><div class="t-name signature">Signature</div><div class="t-desc">Equity / co-build</div></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Multi-channel integration</div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Anchor-led storytelling</div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Premium production craft</div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Flagship IP integration</div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Custom branded content</div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Quarterly performance reports</div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Dedicated account team</div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-check-edit">●</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Co-built IP / event</div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+      <div class="tiers-edit-row">
+        <div class="t-feat">Equity / outcome-based pricing</div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-x-edit">○</span></div>
+        <div><span class="t-check-edit">●</span></div>
+      </div>
+    </div>
+
+    <p class="body-md" style="margin-top: 40px; max-width: 900px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; color: var(--charcoal);">Investment ranges and category exclusivity discussed in private engagement. Suman TV reserves the right to limit category partners — to protect partner ROI.</p>
+
+    <div class="notes">
+      <strong>Editorial Note · Speaker</strong>
+      The "Signature" tier signals premium positioning and creates upsell pathway. The category exclusivity line tells the prospect: "if you don't sign, your competitor might."
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CLOSING -->
+<!-- ============================================================ -->
+<section class="slide closing-edit" id="contact">
+  <div class="slide-inner">
+    <div class="roman" style="justify-content: center; display: inline-flex;">
+      <span class="num-roman">XIX.</span>
+      <span class="roman-label">Let's Begin</span>
+    </div>
+
+    <h2 class="display-xl" style="margin-top: 24px;">You don't need a vendor.<br>You need a <em>partner.</em></h2>
+
+    <p class="body-lg" style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; font-weight: 400;">In a market full of inflated claims, fragmented attention, and short-term thinking — Suman TV is the rare network that has earned its scale, its trust, and its retention.</p>
+
+    <p class="body-lg" style="margin-top: 24px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: var(--ink);">When you're ready to stop buying impressions and start building <em>influence</em> — we're ready to partner.</p>
+
+    <div class="closing-cta-row">
+      <a href="#" class="btn-edit-primary">Schedule a Meeting →</a>
+      <a href="#top" class="btn-edit-secondary">Review the Brief</a>
+    </div>
+
+    <div class="closing-contact-edit">
+      <div class="contact-edit-block">
+        <div class="label">Call</div>
+        <div class="value"><span class="placeholder">+91 · Suman TV</span></div>
+      </div>
+      <div class="contact-edit-block">
+        <div class="label">Email</div>
+        <div class="value"><span class="placeholder">partnerships@sumantv.com</span></div>
+      </div>
+      <div class="contact-edit-block">
+        <div class="label">Visit</div>
+        <div class="value">Hyderabad, India</div>
+      </div>
+    </div>
+
+    <div class="closing-signature-edit">
+      <em>Suman TV.</em> The Voice That Matters.
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
