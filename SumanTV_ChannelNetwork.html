@@ -400,6 +400,9 @@
     headers = rows[0];
     allRows = rows.slice(1).filter(function(r){ return r.some(function(c){ return c; }); });
 
+    // Show detected columns so we can see the structure
+    showDebugBar(headers, allRows[0]||[]);
+
     colName     = findCol('channel') !== -1 ? findCol('channel') : findCol('name') !== -1 ? findCol('name') : 0;
     colPlatform = findCol('platform');
     colSubs     = findCol('subscriber') !== -1 ? findCol('subscriber') : findCol('follower') !== -1 ? findCol('follower') : findCol('sub');
@@ -436,13 +439,24 @@
     return n.toLocaleString();
   }
 
-  /* ── Platform helpers ── */
-  function platType(p){
-    const s=(p||'').toLowerCase();
-    if(s.includes('youtube')||s==='yt') return 'yt';
-    if(s.includes('facebook')||s==='fb') return 'fb';
-    if(s.includes('instagram')||s==='ig') return 'ig';
-    if(s.includes('twitter')||s==='x') return 'tw';
+  /* ── Platform helpers — detects from column value OR link URL ── */
+  function platType(platformVal, linkVal){
+    // Check platform column first
+    const s = (platformVal||'').toLowerCase().trim();
+    if(s.includes('youtube') || s==='yt' || s==='youtube') return 'yt';
+    if(s.includes('facebook')|| s==='fb' || s==='facebook') return 'fb';
+    if(s.includes('instagram')|| s==='ig' || s==='instagram') return 'ig';
+    if(s.includes('twitter') || s==='x'  || s==='tw') return 'tw';
+    // Fallback: detect from the link URL itself
+    const l = (linkVal||'').toLowerCase();
+    if(l.includes('youtube.com') || l.includes('youtu.be')) return 'yt';
+    if(l.includes('facebook.com')|| l.includes('fb.com'))   return 'fb';
+    if(l.includes('instagram.com'))                          return 'ig';
+    if(l.includes('twitter.com') || l.includes('x.com'))    return 'tw';
+    // Last resort: check if platform column has any letter hint
+    if(s==='y' || s.startsWith('you')) return 'yt';
+    if(s==='f' || s.startsWith('fac')) return 'fb';
+    if(s==='i' || s.startsWith('ins')) return 'ig';
     return 'other';
   }
   function platColor(t){ return {yt:'#FF4444',fb:'#4B9EF7',ig:'#E1306C',tw:'#1DA1F2',other:'#888'}[t]||'#888'; }
@@ -452,7 +466,7 @@
   function buildStats(){
     let yt=0,fb=0,ig=0,totalN=0;
     allRows.forEach(function(r){
-      const t=platType(r[colPlatform]);
+      const t=platType(r[colPlatform], colLink !== -1 ? r[colLink] : "");
       if(t==='yt') yt++; else if(t==='fb') fb++; else if(t==='ig') ig++;
       totalN+=parseSubs(r[colSubs]);
     });
@@ -493,7 +507,7 @@
 
   function applyFilter(){
     filtered = allRows.filter(function(r){
-      const t = platType(r[colPlatform]);
+      const t = platType(r[colPlatform], colLink !== -1 ? r[colLink] : "");
       const matchP = curFilter==='ALL'
         || (curFilter==='YouTube'   && t==='yt')
         || (curFilter==='Facebook'  && t==='fb')
@@ -550,7 +564,7 @@
       const idx   = start+i+1;
       const name  = r[colName]||'—';
       const platRaw = r[colPlatform]||'';
-      const pt    = platType(platRaw);
+      const pt    = platType(platRaw, colLink !== -1 ? r[colLink] : '');
       const pc    = platColor(pt);
       const subsRaw = r[colSubs]||'';
       const subsN = parseSubs(subsRaw);
