@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SumanTV — Digital Channel Network</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --pink:       #C2185B;
+    --pink-deep:  #880E4F;
+    --pink-light: #FCE4EC;
+    --gold:       #D4AF37;
+    --dark:       #06080F;
+    --dark2:      #0D0D1A;
+    --white:      #FFFFFF;
+    --gray:       #8888AA;
+    --gray-light: #CCCCDD;
+    --yt:         #FF4444;
+    --fb:         #4B9EF7;
+    --ig:         #E1306C;
+    --tw:         #1DA1F2;
+  }
+  html { scroll-behavior:smooth; font-size:16px; }
+  body {
+    font-family:'DM Sans',sans-serif;
+    background:var(--dark); color:var(--white);
+    overflow-x:hidden; min-height:100vh;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 60px;
+    background:rgba(6,8,15,0.95);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(194,24,91,0.2);
+  }
+  .nav-left { display:flex; flex-direction:column; }
+  .nav-brand { font-family:'Bebas Neue',sans-serif; font-size:1.15rem; letter-spacing:3px; color:var(--pink); }
+  .nav-sub   { font-size:0.62rem; letter-spacing:2px; color:rgba(255,255,255,0.35); text-transform:uppercase; margin-top:2px; }
+  .nav-right { display:flex; align-items:center; gap:28px; }
+  .nav-links { display:flex; gap:24px; }
+  .nav-links a {
+    font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase;
+    color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.25s;
+  }
+  .nav-links a:hover, .nav-links a.active { color:var(--pink); }
+  .nav-back {
+    font-size:0.72rem; letter-spacing:1.5px; text-transform:uppercase;
+    color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.25s;
+    display:flex; align-items:center; gap:6px;
+  }
+  .nav-back:hover { color:var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height:52vh; display:flex; align-items:flex-end;
+    padding:120px 60px 60px; position:relative; overflow:hidden;
+    background:linear-gradient(160deg, #0D0520 0%, #06080F 55%, #080C18 100%);
+  }
+  .hero::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse 70% 60% at 30% 50%, rgba(194,24,91,0.12) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  /* animated grid */
+  .hero-grid {
+    position:absolute; inset:0; opacity:0.04;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+    background-size:55px 55px;
+    pointer-events:none;
+  }
+  .hero-content { position:relative; z-index:2; max-width:1400px; width:100%; }
+  .hero-label {
+    font-size:0.62rem; letter-spacing:4px; text-transform:uppercase;
+    color:var(--pink); margin-bottom:16px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .hero-label::after { content:''; width:60px; height:1px; background:rgba(194,24,91,0.4); }
+  .hero-title {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.4rem,5vw,4.4rem); font-weight:900; line-height:1.05;
+    margin-bottom:20px;
+  }
+  .hero-desc {
+    font-size:1rem; color:rgba(255,255,255,0.45); line-height:1.8;
+    max-width:640px; margin-bottom:36px;
+  }
+  /* hero stats row */
+  .hero-stats {
+    display:flex; gap:0; border:1px solid rgba(194,24,91,0.18);
+    width:fit-content;
+  }
+  .hstat {
+    padding:18px 28px; border-right:1px solid rgba(194,24,91,0.12);
+    position:relative;
+  }
+  .hstat::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:2px;
+    background:var(--c, var(--pink));
+  }
+  .hstat:last-child { border-right:none; }
+  .hstat-num { font-family:'Bebas Neue',sans-serif; font-size:2rem; color:var(--c,var(--pink)); line-height:1; }
+  .hstat-lbl { font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:5px; }
+
+  /* ── MAIN CONTENT ── */
+  .main { max-width:1400px; margin:0 auto; padding:48px 60px 80px; }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    margin-bottom:24px; padding:18px 20px;
+    background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06);
+  }
+  .filter-label { font-size:0.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.25); margin-right:4px; }
+  .filter-btn {
+    padding:7px 16px; font-size:0.7rem; letter-spacing:1.5px; text-transform:uppercase;
+    background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1);
+    color:rgba(255,255,255,0.45); cursor:pointer; transition:all 0.2s;
+    font-family:'DM Sans',sans-serif; display:flex; align-items:center; gap:5px;
+  }
+  .filter-btn:hover { background:rgba(194,24,91,0.1); border-color:rgba(194,24,91,0.35); color:#fff; }
+  .filter-btn.active { background:rgba(194,24,91,0.15); border-color:var(--pink); color:#fff; }
+  .filter-btn.yt-active  { background:rgba(255,68,68,0.15);  border-color:var(--yt);  color:var(--yt); }
+  .filter-btn.fb-active  { background:rgba(75,158,247,0.15); border-color:var(--fb);  color:var(--fb); }
+  .filter-btn.ig-active  { background:rgba(225,48,108,0.15); border-color:var(--ig);  color:var(--ig); }
+  .search-wrap { margin-left:auto; position:relative; }
+  .search-wrap::before { content:'🔍'; position:absolute; left:12px; top:50%; transform:translateY(-50%); font-size:0.75rem; pointer-events:none; }
+  #ds-search {
+    padding:8px 14px 8px 34px; background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1); color:#fff;
+    font-family:'DM Sans',sans-serif; font-size:0.8rem; outline:none;
+    width:240px; transition:border-color 0.2s;
+  }
+  #ds-search:focus { border-color:rgba(194,24,91,0.5); }
+  #ds-search::placeholder { color:rgba(255,255,255,0.22); }
+
+  /* ── TABLE ── */
+  .table-wrap { border:1px solid rgba(255,255,255,0.07); overflow:hidden; }
+  #ds-table { width:100%; border-collapse:collapse; }
+  #ds-table thead tr { background:rgba(194,24,91,0.1); }
+  #ds-table thead th {
+    padding:13px 16px; text-align:left;
+    font-size:0.6rem; letter-spacing:2px; text-transform:uppercase;
+    color:rgba(255,255,255,0.45); font-weight:600;
+    border-bottom:1px solid rgba(194,24,91,0.18);
+    cursor:pointer; user-select:none; white-space:nowrap;
+    transition:color 0.2s;
+  }
+  #ds-table thead th:hover { color:var(--pink); }
+  #ds-table thead th.sorted { color:var(--pink); }
+  .sort-arrow { margin-left:4px; font-size:0.5rem; opacity:0.4; }
+  th.sorted .sort-arrow { opacity:1; }
+  #ds-table tbody tr {
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    transition:background 0.15s;
+  }
+  #ds-table tbody tr:hover { background:rgba(194,24,91,0.05); }
+  #ds-table tbody tr:last-child { border-bottom:none; }
+  #ds-table td { padding:12px 16px; color:rgba(255,255,255,0.6); vertical-align:middle; }
+
+  /* Cell types */
+  .td-idx { font-size:0.75rem; color:rgba(255,255,255,0.2); font-family:'Bebas Neue',sans-serif; width:40px; }
+  .td-name {
+    font-weight:600; color:var(--white); max-width:240px;
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .td-name small { display:block; font-size:0.68rem; color:rgba(255,255,255,0.3); font-weight:400; margin-top:2px; }
+  .plat-badge {
+    display:inline-flex; align-items:center; gap:4px;
+    padding:3px 10px; font-size:0.63rem; letter-spacing:1px; text-transform:uppercase; font-weight:600;
+    white-space:nowrap;
+  }
+  .plat-yt { background:rgba(255,68,68,0.12);    color:var(--yt); border:1px solid rgba(255,68,68,0.22); }
+  .plat-fb { background:rgba(75,158,247,0.12);   color:var(--fb); border:1px solid rgba(75,158,247,0.22); }
+  .plat-ig { background:rgba(225,48,108,0.12);   color:var(--ig); border:1px solid rgba(225,48,108,0.22); }
+  .plat-tw { background:rgba(29,161,242,0.12);   color:var(--tw); border:1px solid rgba(29,161,242,0.22); }
+  .plat-other { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.1); }
+
+  .subs-cell { min-width:180px; }
+  .subs-wrap { display:flex; align-items:center; gap:10px; }
+  .subs-track { flex:1; height:5px; background:rgba(255,255,255,0.07); overflow:hidden; }
+  .subs-fill  { height:100%; transition:width 1.2s cubic-bezier(.4,0,.2,1); }
+  .subs-num   { font-family:'Bebas Neue',sans-serif; font-size:1.05rem; min-width:52px; text-align:right; white-space:nowrap; }
+
+  .lang-tag {
+    display:inline-block; padding:2px 8px; font-size:0.6rem; text-transform:uppercase;
+    letter-spacing:1px; background:rgba(212,175,55,0.1); border:1px solid rgba(212,175,55,0.2);
+    color:rgba(212,175,55,0.85);
+  }
+  .cat-tag {
+    display:inline-block; padding:2px 8px; font-size:0.6rem; text-transform:uppercase;
+    letter-spacing:1px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);
+    color:rgba(255,255,255,0.45);
+  }
+  .link-cell a {
+    color:rgba(194,24,91,0.65); text-decoration:none; font-size:0.75rem;
+    display:inline-flex; align-items:center; gap:4px; transition:color 0.2s;
+  }
+  .link-cell a:hover { color:var(--pink); }
+
+  /* ── LOADING / EMPTY ── */
+  .state-msg {
+    padding:80px 40px; text-align:center;
+    color:rgba(255,255,255,0.3); font-size:0.9rem;
+  }
+  .spinner {
+    width:32px; height:32px; border:3px solid rgba(194,24,91,0.2);
+    border-top-color:var(--pink); border-radius:50%;
+    animation:spin 0.8s linear infinite; margin:0 auto 18px;
+  }
+  @keyframes spin { to { transform:rotate(360deg); } }
+
+  /* ── PAGINATION ── */
+  .pagination {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 18px; background:rgba(255,255,255,0.02);
+    border-top:1px solid rgba(255,255,255,0.05);
+    font-size:0.78rem; color:rgba(255,255,255,0.35);
+  }
+  .page-btns { display:flex; gap:5px; }
+  .page-btn {
+    padding:5px 11px; background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.45);
+    cursor:pointer; font-size:0.7rem; font-family:'DM Sans',sans-serif; transition:all 0.2s;
+  }
+  .page-btn:hover { background:rgba(194,24,91,0.12); border-color:rgba(194,24,91,0.4); color:#fff; }
+  .page-btn.active { background:rgba(194,24,91,0.18); border-color:var(--pink); color:#fff; }
+  .page-btn:disabled { opacity:0.25; cursor:not-allowed; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top:1px solid rgba(255,255,255,0.06);
+    padding:24px 60px;
+    display:flex; justify-content:space-between; align-items:center;
+    background:#040509;
+  }
+  .footer-brand { font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:2px; color:var(--pink); }
+  .footer-note  { font-size:0.65rem; color:rgba(255,255,255,0.2); }
+  .footer-live  { display:flex; align-items:center; gap:6px; font-size:0.65rem; color:rgba(255,255,255,0.3); }
+  .live-dot     { width:7px; height:7px; border-radius:50%; background:#4CAF50; animation:livePulse 2s ease infinite; }
+  @keyframes livePulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    nav { padding:14px 20px; }
+    .hero, .main { padding-left:20px; padding-right:20px; }
+    .hero-stats { flex-direction:column; width:100%; }
+    .hstat { border-right:none; border-bottom:1px solid rgba(194,24,91,0.12); }
+    #ds-table thead th:nth-child(n+5) { display:none; }
+    #ds-table tbody  td:nth-child(n+5) { display:none; }
+    #ds-search { width:100%; }
+    .search-wrap { width:100%; margin-left:0; }
+    footer { flex-direction:column; gap:10px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-brand">SumanTV Digital Network</div>
+    <div class="nav-sub">Channel Strength Report · Live Data</div>
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#" class="active" id="nav-all"     onclick="filterPlatform('ALL',this)">All Channels</a>
+      <a href="#" id="nav-yt"   onclick="filterPlatform('YouTube',this)">▶ YouTube</a>
+      <a href="#" id="nav-fb"   onclick="filterPlatform('Facebook',this)">📘 Facebook</a>
+      <a href="#" id="nav-ig"   onclick="filterPlatform('Instagram',this)">📸 Instagram</a>
+    </div>
+    <a href="HappyEnding_SumanTV_Presentation.html" class="nav-back">← Back to Proposal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-label">Digital Strength Report</div>
+    <h1 class="hero-title">
+      SumanTV's<br>
+      <span style="color:var(--pink);">Complete Channel Network</span>
+    </h1>
+    <p class="hero-desc">Every YouTube channel, Facebook page and Instagram account in SumanTV's digital ecosystem — with live subscriber and follower data. This is the network that will carry Happy Ending's message across AP & Telangana and beyond.</p>
+    <div class="hero-stats">
+      <div class="hstat" style="--c:var(--yt);">
+        <div class="hstat-num" id="stat-yt">—</div>
+        <div class="hstat-lbl">YouTube Channels</div>
+      </div>
+      <div class="hstat" style="--c:var(--fb);">
+        <div class="hstat-num" id="stat-fb">—</div>
+        <div class="hstat-lbl">Facebook Pages</div>
+      </div>
+      <div class="hstat" style="--c:var(--ig);">
+        <div class="hstat-num" id="stat-ig">—</div>
+        <div class="hstat-lbl">Instagram Pages</div>
+      </div>
+      <div class="hstat" style="--c:var(--gold);">
+        <div class="hstat-num" id="stat-total">—</div>
+        <div class="hstat-lbl">Total Properties</div>
+      </div>
+      <div class="hstat" style="--c:#A5D6A7;">
+        <div class="hstat-num" id="stat-subs">—</div>
+        <div class="hstat-lbl">Combined Subscribers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- Filter bar -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" id="fb-all" onclick="filterPlatform('ALL',this)">All Platforms</button>
+    <button class="filter-btn" id="fb-yt"  onclick="filterPlatform('YouTube',this)">▶ YouTube</button>
+    <button class="filter-btn" id="fb-fb"  onclick="filterPlatform('Facebook',this)">📘 Facebook</button>
+    <button class="filter-btn" id="fb-ig"  onclick="filterPlatform('Instagram',this)">📸 Instagram</button>
+    <div class="search-wrap">
+      <input id="ds-search" type="text" placeholder="Search channel name, language..." oninput="onSearch(this.value)">
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrap" id="table-wrap">
+    <div class="state-msg" id="loading-msg">
+      <div class="spinner"></div>
+      Fetching live channel data from SumanTV database...
+    </div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SumanTV × Happy Ending</div>
+  <div class="footer-live">
+    <span class="live-dot"></span>
+    Live data — updates every time this page loads
+  </div>
+  <div class="footer-note">Confidential · Prepared for Happy Ending Ice Creams · Boston Group of Companies</div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  const CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTuAvYxT4QNyU3IQAwRYBXndh1IEwj7GQNxqUZ-3r2Atl6gJQJbIKe-do2PwWAVRT1CaKD5J4EROd-b/pub?output=csv';
+  const PAGE_SIZE = 20;
+
+  let allRows = [], filtered = [], headers = [];
+  let colName=-1, colPlatform=-1, colSubs=-1, colLang=-1, colCat=-1, colLink=-1;
+  let maxSubs = 0;
+  let curPage = 1, curFilter = 'ALL', curSearch = '', sortCol = 2, sortDir = -1; // default sort by subs desc
+
+  /* ── CSV fetch ── */
+  fetch(CSV)
+    .then(function(r){ return r.text(); })
+    .then(function(txt){ init(txt); })
+    .catch(function(e){
+      document.getElementById('loading-msg').innerHTML =
+        '<div style="color:rgba(255,120,120,0.8)">⚠️ Could not load data.<br>'
+        +'<small style="opacity:0.5">Please open this file in a browser with internet access.<br>'+e.message+'</small></div>';
+    });
+
+  /* ── Parse CSV ── */
+  function parseCSV(txt){
+    const lines = txt.split(/\r?\n/).filter(function(l){ return l.trim(); });
+    return lines.map(function(line){
+      const cols=[]; let inQ=false, cell='';
+      for(let i=0;i<line.length;i++){
+        const c=line[i];
+        if(c==='"'){ inQ=!inQ; }
+        else if(c===','&&!inQ){ cols.push(cell.trim()); cell=''; }
+        else { cell+=c; }
+      }
+      cols.push(cell.trim());
+      return cols;
+    });
+  }
+
+  function findCol(hint){
+    const h = hint.toLowerCase();
+    return headers.findIndex(function(x){ return x.toLowerCase().includes(h); });
+  }
+
+  /* ── Init after parse ── */
+  function init(txt){
+    const rows = parseCSV(txt);
+    if(!rows.length){ showMsg('No data found in spreadsheet.'); return; }
+    headers = rows[0];
+    allRows = rows.slice(1).filter(function(r){ return r.some(function(c){ return c; }); });
+
+    colName     = findCol('channel') !== -1 ? findCol('channel') : findCol('name') !== -1 ? findCol('name') : 0;
+    colPlatform = findCol('platform');
+    colSubs     = findCol('subscriber') !== -1 ? findCol('subscriber') : findCol('follower') !== -1 ? findCol('follower') : findCol('sub');
+    colLang     = findCol('language') !== -1 ? findCol('language') : findCol('lang');
+    colCat      = findCol('category') !== -1 ? findCol('category') : findCol('genre') !== -1 ? findCol('genre') : findCol('type');
+    colLink     = findCol('link') !== -1 ? findCol('link') : findCol('url') !== -1 ? findCol('url') : findCol('http');
+
+    maxSubs = 0;
+    allRows.forEach(function(r){ const n=parseSubs(r[colSubs]); if(n>maxSubs) maxSubs=n; });
+
+    buildStats();
+    applyFilter();
+  }
+
+  /* ── Subscriber parsing ── */
+  function parseSubs(v){
+    if(!v) return 0;
+    v = String(v).replace(/,/g,'').trim();
+    const u = v.toUpperCase();
+    if(u.endsWith('CR')||u.includes('CRORE')) return parseFloat(v)*10000000;
+    if((u.endsWith('L')||u.includes('LAKH'))&&!u.includes('LA')) return parseFloat(v)*100000;
+    if(u.endsWith('M')) return parseFloat(v)*1000000;
+    if(u.endsWith('K')) return parseFloat(v)*1000;
+    return parseFloat(v)||0;
+  }
+
+  function fmtSubs(v){
+    if(!v||v==='—') return '—';
+    const n = parseSubs(String(v));
+    if(!n) return String(v).trim()||'—';
+    if(n>=10000000) return (n/10000000).toFixed(1).replace(/\.0$/,'')+' Cr';
+    if(n>=100000)   return (n/100000).toFixed(1).replace(/\.0$/,'')+' L';
+    if(n>=1000)     return (n/1000).toFixed(1).replace(/\.0$/,'')+' K';
+    return n.toLocaleString();
+  }
+
+  /* ── Platform helpers ── */
+  function platType(p){
+    const s=(p||'').toLowerCase();
+    if(s.includes('youtube')||s==='yt') return 'yt';
+    if(s.includes('facebook')||s==='fb') return 'fb';
+    if(s.includes('instagram')||s==='ig') return 'ig';
+    if(s.includes('twitter')||s==='x') return 'tw';
+    return 'other';
+  }
+  function platColor(t){ return {yt:'#FF4444',fb:'#4B9EF7',ig:'#E1306C',tw:'#1DA1F2',other:'#888'}[t]||'#888'; }
+  function platLabel(t){ return {yt:'▶ YouTube',fb:'📘 Facebook',ig:'📸 Instagram',tw:'𝕏 Twitter',other:'Other'}[t]||'Other'; }
+
+  /* ── Build hero stats ── */
+  function buildStats(){
+    let yt=0,fb=0,ig=0,totalN=0;
+    allRows.forEach(function(r){
+      const t=platType(r[colPlatform]);
+      if(t==='yt') yt++; else if(t==='fb') fb++; else if(t==='ig') ig++;
+      totalN+=parseSubs(r[colSubs]);
+    });
+    set('stat-yt',    yt);
+    set('stat-fb',    fb);
+    set('stat-ig',    ig);
+    set('stat-total', allRows.length);
+    const s = totalN>=10000000
+      ? (totalN/10000000).toFixed(1).replace(/\.0$/,'')+' Cr+'
+      : totalN>=100000
+        ? Math.round(totalN/100000)+' L+'
+        : totalN.toLocaleString();
+    set('stat-subs', s);
+  }
+
+  function set(id,v){ const el=document.getElementById(id); if(el) el.textContent=v; }
+
+  /* ── Filter / search / sort ── */
+  window.filterPlatform = function(platform, btn){
+    curFilter = platform; curPage = 1;
+    // update filter buttons
+    ['fb-all','fb-yt','fb-fb','fb-ig'].forEach(function(id){
+      const b=document.getElementById(id);
+      if(b){ b.classList.remove('active','yt-active','fb-active','ig-active'); }
+    });
+    const activeClass = {ALL:'active',YouTube:'yt-active',Facebook:'fb-active',Instagram:'ig-active'}[platform]||'active';
+    if(btn){ btn.classList.add(activeClass); }
+    // sync nav links
+    ['nav-all','nav-yt','nav-fb','nav-ig'].forEach(function(id){
+      const el=document.getElementById(id); if(el) el.classList.remove('active');
+    });
+    const navMap={ALL:'nav-all',YouTube:'nav-yt',Facebook:'nav-fb',Instagram:'nav-ig'};
+    const nel=document.getElementById(navMap[platform]); if(nel) nel.classList.add('active');
+    applyFilter();
+  };
+
+  window.onSearch = function(v){ curSearch=v.toLowerCase(); curPage=1; applyFilter(); };
+
+  function applyFilter(){
+    filtered = allRows.filter(function(r){
+      const t = platType(r[colPlatform]);
+      const matchP = curFilter==='ALL'
+        || (curFilter==='YouTube'   && t==='yt')
+        || (curFilter==='Facebook'  && t==='fb')
+        || (curFilter==='Instagram' && t==='ig');
+      const matchS = !curSearch || r.some(function(c){ return String(c).toLowerCase().includes(curSearch); });
+      return matchP && matchS;
+    });
+    // sort
+    const sc = [colName,colPlatform,colSubs,colLang,colCat][sortCol] || colName;
+    filtered.sort(function(a,b){
+      let av=a[sc]||'', bv=b[sc]||'';
+      if(sortCol===2){ av=parseSubs(av); bv=parseSubs(bv); return (av-bv)*sortDir; }
+      return String(av).localeCompare(String(bv))*sortDir;
+    });
+    render();
+  }
+
+  window.doSort = function(col){
+    if(sortCol===col) sortDir*=-1; else{ sortCol=col; sortDir=col===2?-1:1; }
+    curPage=1; applyFilter();
+  };
+
+  window.goPage = function(p){
+    const tot=Math.ceil(filtered.length/PAGE_SIZE);
+    if(p<1||p>tot) return;
+    curPage=p; render();
+  };
+
+  /* ── Render ── */
+  function render(){
+    const wrap = document.getElementById('table-wrap');
+    if(!filtered.length){
+      wrap.innerHTML='<div class="state-msg">No channels match your search.</div>'; return;
+    }
+    const start=(curPage-1)*PAGE_SIZE;
+    const pageRows=filtered.slice(start,start+PAGE_SIZE);
+    const tot=Math.ceil(filtered.length/PAGE_SIZE);
+
+    const showLang = colLang !== -1;
+    const showCat  = colCat  !== -1;
+    const showLink = colLink !== -1;
+
+    let html='<table id="ds-table"><thead><tr>';
+    html+='<th class="td-idx">#</th>';
+    html+='<th onclick="doSort(0)" class="'+(sortCol===0?'sorted':'')+'">Channel Name <span class="sort-arrow">'+(sortCol===0?(sortDir>0?'↑':'↓'):'↕')+'</span></th>';
+    html+='<th onclick="doSort(1)" class="'+(sortCol===1?'sorted':'')+'" style="width:130px">Platform <span class="sort-arrow">'+(sortCol===1?(sortDir>0?'↑':'↓'):'↕')+'</span></th>';
+    html+='<th onclick="doSort(2)" class="'+(sortCol===2?'sorted':'')+'" style="min-width:200px">Subscribers / Followers <span class="sort-arrow">'+(sortCol===2?(sortDir>0?'↑':'↓'):'↕')+'</span></th>';
+    if(showLang) html+='<th onclick="doSort(3)" class="'+(sortCol===3?'sorted':'')+'" style="width:110px">Language <span class="sort-arrow">'+(sortCol===3?(sortDir>0?'↑':'↓'):'↕')+'</span></th>';
+    if(showCat)  html+='<th onclick="doSort(4)" class="'+(sortCol===4?'sorted':'')+'" style="width:150px">Category <span class="sort-arrow">'+(sortCol===4?(sortDir>0?'↑':'↓'):'↕')+'</span></th>';
+    if(showLink) html+='<th style="width:80px">Link</th>';
+    html+='</tr></thead><tbody>';
+
+    pageRows.forEach(function(r, i){
+      const idx   = start+i+1;
+      const name  = r[colName]||'—';
+      const platRaw = r[colPlatform]||'';
+      const pt    = platType(platRaw);
+      const pc    = platColor(pt);
+      const subsRaw = r[colSubs]||'';
+      const subsN = parseSubs(subsRaw);
+      const subsF = fmtSubs(subsRaw);
+      const barW  = maxSubs>0 ? Math.round(subsN/maxSubs*100) : 0;
+      const lang  = showLang ? (r[colLang]||'') : '';
+      const cat   = showCat  ? (r[colCat] ||'') : '';
+      const link  = showLink ? (r[colLink]||'') : '';
+
+      html+='<tr>';
+      html+='<td class="td-idx">'+idx+'</td>';
+      html+='<td class="td-name" title="'+name+'">'+name+'</td>';
+      html+='<td><span class="plat-badge plat-'+pt+'">'+platLabel(pt)+'</span></td>';
+      html+='<td class="subs-cell"><div class="subs-wrap">'
+          +'<div class="subs-track"><div class="subs-fill" style="width:'+barW+'%;background:'+pc+';"></div></div>'
+          +'<span class="subs-num" style="color:'+pc+'">'+subsF+'</span></div></td>';
+      if(showLang) html+='<td>'+(lang?'<span class="lang-tag">'+lang+'</span>':'—')+'</td>';
+      if(showCat)  html+='<td>'+(cat ?'<span class="cat-tag">'+cat+'</span>' :'—')+'</td>';
+      if(showLink) html+='<td class="link-cell">'+(link?'<a href="'+link+'" target="_blank" rel="noopener">↗ Open</a>':'—')+'</td>';
+      html+='</tr>';
+    });
+    html+='</tbody></table>';
+
+    // Pagination
+    html+='<div class="pagination">';
+    html+='<span>Showing '+(Math.min(start+1,filtered.length))+'–'+(Math.min(start+PAGE_SIZE,filtered.length))+' of <strong style="color:#fff">'+filtered.length+'</strong> channels</span>';
+    html+='<div class="page-btns">';
+    html+='<button class="page-btn" onclick="goPage('+(curPage-1)+')" '+(curPage<=1?'disabled':'')+'>← Prev</button>';
+    for(let p=Math.max(1,curPage-2);p<=Math.min(tot,curPage+2);p++){
+      html+='<button class="page-btn'+(p===curPage?' active':'')+'" onclick="goPage('+p+')">'+p+'</button>';
+    }
+    html+='<button class="page-btn" onclick="goPage('+(curPage+1)+')" '+(curPage>=tot?'disabled':'')+'>Next →</button>';
+    html+='</div></div>';
+
+    wrap.innerHTML = html;
+  }
+
+  function showMsg(msg){ document.getElementById('loading-msg').textContent=msg; }
+
+})();
+</script>
+</body>
+</html>
